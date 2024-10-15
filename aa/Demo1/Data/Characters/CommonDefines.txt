@@ -1,0 +1,40 @@
+//==============================================================================
+//
+//  CommonDefines.txt
+//
+//  Defines common to all characters
+//
+//==============================================================================
+
+
+//=========================================================================
+// VIEW DEFINES
+//=========================================================================
+
+DEFINE_ATTRIBUTE_F32 ( VIEW_3RD_PERSON_HEIGHT,		3.0  )		// Dist to put above persons feet
+DEFINE_ATTRIBUTE_F32 ( VIEW_3RD_PERSON_DIST,		3.0  )		// Dist to pull away from player
+DEFINE_ATTRIBUTE_F32 ( VIEW_BACKOFF_DIST,			0.2  )		// Dist to pull away from walls
+DEFINE_ATTRIBUTE_F32 ( VIEW_BLEND_SPEED,			6.0  )		// Blend time between views
+DEFINE_ATTRIBUTE_R32 ( VIEW_MAX_PITCH,				80.0 )	    // Max looking down angle
+DEFINE_ATTRIBUTE_R32 ( VIEW_MIN_PITCH,				-80.0)	    // Min looking up angle
+DEFINE_ATTRIBUTE_R32 ( VIEW_X1_FOV,                 70	 )		// Field of view for x1 zoom
+DEFINE_ATTRIBUTE_F32 ( VIEW_SHOW_ZOOM_CHANGE_TIME,  3.0  )		// Time to show view radicals
+									
+
+
+//=========================================================================
+// MOVEMENT DEFINES
+//=========================================================================
+
+DEFINE_ATTRIBUTE_F32 ( GRAVITY,						-20.0 )		// Gravity in ms^2
+DEFINE_ATTRIBUTE_F32 ( GROUND_FRICTION,				5.0   )
+DEFINE_ATTRIBUTE_F32 ( AIR_FRICTION,				0.400 )
+
+DEFINE_ATTRIBUTE_F32 ( SKI_JUMP_SPEED,				20.0 )		// Speed for when ski-ing can happen
+DEFINE_ATTRIBUTE_F32 ( SHOW_HURT_TIME,              3.0  )		// Time health bar is displayed for if player is hurt
+DEFINE_ATTRIBUTE_F32 ( MAX_HURT_SCREEN_FLASH_TIME,  2.0  )		// Max time screen can flash red
+
+
+
+//=========================================================================
+

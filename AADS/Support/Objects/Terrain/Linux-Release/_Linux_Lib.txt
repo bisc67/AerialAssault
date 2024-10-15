@@ -1,0 +1,5 @@
+create Linux-Release/Terrain.lib
+addmod ./Linux-Release/Terr.obj
+addmod ./Linux-Release/Terrain.obj
+save
+end 

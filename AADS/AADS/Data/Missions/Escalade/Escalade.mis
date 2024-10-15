@@ -1,0 +1,1424 @@
+// MissionTypes = TeamHunters Hunters DM Rabbit	Bounty TDM PS2
+
+//--- MISSION QUOTE BEGIN ---
+//The flying bullet down the Pass,
+//That whistles clear: "All flesh is grass."
+//  -- Rudyard Kipling
+//--- MISSION QUOTE END ---
+
+//--- MISSION STRING BEGIN ---
+//[Hunters TeamHunters]Nexus is a floating platform near center of map
+//[Rabbit]Flag is on a floating platform near the center of the map
+//[DM Bounty]Mission follows standard Rules of Engagement
+//--- MISSION STRING END ---
+
+//--- OBJECT WRITE BEGIN ---
+new SIMGROUP(MISSIONGROUP) { // [SWITCH:0(-1),POWER:0] 
+    POWERCOUNT = "0";
+    CDTRACK = "2";
+    MUSICTRACK = "LUSH";
+    new MISSIONAREA(MISSIONAREA) { // [SWITCH:0(-1),POWER:0] 
+        AREA = "-184 -504 1104 848";
+        FLIGHTCEILING = "300";
+        FLIGHTCEILINGRANGE = "20";
+        LOCKED = "TRUE";
+    };
+    new SKY(SKY) { // [SWITCH:0(-1),POWER:0] 
+        POSITION = "40 -768 0";
+        ROTATION = "1 0 0 0";
+        SCALE = "1 1 1";
+        CLOUDHEIGHTPER0 = "0";
+        CLOUDHEIGHTPER1 = "0";
+        CLOUDHEIGHTPER2 = "0";
+        CLOUDSPEED1 = "0.0001";
+        CLOUDSPEED2 = "0.0002";
+        CLOUDSPEED3 = "0.0003";
+        VISIBLEDISTANCE = "600";
+        USESKYTEXTURES = "1";
+        RENDERBOTTOMTEXTURE = "0";
+        SKYSOLIDCOLOR = "0.365000 0.390000 0.420000 0.000000";
+        FOGDISTANCE = "150";
+        FOGCOLOR = "0.420000 0.420000 0.420000 1.000000";
+        FOGVOLUME1 = "400 0 80";
+        FOGVOLUME2 = "500 80 90";
+        FOGVOLUME3 = "0 0 0";
+        MATERIALLIST = "SKY_LUSH_BLUE.DML";
+        WINDVELOCITY = "1 0 0";
+        WINDEFFECTPRECIPITATION = "0";
+        FOGVOLUMECOLOR1 = "128.000000 128.000000 128.000000 0.000000";
+        FOGVOLUMECOLOR2 = "128.000000 128.000000 128.000000 0.000000";
+        FOGVOLUMECOLOR3 = "128.000000 128.000000 128.000000 0.000000";
+        HIGH_VISIBLEDISTANCE = "-1";
+        HIGH_FOGDISTANCE = "-1";
+        HIGH_FOGVOLUME1 = "-1 4.00464E-11 6.40969E-10";
+        HIGH_FOGVOLUME2 = "-1 6.40969E-10 4.42539E-39";
+        HIGH_FOGVOLUME3 = "-1 0 3.17054E-33";
+        CLOUDHEIGHTPER0 = "0.349971";
+        CLOUDHEIGHTPER1 = "0.25";
+        CLOUDHEIGHTPER2 = "0.199973";
+        CLOUDSPEED0 = "0.000400 0.000000";
+        LOCKED = "TRUE";
+    };
+    new SUN() { // [SWITCH:0(-1),POWER:0] 
+        POSITION = "40 -768 0";
+        ROTATION = "1 0 0 0";
+        SCALE = "1 1 1";
+        DIRECTION = "0.57735 0.57735 -0.57735";
+        COLOR = "0.800000 0.800000 0.800000 1.000000";
+        AMBIENT = "0.400000 0.400000 0.400000 1.000000";
+        TEXTURE0 = "SPECIAL/SUNFLARE";
+        TEXTURE1 = "SPECIAL/SUNFLARE02";
+        TEXTURE2 = "SPECIAL/LENSFLARE/FLARE01";
+        TEXTURE3 = "SPECIAL/LENSFLARE/FLARE02";
+        TEXTURE4 = "SPECIAL/LENSFLARE/FLARE03";
+        LENSFLARESCALE = "0.7";
+        LENSFLAREINTENSITY = "1";
+        FRONTFLARESIZE = "300";
+        BACKFLARESIZE = "450";
+        FLARECOLOR = "1.000000 1.000000 1.000000 1.000000";
+        TEXTURE3 = "SPECIAL/LENSFLARE/FLARE02";
+        TEXTURE0 = "SPECIAL/SUNFLARE";
+        TEXTURE4 = "SPECIAL/LENSFLARE/FLARE03";
+        TEXTURE1 = "SPECIAL/SUNFLARE02";
+        TEXTURE2 = "SPECIAL/LENSFLARE/FLARE01";
+        LOCKED = "TRUE";
+    };
+    new TERRAINBLOCK(TERRAIN) { // [SWITCH:0(-1),POWER:0] 
+        ROTATION = "1 0 0 0";
+        SCALE = "1 1 1";
+        DETAILTEXTURE = "DETAILS/LUSHDET1";
+        TERRAINFILE = "ESCALADE.TER";
+        SQUARESIZE = "8";
+        EMPTYSQUARES = "89025 154817 155073 89787 89800 155841";
+        POSITION = "-1024 -1024 0";
+        LOCKED = "TRUE";
+    };
+    new NAVIGATIONGRAPH(NAVGRAPH) { // [SWITCH:0(-1),POWER:0] 
+        CONJOINANGLEDEV = "45";
+        CULLDENSITY = "0.3";
+        CUSTOMAREA = "0 0 0 0";
+        YDIMOVERSIZE = "0";
+        CONJOINBOWLDEV = "20";
+        COVERAGE = "0";
+        GRAPHFILE = "ESCALADE.NAV";
+        ROTATION = "0 0 0 0";
+        POSITION = "0 0 0 1";
+        XDIMOVERSIZE = "0";
+        SCALE = "1 1 1";
+        LOCKED = "TRUE";
+    };
+    new SIMGROUP(OBSERVERDROPPOINTS) { // [SWITCH:0(-1),POWER:0] 
+        POWERCOUNT = "0";
+        new CAMERA() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "650.229 15.1818 168.403";
+            ROTATION = "0.0077088 -0.188853 0.981975 175.409";
+            SCALE = "1 1 1";
+            DATABLOCK = "OBSERVER";
+            LOCKCOUNT = "0";
+            HOMINGCOUNT = "0";
+            LOCKED = "TRUE";
+        };
+        new CAMERA() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "233.25 235.761 114.524";
+            ROTATION = "-0.035439 0.0898221 0.995327 137.12";
+            SCALE = "1 1 1";
+            DATABLOCK = "OBSERVER";
+            LOCKCOUNT = "0";
+            HOMINGCOUNT = "0";
+            LOCKED = "TRUE";
+        };
+        new CAMERA() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "113.307 -41.3487 99.462";
+            ROTATION = "-0.0264942 -0.0149942 -0.999536 59.0374";
+            SCALE = "1 1 1";
+            DATABLOCK = "OBSERVER";
+            LOCKCOUNT = "0";
+            HOMINGCOUNT = "0";
+            LOCKED = "TRUE";
+        };
+        new CAMERA() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "545.828 -290.898 51.73";
+            ROTATION = "-0.0166108 -0.0299914 0.999412 237.931";
+            SCALE = "1 1 1";
+            DATABLOCK = "OBSERVER";
+            LOCKCOUNT = "0";
+            HOMINGCOUNT = "0";
+            LOCKED = "TRUE";
+        };
+        new CAMERA() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "578.036 -193.947 158.692";
+            ROTATION = "-0.448716 -0.151194 -0.880792 41.8688";
+            SCALE = "1 1 1";
+            DATABLOCK = "OBSERVER";
+            LOCKCOUNT = "0";
+            HOMINGCOUNT = "0";
+            LOCKED = "TRUE";
+        };
+    };
+    new SIMGROUP(TEAMS) { // [SWITCH:0(-1),POWER:0] 
+        POWERCOUNT = "0";
+        new SIMGROUP(TEAM0) { // [SWITCH:0(-1),POWER:0] 
+            POWERCOUNT = "1";
+            PROVIDESPOWER = "1";
+            new TRIGGER(NEXUSTRIGGER) { // [SWITCH:0(-1),POWER:0] 
+                POSITION = "386.283 94.606 140.931";
+                ROTATION = "1 0 0 0";
+                SCALE = "20 20 35.856";
+                DATABLOCK = "GAMETRIGGER";
+                LOCKCOUNT = "0";
+                HOMINGCOUNT = "0";
+                POLYHEDRON = "0.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 -0.0000000 -0.0000000 1.0000000 -0.0000000 -1.0000000 -0.0000000";
+                TEAM = "0";
+                MISSIONTYPESLIST = "HUNTERS TEAMHUNTERS";
+                LOCKED = "TRUE";
+            };
+            new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                POSITION = "396.285 84.5895 146.563";
+                ROTATION = "1 0 0 0";
+                SCALE = "1 1 1";
+                DATABLOCK = "NEXUS";
+                LOCKCOUNT = "0";
+                HOMINGCOUNT = "0";
+                COLLIDEABLE = "0";
+                STATIC = "1";
+                ROTATE = "0";
+                TEAM = "0";
+                TARGET = "33";
+                MISSIONTYPESLIST = "HUNTERS TEAMHUNTERS";
+                LOCKED = "TRUE";
+            };
+            new STATICSHAPE() { // [SWITCH:0(-1),POWER:0] 
+                POSITION = "396.285 84.5895 146.608";
+                ROTATION = "1 0 0 0";
+                SCALE = "1 1 1";
+                DATABLOCK = "NEXUSBASE";
+                LOCKCOUNT = "0";
+                HOMINGCOUNT = "0";
+                TEAM = "0";
+                TARGET = "-1";
+                MISSIONTYPESLIST = "HUNTERS TEAMHUNTERS";
+                LOCKED = "TRUE";
+            };
+            new STATICSHAPE() { // [SWITCH:0(-1),POWER:0] 
+                POSITION = "396.285 84.5895 154.563";
+                ROTATION = "1 0 0 0";
+                SCALE = "1 1 1";
+                DATABLOCK = "NEXUSCAP";
+                LOCKCOUNT = "0";
+                HOMINGCOUNT = "0";
+                TEAM = "0";
+                TARGET = "-1";
+                MISSIONTYPESLIST = "HUNTERS TEAMHUNTERS";
+                LOCKED = "TRUE";
+            };
+            new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                POSITION = "396.285 84.5895 148";
+                ROTATION = "1 0 0 0";
+                SCALE = "1 1 1";
+                DATABLOCK = "FLAG";
+                LOCKCOUNT = "0";
+                HOMINGCOUNT = "0";
+                COLLIDEABLE = "0";
+                STATIC = "0";
+                ROTATE = "0";
+                TEAM = "0";
+                TARGET = "34";
+                MISSIONTYPESLIST = "RABBIT";
+                LOCKED = "TRUE";
+            };
+            new WAYPOINT() { // [SWITCH:0(-1),POWER:0] 
+                POSITION = "396.285 84.5895 146.608";
+                ROTATION = "1 0 0 0";
+                SCALE = "1 1 1";
+                DATABLOCK = "WAYPOINTMARKER";
+                LOCKCOUNT = "0";
+                HOMINGCOUNT = "0";
+                NAME = "The Nexus";
+                TEAM = "0";
+                MISSIONTYPESLIST = "HUNTERS TEAMHUNTERS";
+                LABEL = "The Nexus";
+                LOCKED = "TRUE";
+            };
+            new WAYPOINT() { // [SWITCH:0(-1),POWER:0] 
+                POSITION = "396.285 84.5895 146.608";
+                ROTATION = "1 0 0 0";
+                SCALE = "1 1 1";
+                DATABLOCK = "WAYPOINTMARKER";
+                LOCKCOUNT = "0";
+                HOMINGCOUNT = "0";
+                NAME = "Mission Center";
+                TEAM = "0";
+                MISSIONTYPESLIST = "DM BOUNTY";
+                LABEL = "Mission Center";
+                LOCKED = "TRUE";
+            };
+            new SIMGROUP(TOWER1) { // [SWITCH:0(-1),POWER:0] 
+                POWERCOUNT = "1";
+                new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "435.054 -44.3967 250.972";
+                    ROTATION = "-0 0 -1 33.2315";
+                    SCALE = "1 1 1";
+                    INTERIORFILE = "BTOWR5.DIF";
+                    SHOWTERRAININSIDE = "0";
+                    AUDIOPROFILE = "UNIVERSAL_BASE_2";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "451.421 -31.2098 263.802";
+                    ROTATION = "0 0 1 56.7685";
+                    SCALE = "1 1 1";
+                    INTERIORFILE = "BBRDG0.DIF";
+                    SHOWTERRAININSIDE = "0";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "468.986 -19.7013 263.802";
+                    ROTATION = "0 0 1 236.768";
+                    SCALE = "1 1 1";
+                    INTERIORFILE = "BBRDG2.DIF";
+                    SHOWTERRAININSIDE = "0";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new STATICSHAPE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "428.596 -46.1826 269.777";
+                    ROTATION = "0 0 1 56.7685";
+                    SCALE = "1 1 1";
+                    NAMETAG = "Pinnacle";
+                    DATABLOCK = "STATIONINVENTORY";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    TRIGGER = "3850";
+                    TEAM = "0";
+                    TARGET = "35";
+                    LABEL = "Pinnacle";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "442.397 -42.1644 263.847";
+                    ROTATION = "-0 0 -1 33.2315";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE2M.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "441.387 -42.4676 263.847";
+                    ROTATION = "-0 0 -1 33.2315";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE2M.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "442.118 -42.2912 264.897";
+                    ROTATION = "-0 0 -1 16.6158";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE2M.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "442.237 -42.2914 265.947";
+                    ROTATION = "-0 0 -1 21.1995";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE2M.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "440.387 -42.826 263.847";
+                    ROTATION = "-0 0 -1 33.2315";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE2M.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "440.933 -42.6923 264.897";
+                    ROTATION = "-0 0 -1 33.2315";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE2M.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "430.431 -45.1315 282.749";
+                    ROTATION = "0 0 1 56.1498";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE1M.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "430.953 -44.7843 281.734";
+                    ROTATION = "0 0 1 56.1498";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE1M.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "430.048 -45.3862 281.725";
+                    ROTATION = "0 0 1 56.1498";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE1M.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+            };
+            new SIMGROUP(TOWER2) { // [SWITCH:0(-1),POWER:0] 
+                POWERCOUNT = "1";
+                new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "280.823 118.804 106.906";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    INTERIORFILE = "BBUNK1.DIF";
+                    SHOWTERRAININSIDE = "0";
+                    AUDIOPROFILE = "UNIVERSAL_BASE_2";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new STATICSHAPE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "276.55 111.339 109.719";
+                    ROTATION = "0 0 -1 90";
+                    SCALE = "1 1 1";
+                    NAMETAG = "Rock Pile";
+                    DATABLOCK = "STATIONINVENTORY";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    TRIGGER = "3863";
+                    TEAM = "0";
+                    TARGET = "36";
+                    LABEL = "Rock Pile";
+                    LOCKED = "TRUE";
+                };
+            };
+            new SIMGROUP(TOWER3) { // [SWITCH:0(-1),POWER:0] 
+                POWERCOUNT = "1";
+                new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "723.208 -74.4544 95.1575";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    INTERIORFILE = "BBUNK2.DIF";
+                    SHOWTERRAININSIDE = "0";
+                    AUDIOPROFILE = "UNIVERSAL_BASE_2";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new STATICSHAPE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "723.228 -68.7276 99.0275";
+                    ROTATION = "0 0 1 180";
+                    SCALE = "1 1 1";
+                    NAMETAG = "Bridge Tower";
+                    DATABLOCK = "STATIONINVENTORY";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    TRIGGER = "3867";
+                    TEAM = "0";
+                    TARGET = "37";
+                    LABEL = "Bridge Tower";
+                    LOCKED = "TRUE";
+                };
+                new STATICSHAPE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "730.431 -71.3893 113.022";
+                    ROTATION = "0 0 1 90";
+                    SCALE = "1 1 1";
+                    NAMETAG = "Bridge Tower";
+                    DATABLOCK = "STATIONINVENTORY";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    TRIGGER = "3869";
+                    TEAM = "0";
+                    TARGET = "38";
+                    LABEL = "Bridge Tower";
+                    LOCKED = "TRUE";
+                };
+                new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "732.287 4.90254 78.1969";
+                    ROTATION = "0 0 1 81.933";
+                    SCALE = "1 1 1";
+                    INTERIORFILE = "BBRDG9.DIF";
+                    SHOWTERRAININSIDE = "0";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "735.062 -14.7455 78.1969";
+                    ROTATION = "0 0 1 81.933";
+                    SCALE = "1 1 1";
+                    INTERIORFILE = "BBRDG8.DIF";
+                    SHOWTERRAININSIDE = "0";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "737.878 -34.5463 78.1969";
+                    ROTATION = "0 0 1 81.933";
+                    SCALE = "1 1 1";
+                    INTERIORFILE = "BBRDG9.DIF";
+                    SHOWTERRAININSIDE = "0";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "716.685 -64.8448 91.1927";
+                    ROTATION = "0.250563 -0.935113 0.250563 93.841";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE1L.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+            };
+            new SIMGROUP(TOWER4) { // [SWITCH:0(-1),POWER:0] 
+                POWERCOUNT = "1";
+                new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "528 -264 55.9096";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    INTERIORFILE = "BBASE1.DIF";
+                    SHOWTERRAININSIDE = "0";
+                    AUDIOPROFILE = "UNIVERSAL_BASE_2";
+                    TEAM = "0";
+                    HIDDEN = "FALSE";
+                    LOCKED = "FALSE";
+                };
+                new STATICSHAPE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "514.363 -263.962 44.4053";
+                    ROTATION = "0 0 -1 90";
+                    SCALE = "1 1 1";
+                    NAMETAG = "Supply Base";
+                    DATABLOCK = "STATIONINVENTORY";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    TRIGGER = "3877";
+                    TEAM = "0";
+                    TARGET = "39";
+                    LABEL = "Supply Base";
+                    LOCKED = "TRUE";
+                };
+                new STATICSHAPE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "541.656 -264.016 44.4066";
+                    ROTATION = "0 0 1 90";
+                    SCALE = "1 1 1";
+                    NAMETAG = "Supply Base";
+                    DATABLOCK = "STATIONINVENTORY";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    TRIGGER = "3879";
+                    TEAM = "0";
+                    TARGET = "40";
+                    LABEL = "Supply Base";
+                    LOCKED = "TRUE";
+                };
+                new STATICSHAPE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "568.847 -318.524 46.4049";
+                    ROTATION = "0 0 -1 90";
+                    SCALE = "1 1 1";
+                    NAMETAG = "Supply Base";
+                    DATABLOCK = "STATIONINVENTORY";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    TRIGGER = "3881";
+                    TEAM = "0";
+                    TARGET = "41";
+                    LABEL = "Supply Base";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "516.223 -283.103 44.4025";
+                    ROTATION = "0 0 1 2.8649";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE2M.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "515.165 -283.063 44.4025";
+                    ROTATION = "0 0 1 2.8649";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE2M.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "526.061 -293.425 45.4357";
+                    ROTATION = "0 1 0 48.1284";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE1M.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "530.696 -240.961 60.4578";
+                    ROTATION = "0 0 -1 90.5273";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE1L.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "517.338 -283.085 44.4025";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE2M.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "515.542 -283.133 45.4428";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE2M.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "532.932 -240.958 60.4578";
+                    ROTATION = "0 0 -1 90.5273";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE1L.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "530.747 -241.163 58.4078";
+                    ROTATION = "0 0 -1 90.5273";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE1L.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "532.983 -241.159 58.4078";
+                    ROTATION = "0 0 -1 90.5273";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE1L.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "541.167 -307.516 44.4025";
+                    ROTATION = "-0 0 -1 16.0428";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE3L.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "540.398 -304.381 44.4025";
+                    ROTATION = "-0 0 -1 16.0428";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE3L.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "539.649 -301.209 44.4025";
+                    ROTATION = "-0 0 -1 16.0428";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE3L.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "541.213 -306.551 47.4025";
+                    ROTATION = "0 0 -1 25.7832";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE3L.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "539.773 -302.092 47.4025";
+                    ROTATION = "0 0 -1 14.897";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE3L.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "520.786 -298.234 44.3939";
+                    ROTATION = "0 0 1 32.6586";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE3L.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "519.116 -301.246 44.3939";
+                    ROTATION = "0 0 1 29.2208";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE3L.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "517.431 -303.999 44.3939";
+                    ROTATION = "0 0 1 29.2208";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE3L.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new TSSTATIC() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "518.529 -301.951 47.3939";
+                    ROTATION = "0 0 1 93.392";
+                    SCALE = "1 1 1";
+                    SHAPENAME = "STACKABLE3L.DTS";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+            };
+            new SIMGROUP(HEALTHPAD5) { // [SWITCH:0(-1),POWER:0] 
+                POWERCOUNT = "1";
+                new AUDIOEMITTER() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "736.228 84.5717 114.717";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    FILENAME = "FX/ARMOR/THRUST_UW.WAV";
+                    USEPROFILEDESCRIPTION = "0";
+                    OUTSIDEAMBIENT = "1";
+                    VOLUME = "1";
+                    ISLOOPING = "1";
+                    IS3D = "1";
+                    MINDISTANCE = "5";
+                    MAXDISTANCE = "320";
+                    CONEINSIDEANGLE = "360";
+                    CONEOUTSIDEANGLE = "360";
+                    CONEOUTSIDEVOLUME = "1";
+                    CONEVECTOR = "0 0 1";
+                    LOOPCOUNT = "-1";
+                    MINLOOPGAP = "0";
+                    MAXLOOPGAP = "0";
+                    TYPE = "EFFECTAUDIOTYPE";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "735.228 82.5717 119.952";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRPATCH";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "735.228 86.5717 119.952";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRPATCH";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "738.228 84.5717 119.952";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRPATCH";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "736.228 84.5717 119.952";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRKIT";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "739.228 90.5717 122.733";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    INTERIORFILE = "BPLAT3.DIF";
+                    SHOWTERRAININSIDE = "0";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+            };
+            new SIMGROUP(HEALTHPAD4) { // [SWITCH:0(-1),POWER:0] 
+                POWERCOUNT = "1";
+                new AUDIOEMITTER() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "516.446 204.49 110.288";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    FILENAME = "FX/ARMOR/THRUST_UW.WAV";
+                    USEPROFILEDESCRIPTION = "0";
+                    OUTSIDEAMBIENT = "1";
+                    VOLUME = "1";
+                    ISLOOPING = "1";
+                    IS3D = "1";
+                    MINDISTANCE = "5";
+                    MAXDISTANCE = "320";
+                    CONEINSIDEANGLE = "360";
+                    CONEOUTSIDEANGLE = "360";
+                    CONEOUTSIDEVOLUME = "1";
+                    CONEVECTOR = "0 0 1";
+                    LOOPCOUNT = "-1";
+                    MINLOOPGAP = "0";
+                    MAXLOOPGAP = "0";
+                    TYPE = "EFFECTAUDIOTYPE";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "515.446 202.49 115.523";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRPATCH";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "515.446 206.49 115.523";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRPATCH";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "518.446 204.49 115.523";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRPATCH";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "516.446 204.49 115.523";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRKIT";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "519.446 210.49 118.304";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    INTERIORFILE = "BPLAT3.DIF";
+                    SHOWTERRAININSIDE = "0";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+            };
+            new SIMGROUP(HEALTHPAD3) { // [SWITCH:0(-1),POWER:0] 
+                POWERCOUNT = "1";
+                new AUDIOEMITTER() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "305.157 263.909 100.211";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    FILENAME = "FX/ARMOR/THRUST_UW.WAV";
+                    USEPROFILEDESCRIPTION = "0";
+                    OUTSIDEAMBIENT = "1";
+                    VOLUME = "1";
+                    ISLOOPING = "1";
+                    IS3D = "1";
+                    MINDISTANCE = "5";
+                    MAXDISTANCE = "320";
+                    CONEINSIDEANGLE = "360";
+                    CONEOUTSIDEANGLE = "360";
+                    CONEOUTSIDEVOLUME = "1";
+                    CONEVECTOR = "0 0 1";
+                    LOOPCOUNT = "-1";
+                    MINLOOPGAP = "0";
+                    MAXLOOPGAP = "0";
+                    TYPE = "EFFECTAUDIOTYPE";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "304.157 261.909 105.446";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRPATCH";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "304.157 265.909 105.446";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRPATCH";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "307.157 263.909 105.446";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRPATCH";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "305.157 263.909 105.446";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRKIT";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "308.157 269.909 108.227";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    INTERIORFILE = "BPLAT3.DIF";
+                    SHOWTERRAININSIDE = "0";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+            };
+            new SIMGROUP(HEALTHPAD1) { // [SWITCH:0(-1),POWER:0] 
+                POWERCOUNT = "1";
+                new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "383.036 -269.225 173.761";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    INTERIORFILE = "BPLAT3.DIF";
+                    SHOWTERRAININSIDE = "0";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "380.036 -275.225 170.98";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRKIT";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "382.036 -275.225 170.98";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRPATCH";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "379.036 -273.225 170.98";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRPATCH";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "379.036 -277.225 170.98";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRPATCH";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new AUDIOEMITTER() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "380.036 -275.225 165.745";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    FILENAME = "FX/ARMOR/THRUST_UW.WAV";
+                    USEPROFILEDESCRIPTION = "0";
+                    OUTSIDEAMBIENT = "1";
+                    VOLUME = "1";
+                    ISLOOPING = "1";
+                    IS3D = "1";
+                    MINDISTANCE = "5";
+                    MAXDISTANCE = "320";
+                    CONEINSIDEANGLE = "360";
+                    CONEOUTSIDEANGLE = "360";
+                    CONEOUTSIDEVOLUME = "1";
+                    CONEVECTOR = "0 0 1";
+                    LOOPCOUNT = "-1";
+                    MINLOOPGAP = "0";
+                    MAXLOOPGAP = "0";
+                    TYPE = "EFFECTAUDIOTYPE";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+            };
+            new SIMGROUP(TOWER5) { // [SWITCH:0(-1),POWER:0] 
+                POWERCOUNT = "1";
+                new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "30.8856 4.16997 107.243";
+                    ROTATION = "0 0 1 90";
+                    SCALE = "1 1 1";
+                    INTERIORFILE = "BBUNK2.DIF";
+                    SHOWTERRAININSIDE = "0";
+                    AUDIOPROFILE = "UNIVERSAL_BASE_2";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new STATICSHAPE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "36.5001 4.18328 111.115";
+                    ROTATION = "0 0 -1 90";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "STATIONINVENTORY";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    TRIGGER = "3931";
+                    TEAM = "0";
+                    TARGET = "42";
+                    LOCKED = "TRUE";
+                };
+                new STATICSHAPE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "33.92 11.3762 125.107";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "STATIONINVENTORY";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    TRIGGER = "3933";
+                    TEAM = "0";
+                    TARGET = "43";
+                    LOCKED = "TRUE";
+                };
+            };
+            new SIMGROUP(HEALTHPAD2) { // [SWITCH:0(-1),POWER:0] 
+                POWERCOUNT = "1";
+                new AUDIOEMITTER() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "78.7715 156.022 117.388";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    FILENAME = "FX/ARMOR/THRUST_UW.WAV";
+                    USEPROFILEDESCRIPTION = "0";
+                    OUTSIDEAMBIENT = "1";
+                    VOLUME = "1";
+                    ISLOOPING = "1";
+                    IS3D = "1";
+                    MINDISTANCE = "5";
+                    MAXDISTANCE = "320";
+                    CONEINSIDEANGLE = "360";
+                    CONEOUTSIDEANGLE = "360";
+                    CONEOUTSIDEVOLUME = "1";
+                    CONEVECTOR = "0 0 1";
+                    LOOPCOUNT = "-1";
+                    MINLOOPGAP = "0";
+                    MAXLOOPGAP = "0";
+                    TYPE = "EFFECTAUDIOTYPE";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "77.7715 154.022 122.623";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRPATCH";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "77.7715 158.022 122.623";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRPATCH";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "80.7715 156.022 122.623";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRPATCH";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new ITEM() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "78.7715 156.022 122.623";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "REPAIRKIT";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    COLLIDEABLE = "0";
+                    STATIC = "1";
+                    ROTATE = "0";
+                    TEAM = "0";
+                    TARGET = "-1";
+                    LOCKED = "TRUE";
+                };
+                new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "81.7715 162.022 125.404";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    INTERIORFILE = "BPLAT3.DIF";
+                    SHOWTERRAININSIDE = "0";
+                    TEAM = "0";
+                    LOCKED = "TRUE";
+                };
+            };
+            new SIMGROUP(SPAWNSPHERES) { // [SWITCH:0(-1),POWER:0] 
+                POWERCOUNT = "1";
+                new SPAWNSPHERE() { // [SWITCH:0(-1),POWER:0] 
+                    POSITION = "378.599 29.3555 -39.861";
+                    ROTATION = "1 0 0 0";
+                    SCALE = "1 1 1";
+                    DATABLOCK = "SPAWNSPHEREMARKER";
+                    LOCKCOUNT = "0";
+                    HOMINGCOUNT = "0";
+                    RADIUS = "400";
+                    SPHEREWEIGHT = "100";
+                    INDOORWEIGHT = "100";
+                    OUTDOORWEIGHT = "100";
+                };
+            };
+        };
+        new SIMGROUP(TEAM2) { // [SWITCH:0(-1),POWER:0] 
+            POWERCOUNT = "0";
+            new SIMGROUP(SPAWNSPHERES) { // [SWITCH:0(-1),POWER:0] 
+                POWERCOUNT = "0";
+            };
+        };
+        new SIMGROUP(TEAM1) { // [SWITCH:0(-1),POWER:0] 
+            POWERCOUNT = "0";
+            new SIMGROUP(SPAWNSPHERES) { // [SWITCH:0(-1),POWER:0] 
+                POWERCOUNT = "0";
+            };
+        };
+        new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "476.294 -49.779 222.938";
+            ROTATION = "0 0 1 118.602";
+            SCALE = "1 1 1";
+            INTERIORFILE = "BPLAT2.DIF";
+            SHOWTERRAININSIDE = "0";
+            LOCKED = "TRUE";
+        };
+    };
+    new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+        POSITION = "399.128 90.5043 149.885";
+        ROTATION = "1 0 0 0";
+        SCALE = "1 1 1";
+        INTERIORFILE = "BPLAT3.DIF";
+        SHOWTERRAININSIDE = "0";
+        LOCKED = "TRUE";
+    };
+    new AUDIOEMITTER() { // [SWITCH:0(-1),POWER:0] 
+        POSITION = "396.085 84.5895 142.363";
+        ROTATION = "1 0 0 0";
+        SCALE = "1 1 1";
+        FILENAME = "FX/ARMOR/THRUST_UW.WAV";
+        USEPROFILEDESCRIPTION = "0";
+        OUTSIDEAMBIENT = "1";
+        VOLUME = "1";
+        ISLOOPING = "1";
+        IS3D = "1";
+        MINDISTANCE = "5";
+        MAXDISTANCE = "320";
+        CONEINSIDEANGLE = "360";
+        CONEOUTSIDEANGLE = "360";
+        CONEOUTSIDEVOLUME = "1";
+        CONEVECTOR = "0 0 1";
+        LOOPCOUNT = "-1";
+        MINLOOPGAP = "0";
+        MAXLOOPGAP = "0";
+        TYPE = "EFFECTAUDIOTYPE";
+        LOCKED = "TRUE";
+    };
+    new SIMGROUP(ENVIRONMENTAL) { // [SWITCH:0(-1),POWER:0] 
+        POWERCOUNT = "0";
+        new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "763.785 -55.3552 96.4762";
+            ROTATION = "1 0 0 0";
+            SCALE = "1 1 1";
+            INTERIORFILE = "BSPIR5.DIF";
+            SHOWTERRAININSIDE = "0";
+            LOCKED = "TRUE";
+        };
+        new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "491.934 -327.482 68.363";
+            ROTATION = "0 0 -1 77.9223";
+            SCALE = "1 1 1";
+            INTERIORFILE = "BSPIR1.DIF";
+            SHOWTERRAININSIDE = "0";
+            LOCKED = "TRUE";
+        };
+        new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "478.946 -133.639 106.46";
+            ROTATION = "1 0 0 0";
+            SCALE = "1 1 1";
+            INTERIORFILE = "BSPIR5.DIF";
+            SHOWTERRAININSIDE = "0";
+            LOCKED = "TRUE";
+        };
+        new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "592.575 46.1623 125.94";
+            ROTATION = "1 0 0 0";
+            SCALE = "1 1 1";
+            INTERIORFILE = "BSPIR4.DIF";
+            SHOWTERRAININSIDE = "0";
+            LOCKED = "TRUE";
+        };
+        new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "182.143 207.594 74.8187";
+            ROTATION = "0 0 1 83.0789";
+            SCALE = "1 1 1";
+            INTERIORFILE = "BSPIR3.DIF";
+            SHOWTERRAININSIDE = "0";
+            LOCKED = "TRUE";
+        };
+        new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "144.998 48.3066 67.5383";
+            ROTATION = "1 0 0 0";
+            SCALE = "1 1 1";
+            INTERIORFILE = "BSPIR2.DIF";
+            SHOWTERRAININSIDE = "0";
+            LOCKED = "TRUE";
+        };
+        new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "12.8101 -125.73 141.655";
+            ROTATION = "0 0 1 56.1498";
+            SCALE = "1 1 1";
+            INTERIORFILE = "BSPIR3.DIF";
+            SHOWTERRAININSIDE = "0";
+            LOCKED = "TRUE";
+        };
+        new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "167.407 -283.042 174.129";
+            ROTATION = "0 0 1 47.5555";
+            SCALE = "1 1 1";
+            INTERIORFILE = "BSPIR4.DIF";
+            SHOWTERRAININSIDE = "0";
+            LOCKED = "TRUE";
+        };
+        new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "266.965 -384.194 84.278";
+            ROTATION = "0 0 1 211.604";
+            SCALE = "1 1 1";
+            INTERIORFILE = "BSPIR5.DIF";
+            SHOWTERRAININSIDE = "0";
+            LOCKED = "TRUE";
+        };
+        new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "475.994 305.509 150.58";
+            ROTATION = "0 0 1 134.072";
+            SCALE = "1 1 1";
+            INTERIORFILE = "BSPIR4.DIF";
+            SHOWTERRAININSIDE = "0";
+            LOCKED = "TRUE";
+        };
+        new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "847.143 37.8342 111.179";
+            ROTATION = "0 0 -1 25.21";
+            SCALE = "1 1 1";
+            INTERIORFILE = "BSPIR3.DIF";
+            SHOWTERRAININSIDE = "0";
+            LOCKED = "TRUE";
+        };
+        new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+            POSITION = "736.171 -360.369 110.211";
+            ROTATION = "1 0 0 0";
+            SCALE = "1 1 1";
+            INTERIORFILE = "BSPIR3.DIF";
+            SHOWTERRAININSIDE = "0";
+            LOCKED = "TRUE";
+        };
+    };
+    new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+        POSITION = "282.873 73.6419 98.5829";
+        ROTATION = "-1 0 0 55.5769";
+        SCALE = "1 1 1";
+        INTERIORFILE = "BROCK7.DIF";
+        SHOWTERRAININSIDE = "0";
+        LOCKED = "TRUE";
+    };
+    new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+        POSITION = "278.067 80.6823 94.1152";
+        ROTATION = "-1 0 0 95.6839";
+        SCALE = "1 1 1";
+        INTERIORFILE = "BROCK8.DIF";
+        SHOWTERRAININSIDE = "0";
+        LOCKED = "TRUE";
+    };
+    new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+        POSITION = "269.748 77.7101 94.2848";
+        ROTATION = "1 0 0 0";
+        SCALE = "1 1 1";
+        INTERIORFILE = "BROCK8.DIF";
+        SHOWTERRAININSIDE = "0";
+        LOCKED = "TRUE";
+    };
+    new INTERIORINSTANCE() { // [SWITCH:0(-1),POWER:0] 
+        POSITION = "280.474 76.4743 99.7524";
+        ROTATION = "0 0 -1 104.278";
+        SCALE = "1 1 1";
+        INTERIORFILE = "BROCK7.DIF";
+        SHOWTERRAININSIDE = "0";
+        LOCKED = "TRUE";
+    };
+    new AUDIOEMITTER() { // [SWITCH:0(-1),POWER:0] 
+        POSITION = "424.809 117.98 92.8088";
+        ROTATION = "1 0 0 0";
+        SCALE = "1 1 1";
+        FILENAME = "FX/ENVIRONMENT/DRYWIND.WAV";
+        USEPROFILEDESCRIPTION = "0";
+        OUTSIDEAMBIENT = "1";
+        VOLUME = "0.5";
+        ISLOOPING = "1";
+        IS3D = "0";
+        MINDISTANCE = "20";
+        MAXDISTANCE = "1280";
+        CONEINSIDEANGLE = "360";
+        CONEOUTSIDEANGLE = "360";
+        CONEOUTSIDEVOLUME = "1";
+        CONEVECTOR = "0 0 1";
+        LOOPCOUNT = "-1";
+        MINLOOPGAP = "0";
+        MAXLOOPGAP = "0";
+        TYPE = "EFFECTAUDIOTYPE";
+        LOCKED = "TRUE";
+    };
+    new ITEM() { // [SWITCH:0(-1),POWER:0] 
+        POSITION = "471.823 -18.0991 264.083";
+        ROTATION = "1 0 0 0";
+        SCALE = "1 1 1";
+        DATABLOCK = "REPAIRPACK";
+        LOCKCOUNT = "0";
+        HOMINGCOUNT = "0";
+        COLLIDEABLE = "0";
+        STATIC = "1";
+        ROTATE = "0";
+        TARGET = "-1";
+    };
+    new ITEM() { // [SWITCH:0(-1),POWER:0] 
+        POSITION = "281.362 109.513 119.351";
+        ROTATION = "1 0 0 0";
+        SCALE = "1 1 1";
+        DATABLOCK = "REPAIRPACK";
+        LOCKCOUNT = "0";
+        HOMINGCOUNT = "0";
+        COLLIDEABLE = "0";
+        STATIC = "1";
+        ROTATE = "0";
+        TARGET = "-1";
+    };
+    new ITEM() { // [SWITCH:0(-1),POWER:0] 
+        POSITION = "530.463 -301.4 44.7746";
+        ROTATION = "1 0 0 0";
+        SCALE = "1 1 1";
+        DATABLOCK = "REPAIRPACK";
+        LOCKCOUNT = "0";
+        HOMINGCOUNT = "0";
+        COLLIDEABLE = "0";
+        STATIC = "1";
+        ROTATE = "0";
+        TARGET = "-1";
+    };
+};
+//--- OBJECT WRITE END ---

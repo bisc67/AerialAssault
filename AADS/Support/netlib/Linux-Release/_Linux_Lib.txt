@@ -1,0 +1,6 @@
+create Linux-Release/NetLib.lib
+addmod ./Linux-Release/netlib.obj
+addmod ./Linux-Release/bitstream.obj
+addmod ./Linux-Release/NetCommon.obj
+save
+end 

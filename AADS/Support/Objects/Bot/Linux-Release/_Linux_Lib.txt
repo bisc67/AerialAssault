@@ -1,0 +1,27 @@
+create Linux-Release/BotObject.lib
+addmod ./Linux-Release/CNH_MasterAI.obj
+addmod ./Linux-Release/CTF_MasterAI.obj
+addmod ./Linux-Release/Deployable.obj
+addmod ./Linux-Release/DM_MasterAI.obj
+addmod ./Linux-Release/HunterMasterAI.obj
+addmod ./Linux-Release/MAI_Manager.obj
+addmod ./Linux-Release/MasterAI.obj
+addmod ./Linux-Release/SPM_MasterAI.obj
+addmod ./Linux-Release/Task.obj
+addmod ./Linux-Release/TDM_MasterAI.obj
+addmod ./Linux-Release/BotCombat.obj
+addmod ./Linux-Release/BotGoal.obj
+addmod ./Linux-Release/BotInput.obj
+addmod ./Linux-Release/BotLog.obj
+addmod ./Linux-Release/BotObject.obj
+addmod ./Linux-Release/BotStrategy.obj
+addmod ./Linux-Release/FibHeap.obj
+addmod ./Linux-Release/FibHeapAC.obj
+addmod ./Linux-Release/Graph.obj
+addmod ./Linux-Release/Path.obj
+addmod ./Linux-Release/PathFinder.obj
+addmod ./Linux-Release/PathGenerator.obj
+addmod ./Linux-Release/PathKeeper.obj
+addmod ./Linux-Release/PathManager.obj
+save
+end 

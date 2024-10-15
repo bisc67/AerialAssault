@@ -1,0 +1,8 @@
+create Linux-Debug/ObjectMgr.lib
+addmod ./Linux-Debug/Collider.obj
+addmod ./Linux-Debug/ColliderCannon.obj
+addmod ./Linux-Debug/Object.obj
+addmod ./Linux-Debug/ObjectMgr.obj
+addmod ./Linux-Debug/Pain.obj
+save
+end 

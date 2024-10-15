@@ -1,0 +1,252 @@
+//==============================================================================
+// Mission file created by ConvertMission from Pyroclasm.mis.
+//==============================================================================
+
+//------------------------------------------------------------------------------
+//  CLIENT AND SERVER, NON-OBJECT MISSION DATA
+//------------------------------------------------------------------------------
+
+MISSION         "Pyroclasm"
+
+MUSIC           VOLCANIC
+
+ENVIRONMENT     LAVA
+
+SUN        -0.5774       0.5774      -0.5774    // Direction
+        153 153 153     // Direct Color
+         51  51  51     // Ambient Color
+
+FOG     128 32          // Fog Map Size
+        114  76  63     // Fog  Color
+        114  76  63     // Haze Color
+         75 400         // Start/Finish Distances
+        11 2            // Haze Start/Finish Angles
+        0.00 1.00       // Min/Max Band Alpha
+        0               // Number of Fog Volumes
+
+SKY     Data/Sky/desert2/SkyT.bmp      // Top
+        Data/Sky/desert2/SkyF.bmp      // Front
+        Data/Sky/desert2/SkyL.bmp      // Left
+        Data/Sky/desert2/SkyB.bmp      // Back
+        Data/Sky/desert2/SkyR.bmp      // Right
+
+// Camera points:            X            Y            Z           Pitch         Yaw
+CAMERA                   1329.1000     257.9760     731.8990 //     0.0000     -48.0830
+CAMERA                   1279.6899     152.0620     890.6250 //     0.0000    -148.5330
+CAMERA                   1168.2000     154.0740     676.1410 //   -26.9290      37.2879
+
+BOUNDS                    888.0000   -2048.0000     400.0000
+                         1624.0000    2050.0000    1088.0000
+
+//------------------------------------------------------------------------------
+//  CLIENT AND SERVER, PERMANENT OBJECTS
+//------------------------------------------------------------------------------
+
+TERRAIN     "Pyroclasm.ter"
+EMPTYSQUARES -1
+
+// Buildings:      Power     X            Y            Z
+//                         Pitch         Yaw         Roll
+//                          SX           SY           SZ
+//                      FileName
+//
+BUILDING            0    1244.9299     209.7140     779.7360
+                            0.0000       0.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "DBASE4"
+
+BUILDING            0    1169.5400     149.7430     840.2900
+                            0.0000      90.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "DPLAT3"
+
+BUILDING            0    1169.2700     169.8540     714.8190
+                            0.0000      90.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "DPLAT3"
+
+BUILDING            0    1308.5300     190.4400     712.7020
+                            0.0000      90.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "DPLAT3"
+
+BUILDING            0    1299.8800     125.7670     839.8360
+                            0.0000      90.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "DPLAT3"
+
+BUILDING            0    1368.8500      78.2101     984.2200
+                            0.0000    -153.1170       0.0000
+                            1.0000       1.0000       1.0000
+                        "DTOWR1"
+
+BUILDING            0    1043.5500      79.0530     583.1290
+                            0.0000      31.5579       0.0000
+                            1.0000       1.0000       1.0000
+                        "DTOWR1"
+
+
+// Scenery:                  X            Y            Z
+//                         Pitch         Yaw         Roll
+//                          SX           SY           SZ
+//                      FileName
+//
+SCENERY                  1293.4180     218.2200     784.2040
+                            0.0000      90.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "STACKABLE1M"
+
+SCENERY                  1293.4310     218.2200     781.1750
+                            0.0000      90.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "STACKABLE1M"
+
+SCENERY                  1293.4150     219.2200     784.2020
+                            0.0000      90.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "STACKABLE1M"
+
+SCENERY                  1293.4420     219.2200     781.1590
+                            0.0000      90.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "STACKABLE1M"
+
+SCENERY                  1293.5270     220.2200     781.1500
+                            0.0000      90.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "STACKABLE1M"
+
+SCENERY                  1243.7900     218.1730     824.3230
+                            0.0000       0.0456       0.0000
+                            1.0000       1.0000       1.0000
+                        "STACKABLE3L"
+
+SCENERY                  1200.9700     220.3200     780.0550
+                            0.0000     -96.7850       0.0000
+                            1.0000       1.0000       1.0000
+                        "STACKABLE1S"
+
+SCENERY                  1200.8600     218.2290     778.0010
+                            0.0000      -1.6733       0.0000
+                            1.0000       1.0000       1.0000
+                        "STACKABLE2M"
+
+SCENERY                  1200.9399     219.3230     780.1940
+                            0.0000     -91.6280       0.0000
+                            1.0000       1.0000       1.0000
+                        "STACKABLE3S"
+
+SCENERY                  1200.8500     218.3230     781.5920
+                            0.0000     -91.6280       0.0000
+                            1.0000       1.0000       1.0000
+                        "STACKABLE3S"
+
+SCENERY                  1200.9299     218.3230     779.5630
+                            0.0000     -91.6280       0.0000
+                            1.0000       1.0000       1.0000
+                        "STACKABLE3S"
+
+
+// Gens:    Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll
+//
+
+// Invens:  Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll
+//
+INVEN            0  0    1258.1270     225.7100     768.0150    0
+                            0.0000     138.1284       0.0000
+
+INVEN            0  0    1258.3110     225.7100     791.7040    0
+                            0.0000      48.7470       0.0000
+
+INVEN            0  0    1227.5549     225.7100     791.5790    0
+                            0.0000     -45.2180       0.0000
+
+INVEN            0  0    1227.4860     225.7100     767.7830    0
+                            0.0000    -133.4540       0.0000
+
+INVEN            0  0    1367.8700      90.2100     995.4100    1
+                            0.0000     -64.1260       0.0000
+
+INVEN            0  0    1367.3400      78.2100     995.7400    1
+                            0.0000     -62.4070       0.0000
+
+INVEN            0  0    1044.1200      79.0500     571.5250    2
+                            0.0000     122.2679       0.0000
+
+INVEN            0  0    1043.6200      91.0500     571.8970    2
+                            0.0000     120.5489       0.0000
+
+
+// VPads:   Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll
+//
+
+// Turrets: Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll      Barrel
+//
+
+// Sensors: Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll
+//
+
+// FFields: Switch Power     X            Y            Z       Type
+//                         Pitch         Yaw         Roll
+//                          SX           SY           SZ
+//
+
+// FlipFlop:Switch           X            Y            Z
+//                         Pitch         Yaw         Roll
+//
+
+// Projector:Switch          X            Y            Z
+//                         Pitch         Yaw         Roll
+//
+
+// Waypts:  Switch           X            Y            Z
+//
+WAYPOINT         0       1244.9200     219.2000     779.7400    3
+
+// Nexus:                    X            Y            Z         Height
+//
+
+//==============================================================================
+    WATERMARK // CLIENT DOES NOT READ BEYOND THIS POINT
+//==============================================================================
+
+//------------------------------------------------------------------------------
+//  SERVER ONLY, NON-OBJECT MISSION DATA
+//------------------------------------------------------------------------------
+
+POWER          1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+SWITCH        -1   1   2   0  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1 
+
+// Spawn:   Team             X            Y            Z         Radius     Pitch      Yaw
+//
+SPAWN         0          1225.0701      97.7180     761.0870     190.0000    0.0000    0.0000
+
+// Flags:   Team             X            Y            Z           Yaw
+//
+
+//------------------------------------------------------------------------------
+//  SERVER ONLY, DYNAMIC OBJECTS
+//------------------------------------------------------------------------------
+
+// Pickups:                  X            Y            Z           Kind
+//
+PICKUP                   1262.7200     207.2360     779.2300   GRENADE
+PICKUP                   1185.0900     172.5460     714.6920   GRENADELAUNCHER
+PICKUP                   1184.9900     171.9310     720.6350   GRENADELAUNCHERAMMO
+PICKUP                   1185.4200     171.9300     708.8590   GRENADELAUNCHERAMMO
+PICKUP                   1306.8600     192.8030     712.4720   SATCHELCHARGE
+PICKUP                   1316.3700     127.8040     845.3130   PLASMAAMMO
+PICKUP                   1316.2500     127.8340     835.1760   PLASMAAMMO
+PICKUP                   1315.9700     128.2780     840.0250   PLASMA
+PICKUP                   1300.4100     128.2110     840.1000   SHIELDPACK
+PICKUP                   1166.2100     152.4830     840.2080   ENERGYPACK
+PICKUP                   1166.2100     172.5690     714.9310   AMMOPACK
+PICKUP                   1244.7800     275.0610     779.1740   SNIPERRIFLE
+PICKUP                   1245.5800     259.8950     780.1520   REPAIRKIT
+PICKUP                   1241.4800     260.3410     780.1350   REPAIRPATCH
+PICKUP                   1249.4299     260.0810     780.2300   REPAIRPATCH

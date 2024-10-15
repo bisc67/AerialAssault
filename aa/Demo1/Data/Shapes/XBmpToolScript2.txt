@@ -1,0 +1,39 @@
+-output C:\projects\t2\demo1\data\shapes\PS2
+
+-convert P4_ABGR_8888
+-mips 3
+-overwrite
+-writexbmp
+
+C:\projects\t2\demo1\data\shapes\PS2\heavy_bioderm_alpha00.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\heavy_male_alpha00.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\heavy_male_alpha01.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\heavy_male_alpha02.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\heavy_male_alpha03.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\light_bioderm_alpha00.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\light_female_alpha00.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\light_female_alpha01.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\light_female_alpha02.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\light_female_alpha03.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\light_male_alpha00.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\light_male_alpha01.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\light_male_alpha02.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\light_male_alpha03.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\medium_bioderm_alpha00.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\medium_female_alpha00.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\medium_female_alpha01.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\medium_female_alpha02.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\medium_female_alpha03.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\medium_male_alpha00.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\medium_male_alpha01.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\medium_male_alpha02.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\medium_male_alpha03.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\weapon-elf-alpha.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\weapon_blaster_alpha.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\weapon_plasma_alpha.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\weapon_repair_alpha.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\XT_vehicle_air_bomber1alpha.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\XT_vehicle_air_hpc1alpha.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\XT_vehicle_air_hpc2alpha.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\XT_vehicle_air_hpc3alpha.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\X_sniper-512-128-alpha.xbmp

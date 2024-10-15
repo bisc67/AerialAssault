@@ -1,0 +1,11 @@
+5/4 Chaingun doesn't stop on clients
+	- Fixed 5/9, stored cfx id was being overwritten by a higher layer than the
+	  base class for projectiles.
+5/4 Player doesn't die correctly on clients
+5/4 Client/Server Move/Update has position problems
+5/4 Laser shoots through people
+5/4 Easy to fall through bridges / buildings / terrain
+5/4 Skiing has problems
+5/4 Need to tune jetpacks
+5/4 Weapons are losing polys
+

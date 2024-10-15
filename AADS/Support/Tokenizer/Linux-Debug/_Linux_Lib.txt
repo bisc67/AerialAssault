@@ -1,0 +1,4 @@
+create Linux-Debug/Tokenizer.lib
+addmod ./Linux-Debug/tokenizer.obj
+save
+end 

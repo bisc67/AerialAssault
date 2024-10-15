@@ -1,0 +1,12 @@
+KEY           "2e718a5b32052f708fc1af8c"
+GAMETYPE      "CTF"
+MAXPLAYERS    16
+MAXCLIENTS    16
+SERVERNAME    "Linux Test"
+PASSWORD      ""
+VOTEPASS      100
+TEAMDAMAGE    50
+TIMELIMIT     20
+LOGGING      "OFF" "."
+TELNET        "admin" "uabrslive"
+PORT          28500

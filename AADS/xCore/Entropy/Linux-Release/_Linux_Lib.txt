@@ -1,0 +1,11 @@
+create Linux-Release/Entropy.lib
+addmod ./Linux-Release/e_cdfs.obj
+addmod ./Linux-Release/e_Draw.obj
+addmod ./Linux-Release/e_Input.obj
+addmod ./Linux-Release/e_ScratchMem.obj
+addmod ./Linux-Release/e_Text.obj
+addmod ./Linux-Release/e_View.obj
+addmod ./Linux-Release/linux_Draw.obj
+addmod ./Linux-Release/linux_startup.obj
+save
+end 

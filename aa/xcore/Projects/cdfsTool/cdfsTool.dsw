@@ -1,0 +1,75 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "*cdfsTool*"=.\cdfsTool.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/xCore/Projects/cdfsTool", HFKAAAAA
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name x_files
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name CommandLine
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "CommandLine"=..\..\Auxiliary\CommandLine\CommandLine.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/xCore/Auxiliary/CommandLine", VVKAAAAA
+    ..\..\auxiliary\commandline
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "x_files"=..\..\x_files\x_files.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/xCore/x_files", SVDAAAAA
+    ..\..\x_files
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/xCore/Projects/cdfsTool", HFKAAAAA
+    .
+    end source code control
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

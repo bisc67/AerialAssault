@@ -1,0 +1,17 @@
+create Linux-Debug/aux_Bitmap.lib
+addmod ./Linux-Debug/adler32.obj
+addmod ./Linux-Debug/compress.obj
+addmod ./Linux-Debug/crc32.obj
+addmod ./Linux-Debug/deflate.obj
+addmod ./Linux-Debug/gzio.obj
+addmod ./Linux-Debug/infblock.obj
+addmod ./Linux-Debug/infcodes.obj
+addmod ./Linux-Debug/inffast.obj
+addmod ./Linux-Debug/inflate.obj
+addmod ./Linux-Debug/inftrees.obj
+addmod ./Linux-Debug/infutil.obj
+addmod ./Linux-Debug/trees.obj
+addmod ./Linux-Debug/uncompr.obj
+addmod ./Linux-Debug/zutil.obj
+save
+end 

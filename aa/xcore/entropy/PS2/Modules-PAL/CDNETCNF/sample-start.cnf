@@ -1,0 +1,8 @@
+# <NETCNF>
+
+## 
+## interface "<display_name>" "<ifc_cnf>" ["<dev_cnf>"]
+##
+ 
+interface "Sample PPP" "sample-ppp.cnf" "sample-modem.cnf"
+

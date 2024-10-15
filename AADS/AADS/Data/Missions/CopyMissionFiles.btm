@@ -1,0 +1,15 @@
+@echo off
+
+rem To use: copy into directory containing NEW mission files eg. T:\Missions
+rem Make sure the destination path is set correctly in the line below!
+
+set p=c:\projects\t2\demo1\data\missions
+
+dir /ad /b %p >tmp.lst
+
+for %f in (@tmp.lst) do (
+        copy %f.* %p\%f
+)
+
+del tmp.lst >NUL
+unset p

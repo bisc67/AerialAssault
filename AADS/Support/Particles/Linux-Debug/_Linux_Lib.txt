@@ -1,0 +1,8 @@
+create Linux-Debug/Particles.lib
+addmod ./Linux-Debug/ParticleEffect.obj
+addmod ./Linux-Debug/ParticleEmitter.obj
+addmod ./Linux-Debug/ParticleLibrary.obj
+addmod ./Linux-Debug/ParticlePool.obj
+addmod ./Linux-Debug/PostFX.obj
+save
+end 

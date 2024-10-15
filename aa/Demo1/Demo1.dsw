@@ -1,0 +1,569 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "*Demo1*"=.\Demo1.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Demo1", URHAAAAA
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name aux_Bitmap
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Entropy
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name NetLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Tokenizer
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name x_files
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ObjectMgr
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Terrain
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Sky
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name audiomgr
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name PlayerObject
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Shape
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name BuildingObject
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LabelSets
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Projectiles
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Particles
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name BotObject
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Pickups
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Vehicle
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GameMgr
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name HUD
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name UI
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name MoviePlayer
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name CardMgr
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name BotEditor
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Poly
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name MasterServer
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name CleanText
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name StringMgr
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "BotEditor"=..\SUPPORT\BotEditor\BotEditor.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/BotEditor", OJMAAAAA
+    ..\support\boteditor
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "BotObject"=..\Support\Objects\Bot\BotObject.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/Objects/Bot", QLJAAAAA
+    ..\support\objects\bot
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "BuildingObject"=..\Support\Building\BuildingObject.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/Building", GPIAAAAA
+    ..\support\building
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "CardMgr"=..\Support\CardMgr\cardmgr.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/cardmgr", DHNAAAAA
+    ..\support\cardmgr
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "CleanText"=..\Support\CleanText\CleanText.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/CleanText", IIEBAAAA
+    ..\support\cleantext
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Entropy"=..\xCore\Entropy\Entropy.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/xCore/Entropy", EDGAAAAA
+    ..\xcore\entropy
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GameMgr"=..\Support\GameMgr\GameMgr.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/GameMgr", YFLAAAAA
+    ..\support\gamemgr
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "HUD"=..\Support\HUD\HUD.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/HUD", XKLAAAAA
+    ..\support\hud
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "LabelSets"=..\Support\LabelSets\LabelSets.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/LabelSets", HXGAAAAA
+    ..\support\labelsets
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "MasterServer"=..\Support\MasterServer\MasterServer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/MasterServer", ZDEBAAAA
+    ..\support\masterserver
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "MoviePlayer"=..\Support\MoviePlayer\MoviePlayer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/MoviePlayer", WINAAAAA
+    ..\support\movieplayer
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "NetLib"=..\Support\NetLib\NetLib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/NetLib", OQHAAAAA
+    ..\support\netlib
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ObjectMgr"=..\Support\ObjectMgr\ObjectMgr.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/ObjectMgr", BFHAAAAA
+    ..\support\objectmgr
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Particles"=..\Support\Particles\Particles.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/Particles", SBJAAAAA
+    ..\support\particles
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Pickups"=..\Support\Objects\Pickups\Pickups.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/Objects/Pickups", DKJAAAAA
+    ..\support\objects\pickups
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "PlayerObject"=..\Support\Objects\Player\PlayerObject.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/Objects/Player", KXGAAAAA
+    ..\support\objects\player
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Poly"=..\Support\Poly\poly.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/Poly", ODEBAAAA
+    ..\support\poly
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Projectiles"=..\Support\Objects\Projectiles\Projectiles.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/Objects/Projectiles", DDIAAAAA
+    ..\support\objects\projectiles
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Shape"=..\Support\Shape\Shape.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/Shape", CXGAAAAA
+    ..\support\shape
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Sky"=..\Support\Sky\Sky.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/Sky", JKHAAAAA
+    ..\support\sky
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "StringMgr"=..\Support\StringMgr\StringMgr.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/StringMgr", JQGBAAAA
+    ..\support\stringmgr
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Terrain"=..\Support\Objects\Terrain\Terrain.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/Objects/Terrain", MSHAAAAA
+    ..\support\objects\terrain
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Tokenizer"=..\Support\Tokenizer\Tokenizer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/Tokenizer", IKHAAAAA
+    ..\support\tokenizer
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "UI"=..\Support\UI\UI.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/UI", YYMAAAAA
+    ..\support\ui
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Vehicle"=..\Support\Objects\Vehicles\Vehicle.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/Objects/Vehicles", JQGAAAAA
+    ..\support\objects\vehicles
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "audiomgr"=..\Support\AudioMgr\audiomgr.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Support/AudioMgr", RSHAAAAA
+    ..\support\audiomgr
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "aux_Bitmap"=..\xCore\Auxiliary\bitmap\aux_Bitmap.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/xCore/Auxiliary/Bitmap", GDGAAAAA
+    ..\xcore\auxiliary\bitmap
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "x_files"=..\xCore\x_files\x_files.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/xCore/x_files", SVDAAAAA
+    ..\xcore\x_files
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+    begin source code control
+    "$/T2/Demo1", URHAAAAA
+    .
+    end source code control
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

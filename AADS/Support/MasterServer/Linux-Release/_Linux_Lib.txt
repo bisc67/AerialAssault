@@ -1,0 +1,7 @@
+create Linux-Release/MasterServer.lib
+addmod ./Linux-Release/bytestream.obj
+addmod ./Linux-Release/masterentity.obj
+addmod ./Linux-Release/MasterServer.obj
+addmod ./Linux-Release/masterstates.obj
+save
+end 

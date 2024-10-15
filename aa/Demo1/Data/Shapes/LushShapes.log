@@ -1,0 +1,3224 @@
+Class sizes
+sizeof(shape_bin_file_class) = 4 bytes
+sizeof(anim) = 96 bytes
+sizeof(key_set) = 48 bytes
+sizeof(hot_point) = 48 bytes
+sizeof(material) = 176 bytes
+sizeof(material_dlist) = 48 bytes
+sizeof(model) = 160 bytes
+sizeof(node) = 48 bytes
+sizeof(shape) = 112 bytes
+sizeof(shape_texture_ref) = 176 bytes
+sizeof(shape_instance) = 504 bytes
+
+
+Building PC shapes from LushShapes.txt
+
+
+
+*************** BUILDING PC BMISCF.shp ***************
+
+Parsing P:/Art/Delivery/Buildings/misc objects/bmiscf.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Buildings/misc objects/bmiscf.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eflo01_.BMP...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eflo01_.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eflo01_.BMP...FOUND!
+   building mips...
+
+
+   Model:bmiscf  references texture be_eflo01_.BMP
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.070565
+
+
+Building model display lists...
+   finished building PC combined strip with 36 verts
+TotalSize:1152 bytes (2k)
+
+   cleaning up memory.. before 3k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 2k after 2k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BMISCF.shp
+   shape_bin_file::Close - Written Version:31 MemSize:1856
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BMISCF.shp
+
+*************************************************************
+***
+*** Finished processing bmiscf
+***   MemoryUsed:1696 bytes - 2K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:1584 bytes - 2K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BORG1.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG1.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG1.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\borg1.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\borg1.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\borg1.bmp...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\borg1_a.BMP...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\borg1_a.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\borg1_a.BMP...FOUND!
+
+
+   Model:BORG1  references texture borg1_a_PUNCH_borg1.bmp
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.015669
+
+
+Building model display lists...
+   finished building PC combined strip with 96 verts
+TotalSize:3072 bytes (4k)
+
+   cleaning up memory.. before 7k after 4k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 4k after 4k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG1.shp
+   shape_bin_file::Close - Written Version:31 MemSize:3952
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG1.shp
+
+*************************************************************
+***
+*** Finished processing BORG1
+***   MemoryUsed:3616 bytes - 4K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:3504 bytes - 4K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BORG5.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG5.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG5.skel finished loading and initializing
+
+
+Trying to load texture P:\Art\Delivery\Shapes\Scenery\shrubs\borg4.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\borg4.xbmp...not found
+   checking for P:\Art\Delivery\Shapes\Scenery\shrubs\borg4.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\borg4_a.BMP...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\borg4_a.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\borg4_a.BMP...FOUND!
+
+
+   Model:BORG5  references texture borg4_a_PUNCH_borg4.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.019433
+
+
+Building model display lists...
+   finished building PC combined strip with 176 verts
+TotalSize:5632 bytes (6k)
+
+   cleaning up memory.. before 12k after 6k
+   cleaning up memory.. before 6k after 6k
+   cleaning up memory.. before 7k after 7k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG5.shp
+   shape_bin_file::Close - Written Version:31 MemSize:6512
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG5.shp
+
+*************************************************************
+***
+*** Finished processing BORG5
+***   MemoryUsed:6176 bytes - 7K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:6064 bytes - 6K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BORG13.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG13.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG13.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG13_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG13_c.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark01.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark01.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark01.bmp...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Shrubs/bark02.bmp...not found
+
+   Model:BORG13  references texture bark01.bmp
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark_tran.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark_tran.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark_tran.bmp...FOUND!
+   building mips...
+
+
+   Model:BORG13  references texture bark_tran.bmp
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.033963
+
+
+Building model display lists...
+   finished building PC combined strip with 181 verts
+   finished building PC combined strip with 117 verts
+TotalSize:9536 bytes (10k)
+
+   cleaning up memory.. before 20k after 10k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PC combined strip with 185 verts
+TotalSize:5920 bytes (6k)
+
+   cleaning up memory.. before 12k after 7k
+   cleaning up memory.. before 10k after 10k
+   cleaning up memory.. before 7k after 7k
+   cleaning up memory.. before 17k after 17k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG13.shp
+   shape_bin_file::Close - Written Version:31 MemSize:17136
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG13.shp
+
+*************************************************************
+***
+*** Finished processing BORG13
+***   MemoryUsed:16656 bytes - 17K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:16544 bytes - 17K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BORG16.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/BORG16.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/BORG16.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/BORG16_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/BORG16_c.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_Branch5.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_Branch5.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_Branch5.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_Branch5BW.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_Branch5BW.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_Branch5BW.png...FOUND!
+
+
+   Model:BORG16  references texture be_Branch5BW_PUNCH_be_Branch5.png
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Trees/bark02.bmp...not found
+
+   Model:BORG16  references texture bark01.bmp
+   Model:BORG16  references texture bark_tran.bmp
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.042004
+
+
+Building model display lists...
+   finished building PC combined strip with 216 verts
+   finished building PC combined strip with 43 verts
+   finished building PC combined strip with 891 verts
+TotalSize:36800 bytes (36k)
+
+   cleaning up memory.. before 76k after 37k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PC combined strip with 139 verts
+TotalSize:4448 bytes (5k)
+
+   cleaning up memory.. before 10k after 5k
+   cleaning up memory.. before 37k after 37k
+   cleaning up memory.. before 5k after 5k
+   cleaning up memory.. before 42k after 42k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG16.shp
+   shape_bin_file::Close - Written Version:31 MemSize:43568
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG16.shp
+
+*************************************************************
+***
+*** Finished processing BORG16
+***   MemoryUsed:42672 bytes - 42K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:42560 bytes - 42K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BORG17.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/BORG17.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/BORG17.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/BORG17_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/BORG17_c.skel finished loading and initializing
+
+   Model:BORG17  references texture be_Branch5BW_PUNCH_be_Branch5.png
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Trees/bark02.bmp...not found
+
+   Model:BORG17  references texture bark01.bmp
+   Model:BORG17  references texture bark_tran.bmp
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.032306
+
+
+Building model display lists...
+   finished building PC combined strip with 188 verts
+   finished building PC combined strip with 44 verts
+   finished building PC combined strip with 256 verts
+TotalSize:15616 bytes (16k)
+
+   cleaning up memory.. before 33k after 17k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PC combined strip with 133 verts
+TotalSize:4256 bytes (5k)
+
+   cleaning up memory.. before 9k after 5k
+   cleaning up memory.. before 17k after 17k
+   cleaning up memory.. before 5k after 5k
+   cleaning up memory.. before 21k after 21k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG17.shp
+   shape_bin_file::Close - Written Version:31 MemSize:22192
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG17.shp
+
+*************************************************************
+***
+*** Finished processing BORG17
+***   MemoryUsed:21296 bytes - 21K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:21184 bytes - 21K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BORG18.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/BORG18.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/BORG18.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/BORG18_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/BORG18_c.skel finished loading and initializing
+
+   Model:BORG18  references texture be_Branch5BW_PUNCH_be_Branch5.png
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Trees/bark02.bmp...not found
+
+   Model:BORG18  references texture bark01.bmp
+   Model:BORG18  references texture bark_tran.bmp
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.045664
+
+
+Building model display lists...
+   finished building PC combined strip with 151 verts
+   finished building PC combined strip with 38 verts
+   finished building PC combined strip with 706 verts
+TotalSize:28640 bytes (28k)
+
+   cleaning up memory.. before 59k after 29k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PC combined strip with 83 verts
+TotalSize:2656 bytes (3k)
+
+   cleaning up memory.. before 6k after 4k
+   cleaning up memory.. before 29k after 29k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 32k after 32k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG18.shp
+   shape_bin_file::Close - Written Version:31 MemSize:33616
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG18.shp
+
+*************************************************************
+***
+*** Finished processing BORG18
+***   MemoryUsed:32720 bytes - 32K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:32608 bytes - 32K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BORG19.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/BORG19.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/BORG19.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/BORG19_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/BORG19_c.skel finished loading and initializing
+
+   Model:BORG19  references texture be_Branch5BW_PUNCH_be_Branch5.png
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Trees/bark02.bmp...not found
+
+   Model:BORG19  references texture bark01.bmp
+   Model:BORG19  references texture bark_tran.bmp
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.041443
+
+
+Building model display lists...
+   finished building PC combined strip with 215 verts
+   finished building PC combined strip with 36 verts
+   finished building PC combined strip with 406 verts
+TotalSize:21024 bytes (21k)
+
+   cleaning up memory.. before 45k after 22k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PC combined strip with 111 verts
+TotalSize:3552 bytes (4k)
+
+   cleaning up memory.. before 7k after 4k
+   cleaning up memory.. before 22k after 22k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 26k after 26k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG19.shp
+   shape_bin_file::Close - Written Version:31 MemSize:26896
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG19.shp
+
+*************************************************************
+***
+*** Finished processing BORG19
+***   MemoryUsed:26000 bytes - 26K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:25888 bytes - 26K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BORG20.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG20.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG20.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\AgaritaFall.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\AgaritaFall.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\AgaritaFall.PNG...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\AgaritaFall_a.BMP...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\AgaritaFall_a.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\AgaritaFall_a.BMP...FOUND!
+
+
+   Model:BORG20  references texture AgaritaFall_a_PUNCH_AgaritaFall.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.003688
+
+
+Building model display lists...
+   finished building PC combined strip with 42 verts
+TotalSize:1344 bytes (2k)
+
+   cleaning up memory.. before 4k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 2k after 2k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG20.shp
+   shape_bin_file::Close - Written Version:31 MemSize:2224
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG20.shp
+
+*************************************************************
+***
+*** Finished processing BORG20
+***   MemoryUsed:1888 bytes - 2K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:1776 bytes - 2K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BORG33.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG33.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG33.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\SBerryFall.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\SBerryFall.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\SBerryFall.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\SBerryFall_a.BMP...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\SBerryFall_a.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\SBerryFall_a.BMP...FOUND!
+
+
+   Model:BORG33  references texture SBerryFall_a_PUNCH_SBerryFall.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.006899
+
+
+Building model display lists...
+   finished building PC combined strip with 30 verts
+TotalSize:960 bytes (1k)
+
+   cleaning up memory.. before 3k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 2k after 2k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG33.shp
+   shape_bin_file::Close - Written Version:31 MemSize:1840
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG33.shp
+
+*************************************************************
+***
+*** Finished processing BORG33
+***   MemoryUsed:1504 bytes - 2K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:1392 bytes - 2K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BORG34.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG34.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG34.skel finished loading and initializing
+
+   Model:BORG34  references texture SBerryFall_a_PUNCH_SBerryFall.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.006899
+
+
+Building model display lists...
+   finished building PC combined strip with 30 verts
+TotalSize:960 bytes (1k)
+
+   cleaning up memory.. before 3k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 2k after 2k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG34.shp
+   shape_bin_file::Close - Written Version:31 MemSize:1840
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BORG34.shp
+
+*************************************************************
+***
+*** Finished processing BORG34
+***   MemoryUsed:1504 bytes - 2K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:1392 bytes - 2K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BROCK6.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/brock6.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/brock6.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02.PNG...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain03.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain03.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Rocks/be_eterrain03.PNG...not found
+
+   Model:brock6  references texture be_eterrain02.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.011278
+
+
+Building model display lists...
+   finished building PC combined strip with 106 verts
+TotalSize:3392 bytes (4k)
+
+   cleaning up memory.. before 7k after 4k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 4k after 4k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BROCK6.shp
+   shape_bin_file::Close - Written Version:31 MemSize:4096
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BROCK6.shp
+
+*************************************************************
+***
+*** Finished processing brock6
+***   MemoryUsed:3936 bytes - 4K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:3824 bytes - 4K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BROCK7.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/brock7.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/brock7.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02a.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain02a.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02a.png...FOUND!
+   building mips...
+
+
+   Model:brock7  references texture be_eterrain02a.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.021774
+
+
+Building model display lists...
+   finished building PC combined strip with 134 verts
+TotalSize:4288 bytes (5k)
+
+   cleaning up memory.. before 9k after 5k
+   cleaning up memory.. before 5k after 5k
+   cleaning up memory.. before 5k after 5k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BROCK7.shp
+   shape_bin_file::Close - Written Version:31 MemSize:4992
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BROCK7.shp
+
+*************************************************************
+***
+*** Finished processing brock7
+***   MemoryUsed:4832 bytes - 5K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:4720 bytes - 5K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BROCK8.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/brock8.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/brock8.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02b.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain02b.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02b.png...FOUND!
+   building mips...
+
+
+   Model:brock8  references texture be_eterrain02b.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.052154
+
+
+Building model display lists...
+   finished building PC combined strip with 84 verts
+TotalSize:2688 bytes (3k)
+
+   cleaning up memory.. before 6k after 4k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 4k after 4k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BROCK8.shp
+   shape_bin_file::Close - Written Version:31 MemSize:3392
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BROCK8.shp
+
+*************************************************************
+***
+*** Finished processing brock8
+***   MemoryUsed:3232 bytes - 4K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:3120 bytes - 4K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BROCKA.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/brocka.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/brocka.skel finished loading and initializing
+
+   Model:brocka  references texture be_eterrain02a.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.129978
+
+
+Building model display lists...
+   finished building PC combined strip with 222 verts
+TotalSize:7104 bytes (7k)
+
+   cleaning up memory.. before 15k after 8k
+   cleaning up memory.. before 8k after 8k
+   cleaning up memory.. before 8k after 8k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BROCKA.shp
+   shape_bin_file::Close - Written Version:31 MemSize:7808
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BROCKA.shp
+
+*************************************************************
+***
+*** Finished processing brocka
+***   MemoryUsed:7648 bytes - 8K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:7536 bytes - 8K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BROCKC.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/brockc.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/brockc.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain03.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain03.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Rocks/be_eterrain03.PNG...not found
+
+   Model:brockc  references texture be_eterrain02.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.195844
+
+
+Building model display lists...
+   finished building PC combined strip with 130 verts
+TotalSize:4160 bytes (5k)
+
+   cleaning up memory.. before 9k after 5k
+   cleaning up memory.. before 5k after 5k
+   cleaning up memory.. before 5k after 5k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BROCKC.shp
+   shape_bin_file::Close - Written Version:31 MemSize:4864
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BROCKC.shp
+
+*************************************************************
+***
+*** Finished processing brockc
+***   MemoryUsed:4704 bytes - 5K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:4592 bytes - 5K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BSPIR1.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/bspir1.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/bspir1.skel finished loading and initializing
+
+
+Trying to load texture C:\Documents and Settings\pfranco.INEVITABLE\Desktop\Jester\lush\be_eterrain03.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain03.xbmp...not found
+   checking for C:\Documents and Settings\pfranco.INEVITABLE\Desktop\Jester\lush\be_eterrain03.PNG...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain03.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/be_eterrain03.PNG...not found
+
+   Model:bspir1  references texture be_eterrain02.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.018989
+
+
+Building model display lists...
+   finished building PC combined strip with 235 verts
+TotalSize:7520 bytes (8k)
+
+   cleaning up memory.. before 16k after 8k
+   cleaning up memory.. before 8k after 8k
+   cleaning up memory.. before 8k after 8k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BSPIR1.shp
+   shape_bin_file::Close - Written Version:31 MemSize:8224
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BSPIR1.shp
+
+*************************************************************
+***
+*** Finished processing bspir1
+***   MemoryUsed:8064 bytes - 8K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:7952 bytes - 8K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BSPIR2.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/bspir2.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/bspir2.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain03.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain03.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/be_eterrain03.PNG...not found
+
+   Model:bspir2  references texture be_eterrain02.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.031736
+
+
+Building model display lists...
+   finished building PC combined strip with 276 verts
+TotalSize:8832 bytes (9k)
+
+   cleaning up memory.. before 18k after 10k
+   cleaning up memory.. before 10k after 10k
+   cleaning up memory.. before 10k after 10k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BSPIR2.shp
+   shape_bin_file::Close - Written Version:31 MemSize:9536
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BSPIR2.shp
+
+*************************************************************
+***
+*** Finished processing bspir2
+***   MemoryUsed:9376 bytes - 10K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:9264 bytes - 10K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BSPIR3.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/bspir3.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/bspir3.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_ecombo02a.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_ecombo02a.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_ecombo02a.PNG...FOUND!
+   building mips...
+
+
+   Model:bspir3  references texture be_ecombo02a.PNG
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain03.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain03.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/be_eterrain03.PNG...not found
+
+   Model:bspir3  references texture be_eterrain02.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.045667
+
+
+Building model display lists...
+   finished building PC combined strip with 47 verts
+   finished building PC combined strip with 247 verts
+TotalSize:9408 bytes (10k)
+
+   cleaning up memory.. before 20k after 10k
+   cleaning up memory.. before 10k after 10k
+   cleaning up memory.. before 10k after 10k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BSPIR3.shp
+   shape_bin_file::Close - Written Version:31 MemSize:10576
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BSPIR3.shp
+
+*************************************************************
+***
+*** Finished processing bspir3
+***   MemoryUsed:10176 bytes - 10K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:10064 bytes - 10K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BSPIR4.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/bspir4.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/bspir4.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain03.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain03.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/be_eterrain03.PNG...not found
+
+   Model:bspir4  references texture be_eterrain02.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.034555
+
+
+Building model display lists...
+   finished building PC combined strip with 681 verts
+TotalSize:21792 bytes (22k)
+
+   cleaning up memory.. before 44k after 22k
+   cleaning up memory.. before 22k after 22k
+   cleaning up memory.. before 22k after 22k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BSPIR4.shp
+   shape_bin_file::Close - Written Version:31 MemSize:22496
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BSPIR4.shp
+
+*************************************************************
+***
+*** Finished processing bspir4
+***   MemoryUsed:22336 bytes - 22K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:22224 bytes - 22K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC BSPIR5.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/bspir5.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/bspir5.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain03.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\be_eterrain03.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/be_eterrain03.PNG...not found
+
+   Model:bspir5  references texture be_eterrain02.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.056212
+
+
+Building model display lists...
+   finished building PC combined strip with 273 verts
+TotalSize:8736 bytes (9k)
+
+   cleaning up memory.. before 18k after 9k
+   cleaning up memory.. before 9k after 9k
+   cleaning up memory.. before 10k after 10k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\BSPIR5.shp
+   shape_bin_file::Close - Written Version:31 MemSize:9440
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\BSPIR5.shp
+
+*************************************************************
+***
+*** Finished processing bspir5
+***   MemoryUsed:9280 bytes - 10K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:9168 bytes - 9K
+***
+*************************************************************
+
+
+
+
+Writing XBMPs...
+Total:12
+      writing XBMP from                 be_eflo01_.BMP (0064 x 0064 x 0032  00021536 Bytes  00022K)
+      writing XBMP from        borg1_a_PUNCH_borg1.bmp (0064 x 0128 x 0032  00043040 Bytes  00043K)
+      writing XBMP from        borg4_a_PUNCH_borg4.png (0064 x 0128 x 0032  00043040 Bytes  00043K)
+      writing XBMP from                     bark01.bmp (0128 x 0128 x 0032  00087072 Bytes  00086K)
+      writing XBMP from                  bark_tran.bmp (0128 x 0128 x 0032  00087072 Bytes  00086K)
+      writing XBMP from be_Branch5BW_PUNCH_be_Branch5.png (0128 x 0128 x 0032  00087072 Bytes  00086K)
+      writing XBMP from AgaritaFall_a_PUNCH_AgaritaFall.PNG (0128 x 0256 x 0032  00174112 Bytes  00171K)
+      writing XBMP from SBerryFall_a_PUNCH_SBerryFall.png (0128 x 0128 x 0032  00087072 Bytes  00086K)
+      writing XBMP from              be_eterrain02.PNG (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      writing XBMP from             be_eterrain02a.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      writing XBMP from             be_eterrain02b.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      writing XBMP from               be_ecombo02a.PNG (0256 x 0256 x 0032  00349232 Bytes  00342K)
+
+
+
+
+21 Shapes loaded...
+   Shape:                        bmiscf Nodes:001 Models:001 Anims:000 Size:00001696 Bytes 00002 K
+   Shape:                         BORG1 Nodes:001 Models:001 Anims:000 Size:00003616 Bytes 00004 K
+   Shape:                         BORG5 Nodes:001 Models:001 Anims:000 Size:00006176 Bytes 00007 K
+   Shape:                        BORG13 Nodes:001 Models:002 Anims:000 Size:00016656 Bytes 00017 K
+   Shape:                        BORG16 Nodes:001 Models:002 Anims:000 Size:00042672 Bytes 00042 K
+   Shape:                        BORG17 Nodes:001 Models:002 Anims:000 Size:00021296 Bytes 00021 K
+   Shape:                        BORG18 Nodes:001 Models:002 Anims:000 Size:00032720 Bytes 00032 K
+   Shape:                        BORG19 Nodes:001 Models:002 Anims:000 Size:00026000 Bytes 00026 K
+   Shape:                        BORG20 Nodes:001 Models:001 Anims:000 Size:00001888 Bytes 00002 K
+   Shape:                        BORG33 Nodes:001 Models:001 Anims:000 Size:00001504 Bytes 00002 K
+   Shape:                        BORG34 Nodes:001 Models:001 Anims:000 Size:00001504 Bytes 00002 K
+   Shape:                        brock6 Nodes:001 Models:001 Anims:000 Size:00003936 Bytes 00004 K
+   Shape:                        brock7 Nodes:001 Models:001 Anims:000 Size:00004832 Bytes 00005 K
+   Shape:                        brock8 Nodes:001 Models:001 Anims:000 Size:00003232 Bytes 00004 K
+   Shape:                        brocka Nodes:001 Models:001 Anims:000 Size:00007648 Bytes 00008 K
+   Shape:                        brockc Nodes:001 Models:001 Anims:000 Size:00004704 Bytes 00005 K
+   Shape:                        bspir1 Nodes:001 Models:001 Anims:000 Size:00008064 Bytes 00008 K
+   Shape:                        bspir2 Nodes:001 Models:001 Anims:000 Size:00009376 Bytes 00010 K
+   Shape:                        bspir3 Nodes:001 Models:001 Anims:000 Size:00010176 Bytes 00010 K
+   Shape:                        bspir4 Nodes:001 Models:001 Anims:000 Size:00022336 Bytes 00022 K
+   Shape:                        bspir5 Nodes:001 Models:001 Anims:000 Size:00009280 Bytes 00010 K
+
+
+
+!!!!!***** START OF 32BIT TEXTURES LIST *****!!!!!
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eflo01_.BMP (0064 x 0064 x 0032  00021536 Bytes  00022K)
+      used on model:bmiscf by diffuse map on material:Material?#20 
+
+   \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\borg1.bmp (0064 x 0128 x 0032  00043040 Bytes  00043K)
+
+   \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\borg1_a.BMP (0064 x 0128 x 0032  00032768 Bytes  00032K)
+
+   \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\borg1_a_PUNCH_borg1.bmp (0064 x 0128 x 0032  00043040 Bytes  00043K)
+      used on model:BORG1 by diffuse map on material:Material?#14 
+
+   P:\Art\Delivery\Shapes\Scenery\shrubs\borg4.png (0064 x 0128 x 0032  00043040 Bytes  00043K)
+
+   \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\borg4_a.BMP (0064 x 0128 x 0032  00032768 Bytes  00032K)
+
+   P:\Art\Delivery\Shapes\Scenery\shrubs\borg4_a_PUNCH_borg4.png (0064 x 0128 x 0032  00043040 Bytes  00043K)
+      used on model:BORG5 by diffuse map on material:Material?#14 
+
+   \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark01.bmp (0128 x 0128 x 0032  00087072 Bytes  00086K)
+      used on model:BORG13 by diffuse map on material:Material?#14 
+      used on model:BORG16 by diffuse map on material:Material?#28 
+      used on model:BORG17 by diffuse map on material:Material?#33 
+      used on model:BORG18 by diffuse map on material:Material?#33 
+      used on model:BORG19 by diffuse map on material:Material?#33 
+
+   \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark_tran.bmp (0128 x 0128 x 0032  00087072 Bytes  00086K)
+      used on model:BORG13 by diffuse map on material:Material?#15 
+      used on model:BORG16 by diffuse map on material:Material?#29 
+      used on model:BORG17 by diffuse map on material:Material?#34 
+      used on model:BORG18 by diffuse map on material:Material?#34 
+      used on model:BORG19 by diffuse map on material:Material?#34 
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_Branch5.png (0128 x 0128 x 0032  00087072 Bytes  00086K)
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_Branch5BW.png (0128 x 0128 x 0032  00065536 Bytes  00064K)
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_Branch5BW_PUNCH_be_Branch5.png (0128 x 0128 x 0032  00087072 Bytes  00086K)
+      used on model:BORG16 by diffuse map on material:Material?#6 
+      used on model:BORG17 by diffuse map on material:branch3 
+      used on model:BORG18 by diffuse map on material:branch3 
+      used on model:BORG19 by diffuse map on material:Material?#6 
+
+   \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\AgaritaFall.PNG (0128 x 0256 x 0032  00174112 Bytes  00171K)
+
+   \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\AgaritaFall_a.BMP (0128 x 0256 x 0032  00131072 Bytes  00128K)
+
+   \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\AgaritaFall_a_PUNCH_AgaritaFall.PNG (0128 x 0256 x 0032  00174112 Bytes  00171K)
+      used on model:BORG20 by diffuse map on material:Material?#15 
+
+   \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\SBerryFall.png (0128 x 0128 x 0032  00087072 Bytes  00086K)
+
+   \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\SBerryFall_a.BMP (0128 x 0128 x 0032  00065536 Bytes  00064K)
+
+   \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\SBerryFall_a_PUNCH_SBerryFall.png (0128 x 0128 x 0032  00087072 Bytes  00086K)
+      used on model:BORG33 by diffuse map on material:H2K?GroundCoverTwo 
+      used on model:BORG34 by diffuse map on material:H2K?GroundCoverTwo 
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02.PNG (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      used on model:brock6 by diffuse map on material:Material?#3 
+      used on model:brockc by diffuse map on material:Material?#54 
+      used on model:bspir1 by diffuse map on material:Material?#54 
+      used on model:bspir2 by diffuse map on material:Material?#54 
+      used on model:bspir3 by diffuse map on material:Material?#51 
+      used on model:bspir4 by diffuse map on material:Material?#54 
+      used on model:bspir5 by diffuse map on material:Material?#54 
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02a.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      used on model:brock7 by diffuse map on material:Material?#3 
+      used on model:brocka by diffuse map on material:Material?#8 
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02b.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      used on model:brock8 by diffuse map on material:Material?#3 
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_ecombo02a.PNG (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      used on model:bspir3 by diffuse map on material:Material?#53 
+
+!!!!!*****  END OF 32BIT TEXTURE LIST  *****!!!!!
+
+
+
+
+
+
+
+
+
+
+
+Building PS2 shapes from LushShapes.txt
+
+
+
+*************** BUILDING PS2 BMISCF.shp ***************
+
+Parsing P:/Art/Delivery/Buildings/misc objects/bmiscf.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Buildings/misc objects/bmiscf.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eflo01_.BMP...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eflo01_.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eflo01_.BMP...FOUND!
+   building mips...
+
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eflo01_.BMP
+   Model:bmiscf  references texture BASE_be_eflo01_.BMP
+   Model:bmiscf  references texture LUM_be_eflo01_.BMP
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.070565
+
+
+Building model display lists...
+   finished building PS2 combined strip with 24 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:432 bytes (1k) TotalVerts:24 CachedVerts:0
+
+TotalSize:432 bytes (1k)
+
+   cleaning up memory.. before 3k after 1k
+   cleaning up memory.. before 1k after 1k
+   cleaning up memory.. before 1k after 1k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BMISCF.shp
+   shape_bin_file::Close - Written Version:31 MemSize:1312
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BMISCF.shp
+
+*************************************************************
+***
+*** Finished processing bmiscf
+***   MemoryUsed:976 bytes - 1K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:864 bytes - 1K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BORG1.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG1.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG1.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\borg1.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\borg1.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\borg1.bmp...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\borg1_a.BMP...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\borg1_a.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\borg1_a.BMP...FOUND!
+
+
+   Model:BORG1  references texture borg1_a_PUNCH_borg1.bmp
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.015669
+
+
+Building model display lists...
+   finished building PS2 combined strip with 72 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1216 bytes (2k) TotalVerts:72 CachedVerts:0
+
+TotalSize:1216 bytes (2k)
+
+   cleaning up memory.. before 5k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 2k after 2k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG1.shp
+   shape_bin_file::Close - Written Version:31 MemSize:2128
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG1.shp
+
+*************************************************************
+***
+*** Finished processing BORG1
+***   MemoryUsed:1760 bytes - 2K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:1648 bytes - 2K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BORG5.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG5.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG5.skel finished loading and initializing
+
+
+Trying to load texture P:\Art\Delivery\Shapes\Scenery\shrubs\borg4.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\borg4.xbmp...not found
+   checking for P:\Art\Delivery\Shapes\Scenery\shrubs\borg4.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\borg4_a.BMP...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\borg4_a.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\borg4_a.BMP...FOUND!
+
+
+   Model:BORG5  references texture borg4_a_PUNCH_borg4.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.019433
+
+
+Building model display lists...
+   finished building PS2 combined strip with 128 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2160 bytes (3k) TotalVerts:131 CachedVerts:0
+
+TotalSize:2160 bytes (3k)
+
+   cleaning up memory.. before 9k after 3k
+   cleaning up memory.. before 3k after 3k
+   cleaning up memory.. before 3k after 3k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG5.shp
+   shape_bin_file::Close - Written Version:31 MemSize:3104
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG5.shp
+
+*************************************************************
+***
+*** Finished processing BORG5
+***   MemoryUsed:2704 bytes - 3K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:2592 bytes - 3K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BORG13.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG13.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG13.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG13_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG13_c.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark01.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark01.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark01.bmp...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Shrubs/bark02.bmp...not found
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark01.bmp
+   Model:BORG13  references texture BASE_bark01.bmp
+   Model:BORG13  references texture LUM_bark01.bmp
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark_tran.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark_tran.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark_tran.bmp...FOUND!
+   building mips...
+
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark_tran.bmp
+   Model:BORG13  references texture BASE_bark_tran.bmp
+   Model:BORG13  references texture LUM_bark_tran.bmp
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.033963
+
+
+Building model display lists...
+   finished building PS2 combined strip with 132 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2176 bytes (3k) TotalVerts:133 CachedVerts:0
+
+   finished building PS2 combined strip with 93 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1552 bytes (2k) TotalVerts:95 CachedVerts:0
+
+TotalSize:3728 bytes (4k)
+
+   cleaning up memory.. before 14k after 5k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PS2 combined strip with 151 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1888 bytes (2k) TotalVerts:155 CachedVerts:0
+
+TotalSize:1888 bytes (2k)
+
+   cleaning up memory.. before 8k after 3k
+   cleaning up memory.. before 5k after 5k
+   cleaning up memory.. before 3k after 3k
+   cleaning up memory.. before 7k after 7k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG13.shp
+   shape_bin_file::Close - Written Version:31 MemSize:7808
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG13.shp
+
+*************************************************************
+***
+*** Finished processing BORG13
+***   MemoryUsed:6816 bytes - 7K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:6704 bytes - 7K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BORG16.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/BORG16.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/BORG16.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/BORG16_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/BORG16_c.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_Branch5.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_Branch5.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_Branch5.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_Branch5BW.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_Branch5BW.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_Branch5BW.png...FOUND!
+
+
+   Model:BORG16  references texture be_Branch5BW_PUNCH_be_Branch5.png
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Trees/bark02.bmp...not found
+
+   Model:BORG16  references texture BASE_bark01.bmp
+   Model:BORG16  references texture LUM_bark01.bmp
+   Model:BORG16  references texture BASE_bark_tran.bmp
+   Model:BORG16  references texture LUM_bark_tran.bmp
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.042004
+
+
+Building model display lists...
+   finished building PS2 combined strip with 171 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2800 bytes (3k) TotalVerts:174 CachedVerts:0
+
+   finished building PS2 combined strip with 34 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:576 bytes (1k) TotalVerts:34 CachedVerts:0
+
+   finished building PS2 combined strip with 638 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:10464 bytes (11k) TotalVerts:653 CachedVerts:0
+
+TotalSize:13840 bytes (14k)
+
+   cleaning up memory.. before 53k after 15k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PS2 combined strip with 110 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1328 bytes (2k) TotalVerts:110 CachedVerts:0
+
+TotalSize:1328 bytes (2k)
+
+   cleaning up memory.. before 6k after 2k
+   cleaning up memory.. before 15k after 15k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 17k after 17k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG16.shp
+   shape_bin_file::Close - Written Version:31 MemSize:18256
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG16.shp
+
+*************************************************************
+***
+*** Finished processing BORG16
+***   MemoryUsed:16592 bytes - 17K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:16480 bytes - 17K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BORG17.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/BORG17.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/BORG17.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/BORG17_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/BORG17_c.skel finished loading and initializing
+
+   Model:BORG17  references texture be_Branch5BW_PUNCH_be_Branch5.png
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Trees/bark02.bmp...not found
+
+   Model:BORG17  references texture BASE_bark01.bmp
+   Model:BORG17  references texture LUM_bark01.bmp
+   Model:BORG17  references texture BASE_bark_tran.bmp
+   Model:BORG17  references texture LUM_bark_tran.bmp
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.032306
+
+
+Building model display lists...
+   finished building PS2 combined strip with 147 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2448 bytes (3k) TotalVerts:151 CachedVerts:0
+
+   finished building PS2 combined strip with 31 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:544 bytes (1k) TotalVerts:31 CachedVerts:0
+
+   finished building PS2 combined strip with 180 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2912 bytes (3k) TotalVerts:182 CachedVerts:0
+
+TotalSize:5904 bytes (6k)
+
+   cleaning up memory.. before 24k after 7k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PS2 combined strip with 111 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1360 bytes (2k) TotalVerts:113 CachedVerts:0
+
+TotalSize:1360 bytes (2k)
+
+   cleaning up memory.. before 6k after 2k
+   cleaning up memory.. before 7k after 7k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 9k after 9k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG17.shp
+   shape_bin_file::Close - Written Version:31 MemSize:10096
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG17.shp
+
+*************************************************************
+***
+*** Finished processing BORG17
+***   MemoryUsed:8688 bytes - 9K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:8576 bytes - 9K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BORG18.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/BORG18.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/BORG18.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/BORG18_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/BORG18_c.skel finished loading and initializing
+
+   Model:BORG18  references texture be_Branch5BW_PUNCH_be_Branch5.png
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Trees/bark02.bmp...not found
+
+   Model:BORG18  references texture BASE_bark01.bmp
+   Model:BORG18  references texture LUM_bark01.bmp
+   Model:BORG18  references texture BASE_bark_tran.bmp
+   Model:BORG18  references texture LUM_bark_tran.bmp
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.045664
+
+
+Building model display lists...
+   finished building PS2 combined strip with 113 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1824 bytes (2k) TotalVerts:113 CachedVerts:0
+
+   finished building PS2 combined strip with 28 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:496 bytes (1k) TotalVerts:28 CachedVerts:0
+
+   finished building PS2 combined strip with 496 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:8064 bytes (8k) TotalVerts:502 CachedVerts:0
+
+TotalSize:10384 bytes (11k)
+
+   cleaning up memory.. before 41k after 11k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PS2 combined strip with 68 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:864 bytes (1k) TotalVerts:68 CachedVerts:0
+
+TotalSize:864 bytes (1k)
+
+   cleaning up memory.. before 4k after 2k
+   cleaning up memory.. before 11k after 11k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 13k after 13k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG18.shp
+   shape_bin_file::Close - Written Version:31 MemSize:14240
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG18.shp
+
+*************************************************************
+***
+*** Finished processing BORG18
+***   MemoryUsed:12672 bytes - 13K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:12560 bytes - 13K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BORG19.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/BORG19.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/BORG19.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/BORG19_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/BORG19_c.skel finished loading and initializing
+
+   Model:BORG19  references texture be_Branch5BW_PUNCH_be_Branch5.png
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Trees/bark02.bmp...not found
+
+   Model:BORG19  references texture BASE_bark01.bmp
+   Model:BORG19  references texture LUM_bark01.bmp
+   Model:BORG19  references texture BASE_bark_tran.bmp
+   Model:BORG19  references texture LUM_bark_tran.bmp
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.041443
+
+
+Building model display lists...
+   finished building PS2 combined strip with 167 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2704 bytes (3k) TotalVerts:168 CachedVerts:0
+
+   finished building PS2 combined strip with 28 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:496 bytes (1k) TotalVerts:28 CachedVerts:0
+
+   finished building PS2 combined strip with 284 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:4608 bytes (5k) TotalVerts:287 CachedVerts:0
+
+TotalSize:7808 bytes (8k)
+
+   cleaning up memory.. before 32k after 9k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PS2 combined strip with 90 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1136 bytes (2k) TotalVerts:92 CachedVerts:0
+
+TotalSize:1136 bytes (2k)
+
+   cleaning up memory.. before 5k after 2k
+   cleaning up memory.. before 9k after 9k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 11k after 11k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG19.shp
+   shape_bin_file::Close - Written Version:31 MemSize:11840
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG19.shp
+
+*************************************************************
+***
+*** Finished processing BORG19
+***   MemoryUsed:10368 bytes - 11K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:10256 bytes - 11K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BORG20.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG20.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG20.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\AgaritaFall.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\AgaritaFall.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\AgaritaFall.PNG...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\AgaritaFall_a.BMP...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\AgaritaFall_a.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\AgaritaFall_a.BMP...FOUND!
+
+
+   Model:BORG20  references texture AgaritaFall_a_PUNCH_AgaritaFall.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.003688
+
+
+Building model display lists...
+   finished building PS2 combined strip with 28 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:496 bytes (1k) TotalVerts:28 CachedVerts:0
+
+TotalSize:496 bytes (1k)
+
+   cleaning up memory.. before 3k after 1k
+   cleaning up memory.. before 1k after 1k
+   cleaning up memory.. before 2k after 2k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG20.shp
+   shape_bin_file::Close - Written Version:31 MemSize:1376
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG20.shp
+
+*************************************************************
+***
+*** Finished processing BORG20
+***   MemoryUsed:1040 bytes - 2K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:928 bytes - 1K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BORG33.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG33.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG33.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\SBerryFall.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\SBerryFall.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\SBerryFall.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\SBerryFall_a.BMP...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\SBerryFall_a.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\shrubs\SBerryFall_a.BMP...FOUND!
+
+
+   Model:BORG33  references texture SBerryFall_a_PUNCH_SBerryFall.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.006899
+
+
+Building model display lists...
+   finished building PS2 combined strip with 20 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:368 bytes (1k) TotalVerts:20 CachedVerts:0
+
+TotalSize:368 bytes (1k)
+
+   cleaning up memory.. before 2k after 1k
+   cleaning up memory.. before 1k after 1k
+   cleaning up memory.. before 1k after 1k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG33.shp
+   shape_bin_file::Close - Written Version:31 MemSize:1248
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG33.shp
+
+*************************************************************
+***
+*** Finished processing BORG33
+***   MemoryUsed:912 bytes - 1K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:800 bytes - 1K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BORG34.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG34.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG34.skel finished loading and initializing
+
+   Model:BORG34  references texture SBerryFall_a_PUNCH_SBerryFall.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.006899
+
+
+Building model display lists...
+   finished building PS2 combined strip with 20 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:368 bytes (1k) TotalVerts:20 CachedVerts:0
+
+TotalSize:368 bytes (1k)
+
+   cleaning up memory.. before 2k after 1k
+   cleaning up memory.. before 1k after 1k
+   cleaning up memory.. before 1k after 1k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG34.shp
+   shape_bin_file::Close - Written Version:31 MemSize:1248
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BORG34.shp
+
+*************************************************************
+***
+*** Finished processing BORG34
+***   MemoryUsed:912 bytes - 1K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:800 bytes - 1K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BROCK6.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/brock6.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/brock6.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02.PNG...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain03.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain03.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Rocks/be_eterrain03.PNG...not found
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02.PNG
+   Model:brock6  references texture BASE_be_eterrain02.PNG
+   Model:brock6  references texture LUM_be_eterrain02.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.011278
+
+
+Building model display lists...
+   finished building PS2 combined strip with 83 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1376 bytes (2k) TotalVerts:83 CachedVerts:0
+
+TotalSize:1376 bytes (2k)
+
+   cleaning up memory.. before 5k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 2k after 2k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BROCK6.shp
+   shape_bin_file::Close - Written Version:31 MemSize:2288
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BROCK6.shp
+
+*************************************************************
+***
+*** Finished processing brock6
+***   MemoryUsed:1920 bytes - 2K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:1808 bytes - 2K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BROCK7.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/brock7.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/brock7.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02a.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain02a.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02a.png...FOUND!
+   building mips...
+
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02a.png
+   Model:brock7  references texture BASE_be_eterrain02a.png
+   Model:brock7  references texture LUM_be_eterrain02a.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.021774
+
+
+Building model display lists...
+   finished building PS2 combined strip with 96 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1600 bytes (2k) TotalVerts:98 CachedVerts:0
+
+TotalSize:1600 bytes (2k)
+
+   cleaning up memory.. before 7k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 3k after 3k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BROCK7.shp
+   shape_bin_file::Close - Written Version:31 MemSize:2512
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BROCK7.shp
+
+*************************************************************
+***
+*** Finished processing brock7
+***   MemoryUsed:2144 bytes - 3K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:2032 bytes - 2K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BROCK8.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/brock8.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/brock8.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02b.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain02b.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02b.png...FOUND!
+   building mips...
+
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain02b.png
+   Model:brock8  references texture BASE_be_eterrain02b.png
+   Model:brock8  references texture LUM_be_eterrain02b.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.052154
+
+
+Building model display lists...
+   finished building PS2 combined strip with 62 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1008 bytes (1k) TotalVerts:62 CachedVerts:0
+
+TotalSize:1008 bytes (1k)
+
+   cleaning up memory.. before 5k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 2k after 2k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BROCK8.shp
+   shape_bin_file::Close - Written Version:31 MemSize:1888
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BROCK8.shp
+
+*************************************************************
+***
+*** Finished processing brock8
+***   MemoryUsed:1552 bytes - 2K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:1440 bytes - 2K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BROCKA.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/brocka.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/brocka.skel finished loading and initializing
+
+   Model:brocka  references texture BASE_be_eterrain02a.png
+   Model:brocka  references texture LUM_be_eterrain02a.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.129978
+
+
+Building model display lists...
+   finished building PS2 combined strip with 163 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2688 bytes (3k) TotalVerts:167 CachedVerts:0
+
+TotalSize:2688 bytes (3k)
+
+   cleaning up memory.. before 11k after 4k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 4k after 4k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BROCKA.shp
+   shape_bin_file::Close - Written Version:31 MemSize:3632
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BROCKA.shp
+
+*************************************************************
+***
+*** Finished processing brocka
+***   MemoryUsed:3232 bytes - 4K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:3120 bytes - 4K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BROCKC.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/brockc.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/brockc.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain03.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain03.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Rocks/be_eterrain03.PNG...not found
+
+   Model:brockc  references texture BASE_be_eterrain02.PNG
+   Model:brockc  references texture LUM_be_eterrain02.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.195844
+
+
+Building model display lists...
+   finished building PS2 combined strip with 96 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1568 bytes (2k) TotalVerts:96 CachedVerts:0
+
+TotalSize:1568 bytes (2k)
+
+   cleaning up memory.. before 7k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 3k after 3k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BROCKC.shp
+   shape_bin_file::Close - Written Version:31 MemSize:2480
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BROCKC.shp
+
+*************************************************************
+***
+*** Finished processing brockc
+***   MemoryUsed:2112 bytes - 3K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:2000 bytes - 2K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BSPIR1.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/bspir1.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/bspir1.skel finished loading and initializing
+
+
+Trying to load texture C:\Documents and Settings\pfranco.INEVITABLE\Desktop\Jester\lush\be_eterrain03.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain03.xbmp...not found
+   checking for C:\Documents and Settings\pfranco.INEVITABLE\Desktop\Jester\lush\be_eterrain03.PNG...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain03.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/be_eterrain03.PNG...not found
+
+   Model:bspir1  references texture BASE_be_eterrain02.PNG
+   Model:bspir1  references texture LUM_be_eterrain02.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.018989
+
+
+Building model display lists...
+   finished building PS2 combined strip with 148 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2400 bytes (3k) TotalVerts:148 CachedVerts:0
+
+TotalSize:2400 bytes (3k)
+
+   cleaning up memory.. before 11k after 3k
+   cleaning up memory.. before 3k after 3k
+   cleaning up memory.. before 3k after 3k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BSPIR1.shp
+   shape_bin_file::Close - Written Version:31 MemSize:3344
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BSPIR1.shp
+
+*************************************************************
+***
+*** Finished processing bspir1
+***   MemoryUsed:2944 bytes - 3K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:2832 bytes - 3K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BSPIR2.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/bspir2.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/bspir2.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain03.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain03.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/be_eterrain03.PNG...not found
+
+   Model:bspir2  references texture BASE_be_eterrain02.PNG
+   Model:bspir2  references texture LUM_be_eterrain02.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.031736
+
+
+Building model display lists...
+   finished building PS2 combined strip with 176 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2832 bytes (3k) TotalVerts:176 CachedVerts:0
+
+TotalSize:2832 bytes (3k)
+
+   cleaning up memory.. before 12k after 4k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 4k after 4k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BSPIR2.shp
+   shape_bin_file::Close - Written Version:31 MemSize:3776
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BSPIR2.shp
+
+*************************************************************
+***
+*** Finished processing bspir2
+***   MemoryUsed:3376 bytes - 4K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:3264 bytes - 4K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BSPIR3.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/bspir3.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/bspir3.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_ecombo02a.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_ecombo02a.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_ecombo02a.PNG...FOUND!
+   building mips...
+
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_ecombo02a.PNG
+   Model:bspir3  references texture BASE_be_ecombo02a.PNG
+   Model:bspir3  references texture LUM_be_ecombo02a.PNG
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain03.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain03.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/be_eterrain03.PNG...not found
+
+   Model:bspir3  references texture BASE_be_eterrain02.PNG
+   Model:bspir3  references texture LUM_be_eterrain02.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.045667
+
+
+Building model display lists...
+   finished building PS2 combined strip with 36 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:608 bytes (1k) TotalVerts:36 CachedVerts:0
+
+   finished building PS2 combined strip with 152 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2464 bytes (3k) TotalVerts:152 CachedVerts:0
+
+TotalSize:3072 bytes (4k)
+
+   cleaning up memory.. before 13k after 4k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 4k after 4k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BSPIR3.shp
+   shape_bin_file::Close - Written Version:31 MemSize:4656
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BSPIR3.shp
+
+*************************************************************
+***
+*** Finished processing bspir3
+***   MemoryUsed:3840 bytes - 4K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:3728 bytes - 4K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BSPIR4.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/bspir4.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/bspir4.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain03.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain03.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/be_eterrain03.PNG...not found
+
+   Model:bspir4  references texture BASE_be_eterrain02.PNG
+   Model:bspir4  references texture LUM_be_eterrain02.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.034555
+
+
+Building model display lists...
+   finished building PS2 combined strip with 428 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:6848 bytes (7k) TotalVerts:428 CachedVerts:0
+
+TotalSize:6848 bytes (7k)
+
+   cleaning up memory.. before 29k after 8k
+   cleaning up memory.. before 8k after 8k
+   cleaning up memory.. before 8k after 8k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BSPIR4.shp
+   shape_bin_file::Close - Written Version:31 MemSize:7920
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BSPIR4.shp
+
+*************************************************************
+***
+*** Finished processing bspir4
+***   MemoryUsed:7392 bytes - 8K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:7280 bytes - 8K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 BSPIR5.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/bspir5.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/bspir5.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain03.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lush\be_eterrain03.PNG...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\be_eterrain03.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/be_eterrain03.PNG...not found
+
+   Model:bspir5  references texture BASE_be_eterrain02.PNG
+   Model:bspir5  references texture LUM_be_eterrain02.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.056212
+
+
+Building model display lists...
+   finished building PS2 combined strip with 169 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2720 bytes (3k) TotalVerts:169 CachedVerts:0
+
+TotalSize:2720 bytes (3k)
+
+   cleaning up memory.. before 12k after 4k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 4k after 4k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BSPIR5.shp
+   shape_bin_file::Close - Written Version:31 MemSize:3664
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\BSPIR5.shp
+
+*************************************************************
+***
+*** Finished processing bspir5
+***   MemoryUsed:3264 bytes - 4K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:3152 bytes - 4K
+***
+*************************************************************
+
+
+
+
+Writing XBMPs...
+Total:19
+      writing XBMP from            BASE_be_eflo01_.BMP (0016 x 0016 x 0008  00001280 Bytes  00002K)
+      writing XBMP from             LUM_be_eflo01_.BMP (0064 x 0064 x 0004  00002784 Bytes  00003K)
+      writing XBMP from        borg1_a_PUNCH_borg1.bmp (0064 x 0128 x 0008  00011808 Bytes  00012K)
+      writing XBMP from        borg4_a_PUNCH_borg4.png (0064 x 0128 x 0008  00011808 Bytes  00012K)
+      writing XBMP from                BASE_bark01.bmp (0032 x 0032 x 0008  00002320 Bytes  00003K)
+      writing XBMP from                 LUM_bark01.bmp (0128 x 0128 x 0004  00010976 Bytes  00011K)
+      writing XBMP from             BASE_bark_tran.bmp (0032 x 0032 x 0008  00002320 Bytes  00003K)
+      writing XBMP from              LUM_bark_tran.bmp (0128 x 0128 x 0004  00010976 Bytes  00011K)
+      writing XBMP from be_Branch5BW_PUNCH_be_Branch5.png (0128 x 0128 x 0008  00022816 Bytes  00023K)
+      writing XBMP from AgaritaFall_a_PUNCH_AgaritaFall.PNG (0128 x 0256 x 0008  00044576 Bytes  00044K)
+      writing XBMP from SBerryFall_a_PUNCH_SBerryFall.png (0128 x 0128 x 0008  00022816 Bytes  00023K)
+      writing XBMP from         BASE_be_eterrain02.PNG (0064 x 0064 x 0008  00006432 Bytes  00007K)
+      writing XBMP from          LUM_be_eterrain02.PNG (0256 x 0256 x 0004  00043760 Bytes  00043K)
+      writing XBMP from        BASE_be_eterrain02a.png (0064 x 0064 x 0008  00006432 Bytes  00007K)
+      writing XBMP from         LUM_be_eterrain02a.png (0256 x 0256 x 0004  00043760 Bytes  00043K)
+      writing XBMP from        BASE_be_eterrain02b.png (0064 x 0064 x 0008  00006432 Bytes  00007K)
+      writing XBMP from         LUM_be_eterrain02b.png (0256 x 0256 x 0004  00043760 Bytes  00043K)
+      writing XBMP from          BASE_be_ecombo02a.PNG (0064 x 0064 x 0008  00006432 Bytes  00007K)
+      writing XBMP from           LUM_be_ecombo02a.PNG (0256 x 0256 x 0004  00043760 Bytes  00043K)
+
+
+
+
+21 Shapes loaded...
+   Shape:                        bmiscf Nodes:001 Models:001 Anims:000 Size:00000976 Bytes 00001 K
+   Shape:                         BORG1 Nodes:001 Models:001 Anims:000 Size:00001760 Bytes 00002 K
+   Shape:                         BORG5 Nodes:001 Models:001 Anims:000 Size:00002704 Bytes 00003 K
+   Shape:                        BORG13 Nodes:001 Models:002 Anims:000 Size:00006816 Bytes 00007 K
+   Shape:                        BORG16 Nodes:001 Models:002 Anims:000 Size:00016592 Bytes 00017 K
+   Shape:                        BORG17 Nodes:001 Models:002 Anims:000 Size:00008688 Bytes 00009 K
+   Shape:                        BORG18 Nodes:001 Models:002 Anims:000 Size:00012672 Bytes 00013 K
+   Shape:                        BORG19 Nodes:001 Models:002 Anims:000 Size:00010368 Bytes 00011 K
+   Shape:                        BORG20 Nodes:001 Models:001 Anims:000 Size:00001040 Bytes 00002 K
+   Shape:                        BORG33 Nodes:001 Models:001 Anims:000 Size:00000912 Bytes 00001 K
+   Shape:                        BORG34 Nodes:001 Models:001 Anims:000 Size:00000912 Bytes 00001 K
+   Shape:                        brock6 Nodes:001 Models:001 Anims:000 Size:00001920 Bytes 00002 K
+   Shape:                        brock7 Nodes:001 Models:001 Anims:000 Size:00002144 Bytes 00003 K
+   Shape:                        brock8 Nodes:001 Models:001 Anims:000 Size:00001552 Bytes 00002 K
+   Shape:                        brocka Nodes:001 Models:001 Anims:000 Size:00003232 Bytes 00004 K
+   Shape:                        brockc Nodes:001 Models:001 Anims:000 Size:00002112 Bytes 00003 K
+   Shape:                        bspir1 Nodes:001 Models:001 Anims:000 Size:00002944 Bytes 00003 K
+   Shape:                        bspir2 Nodes:001 Models:001 Anims:000 Size:00003376 Bytes 00004 K
+   Shape:                        bspir3 Nodes:001 Models:001 Anims:000 Size:00003840 Bytes 00004 K
+   Shape:                        bspir4 Nodes:001 Models:001 Anims:000 Size:00007392 Bytes 00008 K
+   Shape:                        bspir5 Nodes:001 Models:001 Anims:000 Size:00003264 Bytes 00004 K
+
+

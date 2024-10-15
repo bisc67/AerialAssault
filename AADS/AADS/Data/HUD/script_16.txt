@@ -1,0 +1,24 @@
+-overwrite
+-output pc
+-pc
+-writexbmp
+
+-output ps2
+-convert P4_ABGR_8888
+-ps2
+-writexbmp
+
+hud_ret_blaster.tga
+hud_ret_chaingun.tga
+hud_ret_disc.tga
+hud_ret_elf.tga
+hud_ret_grenade.tga
+hud_ret_missile.tga
+hud_ret_mortar.tga
+hud_ret_plasma.tga
+hud_ret_sniper.tga
+hud_ret_targetlaser.tga
+hud_ret_assault_shell.tga
+hud_ret_assault_gun.tga
+hud_ret_shrike.tga
+

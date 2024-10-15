@@ -1,0 +1,26 @@
+;------------------------------------------------------------------------------
+; Textured, diffuse, reflection pixel shader
+;------------------------------------------------------------------------------
+#include "D3D_Shape.hpp"
+
+ps.1.0
+
+; Get texture pixels
+tex t0
+tex t1
+
+; r0 = diffuse_tex
+mov r0, t0
+
+; r1 = spec_tex * diffuse_tex.a
+mul r1, t1, r0.a
+
+; r0 = diffuse_tex + (spec_tex * diffuse_tex.a)
+add r0,r0,r1
+
+; r0 = vertex_col * (diffuse_tex + (spec_tex * diffuse_tex.a))
+mul_sat r0,r0,v0
+; 
+; use alpha of vertex_col
+mov r0.a, v0.a
+

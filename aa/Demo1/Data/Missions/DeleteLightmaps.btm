@@ -1,0 +1,11 @@
+@echo off
+dir /s /b *_LM*.tga *_LM*.xbm >tmp.lst
+
+for %f in (@tmp.lst) do (
+
+        echo %f
+
+        del %f > NUL
+)
+
+del tmp.lst

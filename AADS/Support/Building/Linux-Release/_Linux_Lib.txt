@@ -1,0 +1,9 @@
+create Linux-Release/BuildingObject.lib
+addmod ./Linux-Release/BldRenderStub.obj
+addmod ./Linux-Release/BldInstance.obj
+addmod ./Linux-Release/BldManager.obj
+addmod ./Linux-Release/Building.obj
+addmod ./Linux-Release/portal_clipper.obj
+addmod ./Linux-Release/BuildingOBJ.obj
+save
+end 

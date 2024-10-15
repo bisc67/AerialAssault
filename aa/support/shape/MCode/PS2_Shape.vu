@@ -1,0 +1,964 @@
+;==========================================================================
+;
+; SHAPE vertex transform/clipping/render code
+;
+;==========================================================================
+
+#include "PS2_Shape.hpp"
+
+
+;==========================================================================
+; Special optimizations
+;==========================================================================
+// Convert float to int (screws up top 10 bits of int - this is okay for color though!)
+;f32 f ;
+;s32 i ;
+;f = 100.0f ;
+;f += (3<<22) ;
+;i = *(s32 *)&f ;
+
+
+; Convert int to float, via VIF and matrix
+; for the position -
+;u32 FracBits=0 ;
+;s32 iV = -32769 ;  // 0-511 (9bits)
+;u32 iT = iV ;
+;    iT += ((((23-FracBits) + 0x7f)<<23) + 0x400000) ;   // Do this in VIF transfer!
+
+; To get back to float-
+;f32 fV ;
+;fV = *(f32*)&iT ;
+;fV -= 1.5f * (1 << (23-FracBits)) ;     // Do this in the matrix!
+
+
+; Skips next random number multiple times...
+.macro	RANDOM_SKIP __regx__, __regy__, __regz__, __regw__, __skips__
+
+.rept \__skips__
+    NOP RNEXT.x \__regx__, R
+    NOP RNEXT.y \__regy__, R
+    NOP RNEXT.z \__regz__, R
+    NOP RNEXT.w \__regw__, R
+.endr
+
+.endm
+
+
+
+;==========================================================================
+; Functions accessable from c++
+;==========================================================================
+.global SHAPE_MICRO_CODE_START
+.global SHAPE_MICRO_CODE_END
+
+
+
+
+;==========================================================================
+; Defines
+;==========================================================================
+
+; Clip check flags                              
+#define CLIP_VERT_FLAGS         (CLIP_POS_X_FLAG | CLIP_NEG_X_FLAG | CLIP_POS_Y_FLAG | CLIP_NEG_Y_FLAG | CLIP_NEG_Z_FLAG | CLIP_POS_Z_FLAG)
+
+#define CLIP_TRI_FLAGS          ((CLIP_VERT_FLAGS) | (CLIP_VERT_FLAGS<<6) | (CLIP_VERT_FLAGS<<12))
+
+#define CLIP_TRI_POS_X_FLAGS    ((CLIP_POS_X_FLAG) | (CLIP_POS_X_FLAG<<6) | (CLIP_POS_X_FLAG<<12))
+#define CLIP_TRI_NEG_X_FLAGS    ((CLIP_NEG_X_FLAG) | (CLIP_NEG_X_FLAG<<6) | (CLIP_NEG_X_FLAG<<12))
+
+#define CLIP_TRI_POS_Y_FLAGS    ((CLIP_POS_Y_FLAG) | (CLIP_POS_Y_FLAG<<6) | (CLIP_POS_Y_FLAG<<12))
+#define CLIP_TRI_NEG_Y_FLAGS    ((CLIP_NEG_Y_FLAG) | (CLIP_NEG_Y_FLAG<<6) | (CLIP_NEG_Y_FLAG<<12))
+
+#define CLIP_TRI_POS_Z_FLAGS    ((CLIP_POS_Z_FLAG) | (CLIP_POS_Z_FLAG<<6) | (CLIP_POS_Z_FLAG<<12))
+#define CLIP_TRI_NEG_Z_FLAGS    ((CLIP_NEG_Z_FLAG) | (CLIP_NEG_Z_FLAG<<6) | (CLIP_NEG_Z_FLAG<<12))
+
+
+
+;==========================================================================
+; Start of shape micro code functions
+;==========================================================================
+.vu
+.align 4
+
+SHAPE_MICRO_CODE_START:
+
+    ;***============================================================***
+    ;*** Jump table (MUST BE IN SYNC WITH DEFINES IN PS2_Shape.hpp) ***
+    ;***============================================================***
+
+
+    ;*** 0x00 ***
+    NOP     B SHAPE_MICRO_CODE_INIT_CMD
+    NOP     NOP
+
+    ;*** 0x02 ***
+    NOP     B SHAPE_MICRO_CODE_LOAD_MATERIAL_CMD
+    NOP     NOP
+
+    ;*** 0x04 ***
+    NOP     B SHAPE_MICRO_CODE_LOAD_NODE_CMD
+    NOP     NOP
+
+    ;*** 0x06 ***
+    NOP     B SHAPE_MICRO_CODE_DRAW_CMD
+    NOP     NOP
+
+    ;*** 0x08 ***
+    NOP     B SHAPE_MICRO_CODE_TEX_DIF_CLIP_PLANE_POS_X_CMD
+    NOP     NOP
+
+    ;*** 0x0A ***
+    NOP     B SHAPE_MICRO_CODE_TEX_DIF_CLIP_PLANE_POS_Y_CMD
+    NOP     NOP
+
+    ;*** 0x0C ***
+    NOP     B SHAPE_MICRO_CODE_TEX_DIF_CLIP_PLANE_POS_Z_CMD
+    NOP     NOP
+
+    ;*** 0x0E ***
+    NOP     B SHAPE_MICRO_CODE_TEX_DIF_CLIP_PLANE_NEG_X_CMD
+    NOP     NOP
+
+    ;*** 0x10 ***
+    NOP     B SHAPE_MICRO_CODE_TEX_DIF_CLIP_PLANE_NEG_Y_CMD
+    NOP     NOP
+
+    ;*** 0x12 ***
+    NOP     B SHAPE_MICRO_CODE_TEX_DIF_CLIP_PLANE_NEG_Z_CMD
+    NOP     NOP
+
+
+    ;*** 0x14 ***
+    NOP     B SHAPE_MICRO_CODE_TEX_DIF_REF_CLIP_PLANE_POS_X_CMD
+    NOP     NOP
+
+    ;*** 0x16 ***
+    NOP     B SHAPE_MICRO_CODE_TEX_DIF_REF_CLIP_PLANE_POS_Y_CMD
+    NOP     NOP
+
+    ;*** 0x18 ***
+    NOP     B SHAPE_MICRO_CODE_TEX_DIF_REF_CLIP_PLANE_POS_Z_CMD
+    NOP     NOP
+
+    ;*** 0x1A ***
+    NOP     B SHAPE_MICRO_CODE_TEX_DIF_REF_CLIP_PLANE_NEG_X_CMD
+    NOP     NOP
+
+    ;*** 0x1C ***
+    NOP     B SHAPE_MICRO_CODE_TEX_DIF_REF_CLIP_PLANE_NEG_Y_CMD
+    NOP     NOP
+
+    ;*** 0x1E ***
+    NOP     B SHAPE_MICRO_CODE_TEX_DIF_REF_CLIP_PLANE_NEG_Z_CMD
+    NOP     NOP
+
+
+
+
+;==========================================================================
+; Integer register usage
+;==========================================================================
+
+; Temp registers (never saved)
+#define ClipResults             VI01
+#define SingleCountMask         VI01
+#define MultiCountMask          VI01
+#define SwapTemp                VI01
+
+; Render registers (also uses VertCount)
+#define MaterialFlags           VI02
+#define VertsGifTag             VI03
+#define PassGifTag              VI04
+#define RenderReturnAddr        VI05
+#define MatFlag                 VI14
+#define NodeAddr                VI15
+
+
+; Clipper/Transform registers (always in use)
+#define ClipperStripDestAddr    VI06
+
+; Transform registers
+#define Vert0_NoKick            VI07
+#define Vert1_NoKick            VI08
+#define Vert2_NoKick            VI09
+#define VertAddr                VI10
+#define VertCount               VI11
+#define ClipperReturnAddr       VI12
+#define ClipRejectResults       VI13
+
+; Clipper registers (saved by clipper)
+#define VertSourceBuffer        VI07
+#define VertSourceAddr          VI08
+#define VertSourceCount         VI09
+
+#define VertDestBuffer          VI10
+#define VertDestAddr            VI11
+#define VertDestCount           VI12
+
+#define PlaneAddr               VI13
+#define PlaneClipMask           VI14
+#define PlaneCheckMask          VI15
+
+
+
+;==========================================================================
+; Floating point register usage
+;==========================================================================
+
+; Local to screen matrix (used by non-clipping version)
+#define L2S0(__x__)             VF01 ## __x__
+#define L2S1(__x__)             VF02 ## __x__
+#define L2S2(__x__)             VF03 ## __x__
+#define L2S3(__x__)             VF04 ## __x__
+                                
+; Local to clip space matrix (used by clipping version)   
+#define L2C0(__x__)             VF01 ## __x__
+#define L2C1(__x__)             VF02 ## __x__
+#define L2C2(__x__)             VF03 ## __x__
+#define L2C3(__x__)             VF04 ## __x__
+
+; Clip space to screen matrix (used by clipping version)
+#define C2S0(__x__)             VF05 ## __x__
+#define C2S1(__x__)             VF06 ## __x__
+#define C2S2(__x__)             VF07 ## __x__
+#define C2S3(__x__)             VF08 ## __x__
+
+; Reflection matrix
+#define Ref0(__x__)             VF09 ## __x__
+#define Ref1(__x__)             VF10 ## __x__
+#define Ref2(__x__)             VF11 ## __x__
+
+; Light registers (contains color, dir, amb ready for fast use)
+#define Light_DirCol0(__x__)    VF12 ## __x__
+#define Light_DirCol1(__x__)    VF13 ## __x__
+#define Light_DirCol2(__x__)    VF14 ## __x__
+#define Light_Amb(__x__)        VF15 ## __x__
+
+; None-clip version
+#define Vert0_UV(__x__)         VF16 ## __x__
+#define Vert0_RefUV(__x__)      VF17 ## __x__
+#define Vert0_Pos(__x__)        VF18 ## __x__
+#define Vert0_Col(__x__)        VF19 ## __x__
+
+#define Vert1_UV(__x__)         VF20 ## __x__
+#define Vert1_RefUV(__x__)      VF21 ## __x__
+#define Vert1_Pos(__x__)        VF22 ## __x__
+#define Vert1_Col(__x__)        VF23 ## __x__
+
+#define Vert2_UV(__x__)         VF24 ## __x__
+#define Vert2_RefUV(__x__)      VF25 ## __x__
+#define Vert2_Pos(__x__)        VF26 ## __x__
+#define Vert2_Col(__x__)        VF27 ## __x__
+
+#define Vert3_UV(__x__)         VF28 ## __x__
+#define Vert3_RefUV(__x__)      VF29 ## __x__
+#define Vert3_Pos(__x__)        VF30 ## __x__
+#define Vert3_Col(__x__)        VF31 ## __x__
+
+; Clip version uses vert 3 for screen results
+
+
+
+
+
+; Temp storage -
+
+; Local to world matrix
+#define L2W0(__x__)             VF16 ## __x__
+#define L2W1(__x__)             VF17 ## __x__
+#define L2W2(__x__)             VF18 ## __x__
+#define L2W3(__x__)             VF19 ## __x__
+
+; World to clip matrix
+#define W2C0(__x__)             VF20 ## __x__
+#define W2C1(__x__)             VF21 ## __x__
+#define W2C2(__x__)             VF22 ## __x__
+#define W2C3(__x__)             VF23 ## __x__
+
+; World to screen matrix
+#define W2S0(__x__)             VF24 ## __x__
+#define W2S1(__x__)             VF25 ## __x__
+#define W2S2(__x__)             VF26 ## __x__
+#define W2S3(__x__)             VF27 ## __x__
+
+#define MatGifTag(__x__)        VF28 ## __x__
+#define MatCol(__x__)           VF29 ## __x__
+#define Vert0_Comp(__x__)       VF30 ## __x__
+#define Vert1_Comp(__x__)       VF31 ## __x__
+
+; Pre matrix calculation vars
+#define VertsPreScale(__x__)    VF30 ## __x__
+#define VertsPreTrans(__x__)    VF31 ## __x__
+
+; Light calculation vars
+#define LightDir(__x__)         VF20 ## __x__
+#define LightCol(__x__)         VF21 ## __x__
+#define LightFTOI(__x__)        VF22 ## __x__
+
+#define InvLightDir0(__x__)     VF23 ## __x__
+#define InvLightDir1(__x__)     VF24 ## __x__
+#define InvLightDir2(__x__)     VF25 ## __x__
+
+#define InvLightDir(__x__)      VF26 ## __x__
+#define InvLightDirXYZW         VF26
+
+#define InvLightLength(__x__)   VF27 ## __x__
+
+; Reflection matrix calculation vars
+#define W2V0(__x__)             VF20 ## __x__
+#define W2V1(__x__)             VF21 ## __x__
+#define W2V2(__x__)             VF22 ## __x__
+#define W2V3(__x__)             VF23 ## __x__
+
+#define L2V0(__x__)             VF24 ## __x__
+#define L2V1(__x__)             VF25 ## __x__
+#define L2V2(__x__)             VF26 ## __x__
+
+#define LOOK0(__x__)            VF20 ## __x__
+#define LOOK1(__x__)            VF21 ## __x__
+#define LOOK2(__x__)            VF22 ## __x__
+
+#define RefRight(__x__)         VF27 ## __x__
+#define RefRightXYZW            VF27
+
+#define RefUp(__x__)            VF28 ## __x__
+#define RefUpXYZW               VF28
+
+#define RefLook(__x__)          VF29 ## __x__
+#define RefLookXYZW             VF29
+
+#define RefRightLength(__x__)   VF20 ## __x__
+#define RefUpLength(__x__)      VF21 ## __x__
+#define RefLookLength(__x__)    VF22 ## __x__
+
+
+
+
+;==========================================================================
+; Initializes constant registers
+;==========================================================================
+SHAPE_MICRO_CODE_INIT_CMD:
+
+    ; Load constants
+    NOP                                             IADDIU ClipperStripDestAddr, VI00, SHAPE_CLIPPER_STRIP_BUFFER0
+    
+    ; Init random number? (ie when it==1)
+    NOP                                             RNEXT.w VF31w, R
+    SUBw.w VF31w, VF31w, VF00w                      NOP
+    NOP                                             NOP
+    NOP                                             NOP
+    NOP                                             NOP
+
+    ; Test w if it's zero
+    NOP                                             IADDIU VI02, VI00, 0x1  ; w component=z bit
+    NOP                                             FMEQ VI01, VI02
+    NOP                                             NOP
+    NOP                                             IBNE VI01, VI02, RandomGood
+    NOP                                             NOP
+
+    ; Init it
+    NOP                                             LOI 0.735153
+    ADDi.x VF31x, VF00x, I                          NOP
+    NOP                                             RINIT R, VF31x
+
+RandomGood:
+    NOP[E]                                          NOP
+    NOP                                             NOP
+
+;==========================================================================
+; Initializes constant registers
+;==========================================================================
+SHAPE_MICRO_CODE_LOAD_MATERIAL_CMD:
+
+    ; Load material flags
+    NOP                                             ILW.x MaterialFlags, (SHAPE_MATERIAL_ADDR + MATERIAL_FLAGS)(VI00)      
+                                                    
+    NOP[E]                                          NOP      
+    NOP                                             NOP
+
+
+;==========================================================================
+; Loads new node matrix, light direction, and relfection map matrix
+;==========================================================================
+SHAPE_MICRO_CODE_LOAD_NODE_CMD:
+
+    ; NOTE 
+    ;
+    ; For a matrix pre scale:
+    ;   ROW0 *= Scale.x
+    ;   ROW1 *= Scale.y
+    ;   ROW2 *= Scale.z
+    ;
+    ; For a matrix pre trans
+    ;   ROW3 += ROW0 * Trans.x
+    ;   ROW3 += ROW1 * Trans.y
+    ;   ROW3 += ROW2 * Trans.z
+
+    ; Load pre scale and pre trans registers ready for matrix calc
+    NOP                                             LQ.y VertsPreScale(y), (SHAPE_MATERIAL_ADDR + MATERIAL_FLAGS)(VI00) 
+    NOP                                             LQ.z VertsPreTrans(z), (SHAPE_MATERIAL_ADDR + MATERIAL_FLAGS)(VI00) 
+
+    ; Clip? / Get node address
+    NOP                                             IADDIU MatFlag, VI00, MATERIAL_FLAG_CLIP
+    NOP                                             IAND   MatFlag, MatFlag, MaterialFlags
+    NOP                                             ILW.y  NodeAddr, SHAPE_PARAMS_ADDR(VI00)   ; Get node addr
+    NOP                                             IBNE MatFlag, VI00, ClipLoadMatrices
+    NOP                                             NOP
+
+    ;==============================================================
+    ; Setup L2S & Ref matrix / Load light
+    ;==============================================================
+NoClipLoadMatrices:
+                                               
+    NOP                                             LQ.xyzw L2W0(xyzw),  (NODE_L2W_MATRIX + MATRIX4_ROW0)(NodeAddr)
+    
+    NOP                          	                LQ.xyzw W2S0(xyzw),  (SHAPE_W2S_ADDR + MATRIX4_ROW0)(VI00)
+    NOP                                             LQ.xyzw W2S1(xyzw),  (SHAPE_W2S_ADDR + MATRIX4_ROW1)(VI00)
+    NOP                                             LQ.xyzw W2S2(xyzw),  (SHAPE_W2S_ADDR + MATRIX4_ROW2)(VI00)
+    NOP                                             LQ.xyzw W2S3(xyzw),  (SHAPE_W2S_ADDR + MATRIX4_ROW3)(VI00)
+                                                
+    MULAx.xyzw ACC,  W2S0(xyzw), L2W0(x)            LQ.xyzw L2W1(xyzw),  (NODE_L2W_MATRIX + MATRIX4_ROW1)(NodeAddr)
+    MADDAy.xyzw ACC, W2S1(xyzw), L2W0(y)            LQ.xyzw L2W2(xyzw),  (NODE_L2W_MATRIX + MATRIX4_ROW2)(NodeAddr)
+    MADDAz.xyzw ACC, W2S2(xyzw), L2W0(z)            LQ.xyzw L2W3(xyzw),  (NODE_L2W_MATRIX + MATRIX4_ROW3)(NodeAddr)
+    MADDw.xyzw L2S0(xyzw), W2S3(xyzw), L2W0(w)      NOP
+
+    MULAx.xyzw ACC,  W2S0(xyzw), L2W1(x)            NOP
+    MADDAy.xyzw ACC, W2S1(xyzw), L2W1(y)            NOP
+    MADDAz.xyzw ACC, W2S2(xyzw), L2W1(z)            NOP
+    MADDw.xyzw L2S1(xyzw), W2S3(xyzw), L2W1(w)      NOP
+
+    MULAx.xyzw ACC,  W2S0(xyzw), L2W2(x)            NOP
+    MADDAy.xyzw ACC, W2S1(xyzw), L2W2(y)            NOP
+    MADDAz.xyzw ACC, W2S2(xyzw), L2W2(z)            NOP
+    MADDw.xyzw L2S2(xyzw), W2S3(xyzw), L2W2(w)      NOP
+
+    MULAx.xyzw ACC,  W2S0(xyzw), L2W3(x)            LQ.xyzw MatCol(xyzw),        (SHAPE_MATERIAL_ADDR + MATERIAL_COL)(VI00)
+    MADDAy.xyzw ACC, W2S1(xyzw), L2W3(y)            LOI 12582912        ; I = (3<<22) - Auto converts light from float to integer for GS!
+    MADDAz.xyzw ACC, W2S2(xyzw), L2W3(z)            NOP
+    MADDw.xyzw L2S3(xyzw), W2S3(xyzw), L2W3(w)      NOP
+
+    ; Pre scale matrix to put verts from int16 into f32 local space
+    MULy.xyzw L2S0(xyzw), L2S0(xyzw), VertsPreScale(y)      NOP
+    MULy.xyzw L2S1(xyzw), L2S1(xyzw), VertsPreScale(y)      NOP
+    MULy.xyzw L2S2(xyzw), L2S2(xyzw), VertsPreScale(y)      NOP
+
+    ; Pre trans matrix to counteract the VIFADD that is used to convert verts from int->float
+    MULAw.xyzw ACC, L2S3(xyzw), VF00w                       NOP
+    MADDAz.xyzw ACC, L2S0(xyzw), VertsPreTrans(z)           NOP
+    MADDAz.xyzw ACC, L2S1(xyzw), VertsPreTrans(z)           B LoadLight
+    MADDz.xyzw L2S3(xyzw), L2S2(xyzw), VertsPreTrans(z)     NOP
+
+    ;==============================================================
+    ; Setup L2C, C2S, & Ref matrices
+    ;==============================================================
+ClipLoadMatrices:
+
+    NOP                                             LQ.xyzw L2W0(xyzw),  (NODE_L2W_MATRIX + MATRIX4_ROW0)(NodeAddr)
+    
+    NOP                          	                LQ.xyzw W2C0(xyzw),  (SHAPE_W2C_ADDR + MATRIX4_ROW0)(VI00)
+    NOP                                             LQ.xyzw W2C1(xyzw),  (SHAPE_W2C_ADDR + MATRIX4_ROW1)(VI00)
+    NOP                                             LQ.xyzw W2C2(xyzw),  (SHAPE_W2C_ADDR + MATRIX4_ROW2)(VI00)
+    NOP                                             LQ.xyzw W2C3(xyzw),  (SHAPE_W2C_ADDR + MATRIX4_ROW3)(VI00)
+                   
+    MULAx.xyzw ACC,  W2C0(xyzw), L2W0(x)            LQ.xyzw L2W1(xyzw),  (NODE_L2W_MATRIX + MATRIX4_ROW1)(NodeAddr)
+    MADDAy.xyzw ACC, W2C1(xyzw), L2W0(y)            LQ.xyzw L2W2(xyzw),  (NODE_L2W_MATRIX + MATRIX4_ROW2)(NodeAddr)
+    MADDAz.xyzw ACC, W2C2(xyzw), L2W0(z)            LQ.xyzw L2W3(xyzw),  (NODE_L2W_MATRIX + MATRIX4_ROW3)(NodeAddr)
+    MADDw.xyzw L2C0(xyzw), W2C3(xyzw), L2W0(w)      NOP
+    
+    MULAx.xyzw ACC,  W2C0(xyzw), L2W1(x)            NOP
+    MADDAy.xyzw ACC, W2C1(xyzw), L2W1(y)            NOP
+    MADDAz.xyzw ACC, W2C2(xyzw), L2W1(z)            NOP
+    MADDw.xyzw L2C1(xyzw), W2C3(xyzw), L2W1(w)      NOP
+    
+    MULAx.xyzw ACC,  W2C0(xyzw), L2W2(x)            LQ.xyzw C2S0(xyzw),  (SHAPE_C2S_ADDR + MATRIX4_ROW0)(VI00)
+    MADDAy.xyzw ACC, W2C1(xyzw), L2W2(y)            LQ.xyzw C2S1(xyzw),  (SHAPE_C2S_ADDR + MATRIX4_ROW1)(VI00)
+    MADDAz.xyzw ACC, W2C2(xyzw), L2W2(z)            LQ.xyzw C2S2(xyzw),  (SHAPE_C2S_ADDR + MATRIX4_ROW2)(VI00)
+    MADDw.xyzw L2C2(xyzw), W2C3(xyzw), L2W2(w)      LQ.xyzw C2S3(xyzw),  (SHAPE_C2S_ADDR + MATRIX4_ROW3)(VI00)
+    
+    MULAx.xyzw ACC,  W2C0(xyzw), L2W3(x)            NOP
+    MADDAy.xyzw ACC, W2C1(xyzw), L2W3(y)            NOP
+    MADDAz.xyzw ACC, W2C2(xyzw), L2W3(z)            LQ.xyzw MatCol(xyzw),        (SHAPE_MATERIAL_ADDR + MATERIAL_COL)(VI00)
+    MADDw.xyzw L2C3(xyzw), W2C3(xyzw), L2W3(w)      LOI 0   ; No converting light from float to integer in clipping code
+
+    ; Pre scale matrix to put verts from int16 into f32 local space
+    MULy.xyzw L2C0(xyzw), L2C0(xyzw), VertsPreScale(y)  NOP
+    MULy.xyzw L2C1(xyzw), L2C1(xyzw), VertsPreScale(y)  NOP
+    MULy.xyzw L2C2(xyzw), L2C2(xyzw), VertsPreScale(y)  NOP
+
+    ;==============================================================
+    ; Load light
+    ;==============================================================
+
+LoadLight:   
+
+    ; Set Light color w to zero for vu code (alpha is controlled with light ambient alpha)
+    SUBw.w LightCol(w), VF00w, VF00w                                NOP
+
+    ; Keep auto convert light from float to integer value
+    SUB LightFTOI(xyzw), VF00, VF00                                 NOP
+    ADDi LightFTOI(xyzw), LightFTOI(xyzw), I                        NOP
+
+    ; Is material self-illuminating?
+    NOP                                                             IADDIU MatFlag, VI00, MATERIAL_FLAG_SELF_ILLUM
+    NOP                                                             IAND   MatFlag, MatFlag, MaterialFlags
+    NOP                                                             NOP
+    NOP                                                             IBNE MatFlag, VI00, LoadSelfIllumLight
+    NOP                                                             NOP
+
+    ;==============================================================
+    ; Load light for normal material
+    ;==============================================================
+
+    NOP                                                             LQ.xyzw LightDir(xyzw),  (NODE_LIGHT + LIGHT_DIR)(NodeAddr)
+    NOP                                                             LQ.xyz  LightCol(xyz),   (NODE_LIGHT + LIGHT_COL)(NodeAddr)
+    NOP                                                             LQ.xyzw Light_Amb(xyzw), (NODE_LIGHT + LIGHT_AMB)(NodeAddr)
+
+    ; Negate light direction to match the pc
+    SUB.xyz LightDir(xyz), VF00, LightDir(xyz)                      NOP
+
+    ; Pre-multiply material color into light color                          
+    MUL.xyzw LightCol(xyzw), LightCol(xyzw), MatCol(xyzw)           NOP
+    MUL.xyzw Light_Amb(xyzw),Light_Amb(xyzw), MatCol(xyzw)          NOP
+
+    ; Since there is no lighting max instruction, we need to make sure that LightCol + Light_Amb <= 2
+    ; We simply decrease the ambient to achieve such.
+    ADD.xyzw VF31, Light_Amb(xyzw), LightCol(xyzw)                  LOI 2
+    SUBi.xyzw VF31, VF31, I                                         NOP
+    MAXx.xyzw  VF31, VF31, VF00x                                    NOP
+    SUB.xyzw Light_Amb(xyzw), Light_Amb(xyzw), VF31                 LOI 127
+
+    ; Mult light ambient by (127,127,127,128) ready for vu code (since it's added)
+    ADDi.xyzw VF31, VF00, I                                         NOP
+    MUL.xyzw Light_Amb(xyzw), Light_Amb(xyzw), VF31                 NOP
+
+    ; Perform InvLightDir = Transpose(L2W) * LightDir(xyz)
+    SUBw.w InvLightDir(w), VF00w, VF00w                             NOP     ; Set w=0
+    MUL.xyz InvLightDir0(xyz), L2W0(xyz), LightDir(xyz)             NOP
+    MUL.xyz InvLightDir1(xyz), L2W1(xyz), LightDir(xyz)             NOP
+    MUL.xyz InvLightDir2(xyz), L2W2(xyz), LightDir(xyz)             NOP
+    
+    ADDx.x InvLightDir(x), VF00x,          InvLightDir0(x)          NOP
+    ADDx.y InvLightDir(y), VF00y,          InvLightDir1(x)          NOP
+    ADDx.z InvLightDir(z), VF00z,          InvLightDir2(x)          NOP
+                                                                    
+    ADDy.x InvLightDir(x), InvLightDir(x), InvLightDir0(y)          NOP
+    ADDy.y InvLightDir(y), InvLightDir(y), InvLightDir1(y)          NOP
+    ADDy.z InvLightDir(z), InvLightDir(z), InvLightDir2(y)          NOP
+                                                                    
+    ADDz.x InvLightDir(x), InvLightDir(x), InvLightDir0(z)          NOP
+    ADDz.y InvLightDir(y), InvLightDir(y), InvLightDir1(z)          NOP
+    ADDz.z InvLightDir(z), InvLightDir(z), InvLightDir2(z)          NOP
+
+    ; Normalize InvLightDir(xyzw)
+    NOP                                                             ERLENG P, InvLightDirXYZW
+    NOP                                                             WAITP
+    NOP                                                             MFP.x InvLightLength(x), P
+    MULx.xyz InvLightDir(xyz), InvLightDir(xyz), InvLightLength(x)  NOP
+
+    ; Auto convert RGBA from float to integer for non-clip code
+    ADD Light_Amb(xyzw), Light_Amb(xyzw), LightFTOI(xyzw)           NOP
+
+    ; Setup Light_DirCol registers
+    MULx.xyzw Light_DirCol0(xyzw), LightCol(xyzw), InvLightDir(x)   NOP
+    MULy.xyzw Light_DirCol1(xyzw), LightCol(xyzw), InvLightDir(y)   B LoadReflectionMatrix
+    MULz.xyzw Light_DirCol2(xyzw), LightCol(xyzw), InvLightDir(z)   NOP
+
+    ;==============================================================
+    ; Load light for self illum material
+    ;==============================================================
+LoadSelfIllumLight:
+
+    ; Set light dir+col to zero / Set light ambient to material color
+    SUB.xyzw Light_DirCol0(xyzw), VF00, VF00                        LQ.xyzw  Light_Amb(xyzw), (SHAPE_MATERIAL_ADDR + MATERIAL_COL)(VI00)
+    SUB.xyzw Light_DirCol1(xyzw), VF00, VF00                        NOP
+    SUB.xyzw Light_DirCol2(xyzw), VF00, VF00                        NOP
+    
+    ; Auto convert RGBA from float to integer for non-clip code
+    ADD Light_Amb(xyzw), Light_Amb(xyzw), LightFTOI(xyzw)           NOP
+
+    ;==============================================================
+    ; Calculate reflection matrix
+    ;==============================================================
+LoadReflectionMatrix:   
+
+    ; Skip reflection matrix?
+    NOP                                             IADDIU MatFlag, VI00, MATERIAL_FLAG_REFLECT_DRAW
+    NOP                                             IAND   MatFlag, MatFlag, MaterialFlags
+    NOP                                             NOP
+    NOP                                             IBNE MatFlag, VI00, CheckReflectType
+    NOP                                             NOP
+
+    ; Done
+    NOP[E]                                          NOP
+    NOP                                             NOP
+
+    ; Which reflection type?
+CheckReflectType:
+
+    ; Random space?
+    NOP                                             IADDIU MatFlag, VI00, MATERIAL_FLAG_REFLECT_RANDOM
+    NOP                                             IAND   MatFlag, MatFlag, MaterialFlags
+    NOP                                             NOP
+    NOP                                             IBEQ MatFlag, VI00, CheckReflectInWorldSpace
+    NOP                                             NOP
+    
+    ; Setup mReflect = random
+ReflectRandom:
+
+    ; Create a random look vector using vu random number (range is 1 to 2).
+    ; (the random number skipping makes the vu random number much better)
+    NOP                                                 RNEXT.x RefLook(x),R
+    RANDOM_SKIP VF31x, VF31y, VF31z, VF31w, 3
+    NOP                                                 RNEXT.y RefLook(y),R
+    RANDOM_SKIP VF31x, VF31y, VF31z, VF31w, 3
+    NOP                                                 RNEXT.z RefLook(z),R
+    RANDOM_SKIP VF31x, VF31y, VF31z, VF31w, 4
+    
+    ; Make random range -0.5f to +0.5f / Setup RefUp = (0,0,1,0) ready for cross products
+    NOP                                                 LOI 1.5
+    SUBi.xyz RefLook(xyz), RefLook(xyz),   I            MR32.xyzw RefUp(xyzw), VF00
+
+    ; Calc RefRight(xyz) = RefUp(xyz) cross RefLook(xyz)
+    OPMULA.xyz ACCxyz, RefUp(xyz), RefLook(xyz)         NOP
+    OPMSUB.xyz RefRight(xyz), RefLook(xyz), RefUp(xyz)  NOP
+     
+    ; Calc RefUp(xyz) = RefRight(xyz) cross RefLook(xyz)
+    OPMULA.xyz ACCxyz, RefRight(xyz), RefLook(xyz)      B CalcReflectLength
+    OPMSUB.xyz RefUp(xyz), RefLook(xyz), RefRight(xyz)  NOP
+
+    ; Load world -> view ready for reflection in world/view space
+CheckReflectInWorldSpace:
+    NOP                                                 LQ.xyzw W2V0(xyzw),  (SHAPE_W2V_ADDR + MATRIX4_ROW0)(VI00)
+    NOP                                                 LQ.xyzw W2V1(xyzw),  (SHAPE_W2V_ADDR + MATRIX4_ROW1)(VI00)
+    NOP                                                 LQ.xyzw W2V2(xyzw),  (SHAPE_W2V_ADDR + MATRIX4_ROW2)(VI00)
+    NOP                                                 LQ.xyzw W2V3(xyzw),  (SHAPE_W2V_ADDR + MATRIX4_ROW3)(VI00)
+
+    ; Reflect in world space?
+    NOP                                                 IADDIU MatFlag, VI00, MATERIAL_FLAG_REFLECT_IN_WORLD_SPACE
+    NOP                                                 IAND   MatFlag, MatFlag, MaterialFlags
+    NOP                                                 NOP
+    NOP                                                 IBEQ MatFlag, VI00, ReflectInViewSpace
+    NOP                                                 NOP
+
+    ; Calculate: mReflect = LOOK * L2W
+ReflectInWorldSpace:
+    NOP                                                 MOVE L2V0(xyzw), L2W0(xyzw)
+    NOP                                                 MOVE L2V1(xyzw), L2W1(xyzw)
+    NOP                                                 B ReflectSetupLook
+    NOP                                                 MOVE L2V2(xyzw), L2W2(xyzw)
+
+    ; Calculate: mReflect = LOOK * W2V * L2W
+ReflectInViewSpace:
+
+    ;==============================================================
+    ; Calculate L2V = W2V * L2W (only rotation needed)
+    ;==============================================================
+    MULAx.xyzw ACC,  W2V0(xyzw), L2W0(x)            NOP
+    MADDAy.xyzw ACC, W2V1(xyzw), L2W0(y)            NOP
+    MADDz.xyzw L2V0(xyzw), W2V2(xyzw), L2W0(z)      NOP
+
+    MULAx.xyzw ACC,  W2V0(xyzw), L2W1(x)            NOP
+    MADDAy.xyzw ACC, W2V1(xyzw), L2W1(y)            NOP
+    MADDz.xyzw L2V1(xyzw), W2V2(xyzw), L2W1(z)      NOP
+
+    MULAx.xyzw ACC,  W2V0(xyzw), L2W2(x)            NOP
+    MADDAy.xyzw ACC, W2V1(xyzw), L2W2(y)            NOP
+    MADDz.xyzw L2V2(xyzw), W2V2(xyzw), L2W2(z)      NOP
+
+    ;==============================================================
+    ; Setup look matrix which offsets the reflection when the
+    ; object moves. This fakes movement reflection changes
+    ;==============================================================
+
+ReflectSetupLook:
+
+    ; Set RefLook = W2V * L2W.GetTranslation()
+    MULAx.xyz  ACC, W2V0(xyz),  L2W3(x)                 NOP
+    MADDAy.xyz ACC, W2V1(xyz),  L2W3(y)	                NOP
+    MADDAz.xyz ACC, W2V2(xyz),  L2W3(z)	                NOP
+    MADDw.xyz  RefLook(xyz), W2V3(xyz), L2W3(w)         NOP
+
+    ; Setup RightOffset = (1,0,0,0) ready for cross products
+    ADDw.x RefRight(x), VF00x, VF00w                    NOP
+    ADDx.yzw RefRight(yzw), VF00yzw, VF00x              NOP
+
+    ; Calc RefUp(xyz) = RefLook(xyz) cross RefRight(xyz)
+    OPMULA.xyz ACCxyz, RefLook(xyz), RefRight(xyz)      NOP
+    OPMSUB.xyz RefUp(xyz), RefRight(xyz), RefLook(xyz)  NOP
+     
+    ; Calc RefRight(xyz) = RefUp(xyz) cross RefLook(xyz)
+    OPMULA.xyz ACCxyz, RefUp(xyz), RefLook(xyz)         NOP
+    OPMSUB.xyz RefRight(xyz), RefLook(xyz), RefUp(xyz)  NOP
+
+    ; Now setup look matrix from 3 look vectors
+    ADDx.x LOOK0(x), VF00x, RefRight(x)             NOP
+    ADDx.y LOOK0(y), VF00y, RefUp(x)                NOP
+    ADDx.z LOOK0(z), VF00z, RefLook(x)              NOP
+    SUBw.w LOOK0(w), VF00w, VF00w                   NOP
+
+    ADDy.x LOOK1(x), VF00x, RefRight(y)             NOP
+    ADDy.y LOOK1(y), VF00y, RefUp(y)                NOP
+    ADDy.z LOOK1(z), VF00z, RefLook(y)              NOP
+    SUBw.w LOOK1(w), VF00w, VF00w                   NOP
+    
+    ADDz.x LOOK2(x), VF00x, RefRight(z)             NOP
+    ADDz.y LOOK2(y), VF00y, RefUp(z)                NOP
+    ADDz.z LOOK2(z), VF00z, RefLook(z)              NOP
+    SUBw.w LOOK2(w), VF00w, VF00w                   NOP
+
+    ;==============================================================
+    ; Finally, calculate Ref = LOOK * L2V (only rotation needed)
+    ;==============================================================
+    MULAx.xyzw ACC,  LOOK0(xyzw), L2V0(x)            NOP
+    MADDAy.xyzw ACC, LOOK1(xyzw), L2V0(y)            NOP
+    MADDz.xyzw Ref0(xyzw), LOOK2(xyzw), L2V0(z)      NOP
+
+    MULAx.xyzw ACC,  LOOK0(xyzw), L2V1(x)            NOP
+    MADDAy.xyzw ACC, LOOK1(xyzw), L2V1(y)            NOP
+    MADDz.xyzw Ref1(xyzw), LOOK2(xyzw), L2V1(z)      NOP
+
+    MULAx.xyzw ACC,  LOOK0(xyzw), L2V2(x)            NOP
+    MADDAy.xyzw ACC, LOOK1(xyzw), L2V2(y)            NOP
+    MADDz.xyzw Ref2(xyzw), LOOK2(xyzw), L2V2(z)      NOP
+
+    ;==============================================================
+    ; Normalize reflection matrix
+    ;==============================================================
+NormalizeReflect:
+    ; RefRight = (mReflect(0, 0), mReflect(1, 0), mReflect(2, 0)) ;
+    ADDx.x RefRight(x), VF00x, Ref0(x)              NOP    
+    ADDx.y RefRight(y), VF00y, Ref1(x)              NOP    
+    ADDx.z RefRight(z), VF00z, Ref2(x)              NOP    
+
+    ; RefUp = (mReflect(0, 1), mReflect(1, 1), mReflect(2, 1)) ;
+    ADDy.x RefUp(x), VF00x, Ref0(y)                 NOP    
+    ADDy.y RefUp(y), VF00y, Ref1(y)                 NOP    
+    ADDy.z RefUp(z), VF00z, Ref2(y)                 NOP    
+
+    ; RefLook = (mReflect(0, 2), mReflect(1, 2), mReflect(2, 2)) ;
+    ADDz.x RefLook(x), VF00x, Ref0(z)               NOP    
+    ADDz.y RefLook(y), VF00y, Ref1(z)               NOP    
+    ADDz.z RefLook(z), VF00z, Ref2(z)               NOP
+
+CalcReflectLength:
+
+    NOP                                             LOI -0.003937007    ; -0.5f / 127.0f
+
+    ; Setup RefRightLength(x)
+    NOP                                             ERLENG P, RefRightXYZW
+    NOP                                             WAITP
+    NOP                                             MFP.xyzw RefRightLength(xyzw), P
+
+    ; Setup RefUpLength(x)
+    NOP                                             ERLENG P, RefUpXYZW
+    NOP                                             WAITP
+    NOP                                             MFP.xyzw RefUpLength(xyzw), P
+
+    ; Setup RefLookLength(x)
+    NOP                                             ERLENG P, RefLookXYZW
+    NOP                                             WAITP
+    NOP                                             MFP.xyzw RefLookLength(xyzw), P
+
+    ; Scale by -0.5f / 127.0f to get uv's in range -0.5f -> 0.5f ready for reflection vu code
+    MULi.xyzw RefRightLength(xyzw), RefRightLength(xyzw),I      NOP
+    MULi.xyzw RefUpLength(xyzw),    RefUpLength(xyzw),   I      NOP
+    MULi.xyzw RefLookLength(xyzw),  RefLookLength(xyzw), I      NOP
+
+    ; Normalize and put back into reflection matrix components
+
+    ; Ref0 = (RefRight.X, RefUp.X, RefLook.X)
+    MULx.x Ref0(x), RefRightLength(x), RefRight(x)              NOP
+    MULx.y Ref0(y), RefUpLength(y),    RefUp(x)                 NOP
+    MULx.z Ref0(z), RefLookLength(z),  RefLook(x)               NOP
+    SUBw.w Ref0(w), VF00w, VF00w                                NOP
+
+    ; Ref1 = (RefRight.Y, RefUp.Y, RefLook.Y)
+    MULy.x Ref1(x), RefRightLength(x), RefRight(y)              NOP
+    MULy.y Ref1(y), RefUpLength(y),    RefUp(y)                 NOP
+    MULy.z Ref1(z), RefLookLength(z),  RefLook(y)               NOP
+    SUBw.w Ref1(w), VF00w, VF00w                                NOP
+
+    ; Ref2 = (RefRight.Z, RefUp.Z, RefLook.Z)
+    MULz.x Ref2(x), RefRightLength(x), RefRight(z)              NOP
+    MULz.y Ref2(y), RefUpLength(y),    RefUp(z)                 NOP
+    MULz.z Ref2(z), RefLookLength(z),  RefLook(z)               NOP
+    SUBw.w Ref2(w), VF00w, VF00w                                NOP
+
+    NOP[E]                                                      NOP
+    NOP                                                         NOP
+
+
+
+;==========================================================================
+; Transforms and draws verts
+;==========================================================================
+SHAPE_MICRO_CODE_DRAW_CMD:
+
+    ; Just transform+draw diffuse material?
+    NOP                         IADDIU MatFlag, VI00, MATERIAL_FLAG_REFLECT_DRAW
+    NOP                         IAND   MatFlag, MatFlag, MaterialFlags
+    NOP                         NOP
+    NOP                         IBNE MatFlag, VI00, DrawTexDifRef
+    NOP                         NOP
+
+DrawTexDif:
+
+    ; Clip?
+    NOP                         IADDIU MatFlag, VI00, MATERIAL_FLAG_CLIP
+    NOP                         IAND   MatFlag, MatFlag, MaterialFlags
+    NOP                         NOP
+    NOP                         IBNE MatFlag, VI00, SHAPE_MICRO_CODE_DRAW_TEX_DIF_CLIP
+    NOP                         NOP
+
+    ; No-clip?
+    NOP                         B SHAPE_MICRO_CODE_DRAW_TEX_DIF_NO_CLIP
+    NOP                         NOP
+
+
+DrawTexDifRef:
+
+    ; Clip?
+    NOP                         IADDIU MatFlag, VI00, MATERIAL_FLAG_CLIP
+    NOP                         IAND   MatFlag, MatFlag, MaterialFlags
+    NOP                         NOP
+    NOP                         IBNE MatFlag, VI00, SHAPE_MICRO_CODE_DRAW_TEX_DIF_REF_CLIP
+    NOP                         NOP
+
+    ; No-clip?
+    NOP                         B SHAPE_MICRO_CODE_DRAW_TEX_DIF_REF_NO_CLIP
+    NOP                         NOP
+
+
+
+
+;==========================================================================
+; Draws transformed verts!
+; In VertCount   = # of verts to draw
+;    VertsGifTag = address of verts primitive gif tag
+;==========================================================================
+SHAPE_MICRO_CODE_RENDER_CMD:
+
+    NOP                                             XGKICK VI00 ; Wait for last kick to happen
+    NOP                                             NOP
+
+    NOP                                             IADDIU VertCount, VertCount, 0x7fff    ; Set EOP
+    NOP                                             IADDIU VertCount, VertCount, 0x0001
+    NOP                                             MFIR.x MatGifTag(x), VertCount         ; Move into gif tag
+
+    ;==================================================================
+    ; Setup alpha texture
+    ;==================================================================
+AlphaTexSetup:
+    NOP                                             IADDIU MatFlag, VI00, MATERIAL_FLAG_ALPHA_TEX_SETUP 
+    NOP                                             IAND   MatFlag, MatFlag, MaterialFlags
+    NOP                                             NOP
+    NOP                                             IBEQ   MatFlag, VI00, DiffuseTexSetup
+
+    NOP                                             IADDIU PassGifTag, VI00, (SHAPE_MATERIAL_ADDR + MATERIAL_GIF_TAG_ALPHA_PASS)
+    NOP                                             XGKICK PassGifTag     ; Setup GS ready for alpha texture
+
+    ;==================================================================
+    ; Draw alpha pass
+    ;==================================================================
+DrawAlpha:
+    NOP                                             LQ.yzw MatGifTag(yzw), (SHAPE_MATERIAL_ADDR + MATERIAL_GIF_TAG_ALPHA_PRIM)(VI00)
+
+    NOP                                             XGKICK VI00 ; Wait for last kick to happen
+    NOP                                             NOP
+
+    NOP                                             SQ.xyzw MatGifTag(xyzw), 0(VertsGifTag)
+    NOP			                                    XGKICK VertsGifTag ; Draw alpha
+    NOP                                             NOP
+       
+    ;==================================================================
+    ; Setup diffuse texture
+    ;==================================================================
+DiffuseTexSetup:
+    NOP                                             IADDIU MatFlag, VI00, MATERIAL_FLAG_DIFFUSE_TEX_SETUP
+    NOP                                             IAND   MatFlag, MatFlag, MaterialFlags
+    NOP                                             NOP
+    NOP                                             IBEQ   MatFlag, VI00, DrawDiffuse
+
+    NOP                                             IADDIU PassGifTag, VI00, (SHAPE_MATERIAL_ADDR + MATERIAL_GIF_TAG_DIFFUSE_PASS)
+    NOP                                             XGKICK PassGifTag     ; Setup GS ready for diffuse texture
+
+    ;==================================================================
+    ; Draw diffuse pass
+    ;==================================================================
+DrawDiffuse:
+    NOP                                             LQ.yzw MatGifTag(yzw), (SHAPE_MATERIAL_ADDR + MATERIAL_GIF_TAG_DIFFUSE_PRIM)(VI00)
+
+    NOP                                             XGKICK VI00 ; Wait for last kick to happen
+    NOP                                             NOP
+
+    NOP                                             SQ.xyzw MatGifTag(xyzw), 0(VertsGifTag)
+    NOP   		                                    XGKICK VertsGifTag ; Draw diffuse
+    NOP                                             NOP
+
+    ;==================================================================
+    ; Draw reflect pass
+    ;==================================================================
+DrawReflect:
+    NOP                                             IADDIU MatFlag, VI00, MATERIAL_FLAG_REFLECT_DRAW
+    NOP                                             IAND   MatFlag, MatFlag, MaterialFlags
+    NOP                                             NOP
+    NOP                                             IBEQ   MatFlag, VI00, DetailTexSetup
+
+    NOP                                             LQ.yzw MatGifTag(yzw), (SHAPE_MATERIAL_ADDR + MATERIAL_GIF_TAG_REFLECT_PRIM)(VI00)
+
+    NOP                                             XGKICK VI00 ; Wait for last kick to happen
+    NOP                                             NOP
+
+    NOP                                             SQ.xyzw MatGifTag(xyzw), 0(VertsGifTag)
+    NOP   		                                    XGKICK VertsGifTag ; Draw reflect
+    NOP                                             NOP
+
+;==========================================================================
+; Setup detail texture
+;==========================================================================
+DetailTexSetup:
+    NOP                                             IADDIU MatFlag, VI00, MATERIAL_FLAG_DETAIL_DRAW
+    NOP                                             IAND   MatFlag, MatFlag, MaterialFlags
+    NOP                                             NOP
+    NOP                                             IBEQ   MatFlag, VI00, Exit
+
+    NOP                                             IADDIU PassGifTag, VI00, (SHAPE_MATERIAL_ADDR + MATERIAL_GIF_TAG_DETAIL_PASS)
+    NOP                                             XGKICK PassGifTag     ; Setup GS ready for detail texture
+                                                    
+    NOP                                             LQ.yzw MatGifTag(yzw), (SHAPE_MATERIAL_ADDR + MATERIAL_GIF_TAG_DETAIL_PRIM)(VI00)
+
+    NOP                                             XGKICK VI00 ; Wait for last kick to happen
+    NOP                                             NOP
+
+    NOP                                             SQ.xyzw MatGifTag(xyzw), 0(VertsGifTag)
+    NOP   		                                    XGKICK VertsGifTag ; Draw detail
+    NOP                                             NOP
+
+
+Exit:
+    ; Return to caller
+    NOP                                             JR RenderReturnAddr
+    NOP                                             NOP
+
+
+
+
+;==========================================================================
+; Transform/screen-clip/render code
+;==========================================================================
+
+#include "TexDifNoClip_Transform.vu"
+
+#include "TexDifClip_Transform.vu"
+#include "TexDifClip_Clipper.vu"
+
+#include "TexDifRefNoClip_Transform.vu"
+
+#include "TexDifRefClip_Clipper.vu"
+#include "TexDifRefClip_Transform.vu"
+
+
+;==========================================================================
+; End of tsshape micro code functions
+;==========================================================================
+SHAPE_MICRO_CODE_END:

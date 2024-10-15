@@ -1,0 +1,4 @@
+create Linux-Debug/LabelSets.lib
+addmod ./Linux-Debug/LabelParse.obj
+save
+end 

@@ -1,0 +1,4 @@
+create Linux-Debug/UI.lib
+addmod ./Linux-Debug/ui_manager.obj
+save
+end 

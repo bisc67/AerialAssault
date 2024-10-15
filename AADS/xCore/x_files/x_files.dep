@@ -1,0 +1,363 @@
+# Microsoft Developer Studio Generated Dependency File, included by x_files.mak
+
+.\Implementation\x_bitmap.cpp : \
+	".\Implementation\x_bitmap_inline.hpp"\
+	".\Implementation\x_color_inline.hpp"\
+	".\Implementation\x_math_bb_inline.hpp"\
+	".\Implementation\x_math_inline.hpp"\
+	".\Implementation\x_math_m4_inline.hpp"\
+	".\Implementation\x_math_p_inline.hpp"\
+	".\Implementation\x_math_q_inline.hpp"\
+	".\Implementation\x_math_r3_inline.hpp"\
+	".\Implementation\x_math_rect_inline.hpp"\
+	".\Implementation\x_math_v2_inline.hpp"\
+	".\Implementation\x_math_v3_inline.hpp"\
+	".\Implementation\x_math_v4_inline.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\x_bitmap.hpp"\
+	".\x_color.hpp"\
+	".\x_debug.hpp"\
+	".\x_math.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_stdio.hpp"\
+	".\x_target.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_bitmap_cmap.cpp : \
+	".\Implementation\x_bitmap_inline.hpp"\
+	".\Implementation\x_color_inline.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\x_bitmap.hpp"\
+	".\x_color.hpp"\
+	".\x_debug.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_stdio.hpp"\
+	".\x_target.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_bitmap_convert.cpp : \
+	".\Implementation\x_bitmap_inline.hpp"\
+	".\Implementation\x_color_inline.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\x_bitmap.hpp"\
+	".\x_color.hpp"\
+	".\x_debug.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_stdio.hpp"\
+	".\x_target.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_bitmap_io.cpp : \
+	".\Implementation\x_bitmap_inline.hpp"\
+	".\Implementation\x_color_inline.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\Implementation\x_string_inline.hpp"\
+	".\x_bitmap.hpp"\
+	".\x_color.hpp"\
+	".\x_debug.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_stdio.hpp"\
+	".\x_string.hpp"\
+	".\x_target.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_bitmap_quant.cpp : \
+	".\Implementation\x_bitmap_inline.hpp"\
+	".\Implementation\x_color_inline.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\Implementation\x_string_inline.hpp"\
+	".\x_bitmap.hpp"\
+	".\x_color.hpp"\
+	".\x_debug.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_stdio.hpp"\
+	".\x_string.hpp"\
+	".\x_target.hpp"\
+	".\x_time.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_bytestream.cpp : \
+	".\Implementation\x_files_private.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\x_bytestream.hpp"\
+	".\x_debug.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_stdio.hpp"\
+	".\x_target.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_debug.cpp : \
+	"..\..\..\..\Program Files\Microsoft Visual Studio\VC98\Include\BASETSD.H"\
+	".\Implementation\x_files_private.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\Implementation\x_string_inline.hpp"\
+	".\x_debug.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_stdio.hpp"\
+	".\x_string.hpp"\
+	".\x_target.hpp"\
+	".\x_time.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_files.cpp : \
+	"..\..\..\..\Program Files\Microsoft Visual Studio\VC98\Include\BASETSD.H"\
+	".\Implementation\x_array_private.hpp"\
+	".\Implementation\x_bitmap_inline.hpp"\
+	".\Implementation\x_color_inline.hpp"\
+	".\Implementation\x_files_private.hpp"\
+	".\Implementation\x_math_bb_inline.hpp"\
+	".\Implementation\x_math_inline.hpp"\
+	".\Implementation\x_math_m4_inline.hpp"\
+	".\Implementation\x_math_p_inline.hpp"\
+	".\Implementation\x_math_q_inline.hpp"\
+	".\Implementation\x_math_r3_inline.hpp"\
+	".\Implementation\x_math_rect_inline.hpp"\
+	".\Implementation\x_math_v2_inline.hpp"\
+	".\Implementation\x_math_v3_inline.hpp"\
+	".\Implementation\x_math_v4_inline.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\Implementation\x_stdio_private.hpp"\
+	".\Implementation\x_string_inline.hpp"\
+	".\x_array.hpp"\
+	".\x_bitmap.hpp"\
+	".\x_color.hpp"\
+	".\x_debug.hpp"\
+	".\x_files.hpp"\
+	".\x_math.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_stdio.hpp"\
+	".\x_string.hpp"\
+	".\x_target.hpp"\
+	".\x_threads.hpp"\
+	".\x_time.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_math.cpp : \
+	".\Implementation\x_math_bb_inline.hpp"\
+	".\Implementation\x_math_inline.hpp"\
+	".\Implementation\x_math_m4_inline.hpp"\
+	".\Implementation\x_math_p_inline.hpp"\
+	".\Implementation\x_math_q_inline.hpp"\
+	".\Implementation\x_math_r3_inline.hpp"\
+	".\Implementation\x_math_rect_inline.hpp"\
+	".\Implementation\x_math_v2_inline.hpp"\
+	".\Implementation\x_math_v3_inline.hpp"\
+	".\Implementation\x_math_v4_inline.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\x_debug.hpp"\
+	".\x_math.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_target.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_math_basic.cpp : \
+	".\Implementation\x_math_bb_inline.hpp"\
+	".\Implementation\x_math_inline.hpp"\
+	".\Implementation\x_math_m4_inline.hpp"\
+	".\Implementation\x_math_p_inline.hpp"\
+	".\Implementation\x_math_q_inline.hpp"\
+	".\Implementation\x_math_r3_inline.hpp"\
+	".\Implementation\x_math_rect_inline.hpp"\
+	".\Implementation\x_math_v2_inline.hpp"\
+	".\Implementation\x_math_v3_inline.hpp"\
+	".\Implementation\x_math_v4_inline.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\x_debug.hpp"\
+	".\x_math.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_target.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_memory.cpp : \
+	".\Implementation\x_array_private.hpp"\
+	".\Implementation\x_files_private.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\Implementation\x_string_inline.hpp"\
+	".\x_array.hpp"\
+	".\x_debug.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_stdio.hpp"\
+	".\x_string.hpp"\
+	".\x_target.hpp"\
+	".\x_threads.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_mqueue.cpp : \
+	".\Implementation\x_array_private.hpp"\
+	".\Implementation\x_files_private.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\x_array.hpp"\
+	".\x_debug.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_target.hpp"\
+	".\x_threads.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_mutex.cpp : \
+	".\Implementation\x_array_private.hpp"\
+	".\Implementation\x_files_private.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\x_array.hpp"\
+	".\x_debug.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_target.hpp"\
+	".\x_threads.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_plus.cpp : \
+	".\Implementation\x_color_inline.hpp"\
+	".\Implementation\x_files_private.hpp"\
+	".\Implementation\x_math_bb_inline.hpp"\
+	".\Implementation\x_math_inline.hpp"\
+	".\Implementation\x_math_m4_inline.hpp"\
+	".\Implementation\x_math_p_inline.hpp"\
+	".\Implementation\x_math_q_inline.hpp"\
+	".\Implementation\x_math_r3_inline.hpp"\
+	".\Implementation\x_math_rect_inline.hpp"\
+	".\Implementation\x_math_v2_inline.hpp"\
+	".\Implementation\x_math_v3_inline.hpp"\
+	".\Implementation\x_math_v4_inline.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\x_color.hpp"\
+	".\x_debug.hpp"\
+	".\x_math.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_target.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_profile.cpp : \
+	".\Implementation\x_array_private.hpp"\
+	".\Implementation\x_bitmap_inline.hpp"\
+	".\Implementation\x_color_inline.hpp"\
+	".\Implementation\x_math_bb_inline.hpp"\
+	".\Implementation\x_math_inline.hpp"\
+	".\Implementation\x_math_m4_inline.hpp"\
+	".\Implementation\x_math_p_inline.hpp"\
+	".\Implementation\x_math_q_inline.hpp"\
+	".\Implementation\x_math_r3_inline.hpp"\
+	".\Implementation\x_math_rect_inline.hpp"\
+	".\Implementation\x_math_v2_inline.hpp"\
+	".\Implementation\x_math_v3_inline.hpp"\
+	".\Implementation\x_math_v4_inline.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\Implementation\x_string_inline.hpp"\
+	".\x_array.hpp"\
+	".\x_bitmap.hpp"\
+	".\x_color.hpp"\
+	".\x_debug.hpp"\
+	".\x_files.hpp"\
+	".\x_math.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_profile.hpp"\
+	".\x_stdio.hpp"\
+	".\x_string.hpp"\
+	".\x_target.hpp"\
+	".\x_time.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_stdio.cpp : \
+	"..\..\..\..\Program Files\Microsoft Visual Studio\VC98\Include\BASETSD.H"\
+	".\Implementation\x_memory_private.hpp"\
+	".\Implementation\x_string_inline.hpp"\
+	".\x_debug.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_stdio.hpp"\
+	".\x_string.hpp"\
+	".\x_target.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_string.cpp : \
+	".\Implementation\x_files_private.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\Implementation\x_string_inline.hpp"\
+	".\x_debug.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_stdio.hpp"\
+	".\x_string.hpp"\
+	".\x_target.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_threads.cpp : \
+	"..\..\..\..\Program Files\Microsoft Visual Studio\VC98\Include\BASETSD.H"\
+	".\Implementation\x_array_private.hpp"\
+	".\Implementation\x_bitmap_inline.hpp"\
+	".\Implementation\x_color_inline.hpp"\
+	".\Implementation\x_files_private.hpp"\
+	".\Implementation\x_math_bb_inline.hpp"\
+	".\Implementation\x_math_inline.hpp"\
+	".\Implementation\x_math_m4_inline.hpp"\
+	".\Implementation\x_math_p_inline.hpp"\
+	".\Implementation\x_math_q_inline.hpp"\
+	".\Implementation\x_math_r3_inline.hpp"\
+	".\Implementation\x_math_rect_inline.hpp"\
+	".\Implementation\x_math_v2_inline.hpp"\
+	".\Implementation\x_math_v3_inline.hpp"\
+	".\Implementation\x_math_v4_inline.hpp"\
+	".\Implementation\x_memory_private.hpp"\
+	".\Implementation\x_string_inline.hpp"\
+	".\x_array.hpp"\
+	".\x_bitmap.hpp"\
+	".\x_color.hpp"\
+	".\x_debug.hpp"\
+	".\x_files.hpp"\
+	".\x_math.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_stdio.hpp"\
+	".\x_string.hpp"\
+	".\x_target.hpp"\
+	".\x_threads.hpp"\
+	".\x_time.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_time.cpp : \
+	"..\..\..\..\Program Files\Microsoft Visual Studio\VC98\Include\BASETSD.H"\
+	".\x_debug.hpp"\
+	".\x_target.hpp"\
+	".\x_time.hpp"\
+	".\x_types.hpp"\
+	
+
+.\Implementation\x_vsprintf.cpp : \
+	".\Implementation\x_memory_private.hpp"\
+	".\x_debug.hpp"\
+	".\x_memory.hpp"\
+	".\x_plus.hpp"\
+	".\x_target.hpp"\
+	".\x_types.hpp"\
+	

@@ -1,0 +1,114 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GameMgr - Win32 Linux Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "d:\temp\RSP4D2.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /O2 /I "C:\Projects\AADS\xCore" /I "C:\Projects\AADS\xCore\x_files" /I "C:\Projects\AADS\xCore\Entropy" /I "c:\projects\aads\Support" /I "c:\projects\aads" /D "TARGET_LINUX" /D "biscuit" /Fp"Linux-Release/GameMgr.pch" /YX /Fo"Linux-Release/" /Fd"Linux-Release/" /FD /GZ /c 
+"C:\Projects\AADS\Support\GameMgr\GameMgr.cpp"
+"C:\Projects\AADS\Support\GameMgr\LogMgr.cpp"
+]
+Creating command line "cl.exe @d:\temp\RSP4D2.tmp" 
+Creating temporary file "d:\temp\RSP4D3.tmp" with contents
+[
+/nologo /out:"Linux-Release\GameMgr.lib" /D:TARGET_LINUX 
+".\Linux-Release\CNH_Logic.obj"
+".\Linux-Release\CTF_Logic.obj"
+".\Linux-Release\DM_Logic.obj"
+".\Linux-Release\HUNT_Logic.obj"
+".\Linux-Release\TDM_Logic.obj"
+".\Linux-Release\GameLogic.obj"
+".\Linux-Release\GameMgr.obj"
+".\Linux-Release\LogMgr.obj"
+".\Linux-Release\MsgMgr.obj"
+]
+Creating command line "link.exe -lib @d:\temp\RSP4D3.tmp"
+<h3>Output Window</h3>
+Compiling...
+xCL -- DebugInfo[ON] Optimize[3]
+xCL -- Defines[ TARGET_LINUX, biscuit ]
+.
+GameMgr.cpp
+C:/Projects/AADS/Support/GameMgr/GameMgr.cpp: In method `void game_mgr::BalanceTeams(float)':
+C:/Projects/AADS/Support/GameMgr/GameMgr.cpp:2388: warning: `int BestCount' might be used uninitialized in this function
+LogMgr.cpp
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp: In method `void log_mgr::OpenLogFiles()':
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:1167: warning: `time_t Oldest' might be used uninitialized in this function
+Creating library...
+GameMgr.lib
+<h3>
+--------------------Configuration: *AADS* - Win32 Linux Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "d:\temp\RSP4D4.tmp" with contents
+[
+/nologo /subsystem:console /incremental:yes /pdb:"Linux-Release/aads-release.pdb" /machine:I386 /out:"t:\aads-release.elf" /pdbtype:sept /D:TARGET_LINUX 
+".\Linux-Release\fe_colors.obj"
+".\Linux-Release\fe_Globals.obj"
+".\Linux-Release\GameUser.obj"
+".\Linux-Release\Globals.obj"
+".\Linux-Release\MissionIO.obj"
+".\Linux-Release\serverman.obj"
+".\Linux-Release\event_Input.obj"
+".\Linux-Release\event_Packet.obj"
+".\Linux-Release\event_Time.obj"
+".\Linux-Release\ClientServer.obj"
+".\Linux-Release\ConnManager.obj"
+".\Linux-Release\GameClient.obj"
+".\Linux-Release\GameEventManager.obj"
+".\Linux-Release\GameServer.obj"
+".\Linux-Release\MoveManager.obj"
+".\Linux-Release\sm_common.obj"
+".\Linux-Release\sm_server.obj"
+".\Linux-Release\UpdateManager.obj"
+".\Linux-Release\Damage.obj"
+".\Linux-Release\Fog.obj"
+".\Linux-Release\Main.obj"
+".\Linux-Release\Sky.obj"
+"\Projects\AADS\xCore\Auxiliary\bitmap\Linux-Release\aux_Bitmap.lib"
+"\Projects\AADS\xCore\Entropy\Linux-Release\Entropy.lib"
+"\Projects\AADS\Support\NetLib\Linux-Release\NetLib.lib"
+"\Projects\AADS\Support\Tokenizer\Linux-Release\Tokenizer.lib"
+"\Projects\AADS\xCore\x_files\Linux-Release\x_files.lib"
+"\Projects\AADS\Support\ObjectMgr\Linux-Release\ObjectMgr.lib"
+"\Projects\AADS\Support\Objects\Terrain\Linux-Release\Terrain.lib"
+"\Projects\AADS\Support\Objects\Player\Linux-Release\PlayerObject.lib"
+"\Projects\AADS\Support\Shape\Linux-Release\Shape.lib"
+"\Projects\AADS\Support\Building\Linux-Release\BuildingObject.lib"
+"\Projects\AADS\Support\LabelSets\Linux-Release\LabelSets.lib"
+"\Projects\AADS\Support\Objects\Projectiles\Linux-Release\Projectiles.lib"
+"\Projects\AADS\Support\Objects\Bot\Linux-Release\BotObject.lib"
+"\Projects\AADS\Support\Objects\Pickups\Linux-Release\Pickups.lib"
+"\Projects\AADS\Support\Objects\Vehicles\Linux-Release\Vehicle.lib"
+"\Projects\AADS\Support\GameMgr\Linux-Release\GameMgr.lib"
+"\Projects\AADS\Support\HUD\Linux-Release\HUD.lib"
+"\Projects\AADS\Support\MasterServer\Linux-Release\MasterServer.lib"
+"\Projects\AADS\Support\CleanText\Linux-Release\CleanText.lib"
+"\Projects\AADS\Support\StringMgr\Linux-Release\StringMgr.lib"
+"\Projects\AADS\Support\UI\Linux-Release\UI.lib"
+"\Projects\AADS\Support\Particles\Linux-Release\Particles.lib"
+"\Projects\AADS\Support\AudioMgr\Linux-Release\audiomgr.lib"
+"\Projects\AADS\Support\TelnetConsole\Linux-Release\TelnetConsole.lib"
+]
+Creating command line "link.exe @d:\temp\RSP4D4.tmp"
+<h3>Output Window</h3>
+Linking...
+Creating temporary file "d:\temp\RSP4D5.bat" with contents
+[
+@echo off
+..\xcore\3rdparty\linux\bin\objcopy --strip-debug  t:\aads-release.elf t:\aads
+]
+Creating command line "d:\temp\RSP4D5.bat"
+
+
+
+
+<h3>Results</h3>
+aads-release.elf - 0 error(s), 2 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,82 @@
+;==========================================================================
+;
+; MAIN.VSM - Microcode test
+;
+;==========================================================================
+.vu
+
+;==========================================================================
+.global VUM_TERR_CODE_START
+.global VUM_TERR_CODE_END
+VUM_TERR_CODE_START:
+;==========================================================================
+
+#include "memlayout.vu"
+
+;==========================================================================
+;
+; JUMPTABLE
+;
+; !*!*!*! These instructions must be at instruction address ZERO !*!*!*!
+;
+;==========================================================================
+;FASTLOOP1:
+;        NOP     NOP
+;        NOP[E]  NOP
+;        NOP     NOP
+;        NOP     B FASTLOOP1
+;        NOP     NOP 
+
+
+        NOP                             B       BOOT
+        NOP                             NOP        
+        NOP                             B       CMD_LOADMATRICES        
+        NOP                             NOP
+		NOP								B		CMD_BLOCK0_NOCLIP
+		NOP								NOP
+		NOP								B		CMD_BLOCK0_NOCLIP_ALPHA_PACK
+		NOP								NOP
+		NOP								B		CMD_BLOCK0_CLIP
+		NOP								NOP
+		NOP								B		CMD_BLOCK0_CLIP_ALPHA_PACK
+		NOP								NOP
+		NOP								B		CMD_BLOCK0_NOCLIP_FOG_PACK
+		NOP								NOP
+		NOP								B		CMD_BLOCK0_CLIP_FOG_PACK
+		NOP								NOP
+        NOP                             B       CMD_BLOCK0_CLIP_DETAIL_PACK
+        NOP                             NOP
+        NOP                             B       CMD_BLOCK0_NOCLIP_DETAIL_PACK
+        NOP                             NOP
+        NOP                             B       CMD_BOOT_CLIPPER
+        NOP                             NOP
+        
+FASTLOOP2:
+        NOP     NOP
+        NOP[E]  NOP
+        NOP     NOP
+        NOP     B FASTLOOP2
+        NOP     NOP 
+
+
+;==========================================================================
+
+;==========================================================================
+;
+; KERNEL STUB
+;
+;==========================================================================
+
+#include "kernel.vu"
+#include "matrix.vu"
+#include "block0_noclip.vu"
+#include "block0_clip.vu"
+#include "fog.vu"
+#include "boot.vu"
+#include "clipper.vu"
+
+;==========================================================================
+VUM_TERR_CODE_END:
+;==========================================================================
+
+        

@@ -1,0 +1,885 @@
+;==========================================================================
+;
+; BLOCK0_CLIP.VSM
+;
+;==========================================================================
+;           MEMORY LAYOUT
+;==========================================================================
+;
+;       0 - INPUT_BUFFER_BASE - CMD
+;       1 - XYZ BASE
+;       2 - XYZ DELTA
+;       3 - UV  BASE
+;       4 - UV  DELTA
+;       5 - NOCLIP GIFTAG
+;       6 - CLIP GIFTAG
+;       7 - DETAIL COLOR
+;       8 - 81 INPUT VECTORS
+;     101 - 81 CLIP-SPACE POS VECTORS
+;     182 - 81 SCREEN-SPACE POS VECTORS 0xb50
+;     263 - 81 STQ VECTORS
+;     344 - 81 FOG VECTORS
+;     425 - NON-CLIPPED OUTPUT BUFFER GIFTAG FOR BLOCKING
+;     426 - NON-CLIPPED OUTPUT BUFFER GIFTAG 0x1A90
+;     427 - NON-CLIPPED OUTPUT BUFFER TRIANGLE VERTS FOR 32 TRIS = 288
+;     715 - 
+;     872 - CLIPPER DATA BEGINS
+;     
+;==========================================================================
+.equ    B0C_CLIPSPACE_OFFSET,        101
+.equ    B0C_SCREENSPACE_OFFSET,      182
+.equ    B0C_STQ_OFFSET,              263
+.equ    B0C_FOG_OFFSET,              344
+.equ    B0C_OUTPUT_OFFSET,           426
+
+
+;==========================================================================
+;
+; CMD_BLOCK0_CLIP
+;
+;==========================================================================
+;   VI00    Const (0)
+;   VI01    
+;   VI02    Ptr to src verts
+;   VI03    Ptr to dst verts
+;   VI04    Y Loop counter
+;   VI05    X Loop counter
+;   VI06    
+;   VI07    
+;   VI08    
+;   VI09    
+;   VI10    
+;   VI11    
+;   VI12    GIF packet buffer base address (for double buffering)
+;   VI13    RESERVED - Next command address in input buffer for kernel
+;   VI14    RESERVED - Current address of input buffer for kernel
+;   VI15    RESERVED - Return address for function calls
+;==========================================================================
+;   VF00    Const x=0 y=0 z=0 w=1
+;   VF01    
+;   VF02    
+;   VF03    
+;   VF04    
+;   VF05    GIFTAG
+;   VF06    
+;   VF07    
+;   VF08    
+;   VF09    Clip space position
+;   VF10    Screen STQ
+;   VF11    Screen Position
+;   VF12    Transformed position
+;   VF13    Position
+;   VF14    Current XYZ in Y
+;   VF15    Current XYZ in X
+;   VF16    XYZDelta
+;   VF17    Current UV in Y
+;   VF18    Current UV in X
+;   VF19    UVDelta
+;   VF20    Active local to screen matrix qword 0
+;   VF21    Active local to screen matrix qword 1
+;   VF22    Active local to screen matrix qword 2
+;   VF23    Active local to screen matrix qword 3
+;   VF24    Active local to clip matrix qword 0 
+;   VF25    Active local to clip matrix qword 1 
+;   VF26    Active local to clip matrix qword 2 
+;   VF27    Active local to clip matrix qword 3 
+;   VF28    Active clip to screen matrix qword 0
+;   VF29    Active clip to screen matrix qword 1
+;   VF30    Active clip to screen matrix qword 2
+;   VF31    Active clip to screen matrix qword 3
+;==========================================================================
+
+CMD_BLOCK0_CLIP:
+
+        ; Copy triangle giftag to output buffer
+        NOP                             LQ VF01, 5(VI00)
+        NOP                             SQ VF01, (B0C_OUTPUT_OFFSET-1)(VI00)
+        NOP                             SQ VF01, (B0C_OUTPUT_OFFSET+0)(VI00)
+
+        ; Copy fan giftag to clipper
+        NOP                             LQ VF01, 6(VI00)
+        NOP                             SQ VF01, CLIPPER_GIF_VERTS_0(VI00)
+        NOP                             SQ VF01, CLIPPER_GIF_VERTS_1(VI00)
+        ;NOP                             SQ VF01, CLIPPER_GIF_STALL(VI00)
+
+        ; Get address to source and dest verts
+        NOP                             IADDIU  VI02, VI00, 8
+        NOP                             IADDIU  VI03, VI00, B0C_CLIPSPACE_OFFSET
+
+        ; Init X loop counter
+        NOP                             IADDIU VI04, VI00, 9
+
+        ; Init XYZ and UV
+        NOP                             LQ VF14, 1(VI00)
+        NOP                             LQ VF16, 2(VI00)
+        NOP                             LQ VF17, 3(VI00)
+        NOP                             LQ VF19, 4(VI00)
+
+B0C_BVERT_LOOP_X:
+
+        ; Init XYZ and UV for ZLoop
+        NOP                             MOVE.xyzw VF15, VF14
+        NOP                             MOVE.xyzw VF18, VF17
+
+        ; Init Z Loop counter
+        NOP                             IADDIU VI05, VI00, 9
+
+        ; Decrement X Loop count
+        NOP                             IADDI VI04, VI04, -1
+
+B0C_BVERT_LOOP_Z:
+
+        ; Decrement Z Loop count
+        NOP                             IADDI VI05, VI05, -1
+
+        ; Read Height value from input
+        NOP                             LQ VF13, 0(VI02)
+
+        ; Convert height value to float
+        ITOF4.xyzw VF13, VF13           NOP
+
+        ; Poke in Z and X for current point
+        NOP                             MOVE.xzw VF13xzw, VF15xzw
+
+        ; Transform Point into clip space
+        MULAx.xyzw  ACC, VF24, VF13x    NOP                             ; transform vert
+        MADDAy.xyzw ACC, VF25, VF13y    NOP                             ; transform vert
+        MADDAz.xyzw ACC, VF26, VF13z    NOP                             ; transform vert
+        MADDw.xyzw VF09, VF27, VF13w    NOP                             ; transform vert
+
+        ; Transform clip space vert into screen space and project
+        MULAx.xyzw  ACC, VF28, VF09x    NOP                             ; transform vert
+        MADDAy.xyzw ACC, VF29, VF09y    NOP                             ; transform vert
+        MADDAz.xyzw ACC, VF30, VF09z    NOP                             ; transform vert
+        MADDw.xyzw VF12, VF31, VF09w    NOP                             ; transform vert
+        NOP                             DIV Q, VF00w, VF12w             ; Start divide
+        NOP                             WAITQ
+        MULq.xyzw  VF11, VF12, Q        NOP                             ; project vert
+        MULq.w VF13w, VF00w, Q          NOP                             ; store Q for fog
+
+        NOP                             MOVE.xyz VF10xyz, VF18xyz
+        MULq.w  VF10w, VF18w, Q         NOP                             ; project stq???
+
+        FTOI4.xyzw VF11, VF11           NOP                             ; convert XYZ to fixed
+
+        ; Store back into dest
+        NOP                             SQ VF09, 0(VI03)                ; clip space vert
+        NOP                             SQ VF11, 81(VI03)               ; screen space vert
+        NOP                             SQ VF10, 162(VI03)              ; stq
+        NOP                             SQ VF13, 243(VI03)              ; store world pos/Q for fogging
+
+        ; Increment ptrs
+        NOP                             IADDIU VI02, VI02, 1
+        NOP                             IADDIU VI03, VI03, 1
+
+        ; Increment Z and U in position
+        ADD.z VF15z, VF15z, VF16z       NOP
+        ADD.x VF18x, VF18x, VF19x       NOP
+
+        ; Continue ZLoop
+        NOP                             IBNE VI05, VI00, B0C_BVERT_LOOP_Z
+        NOP                             NOP
+        
+        ; Increment X and V in position
+        ADD.x VF14x, VF14x, VF16x       NOP
+        ADD.y VF17y, VF17y, VF19y       NOP
+
+        ; Continue XLoop
+        NOP                             IBNE VI04, VI00, B0C_BVERT_LOOP_X
+        NOP                             NOP
+
+        ; Call routine to compute fog values
+        NOP                             IADDIU VI01, VI00, B0C_FOG_OFFSET
+        NOP                             IADDIU VI02, VI00, 81
+        NOP                             BAL VI15, FOG_LOOP_ENTRY_WITHOUT_Q
+        NOP                             NOP
+
+        ; Copy detail color into VI19
+        NOP                             LQ VF19, 7(VI00)
+
+        NOP                             B KERNEL_RET                    ; Return to kernel 
+        NOP                             NOP                             ; BDS
+
+;==========================================================================
+; PACK_RENDER
+;==========================================================================
+;   VI00    Const (0)
+;   VI01    
+;   VI02    Square Cull bit
+;   VI03    Square Cull mask
+;   VI04    Return address
+;   VI05    Use Fog colors
+;   VI06    Diagonal flip counter
+;   VI07    Max verts per buffer
+;   VI08    Src buffer ptr
+;   VI09    Output buffer dest ptr
+;   VI10    Y Loop counter
+;   VI11    X Loop counter
+;   VI12    Num verts in output buffer
+;   VI13    RESERVED - Next command address in input buffer for kernel
+;   VI14    Build Detail map uvs
+;   VI15    RESERVED - Return address for function calls
+;==========================================================================
+;   VF00    Const x=0 y=0 z=0 w=1
+;   VF01    Clip vert 0
+;   VF02    Clip vert 1
+;   VF03    Clip vert 2
+;   VF04    STQ 0
+;   VF05    STQ 1
+;   VF06    STQ 2
+;   VF07    RGB 0
+;   VF08    RGB 1
+;   VF09    RGB 2
+;   VF10    Clip vert 3
+;   VF11    STQ 3
+;   VF12    RGB 3
+;   VF13    Screen vert 0
+;   VF14    Screen vert 1
+;   VF15    Screen vert 2
+;   VF16    Screen vert 3
+;   VF17    
+;   VF18    UV Tiling multiplier
+;   VF19    Const vertex color 128,128,128,128
+;==========================================================================
+B0C_PACK_RENDER:
+
+        ; Init diagonal flip counter
+        NOP                             IADDIU VI06, VI00, 0
+
+        ; Load max verts per buffer
+        NOP                             IADDIU VI07, VI00, 48
+
+        ; Clear vert count in output buffer
+        NOP                             IADDIU VI12, VI00, 0
+
+        ; Build vertex lighting value
+        ;SUB.xyzw VF19, VF00, VF00       LOI 128.0
+        ;ADDi.xyzw VF19, VF19, I         NOP
+        ;FTOI0 VF19, VF19                NOP
+
+        ; Clear Y Loop counter
+        NOP                             IADDIU VI10, VI00, 8
+
+        ; Clear dest ptr
+        NOP                             IADDIU VI09, VI00, B0C_OUTPUT_OFFSET+1
+
+        ; Clear src ptr
+        NOP                             IADDIU VI08, VI00, B0C_CLIPSPACE_OFFSET
+
+B0C_AP_LOOP_Y:
+
+        ; Decrement Y Loop count
+        NOP                             IADDI VI10, VI10, -1
+
+        ; Read square cull mask and reset cull bit
+        NOP                             ILW.x VI03, SQUARE_CULL_MASKS(VI10)
+        NOP                             IADDIU VI02, VI00, 1
+
+        ; Clear X Loop counter
+        NOP                             IADDIU VI11, VI00, 8
+
+B0C_AP_LOOP_X:
+
+        ; Increment total tris processed
+        ;NOP                             ILW.x VI01, 1023(VI00)
+        ;NOP                             IADDIU VI01, VI01, 2
+        ;NOP                             ISW.x VI01, 1023(VI00)
+
+        ; Check if square is culled
+        NOP                             IAND VI01, VI02, VI03
+
+        ; Decrement X Loop count
+        NOP                             IADDI VI11, VI11, -1
+
+        ; Check square if culled
+        NOP                             IBNE VI01, VI00, B0C_CULL
+        NOP                             IADD VI02, VI02, VI02
+
+        ; ----------------------------------------------------------------
+        ; Load clip space positions and decide on clipping/reject/accept
+        ; ----------------------------------------------------------------
+
+        ; Read clip space positions
+        NOP                             LQ VF01, ( 0)(VI08)
+        NOP                             LQ VF02, ( 9)(VI08)
+        NOP                             LQ VF03, (10)(VI08)
+        NOP                             LQ VF04, ( 1)(VI08)
+
+        ; Get clip bits
+        CLIPw.xyz VF01xyz, VF01w        NOP                             ; Get clipflags
+        CLIPw.xyz VF02xyz, VF02w        NOP                             ; Get clipflags
+        CLIPw.xyz VF03xyz, VF03w        NOP                             ; Get clipflags
+        CLIPw.xyz VF04xyz, VF04w        NOP                             ; Get clipflags
+        NOP                             NOP
+        NOP                             NOP
+        NOP                             NOP
+
+        ; Do trivial acceptance check
+        NOP                             FCAND VI01, 0xFFFFFF             
+        NOP                             NOP
+        NOP                             IBEQ VI01, VI00, BOC_TRIVIAL_ACCEPT
+        NOP                             NOP
+
+        ; Do trivial rejection        
+        NOP                             FCOR VI01, 0xFBEFBE ; ^0x041041 X+   ; trivial rejection
+        NOP                             IBNE VI01, VI00, B0C_CULL
+        NOP                             FCOR VI01, 0xF7DF7D ; ^0x082082 X-
+        NOP                             IBNE VI01, VI00, B0C_CULL
+        NOP                             FCOR VI01, 0xDF7DF7 ; ^0x208208 Y-
+        NOP                             IBNE VI01, VI00, B0C_CULL
+        NOP                             FCOR VI01, 0xEFBEFB ; ^0x104104 Y+
+        NOP                             IBNE VI01, VI00, B0C_CULL
+        NOP                             FCOR VI01, 0x7DF7DF ; ^0x820820 Z-
+        NOP                             IBNE VI01, VI00, B0C_CULL
+        NOP                             FCOR VI01, 0xBEFBEF ; ^0x410410 Z+
+        NOP                             IBNE VI01, VI00, B0C_CULL
+        NOP                             NOP
+
+        ;NOP                             B B0C_CULL
+        ;NOP                             NOP
+
+        ; ----------------------------------------------------------------
+        ; We need to clip... decide which diagonal
+        ; ----------------------------------------------------------------
+
+        ; Increment clipped tri counter
+        NOP                             ILW.z VI01, 1023(VI00)
+        NOP                             IADDIU VI01, VI01, 2
+        NOP                             ISW.z VI01, 1023(VI00)
+
+        ; Decide whether to do diagonal or not
+        NOP                             IADDIU VI01, VI00, 1
+        NOP                             IAND VI01, VI06, VI01
+        NOP                             NOP
+        NOP                             IBNE VI01, VI00, B0C_CLIP_DO_DIAG
+        NOP                             NOP
+
+        ; ----------------------------------------------------------------
+        ; Clip - NON-DIAGONAL
+        ; ----------------------------------------------------------------
+
+        ; Read clip space positions
+        NOP                             LQ VF01, ( 0)(VI08)
+        NOP                             LQ VF02, (10)(VI08)
+        NOP                             LQ VF03, ( 9)(VI08)
+
+        ; Setup vertex colors
+        NOP                             MOVE.xyzw VF07, VF19
+        NOP                             MOVE.xyzw VF08, VF19
+        NOP                             MOVE.xyzw VF09, VF19
+
+        ; Check for detail stqs         
+        NOP                             IBEQ VI14, VI00, SKIP_DETAIL_STQ_A
+        NOP                             LOI 2.0
+        NOP                             LQ VF04, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 0)(VI08)
+        NOP                             LQ VF05, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ VF06, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 9)(VI08)
+        SUB.xy VF04, VF04, VF04         NOP
+        SUB.xy VF05, VF05, VF05         NOP
+        SUB.xy VF06, VF06, VF06         NOP
+        ADDi.xy VF05, VF05, I           NOP
+        ADDi.y VF06, VF06, I            NOP
+        NOP                             B SKIP_FOG_STQ_A
+        NOP                             NOP
+        SKIP_DETAIL_STQ_A:
+
+        NOP                             IBNE VI05, VI00, USE_FOG_STQ_A
+        NOP                             LQ VF04, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 0)(VI08)
+        NOP                             LQ VF05, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ VF06, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 9)(VI08)
+        NOP                             LQ.w VF07, ((1-B0C_CLIPSPACE_OFFSET)+ 0)(VI08)
+        NOP                             LQ.w VF08, ((1-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ.w VF09, ((1-B0C_CLIPSPACE_OFFSET)+ 9)(VI08)
+        NOP                             B SKIP_FOG_STQ_A
+        NOP                             NOP
+        USE_FOG_STQ_A:
+        NOP                             LQ VF04, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+ 0)(VI08)
+        NOP                             LQ VF05, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ VF06, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+ 9)(VI08)
+        SKIP_FOG_STQ_A:
+        
+        NOP                             BAL VI15, CLIPPER_ENTRY
+        NOP                             NOP
+
+        ; ----------------------------------------------------------------
+
+        ; Read clip space positions
+        NOP                             LQ VF01, ( 0)(VI08)
+        NOP                             LQ VF02, (10)(VI08)
+        NOP                             LQ VF03, ( 1)(VI08)
+
+        ; Setup vertex colors
+        NOP                             MOVE.xyzw VF07, VF19
+        NOP                             MOVE.xyzw VF08, VF19
+        NOP                             MOVE.xyzw VF09, VF19
+
+        ; Check for detail stqs         
+        NOP                             IBEQ VI14, VI00, SKIP_DETAIL_STQ_B
+        NOP                             LOI 2.0
+        NOP                             LQ VF04, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 0)(VI08)
+        NOP                             LQ VF05, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ VF06, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 1)(VI08)
+        SUB.xy VF04, VF04, VF04         NOP
+        SUB.xy VF05, VF05, VF05         NOP
+        SUB.xy VF06, VF06, VF06         NOP
+        ADDi.xy VF05, VF05, I           NOP
+        ADDi.x  VF06, VF06, I           NOP
+        NOP                             B SKIP_FOG_STQ_B
+        NOP                             NOP
+        SKIP_DETAIL_STQ_B:
+
+        ; Read stqs
+        NOP                             IBNE VI05, VI00, USE_FOG_STQ_B
+        NOP                             LQ VF04, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 0)(VI08)
+        NOP                             LQ VF05, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ VF06, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 1)(VI08)
+        NOP                             LQ.w VF07, ((1-B0C_CLIPSPACE_OFFSET)+ 0)(VI08)
+        NOP                             LQ.w VF08, ((1-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ.w VF09, ((1-B0C_CLIPSPACE_OFFSET)+ 1)(VI08)
+        NOP                             B SKIP_FOG_STQ_B
+        NOP                             NOP
+        USE_FOG_STQ_B:
+        NOP                             LQ VF04, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+ 0)(VI08)
+        NOP                             LQ VF05, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ VF06, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+ 1)(VI08)
+        SKIP_FOG_STQ_B:
+
+        NOP                             BAL VI15, CLIPPER_ENTRY
+        NOP                             NOP
+
+        NOP                             B B0C_CULL
+        NOP                             NOP
+
+B0C_CLIP_DO_DIAG:
+
+        ; ----------------------------------------------------------------
+        ; Clip - DIAGONAL
+        ; ----------------------------------------------------------------
+        
+        ; Read clip space positions
+        NOP                             LQ VF01, ( 9)(VI08)
+        NOP                             LQ VF02, ( 1)(VI08)
+        NOP                             LQ VF03, (10)(VI08)
+
+        ; Setup vertex colors
+        NOP                             MOVE.xyzw VF07, VF19
+        NOP                             MOVE.xyzw VF08, VF19
+        NOP                             MOVE.xyzw VF09, VF19
+
+        ; Check for detail stqs         
+        NOP                             IBEQ VI14, VI00, SKIP_DETAIL_STQ_C
+        NOP                             LOI 2.0
+        NOP                             LQ VF04, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 9)(VI08)
+        NOP                             LQ VF05, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 1)(VI08)
+        NOP                             LQ VF06, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        SUB.xy VF04, VF04, VF04         NOP
+        SUB.xy VF05, VF05, VF05         NOP
+        SUB.xy VF06, VF06, VF06         NOP
+        ADDi.y  VF04, VF04, I           NOP
+        ADDi.x  VF05, VF05, I           NOP
+        ADDi.xy VF06, VF06, I           NOP
+        NOP                             B SKIP_FOG_STQ_C
+        NOP                             NOP
+        SKIP_DETAIL_STQ_C:
+
+        ; Read stqs
+        NOP                             IBNE VI05, VI00, USE_FOG_STQ_C
+        NOP                             LQ VF04, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 9)(VI08)
+        NOP                             LQ VF05, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 1)(VI08)
+        NOP                             LQ VF06, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ.w VF07, ((1-B0C_CLIPSPACE_OFFSET)+ 9)(VI08)
+        NOP                             LQ.w VF08, ((1-B0C_CLIPSPACE_OFFSET)+ 1)(VI08)
+        NOP                             LQ.w VF09, ((1-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             B SKIP_FOG_STQ_C
+        NOP                             NOP
+        USE_FOG_STQ_C:
+        NOP                             LQ VF04, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+ 9)(VI08)
+        NOP                             LQ VF05, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+ 1)(VI08)
+        NOP                             LQ VF06, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        SKIP_FOG_STQ_C:
+
+        NOP                             BAL VI15, CLIPPER_ENTRY
+        NOP                             NOP
+
+        ; ----------------------------------------------------------------
+
+        ; Read clip space positions
+        NOP                             LQ VF01, ( 9)(VI08)
+        NOP                             LQ VF02, ( 1)(VI08)
+        NOP                             LQ VF03, ( 0)(VI08)
+
+        ; Setup vertex colors
+        NOP                             MOVE.xyzw VF07, VF19
+        NOP                             MOVE.xyzw VF08, VF19
+        NOP                             MOVE.xyzw VF09, VF19
+
+        ; Check for detail stqs         
+        NOP                             IBEQ VI14, VI00, SKIP_DETAIL_STQ_D
+        NOP                             LOI 2.0
+        NOP                             LQ VF04, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 9)(VI08)
+        NOP                             LQ VF05, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 1)(VI08)
+        NOP                             LQ VF06, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 0)(VI08)
+        SUB.xy VF04, VF04, VF04         NOP
+        SUB.xy VF05, VF05, VF05         NOP
+        SUB.xy VF06, VF06, VF06         NOP
+        ADDi.y  VF04, VF04, I           NOP
+        ADDi.x  VF05, VF05, I           NOP
+        NOP                             B SKIP_FOG_STQ_D
+        NOP                             NOP
+        SKIP_DETAIL_STQ_D:
+
+        ; Read stqs
+        NOP                             IBNE VI05, VI00, USE_FOG_STQ_D
+        NOP                             LQ VF04, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 9)(VI08)
+        NOP                             LQ VF05, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 1)(VI08)
+        NOP                             LQ VF06, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 0)(VI08)
+        NOP                             LQ.w VF07, ((1-B0C_CLIPSPACE_OFFSET)+ 9)(VI08)
+        NOP                             LQ.w VF08, ((1-B0C_CLIPSPACE_OFFSET)+ 1)(VI08)
+        NOP                             LQ.w VF09, ((1-B0C_CLIPSPACE_OFFSET)+ 0)(VI08)
+        NOP                             B SKIP_FOG_STQ_D
+        NOP                             NOP
+        USE_FOG_STQ_D:
+        NOP                             LQ VF04, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+ 9)(VI08)
+        NOP                             LQ VF05, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+ 1)(VI08)
+        NOP                             LQ VF06, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+ 0)(VI08)
+        SKIP_FOG_STQ_D:
+
+        NOP                             BAL VI15, CLIPPER_ENTRY
+        NOP                             NOP
+
+        NOP                             B B0C_CULL
+        NOP                             NOP
+
+        ; ----------------------------------------------------------------
+        ; Trivial acceptance
+        ; ----------------------------------------------------------------
+
+BOC_TRIVIAL_ACCEPT:
+
+        ; Increment un-clipped tri counter
+        NOP                             ILW.y VI01, 1023(VI00)
+        NOP                             IADDIU VI01, VI01, 2
+        NOP                             ISW.y VI01, 1023(VI00)
+
+        ; Decide whether to do diagonal or not
+        NOP                             IADDIU VI01, VI00, 1
+        NOP                             IAND VI01, VI06, VI01
+        NOP                             NOP
+        NOP                             IBNE VI01, VI00, B0C_NOCLIP_DO_DIAG
+        NOP                             NOP
+
+        ; ----------------------------------------------------------------
+        ; NoClip - NON-DIAGONAL
+        ; ----------------------------------------------------------------
+
+        ; Read screen space positions
+        NOP                             LQ VF13, ((B0C_SCREENSPACE_OFFSET-B0C_CLIPSPACE_OFFSET)+0)(VI08)
+        NOP                             LQ VF14, ((B0C_SCREENSPACE_OFFSET-B0C_CLIPSPACE_OFFSET)+9)(VI08)
+        NOP                             LQ VF15, ((B0C_SCREENSPACE_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ VF16, ((B0C_SCREENSPACE_OFFSET-B0C_CLIPSPACE_OFFSET)+1)(VI08)
+
+        ; Setup vertex colors
+        NOP                             MOVE.xyzw VF07, VF19
+        NOP                             MOVE.xyzw VF08, VF19
+        NOP                             MOVE.xyzw VF09, VF19
+        NOP                             MOVE.xyzw VF12, VF19
+
+        ; Check for detail stqs         
+        NOP                             IBEQ VI14, VI00, SKIP_DETAIL_STQ_E
+        NOP                             LOI 2.0
+        NOP                             LQ VF04, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 0)(VI08)
+        NOP                             LQ VF05, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 9)(VI08)
+        NOP                             LQ VF06, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ VF11, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 1)(VI08)
+        SUB.xy VF04, VF04, VF04         NOP
+        SUB.xy VF05, VF05, VF05         NOP
+        SUB.xy VF06, VF06, VF06         NOP
+        SUB.xy VF11, VF11, VF11         NOP
+        ADDi.y  VF05, VF05, I           NOP
+        ADDi.xy VF06, VF06, I           NOP
+        ADDi.x  VF11, VF11, I           NOP
+        NOP                             B SKIP_FOG_STQ_E
+        NOP                             NOP
+        SKIP_DETAIL_STQ_E:
+
+        ; Read stqs
+        NOP                             IBNE VI05, VI00, USE_FOG_STQ_E
+        NOP                             LQ VF04, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+0)(VI08)
+        NOP                             LQ VF05, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+9)(VI08)
+        NOP                             LQ VF06, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ VF11, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+1)(VI08)
+        NOP                             LQ.w VF07, ((1-B0C_CLIPSPACE_OFFSET)+0)(VI08)
+        NOP                             LQ.w VF08, ((1-B0C_CLIPSPACE_OFFSET)+9)(VI08)
+        NOP                             LQ.w VF09, ((1-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ.w VF12, ((1-B0C_CLIPSPACE_OFFSET)+1)(VI08)
+        NOP                             B SKIP_FOG_STQ_E
+        NOP                             NOP
+        USE_FOG_STQ_E:
+        NOP                             LQ VF04, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+ 0)(VI08)
+        NOP                             LQ VF05, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+ 9)(VI08)
+        NOP                             LQ VF06, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ VF011,((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+ 1)(VI08)
+        SKIP_FOG_STQ_E:
+
+        NOP                             B BOC_NOCLIP_WRITE
+        NOP                             NOP
+
+B0C_NOCLIP_DO_DIAG:
+
+        ; ----------------------------------------------------------------
+        ; NoClip - DIAGONAL
+        ; ----------------------------------------------------------------
+
+        ; Read screen space positions
+        NOP                             LQ VF13, ((B0C_SCREENSPACE_OFFSET-B0C_CLIPSPACE_OFFSET)+9)(VI08)
+        NOP                             LQ VF14, ((B0C_SCREENSPACE_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ VF15, ((B0C_SCREENSPACE_OFFSET-B0C_CLIPSPACE_OFFSET)+1)(VI08)
+        NOP                             LQ VF16, ((B0C_SCREENSPACE_OFFSET-B0C_CLIPSPACE_OFFSET)+0)(VI08)
+
+        ; Setup vertex colors
+        NOP                             MOVE.xyzw VF07, VF19
+        NOP                             MOVE.xyzw VF08, VF19
+        NOP                             MOVE.xyzw VF09, VF19
+        NOP                             MOVE.xyzw VF12, VF19
+
+        ; Check for detail stqs         
+        NOP                             IBEQ VI14, VI00, SKIP_DETAIL_STQ_F
+        NOP                             LOI 2.0
+        NOP                             LQ VF04, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 9)(VI08)
+        NOP                             LQ VF05, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ VF06, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 1)(VI08)
+        NOP                             LQ VF11, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+ 0)(VI08)
+        SUB.xy VF04, VF04, VF04         NOP
+        SUB.xy VF05, VF05, VF05         NOP
+        SUB.xy VF06, VF06, VF06         NOP
+        SUB.xy VF11, VF11, VF11         NOP
+        ADDi.y  VF04, VF04, I           NOP
+        ADDi.xy VF05, VF05, I           NOP
+        ADDi.x  VF06, VF06, I           NOP
+        NOP                             B SKIP_FOG_STQ_F
+        NOP                             NOP
+        SKIP_DETAIL_STQ_F:
+
+        ; Read stqs
+        NOP                             IBNE VI05, VI00, USE_FOG_STQ_F
+        NOP                             LQ VF04, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+9)(VI08)
+        NOP                             LQ VF05, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ VF06, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+1)(VI08)
+        NOP                             LQ VF11, ((B0C_STQ_OFFSET-B0C_CLIPSPACE_OFFSET)+0)(VI08)
+        NOP                             LQ.w VF07, ((1-B0C_CLIPSPACE_OFFSET)+9)(VI08)
+        NOP                             LQ.w VF08, ((1-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ.w VF09, ((1-B0C_CLIPSPACE_OFFSET)+1)(VI08)
+        NOP                             LQ.w VF12, ((1-B0C_CLIPSPACE_OFFSET)+0)(VI08)
+        NOP                             B SKIP_FOG_STQ_F
+        NOP                             NOP
+        USE_FOG_STQ_F:
+        NOP                             LQ VF04, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+ 9)(VI08)
+        NOP                             LQ VF05, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+10)(VI08)
+        NOP                             LQ VF06, ((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+ 1)(VI08)
+        NOP                             LQ VF011,((B0C_FOG_OFFSET-B0C_CLIPSPACE_OFFSET)+ 0)(VI08)
+        SKIP_FOG_STQ_F:
+
+BOC_NOCLIP_WRITE:
+
+        ; ----------------------------------------------------------------
+        ; Write trivially accepted verts to output buffer
+        ; ----------------------------------------------------------------
+
+        ; Apply Q to ST
+        MULw.xyz  VF04xyz, VF04xyz, VF04w  NOP
+        MULw.xyz  VF05xyz, VF05xyz, VF05w  NOP
+        MULw.xyz  VF06xyz, VF06xyz, VF06w  NOP
+        MULw.xyz  VF11xyz, VF11xyz, VF11w  NOP
+
+        ; Write verts to output buffer
+        NOP                             SQ VF04, 0(VI09)    ; stq
+        NOP                             SQ VF07, 1(VI09)    ; rgba
+        NOP                             SQ VF13, 2(VI09)    ; position
+
+        NOP                             SQ VF06, 3(VI09)    ; stq
+        NOP                             SQ VF09, 4(VI09)    ; rgba
+        NOP                             SQ VF15, 5(VI09)    ; position
+
+        NOP                             SQ VF05, 6(VI09)    ; stq
+        NOP                             SQ VF08, 7(VI09)    ; rgba
+        NOP                             SQ VF14, 8(VI09)    ; position
+
+        NOP                             SQ VF04, 9(VI09)    ; stq
+        NOP                             SQ VF07,10(VI09)    ; rgba
+        NOP                             SQ VF13,11(VI09)    ; position
+
+        NOP                             SQ VF06,12(VI09)    ; stq
+        NOP                             SQ VF09,13(VI09)    ; rgba
+        NOP                             SQ VF15,14(VI09)    ; position
+
+        NOP                             SQ VF11,15(VI09)    ; stq
+        NOP                             SQ VF12,16(VI09)    ; rgba
+        NOP                             SQ VF16,17(VI09)    ; position
+
+        ; Increment output vert count
+        NOP                             IADDIU VI12, VI12, 6
+
+        ; Increment output dest ptr
+        NOP                             IADDIU VI09, VI09, 18
+
+        ; Check if buffer is full and flush if necessary
+        NOP                             IBNE VI12, VI07, BOC_AP_SKIP_FLUSH
+        NOP                             NOP
+        NOP                             IADDIU VI12, VI12, 0x7FFF
+        NOP                             IADDIU VI12, VI12, 0x01
+        NOP                             ISW.x VI12, B0C_OUTPUT_OFFSET(VI00)
+        NOP                             IADDIU VI01, VI00, B0C_OUTPUT_OFFSET
+        NOP                             NOP
+        NOP                             NOP
+        NOP                             XGKICK VI01
+        NOP                             NOP
+        NOP                             IADDIU VI12, VI00, 0
+        NOP                             IADDIU VI09, VI00, B0C_OUTPUT_OFFSET+1
+        NOP                             NOP
+        NOP                             NOP
+        NOP                             NOP
+        NOP                             IADDIU VI01, VI00, B0C_OUTPUT_OFFSET-1
+        NOP                             NOP
+        NOP                             NOP
+        NOP                             NOP
+        NOP                             XGKICK VI01
+        NOP                             NOP
+        NOP                             NOP
+        BOC_AP_SKIP_FLUSH:
+
+B0C_CULL:
+
+        ; Increment diagonal flip counter
+        NOP                             IADDIU VI06, VI06, 1
+
+        ; Increment src ptr
+        NOP                             IADDIU VI08, VI08, 1
+
+        ; Continue X Loop
+        NOP                             IBNE VI11, VI00, B0C_AP_LOOP_X
+        NOP                             NOP
+
+        ; Wrap around source ptr
+        NOP                             IADDIU VI08, VI08, 1
+
+        ; Increment diagonal flip counter
+        NOP                             IADDIU VI06, VI06, 1
+
+        ; Continue Y Loop
+        NOP                             IBNE VI10, VI00, B0C_AP_LOOP_Y
+        NOP                             NOP
+
+        ; Finished doing looping. Check if we need to kick any last verts in buffer
+        NOP                             IBEQ VI12, VI00, BOC_AP_NO_FLUSH
+        NOP                             IADDIU VI12, VI12, 0x7FFF
+        NOP                             IADDIU VI12, VI12, 0x01
+        NOP                             ISW.x VI12, B0C_OUTPUT_OFFSET(VI00)
+        NOP                             IADDIU VI01, VI00, B0C_OUTPUT_OFFSET
+        NOP                             NOP
+        NOP                             NOP
+        NOP                             XGKICK VI01
+        NOP                             NOP
+        NOP                             NOP
+        NOP                             NOP
+        NOP                             IADDIU VI01, VI00, B0C_OUTPUT_OFFSET-1
+        NOP                             NOP
+        NOP                             NOP
+        NOP                             NOP
+        ;NOP                             XGKICK VI01
+        NOP                             NOP
+        NOP                             NOP
+        BOC_AP_NO_FLUSH:
+
+        NOP                             JR VI04
+        NOP                             NOP
+
+;==========================================================================
+
+CMD_BLOCK0_CLIP_ALPHA_PACK:
+
+        ;SUB.xyzw VF19, VF00, VF00       LOI 200.0
+        ;ADDi.xyzw VF19, VF19, I         NOP
+        ;FTOI0 VF19, VF19                NOP
+
+        NOP                             IADDIU VI14, VI00, 0
+        NOP                             IADDIU VI05, VI00, 0
+        NOP                             BAL VI04, B0C_PACK_RENDER
+        NOP                             NOP
+        NOP                             B KERNEL_RET                    ; Return to kernel 
+        NOP                             NOP                             ; BDS
+
+;==========================================================================
+
+CMD_BLOCK0_CLIP_DETAIL_PACK:
+
+/*
+        ; Build new UVs for all the verts
+        ; Derive Detail UVs from previous uvs
+        SUB.xyzw VF18, VF00, VF00       LOI 16.0
+        ADDi.xy  VF18, VF18, I          LOI 8.0
+        ADDi.z   VF18, VF18, I          IADDIU VI01, VI00, 81
+        NOP                             IADDIU VI02, VI00, B0C_STQ_OFFSET
+BC_DETAIL_UV_LOOP:
+        NOP                             ISUBIU VI01, VI01, 3
+        NOP                             LQ VF01, 0(VI02)
+        NOP                             LQ VF02, 1(VI02)
+        NOP                             LQ VF03, 2(VI02)
+        MUL.xy VF01xy, VF01xy, VF18xy   NOP
+        MUL.xy VF02xy, VF02xy, VF18xy   NOP
+        MUL.xy VF03xy, VF03xy, VF18xy   NOP
+        SUBz.xy VF01xy, VF01xy, VF18z   NOP
+        SUBz.xy VF02xy, VF02xy, VF18z   NOP
+        SUBz.xy VF03xy, VF03xy, VF18z   NOP
+        NOP                             SQ VF01, 0(VI02)
+        NOP                             SQ VF02, 1(VI02)
+        NOP                             SQ VF03, 2(VI02)
+        NOP                             IADDIU VI02, VI02, 3
+        NOP                             IBNE VI01, VI00, BC_DETAIL_UV_LOOP
+        NOP                             NOP
+*/
+/*
+        ; Clear area where alpha's would normally be with vert colors
+        SUB.xyzw VF19, VF00, VF00       LOI 128.0
+        ADDi.xyzw VF19, VF19, I         IADDIU VI01, VI00, 81
+        FTOI0 VF19, VF19                IADDIU VI02, VI00, 1
+BC_DETAIL_COLOR_LOOP:
+        NOP                             ISUBIU VI01, VI01, 1
+        NOP                             SQI VF19, (VI02++)
+        NOP                             IBNE VI01, VI00, BC_DETAIL_COLOR_LOOP
+        NOP                             NOP
+*/
+
+        NOP                             IADDIU VI14, VI00, 1
+        NOP                             IADDIU VI05, VI00, 0
+        NOP                             BAL VI04, B0C_PACK_RENDER
+        NOP                             NOP
+        NOP                             B KERNEL_RET                    ; Return to kernel 
+        NOP                             NOP                             ; BDS
+
+;==========================================================================
+
+CMD_BLOCK0_CLIP_FOG_PACK:
+
+        ; Setup color for fog verts
+        SUB.xyzw VF19, VF00, VF00       LOI 128.0
+        ADDi.xyzw VF19, VF19, I         NOP
+        FTOI0 VF19, VF19                NOP
+
+        ; Copy triangle giftag to output buffer
+        NOP                             LQ VF01, 1(VI00)
+        NOP                             SQ VF01, (B0C_OUTPUT_OFFSET-1)(VI00)
+        NOP                             SQ VF01, (B0C_OUTPUT_OFFSET+0)(VI00)
+
+        ; Copy fan giftag to clipper
+        NOP                             LQ VF01, 2(VI00)
+        NOP                             SQ VF01, CLIPPER_GIF_VERTS_0(VI00)
+        NOP                             SQ VF01, CLIPPER_GIF_VERTS_1(VI00)
+
+        NOP                             IADDIU VI14, VI00, 0
+        NOP                             IADDIU VI05, VI00, 1
+        NOP                             BAL VI04, B0C_PACK_RENDER
+        NOP                             NOP
+        NOP                             B KERNEL_RET                    ; Return to kernel 
+        NOP                             NOP                             ; BDS
+
+;==========================================================================

@@ -1,0 +1,78 @@
+# <NETCNF>
+
+type ppp
+-dhcp
+
+
+# replace these with your ISP information
+#phone_number0 "9,3811045"
+#auth_name "MSN/inevitable1"
+#auth_key "lemmings"
+phone_number0 "9,4850896"
+auth_name "inevitable1"
+auth_key  "inevitable1"
+
+
+# should not need to change these
+peer_name "*"
+peer_key ""
+allow.auth chap/pap
+
+connect_timeout 90
+
+# debug flags for inetlog.irx
+#        phase      The PPP status is displayed.
+#        cp         The LCP or IPCP status is displayed.
+#        auth       The PAP or CHAP status is displayed.
+#        chat       Chat processing and replies are displayed.
+#        private    Private information within the chat
+#                   script is also displayed.
+#        dll        The exchange of data at the DLL level is
+#                   displayed.
+#        dump       A packet dump is also performed when the
+#                   DLL data is displayed.
+#        timer      Timer-related information is displayed.
+#        event      Events generated for PPP are displayed.
+#        <number>   Directly specifies a numeric value for
+#                   the above flag values.
+log_flags phase chat event auth
+
+
+## --------------------------------------------------
+## by default, these are auto-negotiated by PPP
+##
+
+#-address <address>
+#-netmask <netmask>
+
+#want.address_nego
+#allow.address_nego
+#want.ip_address <address>
+#want.ip_mask <netmask>
+#allow.ip_address <address>
+#allow.ip_mask <netmask>
+
+
+## --------------------------------------------------
+## add default route
+##
+
+route add default
+#route add default gw <address>
+
+
+## --------------------------------------------------
+## uncomment "want.dns?_nego" to auto-negotiate DNS
+##
+
+#nameserver add <address>
+
+want.dns1_nego
+want.dns2_nego
+allow.dns1_nego
+allow.dns2_nego
+#want.dns1 <address>
+#want.dns2 <address>
+#allow.dns1 <address>
+#allow.dns2 <address>
+

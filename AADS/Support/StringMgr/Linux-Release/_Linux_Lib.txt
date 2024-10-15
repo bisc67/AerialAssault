@@ -1,0 +1,4 @@
+create Linux-Release/StringMgr.lib
+addmod ./Linux-Release/StringMgr.obj
+save
+end 

@@ -1,0 +1,238 @@
+//==============================================================================
+// Mission file created by ConvertMission from Recalescence.mis.
+//==============================================================================
+
+//------------------------------------------------------------------------------
+//  CLIENT AND SERVER, NON-OBJECT MISSION DATA
+//------------------------------------------------------------------------------
+
+MISSION         "Recalescence"
+
+MUSIC           VOLCANIC
+
+ENVIRONMENT     LAVA
+
+SUN        -0.5774       0.5774      -0.5774    // Direction
+        178 178 178     // Direct Color
+        127 127 127     // Ambient Color
+
+FOG     128 32          // Fog Map Size
+        114  76  63     // Fog  Color
+        114  76  63     // Haze Color
+         50 700         // Start/Finish Distances
+        11 2            // Haze Start/Finish Angles
+        0.00 1.00       // Min/Max Band Alpha
+        3               // Number of Fog Volumes
+        215 235 750     // Volume 0 Min/Max Height, VisDist
+        235 245 700     // Volume 1 Min/Max Height, VisDist
+        245 255 750     // Volume 2 Min/Max Height, VisDist
+
+SKY     Data/Sky/desert2/SkyT.bmp      // Top
+        Data/Sky/desert2/SkyF.bmp      // Front
+        Data/Sky/desert2/SkyL.bmp      // Left
+        Data/Sky/desert2/SkyB.bmp      // Back
+        Data/Sky/desert2/SkyR.bmp      // Right
+
+// Camera points:            X            Y            Z           Pitch         Yaw
+CAMERA                    709.1450     186.1200     958.9467 //    -4.5716     172.4784
+CAMERA                   1057.4874     179.3220    1045.7433 //     1.7189      24.1099
+CAMERA                   1021.1165     205.3610    1582.2090 //     2.1930     162.1623
+CAMERA                   1081.2777     161.6550     752.6890 //    -4.2599     -97.0399
+
+BOUNDS                    352.0000   -2048.0000     248.0000
+                         1696.0000     320.0000    1800.0000
+
+//------------------------------------------------------------------------------
+//  CLIENT AND SERVER, PERMANENT OBJECTS
+//------------------------------------------------------------------------------
+
+TERRAIN     "Recalescence.ter"
+
+// Buildings:      Power     X            Y            Z
+//                         Pitch         Yaw         Roll
+//                          SX           SY           SZ
+//                      FileName
+//
+BUILDING            1    1236.6240     170.3680    1356.4089
+                            0.0000      90.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "DBASE4"
+
+BUILDING            1    1203.1689     165.9960    1321.4709
+                            0.0000      90.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "DPLAT1"
+
+BUILDING            1    1179.8030     127.1740    1371.1390
+                            0.0000       0.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "DVPAD"
+
+BUILDING            2     756.9690     203.1480     676.6030
+                            0.0000     180.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "DBASE4"
+
+BUILDING            2     793.9060     197.7510     714.1220
+                            0.0000      90.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "DPLAT1"
+
+BUILDING            2     745.4390     164.1010     719.8740
+                            0.0000     180.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "DVPAD"
+
+BUILDING            0    1046.5013     104.7570    1404.8190
+                            2.0473     -15.8686       7.1631
+                            1.0000       1.0000       1.0000
+                        "DBRDG10"
+
+BUILDING            0     985.4987      96.7812    1387.1810
+                            2.0473     -15.8686       7.1631
+                            1.0000       1.0000       1.0000
+                        "DBRDG10"
+
+BUILDING            0     854.5610     101.9400     897.3970
+                            2.0473     147.0339       7.1631
+                            1.0000       1.0000       1.0000
+                        "DBRDG10"
+
+BUILDING            0     801.4390     109.9160     862.6030
+                            2.0473     147.0339       7.1631
+                            1.0000       1.0000       1.0000
+                        "DBRDG10"
+
+
+// Scenery:                  X            Y            Z
+//                         Pitch         Yaw         Roll
+//                          SX           SY           SZ
+//                      FileName
+//
+
+// Gens:    Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll
+//
+GENERATOR        1  1    1235.3459     179.8820    1356.3380    0
+                            0.0000     -90.0000       0.0000
+
+GENERATOR        2  2     756.8980     212.6620     677.8810    0
+                            0.0000       0.0000       0.0000
+
+
+// Invens:  Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll
+//
+INVEN            1  1    1236.6410     186.3640    1334.6700    1
+                            0.0000     180.0000       0.0000
+
+INVEN            1  1    1286.2870     178.8440    1356.3390    2
+                            0.0000      90.0000       0.0000
+
+INVEN            1  1    1237.0110     202.3600    1366.5181    3
+                            0.0000       0.0000       0.0000
+
+INVEN            2  2     735.2300     219.1440     676.5860    1
+                            0.0000     -90.0000       0.0000
+
+INVEN            2  2     756.8990     211.6240     626.9400    2
+                            0.0000     180.0000       0.0000
+
+INVEN            2  2     767.0780     235.1400     676.2160    3
+                            0.0000      90.0000       0.0000
+
+
+// VPads:   Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll
+//
+VEHICLEPAD       1  1    1179.8030     126.6740    1355.5391    4
+                            0.0000       0.0000       0.0000
+
+VEHICLEPAD       2  2     745.4050     163.6010     733.9530    4
+                            0.0000     180.0000       0.0000
+
+
+// Turrets: Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll      Barrel
+//
+TURRET           1  1    1236.2460     220.3280    1356.4060    5
+                           -0.0000       0.0000     180.0000   Sentry
+
+TURRET           1  1    1236.6240     189.4200    1380.4470    6
+                           -0.0000      90.0000      90.0000   Sentry
+
+TURRET           2  2     756.9660     253.1080     676.9810    5
+                           -0.0000      90.0000     180.0000   Sentry
+
+TURRET           2  2     781.0070     222.2000     676.6030    6
+                           -0.0000     180.0000      90.0000   Sentry
+
+
+// Sensors: Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll
+//
+SENSOR L         1  1    1203.2061     168.0110    1321.4709    7
+                            0.0000     -90.0000       0.0000
+
+SENSOR L         2  2     793.9240     199.7460     714.1040    7
+                            0.0000       0.0000       0.0000
+
+
+// FFields: Switch Power     X            Y            Z       Type
+//                         Pitch         Yaw         Roll
+//                          SX           SY           SZ
+//
+
+// FlipFlop:Switch           X            Y            Z
+//                         Pitch         Yaw         Roll
+//
+
+// Projector:Switch          X            Y            Z
+//                         Pitch         Yaw         Roll
+//
+
+// Waypts:  Switch           X            Y            Z
+//
+
+// Nexus:                    X            Y            Z         Height
+//
+
+//==============================================================================
+    WATERMARK // CLIENT DOES NOT READ BEYOND THIS POINT
+//==============================================================================
+
+//------------------------------------------------------------------------------
+//  SERVER ONLY, NON-OBJECT MISSION DATA
+//------------------------------------------------------------------------------
+
+POWER          1   1   1   0   0   0   0   0   0   0   0   0   0   0   0   0 
+SWITCH        -1   1   2   0  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1 
+
+// Spawn:   Team             X            Y            Z         Radius     Pitch      Yaw
+//
+SPAWN         0          1148.7469     126.8330    1409.7170      30.0000    0.0000    0.0000
+SPAWN         0          1227.2050     164.3440    1355.1350      70.0000    0.0000    0.0000
+SPAWN         1           767.9930     210.1310     684.4600      70.0000    0.0000    0.0000
+SPAWN         1           671.4490     209.7900     593.5060      30.0000    0.0000    0.0000
+
+// Flags:   Team             X            Y            Z           Yaw
+//
+FLAG_HOME     0          1236.6240     190.3770    1356.4089       1.5708
+FLAG_HOME     1           756.9690     223.1610     676.6030       3.1416
+
+//------------------------------------------------------------------------------
+//  SERVER ONLY, DYNAMIC OBJECTS
+//------------------------------------------------------------------------------
+
+// Pickups:                  X            Y            Z           Kind
+//
+PICKUP                   1236.7109     179.3680    1305.0190   REPAIRPACK
+PICKUP                   1236.8030     179.3680    1406.3311   REPAIRPACK
+PICKUP                   1236.9130     167.8680    1356.4089   REPAIRKIT
+PICKUP                   1236.9130     167.8680    1354.4089   REPAIRPATCH
+PICKUP                   1236.9130     167.8680    1358.4089   REPAIRPATCH
+PICKUP                    705.5790     212.1480     676.5160   REPAIRPACK
+PICKUP                    806.8910     212.1480     676.4240   REPAIRPACK
+PICKUP                    756.9690     200.6480     676.3140   REPAIRKIT
+PICKUP                    754.9690     200.6480     676.3140   REPAIRPATCH
+PICKUP                    758.9690     200.6480     676.3140   REPAIRPATCH

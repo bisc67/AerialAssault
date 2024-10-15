@@ -1,0 +1,23 @@
+create Linux-Release/PlayerObject.lib
+addmod ./Linux-Release/Blaster.obj
+addmod ./Linux-Release/Chaingun.obj
+addmod ./Linux-Release/CorpseObject.obj
+addmod ./Linux-Release/DefaultLoadouts.obj
+addmod ./Linux-Release/DiskLauncher.obj
+addmod ./Linux-Release/Elf.obj
+addmod ./Linux-Release/GrenadeLauncher.obj
+addmod ./Linux-Release/LaserRifle.obj
+addmod ./Linux-Release/missilelauncher.obj
+addmod ./Linux-Release/MortarGun.obj
+addmod ./Linux-Release/PlasmaGun.obj
+addmod ./Linux-Release/PlayerDefines.obj
+addmod ./Linux-Release/PlayerLogic.obj
+addmod ./Linux-Release/PlayerNet.obj
+addmod ./Linux-Release/PlayerObject.obj
+addmod ./Linux-Release/PlayerRender.obj
+addmod ./Linux-Release/PlayerStates.obj
+addmod ./Linux-Release/RepairGun.obj
+addmod ./Linux-Release/TargetingLaser.obj
+addmod ./Linux-Release/WeaponStates.obj
+save
+end 

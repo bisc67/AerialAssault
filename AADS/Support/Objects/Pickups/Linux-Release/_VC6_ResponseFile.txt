@@ -1,0 +1,14 @@
+ /c /nologo /W3 /FD
+ /P 
+ /Fd"Linux-Release/"
+ /FI "Linux-Release/_SN_in_VC.h"
+ /I "C:/Projects/AADS/xCore" 
+ /I "C:/Projects/AADS/xCore/x_files" 
+ /I "C:/Projects/AADS/xCore/Entropy" 
+ /I "c:/projects/aads/Support" 
+ /I "." 
+ -I"C:/Projects/AADS/xCore/3rdParty/Linux/include" 
+ /I . 
+ /D TARGET_LINUX 
+ /D biscuit 
+ /D XCORE_PATH=\"C:/Projects/AADS/xCore\"

@@ -1,0 +1,7 @@
+create MasterServer___Win32_Linux_Release/MasterServer.lib
+addmod ./MasterServer___Win32_Linux_Release/bytestream.obj
+addmod ./MasterServer___Win32_Linux_Release/masterentity.obj
+addmod ./MasterServer___Win32_Linux_Release/MasterServer.obj
+addmod ./MasterServer___Win32_Linux_Release/masterstates.obj
+save
+end 

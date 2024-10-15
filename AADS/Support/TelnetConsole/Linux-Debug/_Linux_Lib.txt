@@ -1,0 +1,7 @@
+create Linux-Debug/TelnetConsole.lib
+addmod ./Linux-Debug/chatclient.obj
+addmod ./Linux-Debug/telnetclient.obj
+addmod ./Linux-Debug/telnetdisplay.obj
+addmod ./Linux-Debug/telnetmgr.obj
+save
+end 

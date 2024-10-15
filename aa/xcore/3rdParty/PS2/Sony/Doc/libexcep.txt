@@ -1,0 +1,83 @@
+[SCEI CONFIDENTIAL DOCUMENT]
+"PlayStation 2" Programmer Tool Runtime Library libexcep version 1.0
+                  Copyright (C) 2000 by Sony Computer Entertainment Inc.
+                                                     All Rights Reserved
+
+例外ライブラリ
+===============
+
+
+ 1 ライブラリ概要
+------------------
+
+
+  1.1 概要
+
+    例外ライブラリは、テスト環境のためのメッセージ表示機能とEE / IOPそれ
+    ぞれの例外ハンドラ登録機能とを提供するEE側ライブラリです。
+    この例外ライブラリ(libexcep)は、"PlayStation 2" debugging stationおよび 
+    "PlayStation 2" Development Tool DTL-T10000 でのタイトル開発中の
+    デバッグ用途として提供しているため、マスターディスクでは使用しないで
+    ください。
+
+  1.2 関連ファイル
+
+    例外ライブラリを使用するために必要なファイルは次のとおりです。
+    
+    +-------------------------------+------------+
+    |カテゴリ                        ファイル名  |
+    +                               +            +
+    |ヘッダファイル                  libexcep.h  |
+    |EE側ライブラリファイル          libkernl.a  |
+    |EE側ライブラリファイル          libexcep.a  |
+    |IOP側デバッグモジュールファイル panicsys.irx|
+    +-------------------------------+------------+
+    
+
+  1.3 注意事項
+
+    例外ライブラリの各関数は、スレッドセーフではありません。同時に複数の
+    スレッドから呼び出されると誤動作を引き起こす危険があるため、複数のス
+    レッドで例外ライブラリの関数を呼び出す場合はセマフォなどを用いて排他
+    制御を行ってください。
+    
+
+ 2 機能の詳細
+--------------
+
+
+  2.1 メッセージ表示機能
+
+    プログラムのテストに利用するため、テレビ画面にメッセージを表示する擬
+    似コンソール機能を提供します。この機能は例外ハンドラの内部でも外部で
+    も使用できます。
+    デバッグ支援ライブラリ（libdev）にも同様の機能を持つsceDevCons系の関
+    数群がありますが、sceDevConsPrintf()でGIFパケットを作成してから
+    sceDevConsDraw()を呼び出すとGIFへ転送し表示するというしくみになってい
+    るのに対して、例外ライブラリではsceExcepConsPrintf()を呼び出すだけで
+    GIFパケットを作成して直ちにGIFへ転送し描画されます。ライブラリの構成
+    自体もいっそうシンプルになっています。
+
+  2.2 テスト環境専用の例外ハンドラ登録関数
+
+    例外ライブラリではEEの例外ハンドラを登録する関数として、
+    sceExcepSetDebugEEHandler()を提供しています。この関数は、機能自体はカ
+    ーネルAPIのSetDebugHandler()と同じですが、"PlayStation 2" debugging 
+    stationおよび"PlayStation 2" Development Tool DTL-T10000でのみ動作し、
+    "PlayStation 2"ではなにも行わない点が異なります。
+    sceExcepSetDebugEEHandler()を使用すれば、テスト環境でのみ動作する
+    デバッグ機能の作成・管理が容易になります。
+    IOPで発生する例外に対しても、これと同様にテスト環境でのみ例外ハンドラ
+    を登録するsceExcepDebugIOPHandler()が提供されています。IOP側からは直
+    接画面に出力することができないため、例外ハンドラはEE側に登録します。
+    IOP側のモジュールで例外をトラップしてその情報をEE側へ送信し、EE側でこ
+    れを受けて例外ハンドラに制御を移し、例外ハンドラで適宜画面表示などを
+    行う、というしくみです。つまり、sceExcepDebugIOPHandler()の内部では、
+    次のように2段階の動作が行われます。
+         (1) sceSifLoadModule()を用いてpanicsys.irxをIOP側にロードする。
+             panicsys.irxは、IOPで例外が発生したときにその情報をEE側へ送
+             信する。ロードに失敗したときには、エラーの文字列を表示し続け
+             る。
+         (2) EE側でハンドラ関数を登録する。このハンドラ関数は、
+             panicsys.irxから送信される情報をEE側で受け取った時に呼び出さ
+             れる。

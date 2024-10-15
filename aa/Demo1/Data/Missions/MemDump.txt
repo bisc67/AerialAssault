@@ -1,0 +1,28 @@
+Mark Sequence Malloc     Size       Addr Line File
+==== ======== ====== ======== ========== ==== ================================
+   0        1 new        2060 0x002F25A8   88 iles\implementation\x_files.cpp
+   0    14457 new          20 0x00581980  205 lementation\x_array_private.hpp
+==== ======== ====== ======== ========== ==== ================================
+Mark Sequence Malloc     Size       Addr Line File
+
+
+
+       Allocs                 TotalBytes      File
+     ========                 ==========      ================================
+            1 ...... ........       2060 .... iles\implementation\x_files.cpp
+            1 ...... ........         20 .... lementation\x_array_private.hpp
+     ========                 ==========      ================================
+       Allocs                 TotalBytes      File
+
+
+
+                                   Value      Summary
+                              ==========      ================================
+                                  106206 .... Sequence
+                                       2 .... Current Count
+
+                                 2104627 .... Total Bytes
+
+                                  240943 .... Maximum Bytes
+                                    2080 .... Current Bytes
+

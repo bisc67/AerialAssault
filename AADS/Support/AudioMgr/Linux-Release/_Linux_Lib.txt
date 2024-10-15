@@ -1,0 +1,4 @@
+create Linux-Release/audiomgr.lib
+addmod ./Linux-Release/Audio.obj
+save
+end 

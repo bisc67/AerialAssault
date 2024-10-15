@@ -1,0 +1,20 @@
+Adding text
+~~~~~~~~~~~
+
+
+1) Check out the appropriate .txt, .h, and .bin file
+2) Open excel and drag the approriate text file into excel. eg. pickups.txt
+3) Insert the string in the appropriate place so that it lines up with the type defines. eg.
+   when adding a pickup string, make sure it lines up the with pickup::kind.
+4) Save and exit.
+
+5) From a command line type:
+
+   stringtool -c -overwrite pickups.txt
+
+6) Run the game to make sure the string works and you haven't broke the order of anything.
+
+
+Thats it.
+
+

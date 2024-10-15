@@ -1,0 +1,6 @@
+# <Sony Computer Entertainment Inc.>
+
+type nic
+vendor "SCEI"
+product "SMAP"
+phy_config auto

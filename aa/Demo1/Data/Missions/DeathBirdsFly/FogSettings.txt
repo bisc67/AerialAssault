@@ -1,0 +1,10 @@
+128 32 // Fog texture size
+108  75  48       // Fog Color
+108  75  48       // Haze Color
+200.999908  700.000000            // Start/Finish Distances
+30.999987  9.999999            // Haze Start/Finish Angles
+ 0.0  1.0         // Min/Max Band Alpha
+  3               // Number of fog volumes
+0.000000  53.000000  200.000000        // Volume 160 Min/Max Height, VisDist
+53.000000  58.000000  500.000000        // Volume 160 Min/Max Height, VisDist
+58.000000  200.000000  1499.999634        // Volume 160 Min/Max Height, VisDist

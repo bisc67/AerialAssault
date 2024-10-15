@@ -1,0 +1,7 @@
+create Linux-Debug/HUD.lib
+addmod ./Linux-Debug/hud_chatwindow.obj
+addmod ./Linux-Debug/hud_Icons.obj
+addmod ./Linux-Debug/hud_manager.obj
+addmod ./Linux-Debug/hud_voicemenu.obj
+save
+end 

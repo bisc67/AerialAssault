@@ -1,0 +1,62 @@
+// xTB.odl : type library source for xTB.dll
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (xTB.tlb).
+
+[   uuid(1E241520-7843-485E-8B44-45ECD94E5238), version(1.0),
+    helpstring ("XTB Developer Studio Add-in") ]
+library XTB
+{
+    importlib("stdole32.tlb");
+    importlib("devshl.dll");
+    importlib("ide\devdbg.pkg");
+    
+
+    //  Dual interface for CCommands
+    //
+    //  All commands that your add-in adds to DevStudio
+    //   must appear in this interface.  You may use the
+    //   ClassView to add methods to this interface, which
+    //   will cause stub implementations of those methods to
+    //   appear in your CCommands class.
+    
+    [   uuid(424A23B1-B766-4308-9EDA-C617B215B103),
+        oleautomation,
+        dual
+    ]
+
+    interface ICommands : IDispatch
+    {
+        // methods
+        [id(1)]
+//      HRESULT XTB_Example         ();
+        HRESULT XTB_ConfigureXCL    ();
+        HRESULT XTB_LaunchProgram   ();
+        HRESULT XTB_DebugProgram    ();
+        HRESULT XTB_AttachDebugger  ();
+        HRESULT XTB_TargetManager   ();
+    };
+
+    //  Class information for CCommands
+
+    [ uuid(E0F85A49-A880-4280-939E-9C1C25A27F47) ]
+    coclass Commands
+    {
+        [default] interface ICommands;
+    };
+
+    [ hidden, uuid(442BA762-2E4A-44A0-B994-20360AFD0D93) ]
+    coclass ApplicationEvents
+    {
+        [default] interface IApplicationEvents;
+    }
+
+    [ hidden, uuid(82C762B1-1279-4130-B6FC-B15806CB8410) ]
+    coclass DebuggerEvents
+    {
+        [default] interface IDebuggerEvents;
+    }
+
+    //{{AFX_APPEND_ODL}}
+    //}}AFX_APPEND_ODL}}
+};

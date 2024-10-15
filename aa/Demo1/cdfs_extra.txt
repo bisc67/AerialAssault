@@ -1,0 +1,17 @@
+data/memcard/view.ico
+data/palmov/credits.pss
+data\ui\ps2\mission_01.xbmp
+data\ui\ps2\mission_02.xbmp
+data\ui\ps2\Mission_03.xbmp
+data\ui\ps2\Mission_04.xbmp
+data\ui\ps2\mission_05.xbmp
+data\ui\ps2\mission_06.xbmp
+data\ui\ps2\mission_07.xbmp
+data\ui\ps2\mission_08.xbmp
+data\ui\ps2\mission_10.xbmp
+data\ui\ps2\mission_11.xbmp
+data\ui\ps2\Mission_13.xbmp
+data\missions\Campaign.bin
+data\missions\Communique.bin
+data\missions\MissionNames.bin
+data\missions\Objectives.bin

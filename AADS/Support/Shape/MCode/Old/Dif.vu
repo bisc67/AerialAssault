@@ -1,0 +1,247 @@
+;==========================================================================
+;
+; Code to transform/screen-clip/render a non-textured diffuse material
+;
+;==========================================================================
+
+
+
+;==========================================================================
+; Transforms a bunch of verts (# is not / by 4)
+;==========================================================================
+SHAPE_MICRO_CODE_DIF_DRAW_CMD:
+
+      NOP                                                FCSET 0         ; Clear clip flags
+
+      NOP                                                XTOP GifTag     ; Get gif tag
+      NOP                                                IADDIU VertAddr, GifTag, SHAPE_VERTS_ADDR
+
+      NOP                                                IADDIU SingleCountMask, VI00, 0x3
+      NOP                                                ILW.z VertCount,SHAPE_PARAMS_ADDR(VI00)     ; Get # verts
+      NOP                                                IAND VertCount, VertCount, SingleCountMask
+      NOP                                                NOP
+      NOP				                                 IBEQ VertCount, VI00, DifMultiVert
+
+
+DifSingleVertLoop:
+
+      ; Load vert
+      NOP                                                LQ.xyzw Pos0(xyzw),  (DIF_VERT_POS+ (0*DIF_VERT_SIZE))(VertAddr)
+      NOP                                                LQ.xyzw Norm0(xyzw), (DIF_VERT_NORM+(0*DIF_VERT_SIZE))(VertAddr)
+      NOP                                                NOP
+      NOP                                                NOP
+
+      ; Prepare vert
+      ITOF0.xyz Pos0(xyz), Pos0(xyz)                     ILW.w NoKick0, (DIF_VERT_POS+(0*DIF_VERT_SIZE))(VertAddr)
+      ITOF0.xyz Norm0(xyz), Norm0(xyz)                   ISUBIU VertCount, VertCount, 1
+      NOP                                                IADDIU VertAddr, VertAddr, (DIF_VERT_SIZE*1)
+      NOP                                                NOP
+
+      MULAx.xyzw ACC,  MProj0(xyzw),  Pos0(x)            NOP
+
+      ; Start light dot product
+      MUL.xyz Norm0(xyz), Norm0(xyz), LightDir(xyz)      NOP
+
+      ; Transform vert / Next vert
+      MADDAy.xyzw ACC, MProj1(xyzw),  Pos0(y)	         NOP
+      MADDAz.xyzw ACC, MProj2(xyzw),  Pos0(z)	         NOP
+      MADDw.xyzw Pos0(xyzw), MProj3(xyzw), VF00w 	     NOP
+      
+      ; Continue lighting / Start vert projection
+      ADDy.x Norm0(x), Norm0(x), Norm0(y)                NOP
+      NOP                                                NOP
+      NOP                                                NOP
+      NOP                                                DIV Q, VF00w, Pos0(w)
+      ADDz.x Norm0(x), Norm0(x), Norm0(z)                NOP
+      NOP                                                NOP
+      NOP                                                NOP
+      NOP                                                NOP
+      MAXx.x  Norm0(x), Norm0(x), VF00                   NOP
+      NOP                                                NOP
+
+      ; Project vert
+      MULq.xyz Pos0(xyz), Pos0(xyz), Q	                 IBEQ DoClipping,VI00,DifNoClip
+      
+      ; Continue lighting / Clip vert
+      MULx.xyz Norm0(xyz), LightCol(xyz), Norm0(x)       NOP
+
+      CLIPw.xyz Pos0(xyz), COP(w)                        NOP
+      ADD.xyz Pos0(xyz), Pos0(xyz), COP(xyz)             NOP
+      NOP                                                NOP
+      NOP                                                NOP
+
+DifNoClip:
+      ; Convert pos to integer, finish lighting / Continue clipping, store vert
+      NOP                                                FCAND ClipResults, CLIP_TRI_FLAGS
+      FTOI4.xyz Pos0(xyz), Pos0(xyz)                     IADDIU ClipResults, ClipResults, 0x7fff
+
+      ADD.xyzw Norm0(xyzw), Norm0(xyzw), LightAmb(xyzw)  IOR NoKick0, NoKick0, ClipResults
+      NOP                                                ISW.w NoKick0, (DIF_VERT_POS+((-1+0)*DIF_VERT_SIZE))(VertAddr)
+      NOP                                                NOP
+      NOP                                                NOP
+
+      FTOI0.xyzw  Norm0(xyzw), Norm0(xyzw)               NOP
+
+      NOP                                                NOP
+      NOP                                                SQ.xyz Pos0(xyz), (DIF_VERT_POS+((-1+0)*DIF_VERT_SIZE))(VertAddr)
+
+      NOP				                                 IBGTZ VertCount, DifSingleVertLoop
+      NOP                                                SQ.xyzw Norm0(xyzw),  (DIF_VERT_NORM+((-1+0)*DIF_VERT_SIZE))(VertAddr)
+
+
+;==========================================================================
+; Transforms a bunch of verts (# is / by 4)
+;==========================================================================
+DifMultiVert:
+
+      ; Get multi-vert count
+      NOP                                                IADDIU MultiCountMask,  VI00, 0x7ffc
+      NOP                                                ILW.z VertCount,SHAPE_PARAMS_ADDR(VI00)     ; Get # verts
+      NOP                                                IAND VertCount, VertCount, MultiCountMask
+      NOP                                                NOP
+      NOP				                                 IBEQ VertCount, VI00, SHAPE_MICRO_CODE_DRAW_CMD
+      NOP                                                NOP
+
+      ; Load 1st vert (since next vert is assumed to be loaded - see bottom of this micro code)
+      NOP                                                LQ.xyzw Pos0(xyzw),     (DIF_VERT_POS+ (0*DIF_VERT_SIZE))(VertAddr)
+      NOP                                                LQ.xyzw TempNorm0(xyzw), (DIF_VERT_NORM+(0*DIF_VERT_SIZE))(VertAddr)
+      NOP                                                NOP
+
+      ITOF0.xyz Pos0(xyz), Pos0(xyz)                     NOP
+      ITOF0.xyz TempNorm0(xyz), TempNorm0(xyz)           NOP
+
+DifMultiVertLoop:
+
+      ; Transform vert0 / Load vert1
+      MULAx.xyzw ACC,  MProj0(xyzw),  Pos0(x)            LQ.xyzw Pos1(xyzw),  (DIF_VERT_POS+ (1*DIF_VERT_SIZE))(VertAddr)
+      MADDAy.xyzw ACC, MProj1(xyzw),  Pos0(y)	         LQ.xyzw Norm1(xyzw), (DIF_VERT_NORM+(1*DIF_VERT_SIZE))(VertAddr)
+      MADDAz.xyzw ACC, MProj2(xyzw),  Pos0(z)	         ILW.w NoKick0, (DIF_VERT_POS+(0*DIF_VERT_SIZE))(VertAddr)
+      MADDw.xyzw Pos0(xyzw), MProj3(xyzw), VF00w 	     NOP
+
+      ; Prepare vert1 / Load vert2
+      ITOF0.xyz Pos1(xyz), Pos1(xyz)                     LQ.xyzw Pos2(xyzw),  (DIF_VERT_POS+ (2*DIF_VERT_SIZE))(VertAddr)
+      ITOF0.xyz Norm1(xyz), Norm1(xyz)                   LQ.xyzw Norm2(xyzw), (DIF_VERT_NORM+(2*DIF_VERT_SIZE))(VertAddr)
+
+      ; Transform vert1 / Load vert3
+      MULAx.xyzw ACC,  MProj0(xyzw),  Pos1(x)            DIV Q, VF00w, Pos0(w)
+      MADDAy.xyzw ACC, MProj1(xyzw),  Pos1(y)	         LQ.xyzw Pos3(xyzw),  (DIF_VERT_POS+ (3*DIF_VERT_SIZE))(VertAddr)
+      MADDAz.xyzw ACC, MProj2(xyzw),  Pos1(z)	         LQ.xyzw Norm3(xyzw), (DIF_VERT_NORM+(3*DIF_VERT_SIZE))(VertAddr)
+      MADDw.xyzw Pos1(xyzw), MProj3(xyzw), VF00w 	     ILW.w NoKick1, (DIF_VERT_POS+(1*DIF_VERT_SIZE))(VertAddr)
+
+      ; Prepare vert2 / Load vert no kick values
+      ITOF0.xyz Pos2(xyz), Pos2(xyz)                     ILW.w NoKick2, (DIF_VERT_POS+(2*DIF_VERT_SIZE))(VertAddr)
+      ITOF0.xyz Norm2(xyz), Norm2(xyz)                   ILW.w NoKick3, (DIF_VERT_POS+(3*DIF_VERT_SIZE))(VertAddr)
+
+      ; Project vert0 / Start vert1 projection
+      MULq.xyz Pos0(xyz), Pos0(xyz), Q	                 DIV Q, VF00w, Pos1(w)
+
+      ; Transform vert2, clip vert0
+      MULAx.xyzw ACC,  MProj0(xyzw),  Pos2(x)            IBEQ DoClipping,VI00,DifNoClip0
+      MADDAy.xyzw ACC, MProj1(xyzw),  Pos2(y)	         NOP
+
+      CLIPw.xyz Pos0(xyz), COP(w)                        NOP
+
+DifNoClip0:
+      MADDAz.xyzw ACC, MProj2(xyzw),  Pos2(z)	         NOP
+      MADDw.xyzw Pos2(xyzw), MProj3(xyzw), VF00w 	     NOP
+
+      ; Prepare vert3 / Clip vert0
+      ITOF0.xyz Pos3(xyz), Pos3(xyz)                     NOP
+      ITOF0.xyz Norm3(xyz), Norm3(xyz)                   FCAND ClipResults, CLIP_TRI_FLAGS
+
+      ; Project vert1 / Clip vert0
+      MULq.xyz Pos1(xyz), Pos1(xyz), Q	                 DIV Q, VF00w, Pos2(w)
+
+      ; Transform vert3 / Clip vert1
+      MULAx.xyzw ACC,  MProj0(xyzw),  Pos3(x)            IADDIU ClipResults, ClipResults, 0x7fff
+      MADDAy.xyzw ACC, MProj1(xyzw),  Pos3(y)	         IBEQ DoClipping,VI00,DifNoClip1
+      MADDAz.xyzw ACC, MProj2(xyzw),  Pos3(z)	         IOR NoKick0, NoKick0, ClipResults
+
+      CLIPw.xyz Pos1(xyz), COP(w)                        NOP
+
+DifNoClip1:
+      MADDw.xyzw Pos3(xyzw), MProj3(xyzw), VF00w 	           NOP
+
+      ; Start lighting / Clip vert1
+      MUL.xyz Norm0(xyz), TempNorm0(xyz), LightDir(xyz)		   NOP
+      MUL.xyz Norm1(xyz), Norm1(xyz), LightDir(xyz)			   NOP
+      MUL.xyz Norm2(xyz), Norm2(xyz), LightDir(xyz)			   FCAND ClipResults, CLIP_TRI_FLAGS
+
+      ; Project vert2 / Start vert3 projection
+      MULq.xyz Pos2(xyz), Pos2(xyz), Q	                       DIV Q, VF00w, Pos3(w)
+
+      ; Continue lighting / Clip vert1,2
+      MUL.xyz Norm3(xyz), Norm3(xyz), LightDir(xyz)            IADDIU ClipResults, ClipResults, 0x7fff
+
+      ADDy.x Norm0(x), Norm0(x), Norm0(y)                      IBEQ DoClipping,VI00,DifNoClip2
+      ADDy.x Norm1(x), Norm1(x), Norm1(y)                      IOR NoKick1, NoKick1, ClipResults
+
+      CLIPw.xyz Pos2(xyz), COP(w)                              NOP
+
+DifNoClip2:
+      ADDy.x Norm2(x), Norm2(x), Norm2(y)                NOP
+      ADDy.x Norm3(x), Norm3(x), Norm3(y)                NOP
+
+      ; Continue lighting / Clip vert2
+      ADDz.x Norm0(x), Norm0(x), Norm0(z)                NOP
+      ADDz.x Norm1(x), Norm1(x), Norm1(z)                FCAND ClipResults, CLIP_TRI_FLAGS
+
+      ; Project vert3 / Clip vert2,3
+      MULq.xyz Pos3(xyz), Pos3(xyz), Q	                 IADDIU ClipResults, ClipResults, 0x7fff
+      ADDz.x Norm2(x), Norm2(x), Norm2(z)                IBEQ DoClipping,VI00,DifNoClip3
+      ADDz.x Norm3(x), Norm3(x), Norm3(z)                IOR NoKick2, NoKick2, ClipResults
+
+      CLIPw.xyz Pos3(xyz), COP(w)                        NOP
+
+DifNoClip3:
+
+      ; Continue lighting / Clip vert3
+      MAXx.x  Norm0(x), Norm0(x), VF00                   IBEQ DoClipping,VI00,DifNoClip4
+      MAXx.x  Norm1(x), Norm1(x), VF00                   NOP
+
+      ; Put from screen clip space to final screen render pos
+      ADD.xyz Pos0(xyz), Pos0(xyz), COP(xyz)             NOP
+      ADD.xyz Pos1(xyz), Pos1(xyz), COP(xyz)             NOP
+      ADD.xyz Pos2(xyz), Pos2(xyz), COP(xyz)             NOP
+      ADD.xyz Pos3(xyz), Pos3(xyz), COP(xyz)             NOP
+
+DifNoClip4:
+      ; Convert position to integer ready for GS / Clip vert3
+      FTOI4.xyz Pos0(xyz), Pos0(xyz)                     NOP
+      FTOI4.xyz Pos1(xyz), Pos1(xyz)                     NOP
+      FTOI4.xyz Pos2(xyz), Pos2(xyz)                     FCAND ClipResults, CLIP_TRI_FLAGS
+      FTOI4.xyz Pos3(xyz), Pos3(xyz)                     IADDIU ClipResults, ClipResults, 0x7fff
+
+      ; Continue lighting / Move no kick into vert W coord
+      MAXx.x  Norm2(x), Norm2(x), VF00                   IOR NoKick3, NoKick3, ClipResults
+      MAXx.x  Norm3(x), Norm3(x), VF00                   MFIR.w Pos0(w), NoKick0
+
+      MULx.xyz Norm0(xyz), LightCol(xyz), Norm0(x)       MFIR.w Pos1(w), NoKick1
+      MULx.xyz Norm1(xyz), LightCol(xyz), Norm1(x)       MFIR.w Pos2(w), NoKick2
+      MULx.xyz Norm2(xyz), LightCol(xyz), Norm2(x)       MFIR.w Pos3(w), NoKick3
+      MULx.xyz Norm3(xyz), LightCol(xyz), Norm3(x)       SQ.xyzw Pos0(xyzw), (DIF_VERT_POS+(0*DIF_VERT_SIZE))(VertAddr)
+
+      ; Continue lighting / Store vert pos's
+      ADD.xyzw Norm0(xyzw), Norm0(xyzw), LightAmb(xyzw)  SQ.xyzw Pos1(xyzw), (DIF_VERT_POS+(1*DIF_VERT_SIZE))(VertAddr)
+      ADD.xyzw Norm1(xyzw), Norm1(xyzw), LightAmb(xyzw)  SQ.xyzw Pos2(xyzw), (DIF_VERT_POS+(2*DIF_VERT_SIZE))(VertAddr)
+      ADD.xyzw Norm2(xyzw), Norm2(xyzw), LightAmb(xyzw)  SQ.xyzw Pos3(xyzw), (DIF_VERT_POS+(3*DIF_VERT_SIZE))(VertAddr)
+      ADD.xyzw Norm3(xyzw), Norm3(xyzw), LightAmb(xyzw)  LQ.xyzw Pos0(xyzw), (DIF_VERT_POS+ ((4+0)*DIF_VERT_SIZE))(VertAddr)
+
+      ; Finish lighting / Load next vert0, goto next vertex
+      FTOI0.xyzw  Norm0(xyzw), Norm0(xyzw)               NOP
+      FTOI0.xyzw  Norm1(xyzw), Norm1(xyzw)               LQ.xyzw TempNorm0(xyzw),(DIF_VERT_NORM+((4+0)*DIF_VERT_SIZE))(VertAddr)
+      FTOI0.xyzw  Norm2(xyzw), Norm2(xyzw)               IADDIU VertAddr, VertAddr, (DIF_VERT_SIZE*4)
+      FTOI0.xyzw  Norm3(xyzw), Norm3(xyzw)               ISUBIU VertCount, VertCount, 4
+
+      ; Prepare next vert0 / Store lighting results, loop
+      ITOF0.xyz Pos0(xyz), Pos0(xyz)                     SQ.xyzw Norm0(xyzw),  (DIF_VERT_NORM+((-4+0)*DIF_VERT_SIZE))(VertAddr)
+      NOP                                                SQ.xyzw Norm1(xyzw),  (DIF_VERT_NORM+((-4+1)*DIF_VERT_SIZE))(VertAddr)
+      ITOF0.xyz TempNorm0(xyz), TempNorm0(xyz)           SQ.xyzw Norm2(xyzw),  (DIF_VERT_NORM+((-4+2)*DIF_VERT_SIZE))(VertAddr)
+      NOP				                                 IBGTZ VertCount, DifMultiVertLoop
+      NOP                                                SQ.xyzw Norm3(xyzw),  (DIF_VERT_NORM+((-4+3)*DIF_VERT_SIZE))(VertAddr)
+
+      ; Finally - draw!
+      NOP                                                B SHAPE_MICRO_CODE_DRAW_CMD
+      NOP                                                NOP
+
+;==========================================================================

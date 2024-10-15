@@ -1,0 +1,22 @@
+;==========================================================================
+;
+; BOOT.VSM
+;
+;==========================================================================
+
+BOOT:   
+       
+        ; Clear last vectors
+        SUB.xyzw VF01, VF00, VF00       NOP
+        NOP                             SQ VF01, 1022(VI00)
+        NOP                             SQ VF01, 1023(VI00)
+
+        ; Boot the clipper
+        NOP                             BAL VI15, CLIPPER_BOOT
+
+        ; Halt and wait for vif to reboot you
+        NOP     NOP         
+        NOP[E]  NOP
+        NOP     NOP
+		NOP[D]							NOP
+		NOP								NOP

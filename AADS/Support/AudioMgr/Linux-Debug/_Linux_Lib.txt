@@ -1,0 +1,4 @@
+create Linux-Debug/audiomgr.lib
+addmod ./Linux-Debug/Audio.obj
+save
+end 

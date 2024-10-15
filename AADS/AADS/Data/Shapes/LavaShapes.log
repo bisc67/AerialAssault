@@ -1,0 +1,760 @@
+Class sizes
+sizeof(shape_bin_file_class) = 4 bytes
+sizeof(anim) = 96 bytes
+sizeof(key_set) = 48 bytes
+sizeof(hot_point) = 48 bytes
+sizeof(material) = 176 bytes
+sizeof(material_dlist) = 48 bytes
+sizeof(model) = 160 bytes
+sizeof(node) = 48 bytes
+sizeof(shape) = 112 bytes
+sizeof(shape_texture_ref) = 176 bytes
+sizeof(shape_instance) = 504 bytes
+
+
+Building PC shapes from LavaShapes.txt
+
+
+
+*************** BUILDING PC DORG16.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG16.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG16.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG16_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG16_c.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_Burntwood.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\ds_Burntwood.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_Burntwood.png...FOUND!
+   building mips...
+
+
+   Model:DORG16  references texture ds_Burntwood.png
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_BurntwoodBranch.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\ds_BurntwoodBranch.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_BurntwoodBranch.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_BurntwoodBranch_A.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\ds_BurntwoodBranch_A.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_BurntwoodBranch_A.PNG...FOUND!
+
+
+   Model:DORG16  references texture ds_BurntwoodBranch_A_PUNCH_ds_BurntwoodBranch.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.023095
+
+
+Building model display lists...
+   finished building PC combined strip with 347 verts
+   finished building PC combined strip with 340 verts
+TotalSize:21984 bytes (22k)
+
+   cleaning up memory.. before 45k after 23k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PC combined strip with 115 verts
+TotalSize:3680 bytes (4k)
+
+   cleaning up memory.. before 8k after 5k
+   cleaning up memory.. before 23k after 23k
+   cleaning up memory.. before 5k after 5k
+   cleaning up memory.. before 27k after 27k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\DORG16.shp
+   shape_bin_file::Close - Written Version:31 MemSize:27520
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\DORG16.shp
+
+*************************************************************
+***
+*** Finished processing DORG16
+***   MemoryUsed:26864 bytes - 27K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:26752 bytes - 27K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC DORG18.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG18.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG18.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG18_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG18_c.skel finished loading and initializing
+
+   Model:DORG18  references texture ds_Burntwood.png
+   Model:DORG18  references texture ds_BurntwoodBranch_A_PUNCH_ds_BurntwoodBranch.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.022183
+
+
+Building model display lists...
+   finished building PC combined strip with 305 verts
+   finished building PC combined strip with 232 verts
+TotalSize:17184 bytes (17k)
+
+   cleaning up memory.. before 36k after 18k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PC combined strip with 113 verts
+TotalSize:3616 bytes (4k)
+
+   cleaning up memory.. before 8k after 4k
+   cleaning up memory.. before 18k after 18k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 22k after 22k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\DORG18.shp
+   shape_bin_file::Close - Written Version:31 MemSize:22656
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\DORG18.shp
+
+*************************************************************
+***
+*** Finished processing DORG18
+***   MemoryUsed:22000 bytes - 22K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:21888 bytes - 22K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC DORG19.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG19.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG19.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG19_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG19_c.skel finished loading and initializing
+
+   Model:DORG19  references texture ds_Burntwood.png
+   Model:DORG19  references texture ds_BurntwoodBranch_A_PUNCH_ds_BurntwoodBranch.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.020263
+
+
+Building model display lists...
+   finished building PC combined strip with 359 verts
+   finished building PC combined strip with 156 verts
+TotalSize:16480 bytes (17k)
+
+   cleaning up memory.. before 35k after 17k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PC combined strip with 129 verts
+TotalSize:4128 bytes (5k)
+
+   cleaning up memory.. before 8k after 5k
+   cleaning up memory.. before 17k after 17k
+   cleaning up memory.. before 5k after 5k
+   cleaning up memory.. before 22k after 22k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\DORG19.shp
+   shape_bin_file::Close - Written Version:31 MemSize:22464
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\DORG19.shp
+
+*************************************************************
+***
+*** Finished processing DORG19
+***   MemoryUsed:21808 bytes - 22K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:21696 bytes - 22K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC DROCK8.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/DROCK8.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/DROCK8.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lava\lavarock03.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\lavarock03.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lava\lavarock03.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lava\lavarock04.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\lavarock04.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lava\lavarock04.png...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\lavarock04.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Rocks/lavarock04.png...not found
+
+   Model:DROCK8  references texture lavarock03.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.021547
+
+
+Building model display lists...
+   finished building PC combined strip with 118 verts
+TotalSize:3776 bytes (4k)
+
+   cleaning up memory.. before 8k after 5k
+   cleaning up memory.. before 5k after 5k
+   cleaning up memory.. before 5k after 5k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\DROCK8.shp
+   shape_bin_file::Close - Written Version:31 MemSize:4480
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\DROCK8.shp
+
+*************************************************************
+***
+*** Finished processing DROCK8
+***   MemoryUsed:4320 bytes - 5K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:4208 bytes - 5K
+***
+*************************************************************
+
+
+
+
+Writing XBMPs...
+Total:3
+      writing XBMP from               ds_Burntwood.png (0128 x 0128 x 0032  00087072 Bytes  00086K)
+      writing XBMP from ds_BurntwoodBranch_A_PUNCH_ds_BurntwoodBranch.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      writing XBMP from                 lavarock03.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+
+
+
+
+4 Shapes loaded...
+   Shape:                        DORG16 Nodes:001 Models:002 Anims:000 Size:00026864 Bytes 00027 K
+   Shape:                        DORG18 Nodes:001 Models:002 Anims:000 Size:00022000 Bytes 00022 K
+   Shape:                        DORG19 Nodes:001 Models:002 Anims:000 Size:00021808 Bytes 00022 K
+   Shape:                        DROCK8 Nodes:001 Models:001 Anims:000 Size:00004320 Bytes 00005 K
+
+
+
+!!!!!***** START OF 32BIT TEXTURES LIST *****!!!!!
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_Burntwood.png (0128 x 0128 x 0032  00087072 Bytes  00086K)
+      used on model:DORG16 by diffuse map on material:Material?#32 
+      used on model:DORG18 by diffuse map on material:Material?#32 
+      used on model:DORG19 by diffuse map on material:Material?#32 
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_BurntwoodBranch.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_BurntwoodBranch_A.PNG (0256 x 0256 x 0032  00262144 Bytes  00256K)
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_BurntwoodBranch_A_PUNCH_ds_BurntwoodBranch.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      used on model:DORG16 by diffuse map on material:branch3 
+      used on model:DORG18 by diffuse map on material:branch3 
+      used on model:DORG19 by diffuse map on material:branch3 
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Lava\lavarock03.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      used on model:DROCK8 by diffuse map on material:Material?#17 
+
+!!!!!*****  END OF 32BIT TEXTURE LIST  *****!!!!!
+
+
+
+
+
+
+
+
+
+
+
+Building PS2 shapes from LavaShapes.txt
+
+
+
+*************** BUILDING PS2 DORG16.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG16.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG16.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG16_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG16_c.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_Burntwood.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\ds_Burntwood.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_Burntwood.png...FOUND!
+   building mips...
+
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_Burntwood.png
+   Model:DORG16  references texture BASE_ds_Burntwood.png
+   Model:DORG16  references texture LUM_ds_Burntwood.png
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_BurntwoodBranch.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\ds_BurntwoodBranch.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_BurntwoodBranch.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_BurntwoodBranch_A.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\ds_BurntwoodBranch_A.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lava\ds_BurntwoodBranch_A.PNG...FOUND!
+
+
+   Model:DORG16  references texture ds_BurntwoodBranch_A_PUNCH_ds_BurntwoodBranch.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.023095
+
+
+Building model display lists...
+   finished building PS2 combined strip with 247 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:3984 bytes (4k) TotalVerts:249 CachedVerts:0
+
+   finished building PS2 combined strip with 208 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:3360 bytes (4k) TotalVerts:208 CachedVerts:0
+
+TotalSize:7344 bytes (8k)
+
+   cleaning up memory.. before 31k after 8k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PS2 combined strip with 96 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1184 bytes (2k) TotalVerts:96 CachedVerts:0
+
+TotalSize:1184 bytes (2k)
+
+   cleaning up memory.. before 5k after 2k
+   cleaning up memory.. before 8k after 8k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 10k after 10k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\DORG16.shp
+   shape_bin_file::Close - Written Version:31 MemSize:10784
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\DORG16.shp
+
+*************************************************************
+***
+*** Finished processing DORG16
+***   MemoryUsed:9728 bytes - 10K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:9616 bytes - 10K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 DORG18.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG18.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG18.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG18_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG18_c.skel finished loading and initializing
+
+   Model:DORG18  references texture BASE_ds_Burntwood.png
+   Model:DORG18  references texture LUM_ds_Burntwood.png
+   Model:DORG18  references texture ds_BurntwoodBranch_A_PUNCH_ds_BurntwoodBranch.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.022183
+
+
+Building model display lists...
+   finished building PS2 combined strip with 212 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:3424 bytes (4k) TotalVerts:212 CachedVerts:0
+
+   finished building PS2 combined strip with 154 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2528 bytes (3k) TotalVerts:156 CachedVerts:0
+
+TotalSize:5952 bytes (6k)
+
+   cleaning up memory.. before 25k after 7k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PS2 combined strip with 94 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1168 bytes (2k) TotalVerts:95 CachedVerts:0
+
+TotalSize:1168 bytes (2k)
+
+   cleaning up memory.. before 5k after 2k
+   cleaning up memory.. before 7k after 7k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 9k after 9k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\DORG18.shp
+   shape_bin_file::Close - Written Version:31 MemSize:9344
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\DORG18.shp
+
+*************************************************************
+***
+*** Finished processing DORG18
+***   MemoryUsed:8320 bytes - 9K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:8208 bytes - 9K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 DORG19.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG19.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG19.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG19_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/DORG19_c.skel finished loading and initializing
+
+   Model:DORG19  references texture BASE_ds_Burntwood.png
+   Model:DORG19  references texture LUM_ds_Burntwood.png
+   Model:DORG19  references texture ds_BurntwoodBranch_A_PUNCH_ds_BurntwoodBranch.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.020263
+
+
+Building model display lists...
+   finished building PS2 combined strip with 256 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:4192 bytes (5k) TotalVerts:259 CachedVerts:0
+
+   finished building PS2 combined strip with 100 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1632 bytes (2k) TotalVerts:100 CachedVerts:0
+
+TotalSize:5824 bytes (6k)
+
+   cleaning up memory.. before 25k after 7k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PS2 combined strip with 106 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1312 bytes (2k) TotalVerts:108 CachedVerts:0
+
+TotalSize:1312 bytes (2k)
+
+   cleaning up memory.. before 6k after 2k
+   cleaning up memory.. before 7k after 7k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 9k after 9k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\DORG19.shp
+   shape_bin_file::Close - Written Version:31 MemSize:9360
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\DORG19.shp
+
+*************************************************************
+***
+*** Finished processing DORG19
+***   MemoryUsed:8336 bytes - 9K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:8224 bytes - 9K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 DROCK8.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/DROCK8.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/DROCK8.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lava\lavarock03.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\lavarock03.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lava\lavarock03.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Lava\lavarock04.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\lavarock04.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Lava\lavarock04.png...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\lavarock04.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Rocks/lavarock04.png...not found
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Buildings\Lava\lavarock03.png
+   Model:DROCK8  references texture BASE_lavarock03.png
+   Model:DROCK8  references texture LUM_lavarock03.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.021547
+
+
+Building model display lists...
+   finished building PS2 combined strip with 87 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1440 bytes (2k) TotalVerts:87 CachedVerts:0
+
+TotalSize:1440 bytes (2k)
+
+   cleaning up memory.. before 6k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 2k after 2k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\DROCK8.shp
+   shape_bin_file::Close - Written Version:31 MemSize:2352
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\DROCK8.shp
+
+*************************************************************
+***
+*** Finished processing DROCK8
+***   MemoryUsed:1984 bytes - 2K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:1872 bytes - 2K
+***
+*************************************************************
+
+
+
+
+Writing XBMPs...
+Total:5
+      writing XBMP from          BASE_ds_Burntwood.png (0032 x 0032 x 0008  00002320 Bytes  00003K)
+      writing XBMP from           LUM_ds_Burntwood.png (0128 x 0128 x 0004  00010976 Bytes  00011K)
+      writing XBMP from ds_BurntwoodBranch_A_PUNCH_ds_BurntwoodBranch.png (0256 x 0256 x 0008  00088368 Bytes  00087K)
+      writing XBMP from            BASE_lavarock03.png (0064 x 0064 x 0008  00006432 Bytes  00007K)
+      writing XBMP from             LUM_lavarock03.png (0256 x 0256 x 0004  00043760 Bytes  00043K)
+
+
+
+
+4 Shapes loaded...
+   Shape:                        DORG16 Nodes:001 Models:002 Anims:000 Size:00009728 Bytes 00010 K
+   Shape:                        DORG18 Nodes:001 Models:002 Anims:000 Size:00008320 Bytes 00009 K
+   Shape:                        DORG19 Nodes:001 Models:002 Anims:000 Size:00008336 Bytes 00009 K
+   Shape:                        DROCK8 Nodes:001 Models:001 Anims:000 Size:00001984 Bytes 00002 K
+
+

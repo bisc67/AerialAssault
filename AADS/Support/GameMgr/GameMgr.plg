@@ -1,0 +1,50 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GameMgr - Win32 Linux Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "d:\temp\RSP343.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "C:\Projects\AADS\xCore" /I "C:\Projects\AADS\xCore\x_files" /I "C:\Projects\AADS\xCore\Entropy" /I "c:\projects\aads\Support" /I "c:\projects\aads" /D "TARGET_LINUX" /D "X_DEBUG" /D "X_ASSERT" /D "biscuit" /Fp"Linux-Debug/GameMgr.pch" /YX /Fo"Linux-Debug/" /Fd"Linux-Debug/" /FD /GZ /c 
+"C:\Projects\AADS\Support\GameMgr\LogMgr.cpp"
+]
+Creating command line "cl.exe @d:\temp\RSP343.tmp" 
+<h3>Output Window</h3>
+Compiling...
+xCL -- DebugInfo[ON] Optimize[0]
+xCL -- Defines[ TARGET_LINUX, X_DEBUG, X_ASSERT, biscuit ]
+.
+LogMgr.cpp
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp: In method `void log_mgr::LogMsg(const msg &)':
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:391: passing `char *' as argument 1 of `x_wstrcpy(xwchar *, const xwchar *)'
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:394: `end' undeclared (first use this function)
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:394: (Each undeclared identifier is reported only once
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:394: for each function it appears in.)
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:394: parse error before `('
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:411: passing `char *' as argument 1 of `x_wstrcpy(xwchar *, const xwchar *)'
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:414: parse error before `('
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:431: passing `char *' as argument 1 of `x_wstrcpy(xwchar *, const xwchar *)'
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:434: parse error before `('
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:444: `begin' undeclared (first use this function)
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:444: parse error before `inline'
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:447: `m_InlineName' undeclared (first use this function)
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:447: passing `char *' as argument 1 of `x_wstrcpy(xwchar *, const xwchar *)'
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:450: parse error before `inline'
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:487: parse error before `name'
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:490: passing `char *' as argument 1 of `x_wstrcpy(xwchar *, const xwchar *)'
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:493: parse error before `name'
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:532: passing `const char *' as argument 1 of `x_wstrlen(const xwchar *)'
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:533: passing `char *' as argument 1 of `x_wstrcpy(xwchar *, const xwchar *)'
+C:/Projects/AADS/Support/GameMgr/LogMgr.cpp:382: label `BAIL_OUT' used but not defined
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+LogMgr.obj - 7 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

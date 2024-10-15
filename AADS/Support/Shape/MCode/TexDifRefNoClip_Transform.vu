@@ -1,0 +1,89 @@
+;==========================================================================
+;
+; Code to transform/render a textured diffuse + reflection material
+;
+;==========================================================================
+
+
+
+;==========================================================================
+; Transforms all verts: Vert0 = Read, Vert1 = Results, Vert3 = Next Vert
+;==========================================================================
+SHAPE_MICRO_CODE_DRAW_TEX_DIF_REF_NO_CLIP:
+                                                               
+    NOP                                                             XTOP VertsGifTag     ; Get gif tag
+    NOP                                                             IADDIU VertAddr, VertsGifTag, SHAPE_VERTS_ADDR
+    NOP                                                             ILW.z VertCount,SHAPE_PARAMS_ADDR(VI00)     ; Get # verts
+
+    ; Load Vert0
+    NOP                                                             LQ.xyzw Vert0_Col(xyzw), (VERT_NORM + (0*VERT_SIZE))(VertAddr)
+    NOP                                                             LQ.xy   Vert0_UV(xy),    (VERT_UV   + (0*VERT_SIZE))(VertAddr)
+    NOP                                                             LQ.xyz  Vert0_Pos(xyz),  (VERT_POS  + (0*VERT_SIZE))(VertAddr)
+                                                                       
+    ; Convert Vert0 from int to float / Get ready for RefUV calc
+    NOP                                                             LOI 0.5
+    ITOF0.xyz Vert0_Col(xyz), Vert0_Col(xyz)                        MR32.zw Vert0_UV(zw), VF00   ; Set z=1.0, w=0.0
+    ITOF12.xy Vert0_UV(xy),   Vert0_UV(xy)                          NOP
+                 
+    ; Transform Vert0 / Next vert count+Addr
+    MULAx.xyzw  ACC, L2S0(xyzw),  Vert0_Pos(x)                      NOP
+    MADDAy.xyzw ACC, L2S1(xyzw),  Vert0_Pos(y)	                    NOP
+    MADDAz.xyzw ACC, L2S2(xyzw),  Vert0_Pos(z)	                    NOP
+    MADDw.xyzw  Vert0_Pos(xyzw), L2S3(xyzw), VF00w                  NOP
+
+    ; Start Vert0 ref uv's
+    MULAx.xy ACCxy, Ref0(xy), Vert0_Col(x)                          NOP
+
+TexDifRefNoClipSingleVertLoop:
+
+    ; Continue Vert0 ref uv's (result in Vert1) / Load next vert
+    MADDAy.xy ACCxy, Ref1(xy), Vert0_Col(y)                         LQ.xy   Vert3_UV(xy),    (VERT_UV   + (1*VERT_SIZE))(VertAddr)
+    MADDz.xy Vert0_RefUV(xy), Ref2(xy), Vert0_Col(z)                LQ.xyzw Vert3_Col(xyzw), (VERT_NORM + (1*VERT_SIZE))(VertAddr)
+                                                               
+    ; Calculate Vert0 light dot+col (result in Vert1) / Start Vert0 persp divide / Load next vert
+    MULAx.xyzw  ACC, Light_DirCol0(xyzw), Vert0_Col(x)              DIV Q, VF00w, Vert0_Pos(w)
+    MADDAy.xyzw ACC, Light_DirCol1(xyzw), Vert0_Col(y)	            LQ.xyz  Vert3_Pos(xyz),  (VERT_POS  + (1*VERT_SIZE))(VertAddr)
+    MADDz.xyzw Vert1_Col(xyzw),  Light_DirCol2(xyzw), Vert0_Col(z)  MR32.zw Vert1_RefUV(zw), VF00   ; Set z=1.0
+        
+    ; Convert next vert from int to float
+    ITOF0.xyz Vert3_Col(xyz), Vert3_Col(xyz)                        MR32.zw Vert3_UV(zw), VF00   ; Set z=1.0, w=0.0
+    ITOF12.xy Vert3_UV(xy),   Vert3_UV(xy)                          MR32.zw Vert3_RefUV(zw), VF00   ; Set z=1.0
+
+    // Make RefUV's 0->!
+    ADDi.xy Vert1_RefUV(xy), Vert0_RefUV(xy), I                     NOP
+    
+    // Make Vert0 light one directional
+    MAXx.xyz  Vert1_Col(xyz),  Vert1_Col(xyz),    VF00x             NOP
+
+    ; Project Vert0  / Next vert / Prepare next vert
+    MULq.xyz Vert1_Pos(xyz), Vert0_Pos(xyz),Q                       ISUBIU VertCount, VertCount, 1
+    MULq.xyzw Vert1_UV(xyzw), Vert0_UV(xyzw), Q	                    IADDIU VertAddr, VertAddr, (VERT_SIZE*1)
+    MULq.xyzw Vert1_RefUV(xyzw), Vert1_RefUV(xyzw), Q	            MOVE Vert0_Col(xyzw), Vert3_Col(xyzw)
+    
+    ; Add Vert0 ambient light / Prepare next vert
+    ADD.xyzw  Vert1_Col(xyzw), Vert1_Col(xyzw), Light_Amb(xyzw)     MOVE Vert0_RefUV(xyzw), Vert3_RefUV(xyzw)
+
+    ; Convert Vert0 from float to int / Prepare next vert
+    FTOI4.xyz  Vert1_Pos(xyz), Vert1_Pos(xyz)                       MOVE Vert0_UV(xyzw), Vert3_UV(xyzw)
+
+    ; Start next vert ref uv / Transform next vert / Store Vert0 / Next vert?
+    MULAx.xyzw  ACC, L2S0(xyzw),  Vert3_Pos(x)                      SQ.xyzw Vert1_UV(xyzw),   (VERT_UV     + ((0-1)*VERT_SIZE))(VertAddr)
+    MADDAy.xyzw ACC, L2S1(xyzw),  Vert3_Pos(y)	                    SQ.xyzw Vert1_RefUV(xyzw),(VERT_REF_UV + ((0-1)*VERT_SIZE))(VertAddr)
+    MADDAz.xyzw ACC, L2S2(xyzw),  Vert3_Pos(z)	                    SQ.xyzw Vert1_Col(xyzw),  (VERT_NORM   + ((0-1)*VERT_SIZE))(VertAddr)
+    MADDw.xyzw  Vert0_Pos(xyzw), L2S3(xyzw), VF00w                  IBGTZ VertCount, TexDifRefNoClipSingleVertLoop
+    MULAx.xy ACCxy, Ref0(xy), Vert0_Col(x)                          SQ.xyz  Vert1_Pos(xyz),   (VERT_POS    + ((0-1)*VERT_SIZE))(VertAddr)
+                                                                   
+    ; Finally - draw!                                               
+    NOP                                                             XTOP VertsGifTag
+    NOP                                                             BAL RenderReturnAddr, SHAPE_MICRO_CODE_RENDER_CMD
+    NOP                                                             ILW.z VertCount,SHAPE_PARAMS_ADDR(VI00) ; Get # verts
+    
+    ; Exit
+    NOP[E]      NOP
+    NOP         NOP
+
+
+;==========================================================================
+
+
+

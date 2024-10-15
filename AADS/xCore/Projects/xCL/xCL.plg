@@ -1,0 +1,49 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: xCL - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "d:\temp\RSP379.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/xCL.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Projects\AADS\xCore\Projects\xCL\xCL_Linux.cpp"
+]
+Creating command line "cl.exe @d:\temp\RSP379.tmp" 
+Creating temporary file "d:\temp\RSP37A.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/xCL.pdb" /debug /machine:I386 /out:"Debug/xCL.exe" /pdbtype:sept 
+.\Debug\CmdLineData.obj
+.\Debug\CmdLnTokenizer.obj
+.\Debug\Inevitable.obj
+.\Debug\TokenList.obj
+.\Debug\xCL.obj
+.\Debug\xCL_CodeWarrior.obj
+.\Debug\xCL_GCN_SN.obj
+.\Debug\xCL_Linux.obj
+.\Debug\xCL_PS2_SN.obj
+.\Debug\xCL_Thru.obj
+]
+Creating command line "link.exe @d:\temp\RSP37A.tmp"
+<h3>Output Window</h3>
+Compiling...
+xCL_Linux.cpp
+Linking...
+Creating temporary file "d:\temp\RSP37B.bat" with contents
+[
+@echo off
+copy Debug\xCL.exe "C:\Program Files\Microsoft Visual Studio\VC98\Bin\CL.exe" > nul
+copy Debug\xCL.exe "C:\Program Files\Microsoft Visual Studio\VC98\Bin\LINK.exe" > nul
+]
+Creating command line "d:\temp\RSP37B.bat"
+Installing...
+
+
+
+<h3>Results</h3>
+xCL.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

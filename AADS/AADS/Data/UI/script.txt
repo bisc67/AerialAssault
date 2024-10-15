@@ -1,0 +1,16 @@
+-overwrite
+-output pc
+-pc
+-writexbmp
+
+-output ps2
+-convert P4_ABGR_8888
+-ps2
+-writexbmp
+
+background1.tga
+Font_large.tga
+Font_medium.tga
+Font_small.tga
+PC_Font_small.tga
+ui_controller.psd

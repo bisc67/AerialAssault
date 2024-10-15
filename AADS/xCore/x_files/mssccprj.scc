@@ -1,0 +1,9 @@
+SCC = This is a Source Code Control file
+
+[x_files.dsp]
+SCC_Aux_Path = "C:\Program Files\Microsoft Visual Studio\Common\VSS"
+SCC_Project_Name = "$/x_files", GYDAAAAA
+
+[x_files_mfc.dsp]
+SCC_Aux_Path = "\\project1\Tribes2\VSS"
+SCC_Project_Name = "$/T2/xCore/x_files", COGAAAAA

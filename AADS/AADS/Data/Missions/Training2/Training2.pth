@@ -1,0 +1,17 @@
+[ PathEditor ]
+{ Version Selected BotStart }
+2 1 -1 
+
+[ NodeCore : 2 ]
+{ ID Position Type nEdges }
+0 829.954712 39.738197 812.130676 0 1 
+1 834.094666 39.738197 812.299805 0 1 
+
+[ NodeEdgeRef : 2 ]
+{ NodeID EdgeID }
+0 0
+1 0
+
+[ Edges : 1 ]
+{ EdgeID Type bLoose RefCount NodeA NodeB CostFromA2B nA2B CostFromB2A nB2A }
+0 0 1 2 0 1 0.000000 0 0.000000 0 

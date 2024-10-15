@@ -1,0 +1,23 @@
+# Microsoft Developer Studio Generated Dependency File, included by Tokenizer.mak
+
+.\tokenizer.cpp : \
+	"..\..\xCore\x_files\Implementation\x_math_bb_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_m4_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_p_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_q_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_r3_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_rect_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_v2_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_v3_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_v4_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_memory_private.hpp"\
+	"..\..\xCore\x_files\x_debug.hpp"\
+	"..\..\xCore\x_files\x_math.hpp"\
+	"..\..\xCore\x_files\x_memory.hpp"\
+	"..\..\xCore\x_files\x_plus.hpp"\
+	"..\..\xCore\x_files\x_stdio.hpp"\
+	"..\..\xCore\x_files\x_target.hpp"\
+	"..\..\xCore\x_files\x_types.hpp"\
+	".\tokenizer.hpp"\
+	

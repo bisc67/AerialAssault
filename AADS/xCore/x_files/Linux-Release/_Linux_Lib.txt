@@ -1,0 +1,23 @@
+create Linux-Release/x_files.lib
+addmod ./Linux-Release/x_bitmap.obj
+addmod ./Linux-Release/x_bitmap_cmap.obj
+addmod ./Linux-Release/x_bitmap_convert.obj
+addmod ./Linux-Release/x_bitmap_io.obj
+addmod ./Linux-Release/x_bitmap_quant.obj
+addmod ./Linux-Release/x_bytestream.obj
+addmod ./Linux-Release/x_debug.obj
+addmod ./Linux-Release/x_files.obj
+addmod ./Linux-Release/x_math.obj
+addmod ./Linux-Release/x_math_basic.obj
+addmod ./Linux-Release/x_memory.obj
+addmod ./Linux-Release/x_mqueue.obj
+addmod ./Linux-Release/x_mutex.obj
+addmod ./Linux-Release/x_plus.obj
+addmod ./Linux-Release/x_profile.obj
+addmod ./Linux-Release/x_stdio.obj
+addmod ./Linux-Release/x_string.obj
+addmod ./Linux-Release/x_threads.obj
+addmod ./Linux-Release/x_time.obj
+addmod ./Linux-Release/x_vsprintf.obj
+save
+end 

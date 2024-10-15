@@ -1,0 +1,663 @@
+Mark Sequence Malloc     Size       Addr Line File
+==== ======== ====== ======== ========== ==== ================================
+   0        1 new        1088 0x003A2BA0   91 es\implementation\x_threads.cpp
+   0        2 new          60 0x003A1040   98 es\implementation\x_threads.cpp
+   0        3 malloc     2048 0x003A3068  153 es\implementation\x_threads.cpp
+   0        4 malloc  2097152 0x00D30080  192 entropy\common\e_scratchmem.cpp
+   0        5 malloc  2097152 0x00F40080  193 entropy\common\e_scratchmem.cpp
+   0        6 new          12 0x003A10F8  109 support\stringmgr\stringmgr.cpp
+   0        7 malloc    10214 0x003A38F0   58 support\stringmgr\stringmgr.cpp
+   0        9 new          12 0x003A1208  109 support\stringmgr\stringmgr.cpp
+   0       10 malloc    14264 0x003A6158   58 support\stringmgr\stringmgr.cpp
+   0       12 new          12 0x003A1180  109 support\stringmgr\stringmgr.cpp
+   0       13 malloc     1152 0x003A9A18   58 support\stringmgr\stringmgr.cpp
+   1       34 ------ -------- ---------- ---- ----Begin - InitPermSystems
+   1       35 new        1416 0x003A9FA8  855 c:\projects\aads\aads\main.cpp
+   1       36 new          96 0x003AA5B0   45 t\masterserver\masterserver.cpp
+   1       39 new         448 0x003AA958  382 lementation\x_array_private.hpp
+   1       40 new      147492 0x012300A8   62 port\particles\particlepool.cpp
+   5       44 ------ -------- ---------- ---- ----Particles
+   5    43179 new        1960 0x01282488  337 t\particles\particlelibrary.cpp
+   5    43180 new        1848 0x012B6068  347 t\particles\particlelibrary.cpp
+   5    43291 new        3312 0x01276660  414 t\particles\particlelibrary.cpp
+   5    43545 new         232 0x01277788  468 t\particles\particlelibrary.cpp
+   5    43546 new         340 0x012773D8  478 t\particles\particlelibrary.cpp
+   6    43547 ------ -------- ---------- ---- ----GameShapes
+   6    43553 new         112 0x01277658  323 \support\shape\shapemanager.cpp
+   6    43554 new      186064 0x013300A8  224 \support\shape\shapebinfile.cpp
+   6    43556 new         112 0x01282CB0  323 \support\shape\shapemanager.cpp
+   6    43557 new      193104 0x0135D800  224 \support\shape\shapebinfile.cpp
+   6    43559 new         112 0x01282DA8  323 \support\shape\shapemanager.cpp
+   6    43560 new      227680 0x0138CAD8  224 \support\shape\shapebinfile.cpp
+   6    43562 new         112 0x01282EA0  323 \support\shape\shapemanager.cpp
+   6    43563 new      209216 0x013C44C0  224 \support\shape\shapebinfile.cpp
+   6    43565 new         112 0x01282068  323 \support\shape\shapemanager.cpp
+   6    43566 new      203248 0x013F7688  224 \support\shape\shapebinfile.cpp
+   6    43568 new         112 0x01282160  323 \support\shape\shapemanager.cpp
+   6    43569 new      209648 0x01429100  224 \support\shape\shapebinfile.cpp
+   6    43571 new         112 0x01282258  323 \support\shape\shapemanager.cpp
+   6    43572 new      209968 0x0145C478  224 \support\shape\shapebinfile.cpp
+   6    43574 new         112 0x01282350  323 \support\shape\shapemanager.cpp
+   6    43575 new      206032 0x0148F930  224 \support\shape\shapebinfile.cpp
+   6    43577 new         112 0x014C1E88  323 \support\shape\shapemanager.cpp
+   6    43578 new       40224 0x01264AB8  224 \support\shape\shapebinfile.cpp
+   6    43580 new         112 0x01276068  323 \support\shape\shapemanager.cpp
+   6    43581 new       28736 0x01282F98  224 \support\shape\shapebinfile.cpp
+   6    43583 new         112 0x01276160  323 \support\shape\shapemanager.cpp
+   6    43584 new       32768 0x0129B068  224 \support\shape\shapebinfile.cpp
+   6    43586 new         112 0x01276258  323 \support\shape\shapemanager.cpp
+   6    43587 new       26016 0x012A30F0  224 \support\shape\shapebinfile.cpp
+   6    43589 new         112 0x01276350  323 \support\shape\shapemanager.cpp
+   6    43590 new       29184 0x01321068  224 \support\shape\shapebinfile.cpp
+   6    43592 new         112 0x01276448  323 \support\shape\shapemanager.cpp
+   6    43593 new       27376 0x013282F0  224 \support\shape\shapebinfile.cpp
+   6    43595 new         112 0x01276540  323 \support\shape\shapemanager.cpp
+   6    43596 new       22768 0x01290068  224 \support\shape\shapebinfile.cpp
+   6    43598 new         112 0x012778F0  323 \support\shape\shapemanager.cpp
+   6    43599 new       47776 0x012A9718  224 \support\shape\shapebinfile.cpp
+   6    43601 new         112 0x012779E8  323 \support\shape\shapemanager.cpp
+   6    43602 new       58336 0x014C1F80  224 \support\shape\shapebinfile.cpp
+   6    43604 new         112 0x01277AE0  323 \support\shape\shapemanager.cpp
+   6    43605 new       12272 0x01271068  224 \support\shape\shapebinfile.cpp
+   6    43607 new         112 0x01277BD8  323 \support\shape\shapemanager.cpp
+   6    43608 new       27216 0x014D03E8  224 \support\shape\shapebinfile.cpp
+   6    43610 new         112 0x014D6EC0  323 \support\shape\shapemanager.cpp
+   6    43611 new        3792 0x0127C068  224 \support\shape\shapebinfile.cpp
+   6    43613 new         112 0x01277CD0  323 \support\shape\shapemanager.cpp
+   6    43614 new       14976 0x01277DC8  224 \support\shape\shapebinfile.cpp
+   6    43616 new         112 0x0127B8D0  323 \support\shape\shapemanager.cpp
+   6    43617 new        1728 0x0126E860  224 \support\shape\shapebinfile.cpp
+   6    43619 new         112 0x0127B9C8  323 \support\shape\shapemanager.cpp
+   6    43620 new        1664 0x012B6820  224 \support\shape\shapebinfile.cpp
+   6    43622 new         112 0x012B6F28  323 \support\shape\shapemanager.cpp
+   6    43623 new        1728 0x012B5240  224 \support\shape\shapebinfile.cpp
+   6    43625 new         112 0x0127BAC0  323 \support\shape\shapemanager.cpp
+   6    43626 new        8000 0x003AABA0  224 \support\shape\shapebinfile.cpp
+   6    43628 new         112 0x0127BBB8  323 \support\shape\shapemanager.cpp
+   6    43629 new        7296 0x012740E0  224 \support\shape\shapebinfile.cpp
+   6    43631 new         112 0x01275DE8  323 \support\shape\shapemanager.cpp
+   6    43632 new       12288 0x0127CFC0  224 \support\shape\shapebinfile.cpp
+   6    43634 new         112 0x01275EE0  323 \support\shape\shapemanager.cpp
+   6    43635 new       15584 0x0128A060  224 \support\shape\shapebinfile.cpp
+   6    43637 new         112 0x0127BCB0  323 \support\shape\shapemanager.cpp
+   6    43638 new       16880 0x014D6FB8  224 \support\shape\shapebinfile.cpp
+   6    43640 new         112 0x0127BDA8  323 \support\shape\shapemanager.cpp
+   6    43641 new       12816 0x012B7020  224 \support\shape\shapebinfile.cpp
+   6    43643 new         112 0x0127BEA0  323 \support\shape\shapemanager.cpp
+   6    43644 new        3968 0x01280048  224 \support\shape\shapebinfile.cpp
+   6    43646 new         112 0x003ACB68  323 \support\shape\shapemanager.cpp
+   6    43647 new        4160 0x0128DDC8  224 \support\shape\shapebinfile.cpp
+   6    43649 new         112 0x0128EE90  323 \support\shape\shapemanager.cpp
+   6    43650 new       12560 0x014DB230  224 \support\shape\shapebinfile.cpp
+   6    43652 new         112 0x003ACC60  323 \support\shape\shapemanager.cpp
+   6    43653 new        4480 0x012959E0  224 \support\shape\shapebinfile.cpp
+   6    43655 new         112 0x003ACD58  323 \support\shape\shapemanager.cpp
+   6    43656 new        5568 0x014DE3C8  224 \support\shape\shapebinfile.cpp
+   6    43658 new         112 0x003ACE50  323 \support\shape\shapemanager.cpp
+   6    43659 new       11184 0x014DFA10  224 \support\shape\shapebinfile.cpp
+   6    43661 new         112 0x003ACF48  323 \support\shape\shapemanager.cpp
+   6    43662 new        3952 0x003AE068  224 \support\shape\shapebinfile.cpp
+   6    43664 new         112 0x012B5988  323 \support\shape\shapemanager.cpp
+   6    43665 new        9200 0x01296BE8  224 \support\shape\shapebinfile.cpp
+   6    43667 new         112 0x012B5A80  323 \support\shape\shapemanager.cpp
+   6    43668 new       73696 0x014E2648  224 \support\shape\shapebinfile.cpp
+   6    43670 new         112 0x012B5B78  323 \support\shape\shapemanager.cpp
+   6    43671 new        5328 0x01299060  224 \support\shape\shapebinfile.cpp
+   6    43673 new         112 0x012B5C70  323 \support\shape\shapemanager.cpp
+   6    43674 new       87488 0x014F46B0  224 \support\shape\shapebinfile.cpp
+   6    43676 new         112 0x012B5D68  323 \support\shape\shapemanager.cpp
+   6    43677 new        4432 0x0126EFA8  224 \support\shape\shapebinfile.cpp
+   6    43679 new         112 0x012B5E60  323 \support\shape\shapemanager.cpp
+   6    43680 new       93840 0x01509CF8  224 \support\shape\shapebinfile.cpp
+   6    43682 new         112 0x012B5F58  323 \support\shape\shapemanager.cpp
+   6    43683 new        6480 0x01520C10  224 \support\shape\shapebinfile.cpp
+   6    43685 new         112 0x0129A5B8  323 \support\shape\shapemanager.cpp
+   6    43686 new      105472 0x015300A8  224 \support\shape\shapebinfile.cpp
+   6    43688 new         112 0x01549D30  323 \support\shape\shapemanager.cpp
+   6    43689 new       13008 0x015225E8  224 \support\shape\shapebinfile.cpp
+   6    43691 new         112 0x01549E28  323 \support\shape\shapemanager.cpp
+   6    43692 new       70208 0x01549F20  224 \support\shape\shapebinfile.cpp
+   6    43694 new         112 0x0129A6B0  323 \support\shape\shapemanager.cpp
+   6    43695 new        7104 0x01525940  224 \support\shape\shapebinfile.cpp
+   6    43697 new         112 0x0129A7A8  323 \support\shape\shapemanager.cpp
+   6    43698 new       15872 0x01527588  224 \support\shape\shapebinfile.cpp
+   6    43700 new         112 0x0129A8A0  323 \support\shape\shapemanager.cpp
+   6    43701 new        4992 0x0152B410  224 \support\shape\shapebinfile.cpp
+   6    43703 new         112 0x0129A998  323 \support\shape\shapemanager.cpp
+   6    43704 new       11328 0x0155B1E8  224 \support\shape\shapebinfile.cpp
+   6    43706 new         112 0x0129AA90  323 \support\shape\shapemanager.cpp
+   6    43707 new        4992 0x0152C818  224 \support\shape\shapebinfile.cpp
+   6    43709 new         112 0x0129AB88  323 \support\shape\shapemanager.cpp
+   6    43710 new        9152 0x0155DEB0  224 \support\shape\shapebinfile.cpp
+   6    43712 new         112 0x0129AC80  323 \support\shape\shapemanager.cpp
+   6    43713 new        5376 0x015602F8  224 \support\shape\shapebinfile.cpp
+   6    43715 new         112 0x0129AD78  323 \support\shape\shapemanager.cpp
+   6    43716 new       20768 0x01561880  224 \support\shape\shapebinfile.cpp
+   6    43718 new         112 0x0129AE70  323 \support\shape\shapemanager.cpp
+   6    43719 new       10368 0x01566A28  224 \support\shape\shapebinfile.cpp
+   6    43721 new         112 0x0129AF68  323 \support\shape\shapemanager.cpp
+   6    43722 new        7104 0x01569330  224 \support\shape\shapebinfile.cpp
+   6    43724 new         112 0x012BA2B8  323 \support\shape\shapemanager.cpp
+   6    43725 new        3072 0x012BA3B0  224 \support\shape\shapebinfile.cpp
+   6    43727 new         112 0x01270180  323 \support\shape\shapemanager.cpp
+   6    43728 new        5344 0x0156AF78  224 \support\shape\shapebinfile.cpp
+   6    43730 new         112 0x01270278  323 \support\shape\shapemanager.cpp
+   6    43731 new       11200 0x0156C4E0  224 \support\shape\shapebinfile.cpp
+   6    43733 new         112 0x01270370  323 \support\shape\shapemanager.cpp
+   6    43734 new        6592 0x0156F128  224 \support\shape\shapebinfile.cpp
+   6    43736 new         112 0x01270468  323 \support\shape\shapemanager.cpp
+   6    43737 new       10304 0x01570B70  224 \support\shape\shapebinfile.cpp
+   6    43739 new         112 0x01270560  323 \support\shape\shapemanager.cpp
+   6    43740 new       21952 0x01573438  224 \support\shape\shapebinfile.cpp
+   6    43742 new         112 0x01270658  323 \support\shape\shapemanager.cpp
+   6    43743 new        5088 0x01578A80  224 \support\shape\shapebinfile.cpp
+   6    43745 new         112 0x01270750  323 \support\shape\shapemanager.cpp
+   6    43746 new        3872 0x0152DC20  224 \support\shape\shapebinfile.cpp
+   6    43748 new         112 0x0152EBC8  323 \support\shape\shapemanager.cpp
+   6    43749 new       24032 0x01579EE8  224 \support\shape\shapebinfile.cpp
+   6    43751 new         112 0x0152ECC0  323 \support\shape\shapemanager.cpp
+   6    43752 new        6592 0x0157FD50  224 \support\shape\shapebinfile.cpp
+   6    43754 new         112 0x0152EDB8  323 \support\shape\shapemanager.cpp
+   6    43755 new       11584 0x01581798  224 \support\shape\shapebinfile.cpp
+   6    43757 new         112 0x0152EEB0  323 \support\shape\shapemanager.cpp
+   6    43758 new       15616 0x01584560  224 \support\shape\shapebinfile.cpp
+   6    43760 new         112 0x01270848  323 \support\shape\shapemanager.cpp
+   6    43761 new        7872 0x015882E8  224 \support\shape\shapebinfile.cpp
+   6    43763 new         112 0x01270940  323 \support\shape\shapemanager.cpp
+   6    43764 new        3136 0x0158A230  224 \support\shape\shapebinfile.cpp
+   6    43766 new         112 0x01270A38  323 \support\shape\shapemanager.cpp
+   6    43767 new       42016 0x0158AEF8  224 \support\shape\shapebinfile.cpp
+   6    43769 new         112 0x01270B30  323 \support\shape\shapemanager.cpp
+   6    43770 new        1856 0x015953A0  224 \support\shape\shapebinfile.cpp
+   6    43772 new         112 0x01270C28  323 \support\shape\shapemanager.cpp
+   6    43773 new      177232 0x01595B68  224 \support\shape\shapebinfile.cpp
+   6    43775 new         112 0x01270D20  323 \support\shape\shapemanager.cpp
+   6    43776 new        3600 0x003AD040  224 \support\shape\shapebinfile.cpp
+   6    43778 new         112 0x003ADED8  323 \support\shape\shapemanager.cpp
+   6    43779 new      105552 0x015C1040  224 \support\shape\shapebinfile.cpp
+   6    43781 new         112 0x01270E18  323 \support\shape\shapemanager.cpp
+   6    43782 new        3024 0x003AF068  224 \support\shape\shapebinfile.cpp
+   6    43784 new         112 0x01270F10  323 \support\shape\shapemanager.cpp
+   6    43785 new      149568 0x015DAD18  224 \support\shape\shapebinfile.cpp
+   6    43787 new         112 0x003AFCC0  323 \support\shape\shapemanager.cpp
+   6    43788 new        4816 0x015FF5E0  224 \support\shape\shapebinfile.cpp
+   6    43790 new         112 0x003AFDB8  323 \support\shape\shapemanager.cpp
+   6    43791 new       58000 0x01600938  224 \support\shape\shapebinfile.cpp
+   6    43793 new         112 0x003AFEB0  323 \support\shape\shapemanager.cpp
+   6    43794 new        3344 0x01281050  224 \support\shape\shapebinfile.cpp
+   6    43796 new         112 0x01281DE8  323 \support\shape\shapemanager.cpp
+   6    43797 new       18832 0x0160EC50  224 \support\shape\shapebinfile.cpp
+   6    43799 new         112 0x01281EE0  323 \support\shape\shapemanager.cpp
+   6    43800 new       21856 0x01613668  224 \support\shape\shapebinfile.cpp
+   6    43802 new         112 0x0128EF88  323 \support\shape\shapemanager.cpp
+   6    43803 new       21584 0x01618C50  224 \support\shape\shapebinfile.cpp
+   6    43805 new         112 0x0128F080  323 \support\shape\shapemanager.cpp
+   6    43806 new       26304 0x0161E128  224 \support\shape\shapebinfile.cpp
+   6    43808 new         112 0x0128F178  323 \support\shape\shapemanager.cpp
+   6    43809 new        8832 0x01624870  224 \support\shape\shapebinfile.cpp
+   6    43811 new         112 0x0128F270  323 \support\shape\shapemanager.cpp
+   6    43812 new       10304 0x01626B78  224 \support\shape\shapebinfile.cpp
+   6    43814 new         112 0x0128F368  323 \support\shape\shapemanager.cpp
+   6    43815 new       16960 0x01629440  224 \support\shape\shapebinfile.cpp
+   6    43817 new         112 0x0128F460  323 \support\shape\shapemanager.cpp
+   6    43818 new       10992 0x0162D708  224 \support\shape\shapebinfile.cpp
+   6    43820 new         112 0x0128F558  323 \support\shape\shapemanager.cpp
+   6    43821 new       17360 0x01630280  224 \support\shape\shapebinfile.cpp
+   6    43823 new         112 0x0128F650  323 \support\shape\shapemanager.cpp
+   6    43824 new       12528 0x016346D8  224 \support\shape\shapebinfile.cpp
+   6    43826 new         112 0x0128F748  323 \support\shape\shapemanager.cpp
+   6    43827 new       17936 0x01637850  224 \support\shape\shapebinfile.cpp
+   6    43829 new         112 0x0128F840  323 \support\shape\shapemanager.cpp
+   6    43830 new       12672 0x0163BEE8  224 \support\shape\shapebinfile.cpp
+   6    43832 new         112 0x0128F938  323 \support\shape\shapemanager.cpp
+   6    43833 new        6912 0x0163F0F0  224 \support\shape\shapebinfile.cpp
+   6    43835 new         112 0x0128FA30  323 \support\shape\shapemanager.cpp
+   6    43836 new       11632 0x01640C78  224 \support\shape\shapebinfile.cpp
+   6    43838 new         112 0x0128FB28  323 \support\shape\shapemanager.cpp
+   6    43839 new       38704 0x01643A70  224 \support\shape\shapebinfile.cpp
+   6    43841 new         112 0x0128FC20  323 \support\shape\shapemanager.cpp
+   6    43842 new        2192 0x0164D228  224 \support\shape\shapebinfile.cpp
+   6    43844 new         112 0x0128FD18  323 \support\shape\shapemanager.cpp
+   6    43845 new        3472 0x0164DB40  224 \support\shape\shapebinfile.cpp
+   6    43847 new         112 0x0128FE10  323 \support\shape\shapemanager.cpp
+   6    43848 new       45392 0x0164E958  224 \support\shape\shapebinfile.cpp
+   6    43850 new         112 0x0128FF08  323 \support\shape\shapemanager.cpp
+   6    43851 new       53408 0x01659B30  224 \support\shape\shapebinfile.cpp
+   6    43853 new         112 0x0132EE68  323 \support\shape\shapemanager.cpp
+   6    43854 new        5776 0x01666C58  224 \support\shape\shapebinfile.cpp
+   6    43856 new         112 0x0132EF60  323 \support\shape\shapemanager.cpp
+   6    43857 new       40384 0x016693B8  224 \support\shape\shapebinfile.cpp
+   6    43859 new         112 0x0132F058  323 \support\shape\shapemanager.cpp
+   6    43860 new        5008 0x01673200  224 \support\shape\shapebinfile.cpp
+   6    43862 new         112 0x0132F150  323 \support\shape\shapemanager.cpp
+   6    43863 new       34352 0x01674618  224 \support\shape\shapebinfile.cpp
+   6    43865 new         112 0x0132F248  323 \support\shape\shapemanager.cpp
+   6    43866 new        3120 0x0132F340  224 \support\shape\shapebinfile.cpp
+   6    43868 new         112 0x01668370  323 \support\shape\shapemanager.cpp
+   6    43869 new       82912 0x0167DD18  224 \support\shape\shapebinfile.cpp
+   6    43871 new         112 0x01692180  323 \support\shape\shapemanager.cpp
+   6    43872 new        1232 0x01692278  224 \support\shape\shapebinfile.cpp
+   6    43874 new         112 0x016927D0  323 \support\shape\shapemanager.cpp
+   6    43875 new       40816 0x016928C8  224 \support\shape\shapebinfile.cpp
+   6    43877 new         112 0x01668468  323 \support\shape\shapemanager.cpp
+   6    43878 new       55232 0x0169C8C0  224 \support\shape\shapebinfile.cpp
+   6    43880 new         112 0x01668560  323 \support\shape\shapemanager.cpp
+   6    43881 new       45120 0x016AA108  224 \support\shape\shapebinfile.cpp
+   6    43883 new         112 0x01668658  323 \support\shape\shapemanager.cpp
+   6    43884 new       43712 0x016B51D0  224 \support\shape\shapebinfile.cpp
+   6    43886 new         112 0x01668750  323 \support\shape\shapemanager.cpp
+   6    43887 new       39024 0x016BFD18  224 \support\shape\shapebinfile.cpp
+   6    43889 new         112 0x01668848  323 \support\shape\shapemanager.cpp
+   6    43890 new       62128 0x016C9610  224 \support\shape\shapebinfile.cpp
+   6    43892 new         112 0x016D8948  323 \support\shape\shapemanager.cpp
+   6    43893 new        2192 0x01668940  224 \support\shape\shapebinfile.cpp
+   6    43895 new         112 0x01669258  323 \support\shape\shapemanager.cpp
+   6    43896 new       62112 0x016D8A40  224 \support\shape\shapebinfile.cpp
+   6    43898 new         112 0x016E7D68  323 \support\shape\shapemanager.cpp
+   6    43899 new        1680 0x0152EFA8  224 \support\shape\shapebinfile.cpp
+   6    43901 new         112 0x016E7E60  323 \support\shape\shapemanager.cpp
+   6    43902 new       12400 0x016E7F58  224 \support\shape\shapebinfile.cpp
+   6    43904 new         112 0x0152F6C0  323 \support\shape\shapemanager.cpp
+   6    43905 new       12864 0x016EB050  224 \support\shape\shapebinfile.cpp
+   6    43907 new         112 0x0152F7B8  323 \support\shape\shapemanager.cpp
+   6    43908 new        7536 0x016EE318  224 \support\shape\shapebinfile.cpp
+   6    43910 new         112 0x0152F8B0  323 \support\shape\shapemanager.cpp
+   6    43911 new       11744 0x016F0110  224 \support\shape\shapebinfile.cpp
+   6    43913 new         112 0x0152F9A8  323 \support\shape\shapemanager.cpp
+   6    43914 new        2304 0x016F2F78  224 \support\shape\shapebinfile.cpp
+   6    43916 new         112 0x0152FAA0  323 \support\shape\shapemanager.cpp
+   6    43917 new        4320 0x016F3900  224 \support\shape\shapebinfile.cpp
+   6    43919 new         112 0x0152FB98  323 \support\shape\shapemanager.cpp
+   6    43920 new        6272 0x016F4A68  224 \support\shape\shapebinfile.cpp
+   6    43922 new         112 0x0152FC90  323 \support\shape\shapemanager.cpp
+   6    43923 new        4288 0x016F6370  224 \support\shape\shapebinfile.cpp
+   6    43925 new         112 0x0152FD88  323 \support\shape\shapemanager.cpp
+   6    43926 new       14784 0x016F74B8  224 \support\shape\shapebinfile.cpp
+   6    43928 new         112 0x0152FE80  323 \support\shape\shapemanager.cpp
+   6    43929 new        8768 0x016FAF00  224 \support\shape\shapebinfile.cpp
+   6    43931 new         112 0x0167CCD0  323 \support\shape\shapemanager.cpp
+   6    43932 new       15104 0x016FE210  224 \support\shape\shapebinfile.cpp
+   6    43934 new         112 0x0167CDC8  323 \support\shape\shapemanager.cpp
+   6    43935 new       13760 0x01701D98  224 \support\shape\shapebinfile.cpp
+   6    43937 new         112 0x0167CEC0  323 \support\shape\shapemanager.cpp
+   6    43938 new       12096 0x017053E0  224 \support\shape\shapebinfile.cpp
+   6    43940 new         112 0x0167CFB8  323 \support\shape\shapemanager.cpp
+   6    43941 new        6976 0x017083A8  224 \support\shape\shapebinfile.cpp
+   6    43943 new         112 0x0167D0B0  323 \support\shape\shapemanager.cpp
+   6    43944 new        6080 0x01709F70  224 \support\shape\shapebinfile.cpp
+   6    43946 new         112 0x0167D1A8  323 \support\shape\shapemanager.cpp
+   6    43947 new        7248 0x0170B7B8  224 \support\shape\shapebinfile.cpp
+   6    43949 new         112 0x0167D2A0  323 \support\shape\shapemanager.cpp
+   6    43950 new       42928 0x0170D490  224 \support\shape\shapebinfile.cpp
+   6    43952 new         112 0x0167D398  323 \support\shape\shapemanager.cpp
+   6    43953 new       42592 0x01717CC8  224 \support\shape\shapebinfile.cpp
+   6    43955 new         112 0x0167D490  323 \support\shape\shapemanager.cpp
+   6    43956 new       71008 0x017223B0  224 \support\shape\shapebinfile.cpp
+   6    43958 new         112 0x01733998  323 \support\shape\shapemanager.cpp
+   6    43959 new        2112 0x01733A90  224 \support\shape\shapebinfile.cpp
+   6    43961 new         112 0x0167D588  323 \support\shape\shapemanager.cpp
+   6    43962 new        7872 0x01734358  224 \support\shape\shapebinfile.cpp
+   6    43964 new         112 0x0167D680  323 \support\shape\shapemanager.cpp
+   6    43965 new        3584 0x017362A0  224 \support\shape\shapebinfile.cpp
+   6    43967 new         112 0x0167D778  323 \support\shape\shapemanager.cpp
+   6    43968 new        1984 0x01737128  224 \support\shape\shapebinfile.cpp
+   6    43970 new         112 0x0167D870  323 \support\shape\shapemanager.cpp
+   6    43971 new        1984 0x01737970  224 \support\shape\shapebinfile.cpp
+   6    43973 new         112 0x0167D968  323 \support\shape\shapemanager.cpp
+   6    43974 new        1856 0x017381B8  224 \support\shape\shapebinfile.cpp
+   8    43977 ------ -------- ---------- ---- ----UI
+   8    43978 new           1 0x003A9990  144 rojects\aads\aads\missionio.cpp
+   9    43979 ------ -------- ---------- ---- ----HUD
+   9    43980 new           1 0x01275FD8  153 rojects\aads\aads\missionio.cpp
+  10    43981 ------ -------- ---------- ---- ----StringTable
+  10    43982 new          12 0x01281FD8  109 support\stringmgr\stringmgr.cpp
+  10    43983 malloc     1236 0x01264068   58 support\stringmgr\stringmgr.cpp
+  10    43985 new          12 0x003A9F20  109 support\stringmgr\stringmgr.cpp
+  10    43986 malloc    23138 0x01254150   58 support\stringmgr\stringmgr.cpp
+  12    43989 ------ -------- ---------- ---- ----End   - LoadPermanentData
+  12    43990 new        1136 0x012645C0  228 rojects\aads\aads\sm_common.cpp
+  12    43991 new     4590280 0x01970080  149 rojects\aads\aads\sm_server.cpp
+  12    43992 new          36 0x003AFFA8  382 lementation\x_array_private.hpp
+  15    43995 ------ -------- ---------- ---- ----Begin Loading Mission
+  15    43996 new          12 0x003ADFD0  109 support\stringmgr\stringmgr.cpp
+  15    43997 malloc      256 0x0167DA60   58 support\stringmgr\stringmgr.cpp
+  15    43998 new          24 0x003A2AD8  382 lementation\x_array_private.hpp
+  15    44000 new        4790 0x0125E240  120 s\support\objects\bot\graph.cpp
+  15    44001 new       47808 0x012BB038  126 s\support\objects\bot\graph.cpp
+  15    44002 new        1916 0x0125F578  131 s\support\objects\bot\graph.cpp
+  15    44003 new        1328 0x017399C8  136 s\support\objects\bot\graph.cpp
+  18    44006 ------ -------- ---------- ---- ----ENVIRONMENT
+  18    44012 new         112 0x0167DBE8  323 \support\shape\shapemanager.cpp
+  18    44013 new        1856 0x01260F98  224 \support\shape\shapebinfile.cpp
+  18    44015 new         112 0x01747C08  323 \support\shape\shapemanager.cpp
+  18    44016 new        3952 0x0131EEF8  224 \support\shape\shapebinfile.cpp
+  18    44018 new         112 0x0131FEF0  323 \support\shape\shapemanager.cpp
+  18    44019 new        6512 0x01747D00  224 \support\shape\shapebinfile.cpp
+  18    44021 new         112 0x01738980  323 \support\shape\shapemanager.cpp
+  18    44022 new       17136 0x017496F8  224 \support\shape\shapebinfile.cpp
+  18    44024 new         112 0x01738A78  323 \support\shape\shapemanager.cpp
+  18    44025 new       43568 0x0174DA70  224 \support\shape\shapebinfile.cpp
+  18    44027 new         112 0x01758528  323 \support\shape\shapemanager.cpp
+  18    44028 new       22192 0x01758620  224 \support\shape\shapebinfile.cpp
+  18    44030 new         112 0x01738B70  323 \support\shape\shapemanager.cpp
+  18    44031 new       33616 0x0175DD58  224 \support\shape\shapebinfile.cpp
+  18    44033 new         112 0x01738C68  323 \support\shape\shapemanager.cpp
+  18    44034 new       26896 0x01766130  224 \support\shape\shapebinfile.cpp
+  18    44036 new         112 0x01738D60  323 \support\shape\shapemanager.cpp
+  18    44037 new        2224 0x01738E58  224 \support\shape\shapebinfile.cpp
+  18    44039 new         112 0x01739790  323 \support\shape\shapemanager.cpp
+  18    44040 new        1840 0x012627A8  224 \support\shape\shapebinfile.cpp
+  18    44042 new         112 0x01262F60  323 \support\shape\shapemanager.cpp
+  18    44043 new        1840 0x0176CAC8  224 \support\shape\shapebinfile.cpp
+  18    44045 new         112 0x01739888  323 \support\shape\shapemanager.cpp
+  18    44046 new        4096 0x0176D280  224 \support\shape\shapebinfile.cpp
+  18    44048 new         112 0x01261760  323 \support\shape\shapemanager.cpp
+  18    44049 new        4992 0x0176F350  224 \support\shape\shapebinfile.cpp
+  18    44051 new         112 0x01261858  323 \support\shape\shapemanager.cpp
+  18    44052 new        3392 0x01261950  224 \support\shape\shapebinfile.cpp
+  18    44054 new         112 0x0176E308  323 \support\shape\shapemanager.cpp
+  18    44055 new        7808 0x017717A0  224 \support\shape\shapebinfile.cpp
+  18    44057 new         112 0x0176E400  323 \support\shape\shapemanager.cpp
+  18    44058 new        4864 0x017736A8  224 \support\shape\shapebinfile.cpp
+  18    44060 new         112 0x0176E4F8  323 \support\shape\shapemanager.cpp
+  18    44061 new        8224 0x01774A30  224 \support\shape\shapebinfile.cpp
+  18    44063 new         112 0x0176E5F0  323 \support\shape\shapemanager.cpp
+  18    44064 new        9536 0x01776AD8  224 \support\shape\shapebinfile.cpp
+  18    44066 new         112 0x0176E6E8  323 \support\shape\shapemanager.cpp
+  18    44067 new       10576 0x017790A0  224 \support\shape\shapebinfile.cpp
+  18    44069 new         112 0x0176E7E0  323 \support\shape\shapemanager.cpp
+  18    44070 new       22496 0x0177BA78  224 \support\shape\shapebinfile.cpp
+  18    44072 new         112 0x0176E8D8  323 \support\shape\shapemanager.cpp
+  18    44073 new        9440 0x017812E0  224 \support\shape\shapebinfile.cpp
+  28    44084 ------ -------- ---------- ---- ----TERRAIN
+  28    44085 new      383328 0x01783848   32 ort\objects\terrain\terrain.cpp
+  30    44092 ------ -------- ---------- ---- ----BUILDING
+  30    44093 new        1032 0x012C6B80   37 upport\building\buildingobj.cpp
+  30    44094 new         168 0x003AA698  665 Support\Building\BldManager.cpp
+  30    44095 new      605880 0x01DE0080  253 port\building\bldfilesystem.hpp
+  30    44097 new        5456 0x012C7008   64 upport\building\bldinstance.cpp
+  31    44098 ------ -------- ---------- ---- ----BUILDING
+  31    44099 new        1032 0x0176E9D0   37 upport\building\buildingobj.cpp
+  31    44100 new         168 0x003AA7C0  665 Support\Building\BldManager.cpp
+  31    44101 new      152232 0x012C85E0  253 port\building\bldfilesystem.hpp
+  31    44103 new        1024 0x0176EE58   64 upport\building\bldinstance.cpp
+  32    44104 ------ -------- ---------- ---- ----BUILDING
+  32    44105 new        1032 0x01747068   37 upport\building\buildingobj.cpp
+  32    44106 new         168 0x017474F0  665 Support\Building\BldManager.cpp
+  32    44107 new       14776 0x012ED908  253 port\building\bldfilesystem.hpp
+  32    44109 new         144 0x01747618   64 upport\building\bldinstance.cpp
+  33    44110 ------ -------- ---------- ---- ----BUILDING
+  33    44111 new        1032 0x01747730   37 upport\building\buildingobj.cpp
+  33    44112 new         144 0x017E1230   64 upport\building\bldinstance.cpp
+  34    44113 ------ -------- ---------- ---- ----BUILDING
+  34    44114 new        1032 0x017E1348   37 upport\building\buildingobj.cpp
+  34    44115 new         144 0x017E17D0   64 upport\building\bldinstance.cpp
+  35    44116 ------ -------- ---------- ---- ----BUILDING
+  35    44117 new        1032 0x017E18E8   37 upport\building\buildingobj.cpp
+  35    44118 new         144 0x017E1D70   64 upport\building\bldinstance.cpp
+  36    44119 ------ -------- ---------- ---- ----BUILDING
+  36    44120 new        1032 0x0131E068   37 upport\building\buildingobj.cpp
+  36    44121 new        5456 0x012F1340   64 upport\building\bldinstance.cpp
+  37    44122 ------ -------- ---------- ---- ----BUILDING
+  37    44123 new        1032 0x0131E4F0   37 upport\building\buildingobj.cpp
+  37    44124 new        1024 0x0131E978   64 upport\building\bldinstance.cpp
+  38    44125 ------ -------- ---------- ---- ----SCENERY
+  38    44126 new         620 0x01770758  153 pport\objects\scenic\scenic.cpp
+  39    44127 ------ -------- ---------- ---- ----SCENERY
+  39    44128 new         620 0x01770A40  153 pport\objects\scenic\scenic.cpp
+  40    44129 ------ -------- ---------- ---- ----SCENERY
+  40    44130 new         620 0x01770D28  153 pport\objects\scenic\scenic.cpp
+  41    44131 ------ -------- ---------- ---- ----SCENERY
+  41    44132 new         620 0x01771010  153 pport\objects\scenic\scenic.cpp
+  42    44133 ------ -------- ---------- ---- ----SCENERY
+  42    44134 new         620 0x017712F8  153 pport\objects\scenic\scenic.cpp
+  43    44135 ------ -------- ---------- ---- ----SCENERY
+  43    44136 new         620 0x0125FD70  153 pport\objects\scenic\scenic.cpp
+  44    44137 ------ -------- ---------- ---- ----SCENERY
+  44    44138 new         620 0x01260058  153 pport\objects\scenic\scenic.cpp
+  45    44139 ------ -------- ---------- ---- ----SCENERY
+  45    44140 new         620 0x01260340  153 pport\objects\scenic\scenic.cpp
+  46    44141 ------ -------- ---------- ---- ----SCENERY
+  46    44142 new         620 0x01260628  153 pport\objects\scenic\scenic.cpp
+  47    44143 ------ -------- ---------- ---- ----SCENERY
+  47    44144 new         620 0x01260910  153 pport\objects\scenic\scenic.cpp
+  48    44145 ------ -------- ---------- ---- ----SCENERY
+  48    44146 new         620 0x01260BF8  153 pport\objects\scenic\scenic.cpp
+  49    44147 ------ -------- ---------- ---- ----SCENERY
+  49    44148 new         620 0x012F2918  153 pport\objects\scenic\scenic.cpp
+  50    44149 ------ -------- ---------- ---- ----SCENERY
+  50    44150 new         620 0x012F2C00  153 pport\objects\scenic\scenic.cpp
+  51    44151 ------ -------- ---------- ---- ----SCENERY
+  51    44152 new         620 0x012F2EE8  153 pport\objects\scenic\scenic.cpp
+  52    44153 ------ -------- ---------- ---- ----SCENERY
+  52    44154 new         620 0x012F31D0  153 pport\objects\scenic\scenic.cpp
+  53    44155 ------ -------- ---------- ---- ----SCENERY
+  53    44156 new         620 0x012F34B8  153 pport\objects\scenic\scenic.cpp
+  54    44157 ------ -------- ---------- ---- ----SCENERY
+  54    44158 new         620 0x012F37A0  153 pport\objects\scenic\scenic.cpp
+  55    44159 ------ -------- ---------- ---- ----SCENERY
+  55    44160 new         620 0x012F3A88  153 pport\objects\scenic\scenic.cpp
+  56    44161 ------ -------- ---------- ---- ----SCENERY
+  56    44162 new         620 0x012F3D70  153 pport\objects\scenic\scenic.cpp
+  57    44163 ------ -------- ---------- ---- ----SCENERY
+  57    44164 new         620 0x012F4058  153 pport\objects\scenic\scenic.cpp
+  58    44165 ------ -------- ---------- ---- ----SCENERY
+  58    44166 new         620 0x012F4340  153 pport\objects\scenic\scenic.cpp
+  59    44167 ------ -------- ---------- ---- ----SCENERY
+  59    44168 new         620 0x012F4628  153 pport\objects\scenic\scenic.cpp
+  60    44169 ------ -------- ---------- ---- ----SCENERY
+  60    44170 new         620 0x012F4910  153 pport\objects\scenic\scenic.cpp
+  61    44171 ------ -------- ---------- ---- ----SCENERY
+  61    44172 new         620 0x012F4BF8  153 pport\objects\scenic\scenic.cpp
+  62    44173 ------ -------- ---------- ---- ----SCENERY
+  62    44174 new         620 0x01263058  153 pport\objects\scenic\scenic.cpp
+  63    44175 ------ -------- ---------- ---- ----SCENERY
+  63    44176 new         620 0x01263340  153 pport\objects\scenic\scenic.cpp
+  64    44177 ------ -------- ---------- ---- ----SCENERY
+  64    44178 new         620 0x01263628  153 pport\objects\scenic\scenic.cpp
+  65    44179 ------ -------- ---------- ---- ----SCENERY
+  65    44180 new         620 0x01263910  153 pport\objects\scenic\scenic.cpp
+  66    44181 ------ -------- ---------- ---- ----SCENERY
+  66    44182 new         620 0x01263BF8  153 pport\objects\scenic\scenic.cpp
+  67    44183 ------ -------- ---------- ---- ----SCENERY
+  67    44184 new         620 0x012F4EE0  153 pport\objects\scenic\scenic.cpp
+  68    44185 ------ -------- ---------- ---- ----SCENERY
+  68    44186 new         620 0x012F51C8  153 pport\objects\scenic\scenic.cpp
+  69    44187 ------ -------- ---------- ---- ----SCENERY
+  69    44188 new         620 0x012F54B0  153 pport\objects\scenic\scenic.cpp
+  70    44189 ------ -------- ---------- ---- ----SCENERY
+  70    44190 new         620 0x012F5798  153 pport\objects\scenic\scenic.cpp
+  71    44191 ------ -------- ---------- ---- ----SCENERY
+  71    44192 new         620 0x012F5A80  153 pport\objects\scenic\scenic.cpp
+  72    44193 ------ -------- ---------- ---- ----GENERATOR
+  72    44194 new        1244 0x012F5D68   51 jects\projectiles\generator.cpp
+  73    44195 ------ -------- ---------- ---- ----GENERATOR
+  73    44196 new        1244 0x012F62C0   51 jects\projectiles\generator.cpp
+  74    44197 ------ -------- ---------- ---- ----GENERATOR
+  74    44198 new        1244 0x012F6818   51 jects\projectiles\generator.cpp
+  75    44199 ------ -------- ---------- ---- ----GENERATOR
+  75    44200 new        1244 0x012F6D70   51 jects\projectiles\generator.cpp
+  76    44201 ------ -------- ---------- ---- ----INVEN
+  76    44202 new        1348 0x012F72C8  106 objects\projectiles\station.cpp
+  77    44203 ------ -------- ---------- ---- ----INVEN
+  77    44204 new        1348 0x012F7890  106 objects\projectiles\station.cpp
+  78    44205 ------ -------- ---------- ---- ----INVEN
+  78    44206 new        1348 0x012F7E58  106 objects\projectiles\station.cpp
+  79    44207 ------ -------- ---------- ---- ----INVEN
+  79    44208 new        1348 0x012F8420  106 objects\projectiles\station.cpp
+  80    44209 ------ -------- ---------- ---- ----TURRET
+  80    44210 new        1884 0x012F89E8  360 \objects\projectiles\turret.cpp
+  81    44211 ------ -------- ---------- ---- ----TURRET
+  81    44212 new        1884 0x012F91C0  360 \objects\projectiles\turret.cpp
+  82    44213 ------ -------- ---------- ---- ----TURRET
+  82    44214 new        1884 0x012F9998  360 \objects\projectiles\turret.cpp
+  83    44215 ------ -------- ---------- ---- ----TURRET
+  83    44216 new        1884 0x012FA170  360 \objects\projectiles\turret.cpp
+  84    44217 ------ -------- ---------- ---- ----TURRET
+  84    44218 new        1884 0x012FA948  360 \objects\projectiles\turret.cpp
+  85    44219 ------ -------- ---------- ---- ----TURRET
+  85    44220 new        1884 0x012FB120  360 \objects\projectiles\turret.cpp
+  86    44221 ------ -------- ---------- ---- ----SENSOR
+  86    44222 new        1252 0x012FB8F8   82 \objects\projectiles\sensor.cpp
+  87    44223 ------ -------- ---------- ---- ----SENSOR
+  87    44224 new        1252 0x012FBE60   82 \objects\projectiles\sensor.cpp
+  95    44232 ------ -------- ---------- ---- ----PICKUP
+  95    44233 new         632 0x012FC3C8  358 ort\objects\pickups\pickups.cpp
+  96    44234 ------ -------- ---------- ---- ----PICKUP
+  96    44235 new         632 0x012FC6C0  358 ort\objects\pickups\pickups.cpp
+  97    44236 ------ -------- ---------- ---- ----Done Loading Mission
+  97    44237 new       12096 0x01259C38   70 ort\objects\bot\mai_manager.cpp
+  97    44238 new       12096 0x012FC9B8   70 ort\objects\bot\mai_manager.cpp
+==== ======== ====== ======== ========== ==== ================================
+Mark Sequence Malloc     Size       Addr Line File
+
+
+
+Mark   Allocs                 TotalBytes      Comment
+==== ========                 ==========      ================================
+   0       11 ...... ........    4223166 .... Default 1st Mark
+   1        4 ...... ........     149452 .... Begin - InitPermSystems
+   2        0 ...... ........          0 .... End   - InitPermSystems
+   3        0 ...... ........          0 .... Begin - LoadPermanentData
+   4        0 ...... ........          0 .... Effects&Music
+   5        5 ...... ........       7692 .... Particles
+   6      282 ...... ........    4612656 .... GameShapes
+   7        0 ...... ........          0 .... Projectiles
+   8        1 ...... ........          1 .... UI
+   9        1 ...... ........          1 .... HUD
+  10        4 ...... ........      24398 .... StringTable
+  11        0 ...... ........          0 .... Player::SetupViewAndWeaponL
+  12        3 ...... ........    4591452 .... End   - LoadPermanentData
+  13        0 ...... ........          0 .... Begin - InitMissionSystems
+  14        0 ...... ........          0 .... End   - InitMissionSystems
+  15        7 ...... ........      56134 .... Begin Loading Mission
+  16        0 ...... ........          0 .... MISSION
+  17        0 ...... ........          0 .... MUSIC
+  18       42 ...... ........     249408 .... ENVIRONMENT
+  19        0 ...... ........          0 .... SUN
+  20        0 ...... ........          0 .... FOG
+  21        0 ...... ........          0 .... SKY
+  22        0 ...... ........          0 .... CAMERA
+  23        0 ...... ........          0 .... CAMERA
+  24        0 ...... ........          0 .... CAMERA
+  25        0 ...... ........          0 .... CAMERA
+  26        0 ...... ........          0 .... CAMERA
+  27        0 ...... ........          0 .... BOUNDS
+  28        1 ...... ........     383328 .... TERRAIN
+  29        0 ...... ........          0 .... EMPTYSQUARES
+  30        4 ...... ........     612536 .... BUILDING
+  31        4 ...... ........     154456 .... BUILDING
+  32        4 ...... ........      16120 .... BUILDING
+  33        2 ...... ........       1176 .... BUILDING
+  34        2 ...... ........       1176 .... BUILDING
+  35        2 ...... ........       1176 .... BUILDING
+  36        2 ...... ........       6488 .... BUILDING
+  37        2 ...... ........       2056 .... BUILDING
+  38        1 ...... ........        620 .... SCENERY
+  39        1 ...... ........        620 .... SCENERY
+  40        1 ...... ........        620 .... SCENERY
+  41        1 ...... ........        620 .... SCENERY
+  42        1 ...... ........        620 .... SCENERY
+  43        1 ...... ........        620 .... SCENERY
+  44        1 ...... ........        620 .... SCENERY
+  45        1 ...... ........        620 .... SCENERY
+  46        1 ...... ........        620 .... SCENERY
+  47        1 ...... ........        620 .... SCENERY
+  48        1 ...... ........        620 .... SCENERY
+  49        1 ...... ........        620 .... SCENERY
+  50        1 ...... ........        620 .... SCENERY
+  51        1 ...... ........        620 .... SCENERY
+  52        1 ...... ........        620 .... SCENERY
+  53        1 ...... ........        620 .... SCENERY
+  54        1 ...... ........        620 .... SCENERY
+  55        1 ...... ........        620 .... SCENERY
+  56        1 ...... ........        620 .... SCENERY
+  57        1 ...... ........        620 .... SCENERY
+  58        1 ...... ........        620 .... SCENERY
+  59        1 ...... ........        620 .... SCENERY
+  60        1 ...... ........        620 .... SCENERY
+  61        1 ...... ........        620 .... SCENERY
+  62        1 ...... ........        620 .... SCENERY
+  63        1 ...... ........        620 .... SCENERY
+  64        1 ...... ........        620 .... SCENERY
+  65        1 ...... ........        620 .... SCENERY
+  66        1 ...... ........        620 .... SCENERY
+  67        1 ...... ........        620 .... SCENERY
+  68        1 ...... ........        620 .... SCENERY
+  69        1 ...... ........        620 .... SCENERY
+  70        1 ...... ........        620 .... SCENERY
+  71        1 ...... ........        620 .... SCENERY
+  72        1 ...... ........       1244 .... GENERATOR
+  73        1 ...... ........       1244 .... GENERATOR
+  74        1 ...... ........       1244 .... GENERATOR
+  75        1 ...... ........       1244 .... GENERATOR
+  76        1 ...... ........       1348 .... INVEN
+  77        1 ...... ........       1348 .... INVEN
+  78        1 ...... ........       1348 .... INVEN
+  79        1 ...... ........       1348 .... INVEN
+  80        1 ...... ........       1884 .... TURRET
+  81        1 ...... ........       1884 .... TURRET
+  82        1 ...... ........       1884 .... TURRET
+  83        1 ...... ........       1884 .... TURRET
+  84        1 ...... ........       1884 .... TURRET
+  85        1 ...... ........       1884 .... TURRET
+  86        1 ...... ........       1252 .... SENSOR
+  87        1 ...... ........       1252 .... SENSOR
+  88        0 ...... ........          0 .... WATERMARK
+  89        0 ...... ........          0 .... POWER
+  90        0 ...... ........          0 .... SWITCH
+  91        0 ...... ........          0 .... SPAWN
+  92        0 ...... ........          0 .... SPAWN
+  93        0 ...... ........          0 .... FLAG_HOME
+  94        0 ...... ........          0 .... FLAG_HOME
+  95        1 ...... ........        632 .... PICKUP
+  96        1 ...... ........        632 .... PICKUP
+  97        2 ...... ........      24192 .... Done Loading Mission
+==== ========                 ==========      ================================
+Mark   Allocs                 TotalBytes      Comment
+
+
+
+       Allocs                 TotalBytes      File
+     ========                 ==========      ================================
+            3 ...... ........       3196 .... es\implementation\x_threads.cpp
+            2 ...... ........    4194304 .... entropy\common\e_scratchmem.cpp
+           12 ...... ........      50332 .... support\stringmgr\stringmgr.cpp
+            1 ...... ........       1416 .... c:\projects\aads\aads\main.cpp
+            1 ...... ........         96 .... t\masterserver\masterserver.cpp
+            3 ...... ........        508 .... lementation\x_array_private.hpp
+            1 ...... ........     147492 .... port\particles\particlepool.cpp
+            5 ...... ........       7692 .... t\particles\particlelibrary.cpp
+          162 ...... ........      18144 .... \support\shape\shapemanager.cpp
+          162 ...... ........    4843920 .... \support\shape\shapebinfile.cpp
+            2 ...... ........          2 .... rojects\aads\aads\missionio.cpp
+            1 ...... ........       1136 .... rojects\aads\aads\sm_common.cpp
+            1 ...... ........    4590280 .... rojects\aads\aads\sm_server.cpp
+            4 ...... ........      55842 .... s\support\objects\bot\graph.cpp
+            1 ...... ........     383328 .... ort\objects\terrain\terrain.cpp
+            8 ...... ........       8256 .... upport\building\buildingobj.cpp
+            3 ...... ........        504 .... Support\Building\BldManager.cpp
+            3 ...... ........     772888 .... port\building\bldfilesystem.hpp
+            8 ...... ........      13536 .... upport\building\bldinstance.cpp
+           34 ...... ........      21080 .... pport\objects\scenic\scenic.cpp
+            4 ...... ........       4976 .... jects\projectiles\generator.cpp
+            4 ...... ........       5392 .... objects\projectiles\station.cpp
+            6 ...... ........      11304 .... \objects\projectiles\turret.cpp
+            2 ...... ........       2504 .... \objects\projectiles\sensor.cpp
+            2 ...... ........       1264 .... ort\objects\pickups\pickups.cpp
+            2 ...... ........      24192 .... ort\objects\bot\mai_manager.cpp
+     ========                 ==========      ================================
+       Allocs                 TotalBytes      File
+
+
+
+                                   Value      Summary
+                              ==========      ================================
+                                   44886 .... Sequence
+                                     437 .... Current Count
+
+                                26426070 .... Total Bytes
+
+                                15229120 .... Maximum Bytes
+                                15163584 .... Current Bytes
+

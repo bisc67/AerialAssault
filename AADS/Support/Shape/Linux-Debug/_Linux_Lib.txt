@@ -1,0 +1,21 @@
+create Linux-Debug/Shape.lib
+addmod ./Linux-Debug/Anim.obj
+addmod ./Linux-Debug/HotPoint.obj
+addmod ./Linux-Debug/LabelSet.obj
+addmod ./Linux-Debug/Material.obj
+addmod ./Linux-Debug/Model.obj
+addmod ./Linux-Debug/Node.obj
+addmod ./Linux-Debug/Poly.obj
+addmod ./Linux-Debug/SelectionList.obj
+addmod ./Linux-Debug/Shape.obj
+addmod ./Linux-Debug/ShapeBinFile.obj
+addmod ./Linux-Debug/ShapeInstance.obj
+addmod ./Linux-Debug/ShapeManager.obj
+addmod ./Linux-Debug/ShapeReadAsc.obj
+addmod ./Linux-Debug/Strip.obj
+addmod ./Linux-Debug/Texture.obj
+addmod ./Linux-Debug/TextureManager.obj
+addmod ./Linux-Debug/Util.obj
+addmod ./Linux-Debug/Vert.obj
+save
+end 

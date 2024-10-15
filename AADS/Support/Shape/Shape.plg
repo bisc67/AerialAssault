@@ -1,0 +1,28 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Shape - Win32 Linux Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "d:\temp\RSP3DB.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "C:\Projects\AADS\xCore\Auxiliary\Bitmap" /I "C:\Projects\AADS\xCore\x_files" /I "c:\projects\aads\Support" /I "C:\Projects\AADS\xCore\Entropy" /I "C:\Projects\AADS\xCore" /I "c:\projects\aads" /I "MCode" /I "Shaders" /D "TARGET_LINUX" /D "X_DEBUG" /D "X_ASSERT" /D "biscuit" /Fp"Linux-Debug/Shape.pch" /YX /Fo"Linux-Debug/" /Fd"Linux-Debug/" /FD /GZ /c 
+"C:\Projects\AADS\Support\Shape\ShapeInstance.cpp"
+]
+Creating command line "cl.exe @d:\temp\RSP3DB.tmp" 
+<h3>Output Window</h3>
+Compiling...
+xCL -- DebugInfo[ON] Optimize[0]
+xCL -- Defines[ TARGET_LINUX, X_DEBUG, X_ASSERT, biscuit ]
+.
+ShapeInstance.cpp
+
+
+
+<h3>Results</h3>
+ShapeInstance.obj - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

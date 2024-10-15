@@ -1,0 +1,93 @@
+
+
+TARGET [PS2] - VERSION INFO
+
+DATE          VERSION    INITIALS    DESCRIPTION
+
+13/07/2001    1.63.35    ADB         VIF/GIF codes in Tag now display actual memory address in DMA disassembly (not address in tag)
+12/07/2001    1.63.34    MAR         - "Disasm to file" now displays a Save File common dialog. Start/End addresses are picked up from text selections
+                                       and copied into the appropriate controls of the dialog
+                                     - Right-clicking on a header file name in the source pane will add a 'open "header.h"' item to the context menu.
+                                       This looks for the file in the SourceSearchPath and loads it into the current source pane.
+                                     
+12/07/2001    1.63.34    MAR         - Implemented Workspace pane to show files and browse information for the loaded ELF in a tree view.
+                                       Context menu on each item in the tree view contains commands specific to the item (load for file, add bp for function etc.)
+                                     - Implemented drag & drop. Items from the Workspace pane may be dragged to various panes to add/goto
+                                       the item, add breakpoints etc.
+12/07/2001    1.63.34    MAR         - Implemented text selections on Source, TTY and Disassembly panes. Source pane supports edit control-style
+                                       keyboard accelerators (customisable). These panes also allow clipboard copying of the selection.
+                                     - All charmap panes (with no selection) have a Copy command on the context menu. This will copy the contents
+                                       of the current character map buffer to the clipboard.
+                                     - Source pane context menu contains a suib-menu with a list of previous files loaded (max of 10). This is accessible from a
+                                       keyboard accelerator. The list persists between sessions (saved in config file).
+                                     - Watch window context menu contains "Paste Expression" command, allowing a word/expression to be copied from
+                                       the source pane and pasted into the Watch window.
+                                     - Any current selection in the source pane will automatically be added to the edit control of the Find dialog box.
+                                     - Hover evaluation on the source pane will evaluate the current selection if there is one.
+                                     
+12/07/2001    1.63.32    ADB         Enabled DMA pane "save to text file" to save XGKICK packets from VU1
+06/07/2001    1.63.31    ADB         Special build with Martin's new VU analyser (active only if VU pane open).
+                                     This does not currently have the 1.63.30 extras.
+06/07/2001    1.63.30    MND         Changed VU analyse code to hopefully reduce the amount of time it takes.
+                                     
+05/07/2001    1.63.29    RGO         DEBUGGER NOW PERSISTS THE LOCKED ADDRESESS OF THE MEMORY, DISASSEMBLY, DMA PANE IF USED
+05/07/2001    1.63.29    RGO         CHANGED THE LOCALS PANE SO IT THE CURSOR NO LONGER FOLLOWS THE LAST ADDED ITEM
+                                     THIS WAS DONE TO SPEED UP SCOPE CHANGES.
+04/07/2001    1.63.29    MND         Enabled support for enum's of any size <= 64 bits rather than just 32 or 64 bits.
+                                     
+03/07/2001    1.63.28    RGO         ADDED QUICK SWITCH, WHICH BASICALLY MAPS THE CTRL + [0-9] KEYS TO THE FIRST TEN WINDOWS OPEN
+01/07/2001    1.63.28    MAR         fixed - DBG.H problem in eval versions was causing files ELF newer than 3rd July to fail.
+                                     This was previously set to 3rd July, causing the debugger to abort loading of any ELF's built after this date.
+01/07/2001    1.63.22    ADB         checked that profiler gets reset properly when target reset
+01/07/2001    1.63.21    ADB         removed redundant C++ type info from breakpoint pane
+13/06/2001    1.63.21    BPH         If the user tries to assign an already used keystroke to an accelerator. The debugger will display a dialog that allows the user to assign the keystroke to the selected accelerator and clear the old accelerator.
+06/06/2001    1.63.20    MND         changed expression eval to try name as hex number if no name match
+06/06/2001    1.63.20    ADB         fixed missing reset for kernel entry in profile pane
+06/06/2001    1.63.20    RGO         ADDED KEYPAD SUPPORT TO THE REG & MEM PANES
+06/06/2001    1.63.19    MND         streamlined GetFunctionName for the way profile pane uses it (much faster now)
+06/06/2001    1.63.19    ADB         removed redundant C++ type info from profile and callstack panes
+06/06/2001    1.63.18    ADB         changed EE memory profile to prevent DMA from new non-RAM areas
+06/06/2001    1.63.17    ADB         profile fn list now sorted by count, alpha, length rather than just count
+                                     (this avoids the rotation of list entries with the same count).
+06/06/2001    1.63.16    RGO         CHANGED ALL HEX OUTPUT CHANGED TO UPPERCASE (WATCH / LOCALS)
+06/06/2001    1.63.16    RGO         CHANGED MOUSEWHEEL TO USE SYSTEM SETTINGS
+06/06/2001    1.63.16    ADB         profiler now collates kernel time into one seperate entry
+06/06/2001    1.63.16    ADB         profile control dialog now correctly defaults the PC range and mask to what they are set to at the PS2
+06/06/2001    1.63.16    ADB         profile pane now has option to lump together anything <1% into seperate category
+06/06/2001    1.63.14    RGO         CHANGED THE BREAKPOINT PANE TO USE TARGET UPDATE METHOD FOR MEMORY FETCHING
+06/06/2001    1.63.13    ADB         added UNIX style regular expression support to the source pane text search
+06/06/2001    1.63.12    ADB         added UNIX style regular expression support to DMA text search
+06/06/2001    1.63.12    ADB         added search/search-again to dma pane (default on ctrl-F and F3)
+06/06/2001    1.63.11    ADB         removed unused TM protocol registration & checked VU1 memory fetch disabled on EE running
+06/06/2001    1.63.10    RGO         FIXED CHANGED THE SPLIT WINDOW HORIZONTALY TO CREATE THE NEW WINDOW BELOW THE OLD ONE
+06/06/2001    1.63.10    RGO         ADDED PERSON CONNECTED TO THE SELECT PS2 TARGET DIALOG
+06/06/2001    1.63.10    RGO         FIXED WATCH PANE INPLACEEDIT BOX
+06/06/2001    1.63.08    RGO         CHANGED THE SPACEBAR TO TOGGLE BETWEEN SOURCE AND DISASSEMBLY
+06/06/2001    1.63.08    RGO         ADDED HEX/DEC VALUE TO ENUM OUTPUT IN WATCH/LOCALS WINDOWS
+06/06/2001    1.63.08    RGO         ADDED 128BIT to 4 FLOAT WATCH/LOCAL PANE FORMATS
+06/06/2001    1.63.08    ADB         fixed incorrect target state at debugger startup (needs new Target Manager 2.28.20 also)
+06/06/2001    1.63.08    ADB         disabled VU1 memory fetches when EE running
+06/06/2001    1.63.08    RGO         FIXED DMA PANE KEEPING ITS UNIT WHEN PANE SWITCHING
+06/06/2001    1.63.07    RGO         CHANGED THE CALLSTACK TO FETCH MEMORY ON A TARGET UPDATE
+06/06/2001    1.63.07    ADB         FIXED DMA disasm was incorrectly continued from next tag when TTE + DMAcnt exceeded data requirement for previous unpack or mpg
+06/06/2001    1.63.07    ADB         DMA "save to file" now strips out escape codes for colours
+06/06/2001    1.63.07    ADB         overhauled DMA error checking and added new PS2 range checking to addresses
+06/06/2001    1.63.05    RGO         FIXED Disabled breakpoints not working when re-enabled
+06/06/2001    1.63.05    ADB         changed the way EUC/SJIS text setting override works on context menu
+06/06/2001    1.63.05    ADB         FIXED pane restore from config used decimal for flags (should be hex)
+06/06/2001    1.63.05    ADB         FIXED disasm to file start address was being taken from current pane
+06/06/2001    1.63.05    ADB         FIXED save default config to use correct exe path
+06/06/2001    1.63.04    MAR         GetAddress, GetFloatValue & NewValue (mempane) dialogs now evaluate hex numbers starting with a letter (not 0x…)
+06/06/2001    1.63.03    RGO         ACCELERATORS WORKING WHILST IN INPLACE EDIT MODE
+06/06/2001    1.63.03    RGO         BREAKPOINT PANE SCROLLING
+06/06/2001    1.63.03    RGO         CRASH IN SYNTAX COLOURING / SOURCE PANE
+06/06/2001    1.63.03    RGO         FIXED ICONS FOR ALL VERSION
+06/06/2001    1.63.03    RGO         FIXED CHANGE PANE TYPE DIALOG TO USE THE CORRECT TTY ICON
+06/06/2001    1.63.03    RGO         FIXED PANE CLONING TO CLONE ALL NECESSARY PANE ATTRIBUTES
+06/06/2001    1.63.03    RGO         FIXED CHANGE PANE TYPE DIALOG TO PICK CORRECT PANE TYPE
+06/06/2001    1.63.02    ADB         added support for optional path with -f switch
+                                     -f        => set FS root to directory of ELF executable
+                                     -fc:\fred => set FS root to c:\fred
+06/06/2001    1.63.01    ADB         fixed breakpoint "breaks" save which was saving unit* rather than unit number.
+06/06/2001    1.60.03    ABD         FIXED DMA pane scratchpad address error check and fixup
+06/06/2001    1.60.00    MND         INCLUDED FASTER SYMBOL TABLE HANDLING

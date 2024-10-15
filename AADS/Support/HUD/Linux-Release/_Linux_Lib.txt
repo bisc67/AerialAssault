@@ -1,0 +1,7 @@
+create Linux-Release/HUD.lib
+addmod ./Linux-Release/hud_chatwindow.obj
+addmod ./Linux-Release/hud_Icons.obj
+addmod ./Linux-Release/hud_manager.obj
+addmod ./Linux-Release/hud_voicemenu.obj
+save
+end 

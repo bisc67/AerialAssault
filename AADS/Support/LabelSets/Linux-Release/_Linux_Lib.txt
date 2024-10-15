@@ -1,0 +1,4 @@
+create Linux-Release/LabelSets.lib
+addmod ./Linux-Release/LabelParse.obj
+save
+end 

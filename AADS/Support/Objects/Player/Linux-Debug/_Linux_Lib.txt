@@ -1,0 +1,23 @@
+create Linux-Debug/PlayerObject.lib
+addmod ./Linux-Debug/Blaster.obj
+addmod ./Linux-Debug/Chaingun.obj
+addmod ./Linux-Debug/CorpseObject.obj
+addmod ./Linux-Debug/DefaultLoadouts.obj
+addmod ./Linux-Debug/DiskLauncher.obj
+addmod ./Linux-Debug/Elf.obj
+addmod ./Linux-Debug/GrenadeLauncher.obj
+addmod ./Linux-Debug/LaserRifle.obj
+addmod ./Linux-Debug/missilelauncher.obj
+addmod ./Linux-Debug/MortarGun.obj
+addmod ./Linux-Debug/PlasmaGun.obj
+addmod ./Linux-Debug/PlayerDefines.obj
+addmod ./Linux-Debug/PlayerLogic.obj
+addmod ./Linux-Debug/PlayerNet.obj
+addmod ./Linux-Debug/PlayerObject.obj
+addmod ./Linux-Debug/PlayerRender.obj
+addmod ./Linux-Debug/PlayerStates.obj
+addmod ./Linux-Debug/RepairGun.obj
+addmod ./Linux-Debug/TargetingLaser.obj
+addmod ./Linux-Debug/WeaponStates.obj
+save
+end 

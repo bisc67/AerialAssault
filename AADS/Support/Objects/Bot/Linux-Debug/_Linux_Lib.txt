@@ -1,0 +1,27 @@
+create Linux-Debug/BotObject.lib
+addmod ./Linux-Debug/CNH_MasterAI.obj
+addmod ./Linux-Debug/CTF_MasterAI.obj
+addmod ./Linux-Debug/Deployable.obj
+addmod ./Linux-Debug/DM_MasterAI.obj
+addmod ./Linux-Debug/HunterMasterAI.obj
+addmod ./Linux-Debug/MAI_Manager.obj
+addmod ./Linux-Debug/MasterAI.obj
+addmod ./Linux-Debug/SPM_MasterAI.obj
+addmod ./Linux-Debug/Task.obj
+addmod ./Linux-Debug/TDM_MasterAI.obj
+addmod ./Linux-Debug/BotCombat.obj
+addmod ./Linux-Debug/BotGoal.obj
+addmod ./Linux-Debug/BotInput.obj
+addmod ./Linux-Debug/BotLog.obj
+addmod ./Linux-Debug/BotObject.obj
+addmod ./Linux-Debug/BotStrategy.obj
+addmod ./Linux-Debug/FibHeap.obj
+addmod ./Linux-Debug/FibHeapAC.obj
+addmod ./Linux-Debug/Graph.obj
+addmod ./Linux-Debug/Path.obj
+addmod ./Linux-Debug/PathFinder.obj
+addmod ./Linux-Debug/PathGenerator.obj
+addmod ./Linux-Debug/PathKeeper.obj
+addmod ./Linux-Debug/PathManager.obj
+save
+end 

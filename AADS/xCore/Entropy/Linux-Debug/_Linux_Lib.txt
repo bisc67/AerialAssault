@@ -1,0 +1,11 @@
+create Linux-Debug/Entropy.lib
+addmod ./Linux-Debug/e_cdfs.obj
+addmod ./Linux-Debug/e_Draw.obj
+addmod ./Linux-Debug/e_Input.obj
+addmod ./Linux-Debug/e_ScratchMem.obj
+addmod ./Linux-Debug/e_Text.obj
+addmod ./Linux-Debug/e_View.obj
+addmod ./Linux-Debug/linux_Draw.obj
+addmod ./Linux-Debug/linux_startup.obj
+save
+end 

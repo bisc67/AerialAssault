@@ -1,0 +1,361 @@
+# Microsoft Developer Studio Generated Dependency File, included by aux_Bitmap.mak
+
+.\PNG\ZLib\adler32.c : \
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\ZLib\compress.c : \
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\ZLib\crc32.c : \
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\ZLib\deflate.c : \
+	".\PNG\ZLib\deflate.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	".\PNG\ZLib\zutil.h"\
+	
+
+.\PNG\ZLib\gzio.c : \
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	".\PNG\ZLib\zutil.h"\
+	
+
+.\PNG\ZLib\infblock.c : \
+	".\PNG\ZLib\infblock.h"\
+	".\PNG\ZLib\infcodes.h"\
+	".\PNG\ZLib\inftrees.h"\
+	".\PNG\ZLib\infutil.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	".\PNG\ZLib\zutil.h"\
+	
+
+.\PNG\ZLib\infcodes.c : \
+	".\PNG\ZLib\infblock.h"\
+	".\PNG\ZLib\infcodes.h"\
+	".\PNG\ZLib\inffast.h"\
+	".\PNG\ZLib\inftrees.h"\
+	".\PNG\ZLib\infutil.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	".\PNG\ZLib\zutil.h"\
+	
+
+.\PNG\ZLib\inffast.c : \
+	".\PNG\ZLib\infblock.h"\
+	".\PNG\ZLib\infcodes.h"\
+	".\PNG\ZLib\inffast.h"\
+	".\PNG\ZLib\inftrees.h"\
+	".\PNG\ZLib\infutil.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	".\PNG\ZLib\zutil.h"\
+	
+
+.\PNG\ZLib\inflate.c : \
+	".\PNG\ZLib\infblock.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	".\PNG\ZLib\zutil.h"\
+	
+
+.\PNG\ZLib\inftrees.c : \
+	".\PNG\ZLib\inffixed.h"\
+	".\PNG\ZLib\inftrees.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	".\PNG\ZLib\zutil.h"\
+	
+
+.\PNG\ZLib\infutil.c : \
+	".\PNG\ZLib\infblock.h"\
+	".\PNG\ZLib\infcodes.h"\
+	".\PNG\ZLib\inftrees.h"\
+	".\PNG\ZLib\infutil.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	".\PNG\ZLib\zutil.h"\
+	
+
+.\PNG\ZLib\trees.c : \
+	".\PNG\ZLib\deflate.h"\
+	".\PNG\ZLib\trees.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	".\PNG\ZLib\zutil.h"\
+	
+
+.\PNG\ZLib\uncompr.c : \
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\ZLib\zutil.c : \
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	".\PNG\ZLib\zutil.h"\
+	
+
+.\PNG\png.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\pngerror.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\pnggccrd.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\pngget.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\pngmem.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\pngpread.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\pngread.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\pngrio.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\pngrtran.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\pngrutil.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngasmrd.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\pngset.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\pngtrans.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\pngvcrd.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\pngwio.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\pngwrite.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\pngwtran.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\PNG\pngwutil.c : \
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\aux_Bitmap.cpp : \
+	"..\..\x_files\Implementation\x_bitmap_inline.hpp"\
+	"..\..\x_files\Implementation\x_color_inline.hpp"\
+	"..\..\x_files\Implementation\x_math_bb_inline.hpp"\
+	"..\..\x_files\Implementation\x_math_inline.hpp"\
+	"..\..\x_files\Implementation\x_math_m4_inline.hpp"\
+	"..\..\x_files\Implementation\x_math_p_inline.hpp"\
+	"..\..\x_files\Implementation\x_math_q_inline.hpp"\
+	"..\..\x_files\Implementation\x_math_r3_inline.hpp"\
+	"..\..\x_files\Implementation\x_math_rect_inline.hpp"\
+	"..\..\x_files\Implementation\x_math_v2_inline.hpp"\
+	"..\..\x_files\Implementation\x_math_v3_inline.hpp"\
+	"..\..\x_files\Implementation\x_math_v4_inline.hpp"\
+	"..\..\x_files\Implementation\x_memory_private.hpp"\
+	"..\..\x_files\Implementation\x_string_inline.hpp"\
+	"..\..\x_files\x_bitmap.hpp"\
+	"..\..\x_files\x_color.hpp"\
+	"..\..\x_files\x_debug.hpp"\
+	"..\..\x_files\x_math.hpp"\
+	"..\..\x_files\x_memory.hpp"\
+	"..\..\x_files\x_plus.hpp"\
+	"..\..\x_files\x_stdio.hpp"\
+	"..\..\x_files\x_string.hpp"\
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\aux_Bitmap.hpp"\
+	
+
+.\DefaultBMP.cpp : \
+	"..\..\x_files\Implementation\x_bitmap_inline.hpp"\
+	"..\..\x_files\Implementation\x_color_inline.hpp"\
+	"..\..\x_files\Implementation\x_memory_private.hpp"\
+	"..\..\x_files\x_bitmap.hpp"\
+	"..\..\x_files\x_color.hpp"\
+	"..\..\x_files\x_debug.hpp"\
+	"..\..\x_files\x_memory.hpp"\
+	"..\..\x_files\x_plus.hpp"\
+	"..\..\x_files\x_stdio.hpp"\
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	
+
+.\Load_BMP.cpp : \
+	"..\..\x_files\Implementation\x_bitmap_inline.hpp"\
+	"..\..\x_files\Implementation\x_color_inline.hpp"\
+	"..\..\x_files\Implementation\x_memory_private.hpp"\
+	"..\..\x_files\x_bitmap.hpp"\
+	"..\..\x_files\x_color.hpp"\
+	"..\..\x_files\x_debug.hpp"\
+	"..\..\x_files\x_memory.hpp"\
+	"..\..\x_files\x_plus.hpp"\
+	"..\..\x_files\x_stdio.hpp"\
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	
+
+.\Load_PNG.cpp : \
+	"..\..\x_files\Implementation\x_bitmap_inline.hpp"\
+	"..\..\x_files\Implementation\x_color_inline.hpp"\
+	"..\..\x_files\Implementation\x_memory_private.hpp"\
+	"..\..\x_files\x_bitmap.hpp"\
+	"..\..\x_files\x_color.hpp"\
+	"..\..\x_files\x_debug.hpp"\
+	"..\..\x_files\x_memory.hpp"\
+	"..\..\x_files\x_plus.hpp"\
+	"..\..\x_files\x_stdio.hpp"\
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	".\PNG\png.h"\
+	".\PNG\pngconf.h"\
+	".\PNG\ZLib\zconf.h"\
+	".\PNG\ZLib\zlib.h"\
+	
+
+.\Load_PSD.cpp : \
+	"..\..\x_files\Implementation\x_bitmap_inline.hpp"\
+	"..\..\x_files\Implementation\x_color_inline.hpp"\
+	"..\..\x_files\Implementation\x_memory_private.hpp"\
+	"..\..\x_files\x_bitmap.hpp"\
+	"..\..\x_files\x_color.hpp"\
+	"..\..\x_files\x_debug.hpp"\
+	"..\..\x_files\x_memory.hpp"\
+	"..\..\x_files\x_plus.hpp"\
+	"..\..\x_files\x_stdio.hpp"\
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	
+
+.\Load_TGA.cpp : \
+	"..\..\x_files\Implementation\x_bitmap_inline.hpp"\
+	"..\..\x_files\Implementation\x_color_inline.hpp"\
+	"..\..\x_files\Implementation\x_memory_private.hpp"\
+	"..\..\x_files\x_bitmap.hpp"\
+	"..\..\x_files\x_color.hpp"\
+	"..\..\x_files\x_debug.hpp"\
+	"..\..\x_files\x_memory.hpp"\
+	"..\..\x_files\x_plus.hpp"\
+	"..\..\x_files\x_stdio.hpp"\
+	"..\..\x_files\x_target.hpp"\
+	"..\..\x_files\x_types.hpp"\
+	

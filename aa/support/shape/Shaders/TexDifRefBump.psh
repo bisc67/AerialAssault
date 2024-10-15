@@ -1,0 +1,31 @@
+;------------------------------------------------------------------------------
+; Textured, diffuse, du vu bump pixel shader
+;------------------------------------------------------------------------------
+#include "D3D_Shape.hpp"
+
+ps.1.0
+
+
+tex t0          ; t0=diffuse 
+tex t1          ; t1=bump map
+
+texbem t2, t1    ; Compute u = u1 + mat00*r0.r + mat01*r0.g, and 
+                 ;         v = v1 + mat10*r0.r + mat11*r0.g.
+                 ; Then sample t2=reflect at u,v; r0.b is ignored.
+
+; r0 = diffuse_tex
+mov r0, t0
+
+; r1 = spec_tex * diffuse_tex.a
+mul r1, t2, r0.a
+
+; r0 = diffuse_tex + (spec_tex * diffuse_tex.a)
+add r0,r0,r1
+
+; r0 = vertex_col * (diffuse_tex + (spec_tex * diffuse_tex.a))
+mul_sat r0,r0,v0
+; 
+; use alpha of vertex_col
+mov r0.a, v0.a
+
+

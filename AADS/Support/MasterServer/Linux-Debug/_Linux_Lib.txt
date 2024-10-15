@@ -1,0 +1,7 @@
+create Linux-Debug/MasterServer.lib
+addmod ./Linux-Debug/bytestream.obj
+addmod ./Linux-Debug/masterentity.obj
+addmod ./Linux-Debug/MasterServer.obj
+addmod ./Linux-Debug/masterstates.obj
+save
+end 

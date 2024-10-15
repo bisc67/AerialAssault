@@ -1,0 +1,50 @@
+;==========================================================================
+;
+; BOOT.VSM
+;
+;==========================================================================
+
+BOOT:   
+       
+        ; Load Packet buffer base into double buffer register VI12
+        NOP                             IADDIU VI12, VI00, OUTPUT_BUFFER_BASE
+        
+        ; Fill all of vu memory with rgba white
+        SUB.xyzw VF01, VF00, VF00       LOI 128.0
+        ADDi.xyzw VF01, VF01, I         IADDIU VI01, VI00, 1024
+        FTOI0 VF01, VF01                NOP
+BOOT_COLOR_LOOP:
+        NOP                             ISUBIU VI01, VI01, 1
+        NOP                             NOP
+        NOP                             SQ VF01, 0(VI01)
+        NOP                             NOP
+        NOP                             IBNE VI01, VI00, BOOT_COLOR_LOOP
+        NOP                             NOP
+
+        ; Clear last vectors
+        SUB.xyzw VF01, VF00, VF00       NOP
+        NOP                             SQ VF01, 1022(VI00)
+        NOP                             SQ VF01, 1023(VI00)
+
+        ; Call clipper boot so it can setup it's constants
+        ;NOP                             BAL VI15, CLIPPER_BOOT
+        ;NOP                             NOP
+
+        ; Halt and wait for vif to reboot you
+        NOP     NOP         
+        NOP[E]  NOP
+        NOP     NOP
+
+        ; Branch to kernel start
+        NOP                             B KERNEL_TOP                    ; Jump to kernel to start
+        NOP                             NOP                             ; BDS
+
+CMD_BOOT_CLIPPER:
+        ; Call clipper boot so it can setup it's constants
+        NOP                             NOP
+        NOP                             NOP
+        NOP                             BAL VI15, CLIPPER_BOOT
+        NOP                             NOP
+        NOP                             NOP
+        NOP                             B KERNEL_RET                    ; Return to kernel 
+        NOP                             NOP                             ; BDS

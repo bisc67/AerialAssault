@@ -1,0 +1,261 @@
+;==========================================================================
+;
+; Code to transform/render a textured diffuse material
+;
+;==========================================================================
+
+
+SHAPE_MICRO_CODE_DRAW_TEX_DIF_NO_CLIP:
+
+;==========================================================================
+; Transforms verts 1 at a time (could be a max of 3)
+;==========================================================================
+
+    NOP                                                             ILW.z VertCount,SHAPE_PARAMS_ADDR(VI00)         ; Get vert count
+    NOP                                                             IADDIU SingleCountMask, VI00, 0x3               ; Setup single mask
+    NOP                                                             IAND VertCount, VertCount, SingleCountMask      ; Get single vert count
+    NOP                                                             XTOP VertsGifTag     ; Get gif tag              ; Get buffer address
+    NOP				                                                IBEQ VertCount, VI00, TexDifNoClipMultiVert     ; Any single verts?
+    NOP                                                             IADDIU VertAddr, VertsGifTag, SHAPE_VERTS_ADDR  ; 1st vert addr
+
+;==================================================================
+; Single vert loop...
+;==================================================================
+TexDifNoClipSingleVertLoop:
+
+    ; Load Vert0
+    NOP                                                             LQ.xyz  Vert0_Pos(xyz), (VERT_POS  + (0*VERT_SIZE))(VertAddr)
+    NOP                                                             LQ.xyzw Vert0_Col(xyzw),(VERT_NORM + (0*VERT_SIZE))(VertAddr)
+    NOP                                                             LQ.xy   Vert0_UV(xy),   (VERT_UV   + (0*VERT_SIZE))(VertAddr)
+                                                                       
+    ; Convert Vert0 from float to int                                     
+    ITOF0.xyz Vert0_Col(xyz), Vert0_Col(xyz)                        MR32.zw Vert0_UV(zw), VF00   ; Set z=1.0, w=0.0
+    ITOF12.xy Vert0_UV(xy),   Vert0_UV(xy)                          NOP
+                                                                    
+    ; Transform Vert0 from local->screen space                              
+    MULAx.xyzw  ACC, L2S0(xyzw),  Vert0_Pos(x)                      NOP
+    MADDAy.xyzw ACC, L2S1(xyzw),  Vert0_Pos(y)	                    NOP
+    MADDAz.xyzw ACC, L2S2(xyzw),  Vert0_Pos(z)	                    NOP
+    MADDw.xyzw  Vert0_Pos(xyzw), L2S3(xyzw), VF00w                  NOP
+                                                               
+    ; Perform Vert0 lighting dot+col
+    MULAx.xyz  ACC, Light_DirCol0(xyz), Vert0_Col(x)                NOP
+    MADDAy.xyz ACC, Light_DirCol1(xyz), Vert0_Col(y)	            NOP
+    MADDz.xyz Vert0_Col(xyz),  Light_DirCol2(xyz), Vert0_Col(z)     NOP
+    
+    ; Make Vert0 light one direction / Start Vert0 perspective divide
+    NOP                                                             DIV Q, VF00w, Vert0_Pos(w)
+    NOP                                                             NOP
+    NOP                                                             NOP
+    MAXx.xyz  Vert0_Col(xyz),  Vert0_Col(xyz),    VF00x             NOP
+    
+    ; Add Vert0 ambient light
+    ADD.xyzw  Vert0_Col(xyzw), Vert0_Col(xyzw),   Light_Amb(xyzw)   NOP
+
+    ; Project Vert0
+    NOP                                                             NOP
+    NOP                                                             NOP
+    MULq.xyz Vert0_Pos(xyz), Vert0_Pos(xyz),Q                       NOP
+    MULq.xyzw Vert0_UV(xyzw), Vert0_UV(xyzw), Q	                    NOP
+
+    ; Convert Vert0 from float to int / Next vert
+    NOP                                                             ISUBIU VertCount, VertCount, 1
+    NOP                                                             IADDIU VertAddr, VertAddr, (VERT_SIZE*1)
+    FTOI4.xyz  Vert0_Pos(xyz), Vert0_Pos(xyz)                       NOP
+
+    ; Store Vert0 / Next Vert?
+    NOP                                                             SQ.xyzw Vert0_Col(xyzw),  (VERT_NORM + ((0-1)*VERT_SIZE))(VertAddr)
+    NOP                                                             SQ.xyzw Vert0_UV(xyzw),   (VERT_UV+    ((0-1)*VERT_SIZE))(VertAddr)
+    NOP				                                                IBGTZ VertCount, TexDifNoClipSingleVertLoop
+    NOP                                                             SQ.xyz  Vert0_Pos(xyz),   (VERT_POS+   ((0-1)*VERT_SIZE))(VertAddr)
+                                                                   
+    ; Drop through into rest of vert transform...
+
+
+    ; temp
+    ;NOP B TexDifNoClipDraw
+
+
+;==========================================================================
+; Transforms verts in batches of 4 at a time
+;==========================================================================
+TexDifNoClipMultiVert:
+
+    ; Get multi-vert count
+    NOP                                                             ILW.z VertCount,SHAPE_PARAMS_ADDR(VI00)     ; Get total verts
+    NOP                                                             IADDIU MultiCountMask,  VI00, 0x7ffc        ; Get x4 mask
+    NOP                                                             IAND VertCount, VertCount, MultiCountMask   ; Get x4 total
+    NOP                                                             NOP
+    NOP				                                                IBEQ VertCount, VI00, TexDifNoClipDraw      ; Any?
+    NOP                                                             NOP
+
+
+
+;==================================================================
+; Vert x4 loop
+;==================================================================
+
+    ;NOP NOP
+    ;NOP[D] NOP
+
+    ; Load Vert0
+    NOP                                                             LQ.xyz  Vert0_Pos(xyz), (VERT_POS  + (0*VERT_SIZE))(VertAddr)
+    NOP                                                             LQ.xyzw Vert0_Col(xyzw),(VERT_NORM + (0*VERT_SIZE))(VertAddr)
+    NOP                                                             LQ.xy   Vert0_UV(xy),   (VERT_UV   + (0*VERT_SIZE))(VertAddr)
+                                                                       
+    ; Convert Vert0 from int to float
+    ITOF0.xyz Vert0_Col(xyz), Vert0_Col(xyz)                        MR32.zw Vert0_UV(zw), VF00   ; Set z=1.0, w=0.0
+    ITOF12.xy Vert0_UV(xy),   Vert0_UV(xy)                          NOP
+
+    ; Transform Vert0 from local->screen space / Load Vert1
+    MULAx.xyzw  ACC, L2S0(xyzw),  Vert0_Pos(x)                      NOP
+    MADDAy.xyzw ACC, L2S1(xyzw),  Vert0_Pos(y)	                    LQ.xyz  Vert1_Pos(xyz), (VERT_POS  + (1*VERT_SIZE))(VertAddr)
+    MADDAz.xyzw ACC, L2S2(xyzw),  Vert0_Pos(z)	                    LQ.xyzw Vert1_Col(xyzw),(VERT_NORM + (1*VERT_SIZE))(VertAddr)
+    MADDw.xyzw  Vert0_Pos(xyzw), L2S3(xyzw), VF00w                  LQ.xy   Vert1_UV(xy),   (VERT_UV   + (1*VERT_SIZE))(VertAddr)
+
+    ; Perform Vert0 lighting dot+col
+    MULAx.xyz  ACC, Light_DirCol0(xyz), Vert0_Col(x)                NOP
+    MADDAy.xyz ACC, Light_DirCol1(xyz), Vert0_Col(y)	            NOP
+    MADDz.xyz Vert0_Col(xyz),  Light_DirCol2(xyz), Vert0_Col(z)     NOP
+
+    ; Convert Vert1 from int to float
+    ITOF12.xy Vert1_UV(xy),   Vert1_UV(xy)                          NOP
+
+    ;NOP[D] NOP
+    ;NOP    NOP
+
+
+TexDifNoClipMultiVertLoop:
+                                                              
+    ; Convert Vert1 from int to float
+    ITOF0.xyz Vert1_Col(xyz), Vert1_Col(xyz)                        MR32.zw Vert1_UV(zw), VF00   ; Set z=1.0, w=0.0
+
+    ; Transform Vert1 from local->screen space / Start Vert0 perspective divide / Load Vert2
+    MULAx.xyzw  ACC, L2S0(xyzw),  Vert1_Pos(x)                      DIV Q, VF00w, Vert0_Pos(w)
+    MADDAy.xyzw ACC, L2S1(xyzw),  Vert1_Pos(y)	                    LQ.xyz  Vert2_Pos(xyz), (VERT_POS  + (2*VERT_SIZE))(VertAddr)
+    MADDAz.xyzw ACC, L2S2(xyzw),  Vert1_Pos(z)	                    LQ.xyzw Vert2_Col(xyzw),(VERT_NORM + (2*VERT_SIZE))(VertAddr)
+    MADDw.xyzw  Vert1_Pos(xyzw), L2S3(xyzw), VF00w                  LQ.xy   Vert2_UV(xy),   (VERT_UV   + (2*VERT_SIZE))(VertAddr)
+    
+    ; Make Vert0 light one direction
+    MAXx.xyz  Vert0_Col(xyz),  Vert0_Col(xyz),    VF00x             NOP
+
+    ; Transform Vert2 from local->screen space
+    MULAx.xyzw  ACC, L2S0(xyzw),  Vert2_Pos(x)                      NOP
+    MADDAy.xyzw ACC, L2S1(xyzw),  Vert2_Pos(y)	                    NOP
+    MADDAz.xyzw ACC, L2S2(xyzw),  Vert2_Pos(z)	                    NOP
+    MADDw.xyzw  Vert2_Pos(xyzw), L2S3(xyzw), VF00w                  NOP
+
+    ; Project Vert0 / Start Vert1 perspective divide
+    MULq.xyz Vert0_Pos(xyz), Vert0_Pos(xyz),Q                       NOP
+    MULq.xyzw Vert0_UV(xyzw), Vert0_UV(xyzw), Q	                    DIV Q, VF00w, Vert1_Pos(w)
+
+    ; Perform Vert1 lighting dot+col / Load Vert3
+    MULAx.xyz  ACC, Light_DirCol0(xyz), Vert1_Col(x)                LQ.xyz  Vert3_Pos(xyz), (VERT_POS  + (3*VERT_SIZE))(VertAddr)
+    MADDAy.xyz ACC, Light_DirCol1(xyz), Vert1_Col(y)	            LQ.xyzw Vert3_Col(xyzw),(VERT_NORM + (3*VERT_SIZE))(VertAddr)
+    MADDz.xyz Vert1_Col(xyz),  Light_DirCol2(xyz), Vert1_Col(z)     LQ.xy   Vert3_UV(xy),   (VERT_UV   + (3*VERT_SIZE))(VertAddr)
+
+    ; Convert Vert0 from float to int
+    FTOI4.xyz  Vert0_Pos(xyz), Vert0_Pos(xyz)                       NOP
+    
+    ; Add Vert0 ambient light
+    ADD.xyzw  Vert0_Col(xyzw), Vert0_Col(xyzw),   Light_Amb(xyzw)   NOP
+
+    ; Transform Vert3 from local->screen space
+    MULAx.xyzw  ACC, L2S0(xyzw),  Vert3_Pos(x)                      NOP
+
+    ; Make Vert1 light one direction
+    MAXx.xyz  Vert1_Col(xyz),  Vert1_Col(xyz),    VF00x             NOP
+
+    ; Project Vert1 / Start Vert2 perspective divide
+    MULq.xyz Vert1_Pos(xyz), Vert1_Pos(xyz),Q                       NOP
+    MULq.xyzw Vert1_UV(xyzw), Vert1_UV(xyzw), Q	                    DIV Q, VF00w, Vert2_Pos(w)
+
+    ; Convert Vert2 from int to float
+    ITOF0.xyz Vert2_Col(xyz), Vert2_Col(xyz)                        MR32.zw Vert2_UV(zw), VF00   ; Set z=1.0, w=0.0
+    ITOF12.xy Vert2_UV(xy),   Vert2_UV(xy)                          NOP
+
+    ; Finish transform Vert3 from local->screen space / Store Vert0
+    MADDAy.xyzw ACC, L2S1(xyzw),  Vert3_Pos(y)	                    SQ.xyz  Vert0_Pos(xyz),   (VERT_POS+   (0*VERT_SIZE))(VertAddr)
+    MADDAz.xyzw ACC, L2S2(xyzw),  Vert3_Pos(z)	                    SQ.xyzw Vert0_Col(xyzw),  (VERT_NORM + (0*VERT_SIZE))(VertAddr)
+    MADDw.xyzw  Vert3_Pos(xyzw), L2S3(xyzw), VF00w                  SQ.xyzw Vert0_UV(xyzw),   (VERT_UV+    (0*VERT_SIZE))(VertAddr)
+
+    ; Add Vert1 ambient light
+    ADD.xyzw  Vert1_Col(xyzw), Vert1_Col(xyzw),   Light_Amb(xyzw)   NOP
+
+    ; Convert Vert1 from float to int / Load next Vert0
+    FTOI4.xyz  Vert1_Pos(xyz), Vert1_Pos(xyz)                       LQ.xyzw Vert0_Col(xyzw), (VERT_NORM + ((0+4)*VERT_SIZE))(VertAddr)
+
+    ; Project Vert2 / Start Vert3 perspective divide / Load next Vert0
+    MULq.xyz Vert2_Pos(xyz), Vert2_Pos(xyz),Q                       LQ.xy   Vert0_UV(xy),    (VERT_UV   + ((0+4)*VERT_SIZE))(VertAddr)
+    MULq.xyzw Vert2_UV(xyzw), Vert2_UV(xyzw), Q	                    DIV Q, VF00w, Vert3_Pos(w)
+
+    ; Perform Vert2 lighting dot+col / Store Vert1 / Load next Vert0
+    MULAx.xyz  ACC, Light_DirCol0(xyz), Vert2_Col(x)                LQ.xyzw Vert0_Pos(xyzw),  (VERT_POS  + ((0+4)*VERT_SIZE))(VertAddr)
+    MADDAy.xyz ACC, Light_DirCol1(xyz), Vert2_Col(y)	            SQ.xyzw Vert1_Col(xyzw),  (VERT_NORM + (1*VERT_SIZE))(VertAddr)
+    MADDz.xyz Vert2_Col(xyz),  Light_DirCol2(xyz), Vert2_Col(z)     SQ.xyzw Vert1_UV(xyzw),   (VERT_UV+    (1*VERT_SIZE))(VertAddr)
+
+    ; Convert Vert3 from int to float / Store Vert1
+    ITOF12.xy Vert3_UV(xy),   Vert3_UV(xy)                          SQ.xyz  Vert1_Pos(xyz),   (VERT_POS+   (1*VERT_SIZE))(VertAddr)
+    ITOF0.xyz Vert3_Col(xyz), Vert3_Col(xyz)                        MR32.zw Vert3_UV(zw), VF00   ; Set z=1.0, w=0.0
+
+    ; Convert Vert2 from float to int / Load next Vert0
+    FTOI4.xyz  Vert2_Pos(xyz), Vert2_Pos(xyz)                       MR32.zw Vert0_UV(zw), VF00   ; Set z=1.0, w=0.0
+
+    ; Make Vert2 light one direction
+    MAXx.xyz  Vert2_Col(xyz),  Vert2_Col(xyz),    VF00x             NOP
+
+    ; Project Vert3 / Next Vert
+    MULq.xyz Vert3_Pos(xyz), Vert3_Pos(xyz),Q                       ISUBIU VertCount, VertCount, 4
+    MULq.xyzw Vert3_UV(xyzw), Vert3_UV(xyzw), Q	                    IADDIU VertAddr, VertAddr, (VERT_SIZE*4)
+
+    ; Start Vert3 lighting dot+col
+    MULAx.xyz  ACC, Light_DirCol0(xyz), Vert3_Col(x)                NOP
+    MADDAy.xyz ACC, Light_DirCol1(xyz), Vert3_Col(y)	            NOP
+
+    ; Convert Vert3 from float to int
+    FTOI4.xyz  Vert3_Pos(xyz), Vert3_Pos(xyz)                       NOP
+
+    ; Add Vert2 ambient light
+    ADD.xyzw  Vert2_Col(xyzw), Vert2_Col(xyzw),   Light_Amb(xyzw)   NOP
+
+    ; Finish Vert3 lighting dot+col
+    MADDz.xyz Vert3_Col(xyz),  Light_DirCol2(xyz), Vert3_Col(z)     NOP
+    
+    ; Transform next Vert0 / Make Vert3 light one direction / Store Vert2
+    MULAx.xyzw  ACC, L2S0(xyzw),  Vert0_Pos(x)                      SQ.xyz  Vert2_Pos(xyz),   (VERT_POS+   ((2-4)*VERT_SIZE))(VertAddr)
+    MADDAy.xyzw ACC, L2S1(xyzw),  Vert0_Pos(y)                      SQ.xyzw Vert2_UV(xyzw),   (VERT_UV+    ((2-4)*VERT_SIZE))(VertAddr)
+    MADDAz.xyzw ACC, L2S2(xyzw),  Vert0_Pos(z)                      SQ.xyzw Vert2_Col(xyzw),  (VERT_NORM + ((2-4)*VERT_SIZE))(VertAddr)
+    MAXx.xyz  Vert3_Col(xyz),  Vert3_Col(xyz),    VF00x             LQ.xyz  Vert1_Pos(xyz), (VERT_POS  + (1*VERT_SIZE))(VertAddr)
+
+    ; Convert Vert0 from int to float /  Load next Vert1
+    ITOF0.xyz Vert0_Col(xyz), Vert0_Col(xyz)                        LQ.xyzw Vert1_Col(xyzw),(VERT_NORM + (1*VERT_SIZE))(VertAddr)
+    ITOF12.xy Vert0_UV(xy),   Vert0_UV(xy)                          LQ.xy   Vert1_UV(xy),   (VERT_UV   + (1*VERT_SIZE))(VertAddr)
+
+    ; Transform next Vert0 / Add Vert3 ambient light
+    MADDw.xyzw  Vert0_Pos(xyzw), L2S3(xyzw), VF00w                  NOP
+    ADD.xyzw  Vert3_Col(xyzw), Vert3_Col(xyzw),   Light_Amb(xyzw)   NOP
+
+    ; Light next Vert0 / Store Vert3 / Next 4 verts / Convert Vert1 from int to float
+    MULAx.xyz  ACC, Light_DirCol0(xyz), Vert0_Col(x)                SQ.xyz  Vert3_Pos(xyz),   (VERT_POS+   ((3-4)*VERT_SIZE))(VertAddr)
+    MADDAy.xyz ACC, Light_DirCol1(xyz), Vert0_Col(y)	            SQ.xyzw Vert3_UV(xyzw),   (VERT_UV+    ((3-4)*VERT_SIZE))(VertAddr)
+    MADDz.xyz Vert0_Col(xyz),  Light_DirCol2(xyz), Vert0_Col(z)     IBGTZ VertCount, TexDifNoClipMultiVertLoop
+    ITOF12.xy Vert1_UV(xy),   Vert1_UV(xy)                          SQ.xyzw Vert3_Col(xyzw),  (VERT_NORM + ((3-4)*VERT_SIZE))(VertAddr)
+
+                                                                    
+;==================================================================
+; Draw the transformed strip...
+;==================================================================
+TexDifNoClipDraw:
+    NOP                                                             XTOP VertsGifTag
+    NOP                                                             BAL RenderReturnAddr, SHAPE_MICRO_CODE_RENDER_CMD
+    NOP                                                             ILW.z VertCount,SHAPE_PARAMS_ADDR(VI00) ; Get # verts
+    
+    ; Exit
+    NOP[E]      NOP
+    NOP         NOP
+
+
+;==========================================================================
+
+
+

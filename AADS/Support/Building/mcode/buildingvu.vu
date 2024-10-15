@@ -1,0 +1,1512 @@
+;==========================================================================
+;
+; MAIN.VSM - Microcode test
+;
+;==========================================================================
+.vu
+
+;==========================================================================
+.global VUM_BUILDING_CODE_START
+.global VUM_BUILDING_CODE_END
+VUM_BUILDING_CODE_START:
+;==========================================================================
+
+#include "memlayout.vu"
+
+#define BACKFACE_CULLING		1
+#define ONEPASS					1
+#define EPSILON					0.00390625
+
+;==========================================================================
+;
+; JUMPTABLE
+;
+; !*!*!*! These instructions must be at instruction address ZERO !*!*!*!
+;
+;==========================================================================
+
+		NOP                             B       BOOT
+		NOP                             NOP        
+		NOP                             B       CMD_INITIALIZE        
+		NOP                             NOP
+		NOP                             B       CMD_SIMPLE_POINTS
+		NOP                             NOP
+		NOP                             B       CMD_CLIPPER_VERSION
+		NOP                             NOP
+		NOP                             B       CMD_BREAK_POINT
+		NOP                             NOP
+		NOP                             B       CMD_SET_MATRICES
+		NOP                             NOP
+		NOP                             B       CMD_SET_MASK
+		NOP                             NOP
+		NOP                             B       CMD_SIMPLE_POINTS_SLOW
+		NOP                             NOP
+
+
+CMD_DONOTHING:
+		NOP                             NOP
+		NOP                             NOP
+		NOP                             B       KERNEL_RET
+		NOP                             NOP
+        
+
+CMD_BREAK_POINT:
+		NOP                             NOP
+		NOP                             NOP
+		NOP[D]                          NOP
+		NOP                             NOP
+		NOP                             NOP
+		NOP[E]                          NOP
+		NOP                             NOP
+		NOP                             NOP
+		NOP[D]                          NOP
+		NOP                             NOP
+		NOP                             NOP
+
+;==========================================================================
+
+;==========================================================================
+;
+; KERNEL STUB
+;
+;==========================================================================
+
+#include "kernel.vu"
+#include "matrix.vu"
+#include "boot.vu"
+#include "clipper.vu"
+
+;==========================================================================
+;==========================================================================
+;==========================================================================
+
+;==========================================================================
+;
+; VI01      Temp
+; VI02      Pass Mask
+; VI03      Constant for Pass Mask
+; VI04      Temp
+; VI10      Number of vert to render
+; VI14      Base to render from
+; VI15      Return adress
+;
+;==========================================================================
+
+#if	1
+
+RENDER_PASSES2:
+
+		NOP                             IADDIU VI03, VI00, 1
+		NOP                             ILW.x  VI02, VUMEM_PASSMASK(VI00)
+
+		NOP                             IAND  VI04, VI02, VI03
+		NOP                             IADD  VI03, VI03, VI03                     ; <<1
+		NOP                             IBEQ  VI04, VI00, RENDER_BASE0_PASS_END2
+		NOP                             NOP
+        
+		; Kick off setting up pass registers
+		NOP                             IADDIU VI01, VI00, (VUMEM_BASE0_PASS+1)
+		NOP                             NOP                             
+		NOP                             XGKICK VI01
+		NOP                             NOP                             
+
+		; Copy vert giftag
+		NOP                             LQ VF13, VUMEM_BASE0_PASS(VI00)
+		NOP                             SQ VF13, 0(VI14)
+
+		; Write num verts in giftag
+		NOP                             IADDIU VI01, VI10, 0x7FFF
+		NOP                             IADDIU VI01, VI01, 1
+		NOP                             ISW.x VI01, 0(VI14)
+		NOP                             NOP                             
+		NOP                             NOP                             
+		NOP                             NOP                             
+
+		; Render verts
+		NOP                             XGKICK VI14
+		NOP                             NOP                             
+
+RENDER_BASE0_PASS_END2:
+
+
+
+		;------------------------------------------------------------------
+		; Return
+		;------------------------------------------------------------------
+		NOP                             JR VI15
+		NOP                             NOP
+
+#endif
+
+
+
+
+RENDER_PASSES:
+
+		NOP                             IADDIU VI03, VI00, 1
+		NOP                             ILW.x  VI02, VUMEM_PASSMASK(VI00)
+
+		;------------------------------------------------------------------
+		; Render the base0 pass
+		;------------------------------------------------------------------
+		NOP                             IAND  VI04, VI02, VI03
+		NOP                             IADD  VI03, VI03, VI03                     ; <<1
+		NOP                             IBEQ  VI04, VI00, RENDER_BASE0_PASS_END
+		NOP                             NOP
+        
+		; Kick off setting up pass registers
+		NOP                             IADDIU VI01, VI00, (VUMEM_BASE0_PASS+1)
+		NOP                             NOP                             
+    	NOP                             XGKICK VI01
+		NOP                             NOP                             
+
+		; Copy vert giftag
+		NOP                             LQ VF13, VUMEM_BASE0_PASS(VI00)
+		NOP                             SQ VF13, 0(VI14)
+
+		; Write num verts in giftag
+		NOP                             IADDIU VI01, VI10, 0x7FFF
+		NOP                             IADDIU VI01, VI01, 1
+		NOP                             ISW.x VI01, 0(VI14)
+		NOP                             NOP                             
+		NOP                             NOP                             
+		NOP                             NOP                             
+
+		; Render verts
+		NOP                             XGKICK VI14
+		NOP                             NOP                             
+
+RENDER_BASE0_PASS_END:
+
+		;------------------------------------------------------------------
+		; Render the color light map
+		;------------------------------------------------------------------
+
+		NOP                             IAND  VI04, VI02, VI03                     ; mask & bitmaps
+		NOP                             IADD  VI03, VI03, VI03                     ; <<1
+		NOP                             IBEQ  VI04, VI00, RENDER_LIGHTMAP_FULLCOLOR_END      ;
+		NOP                             NOP
+
+		; Copy vert giftag
+		NOP                             LQ VF13, VUMEM_LIGHTMAP_FULLCOLOR_PASS(VI00)
+		NOP                             SQ VF13, 0(VI14)
+
+		; Write num verts in giftag
+		
+		NOP                             IADDIU VI01, VI10, 0x7FFF
+		NOP                             IADDIU VI01, VI01, 1
+		NOP                             ISW.x VI01, 0(VI14)
+		NOP                             NOP                             
+		NOP                             NOP                             
+		NOP                             NOP                             
+
+		; Kick off setting up pass 1 registers
+		NOP                             IADDIU VI01, VI00, (VUMEM_LIGHTMAP_FULLCOLOR_PASS+1+3*0)
+		NOP                             NOP                             
+		NOP                             XGKICK VI01
+		NOP                             NOP                             
+
+		; Render pass 1 of the light map 
+		NOP                             XGKICK VI14
+		NOP                             NOP
+
+		#if !ONEPASS
+        
+		; Kick off setting up pass 2 registers
+		NOP                             IADDIU VI01, VI00, (VUMEM_LIGHTMAP_FULLCOLOR_PASS+1+3*1)
+		NOP                             NOP                             
+		NOP                             XGKICK VI01
+		NOP                             NOP                             
+        
+		; Render pass 2 of the light map 
+		NOP                             XGKICK VI14
+		NOP                             NOP
+                                     
+		; Kick off setting up pass 3 registers
+		NOP                             IADDIU VI01, VI00, (VUMEM_LIGHTMAP_FULLCOLOR_PASS+1+3*2)
+		NOP                             NOP                             
+		NOP                             XGKICK VI01
+		NOP                             NOP                             
+        
+		; Render pass 3 of the light map 
+		NOP                             XGKICK VI14
+		NOP                             NOP
+		
+		#endif
+
+RENDER_LIGHTMAP_FULLCOLOR_END:
+
+		;------------------------------------------------------------------
+		; Render the monocromo light map
+		;------------------------------------------------------------------
+
+		NOP                             IAND  VI04, VI02, VI03                     ; mask & bitmaps
+		NOP                             IADD  VI03, VI03, VI03                     ; <<1
+		NOP                             IBEQ  VI04, VI00, RENDER_LIGHTMAP_MONOCOLOR_END      ;
+		NOP                             NOP
+
+		; Copy vert giftag
+		NOP                             LQ VF13, VUMEM_LIGHTMAP_MONOCOLOR_PASS(VI00)
+;;		NOP                             LQ VF13, VUMEM_LIGHTMAP_FULLCOLOR_PASS(VI00)
+		NOP                             SQ VF13, 0(VI14)
+
+		; Write num verts in giftag
+		NOP                             IADDIU VI01, VI10, 0x7FFF
+		NOP                             IADDIU VI01, VI01, 1
+		NOP                             ISW.x VI01, 0(VI14)
+		NOP                             NOP                             
+		NOP                             NOP                             
+		NOP                             NOP                             
+
+		; Kick off setting up pass 1 registers
+		NOP                             IADDIU VI01, VI00, (VUMEM_LIGHTMAP_MONOCOLOR_PASS+1+3*0)
+;;		NOP                             IADDIU VI01, VI00, (VUMEM_LIGHTMAP_FULLCOLOR_PASS+1+3*0)
+		NOP                             NOP                             
+		NOP                             XGKICK VI01
+		NOP                             NOP                             
+
+		; Render pass 1 of the light map 
+		NOP                             XGKICK VI14
+		NOP                             NOP
+
+RENDER_LIGHTMAP_MONOCOLOR_END:
+
+		;------------------------------------------------------------------
+		; Render the fog pass
+		;------------------------------------------------------------------
+
+		NOP                             IAND VI04, VI02, VI03                    ; mask & bitmaps
+		NOP                             IADD VI03, VI03, VI03                    ; <<1
+		NOP                             IBEQ VI04, VI00, RENDER_FOG_PASS_END     ;
+		NOP                             NOP
+
+		; Kick off setting up pass registers
+		NOP                             IADDIU VI01, VI00, (VUMEM_FOG_PASS+1)
+		NOP                             NOP                             
+		NOP                             XGKICK VI01
+		NOP                             NOP                             
+
+		; Copy vert giftag
+		NOP                             LQ VF13, VUMEM_FOG_PASS(VI00)
+		NOP                             SQ VF13, 0(VI14)
+
+		; Write num verts in giftag
+		NOP                             IADDIU VI01, VI10, 0x7FFF
+		NOP                             IADDIU VI01, VI01, 1
+		NOP                             ISW.x VI01, 0(VI14)
+		NOP                             NOP                             
+		NOP                             NOP                             
+		NOP                             NOP                             
+
+		; Copy fog uvs from vector(2) to vector(0)
+		; VI01 = addr
+		; VI10 = count
+		NOP                             IADDIU VI01, VI14, 1
+FOG_UV_LOOP:
+		NOP                             ISUBIU VI10, VI10, 1
+		NOP                             LQ VF13, 2(VI01)
+		NOP                             SQ VF13, 0(VI01)
+		NOP                             IBNE VI10, VI00, FOG_UV_LOOP
+		NOP                             IADDIU VI01, VI01, 4
+
+		; Render verts
+		NOP                             XGKICK VI14
+		NOP                             NOP                             
+
+RENDER_FOG_PASS_END:
+
+		;------------------------------------------------------------------
+		; Return
+		;------------------------------------------------------------------
+		NOP                             JR VI15
+		NOP                             NOP
+
+;==========================================================================
+;==========================================================================
+;==========================================================================
+
+;==========================================================================
+;  
+;	VI05	vertex skip
+;	VI06	vertex skip * 3
+;   VI08    Number of verts to process (outer plane loop)
+;   VI10    Number of verts to render
+;   VI11    Src ptr
+;   VI12    Dst ptr
+;   VI13    Num verts (inner transform loop)
+;   VI14    ITOP - Double buffer base
+;
+;---------------------------------------------------------------------------
+;
+;	VF01	2nd Position
+;	VF02	2nd base texture st
+;	VF03	2nd lmap texture st
+;	VF04	2nd vertex fog st
+;	VF05	First point on polygon
+;	VF08	Normal
+;   VF09    1st Fog vector
+;   VF10    1st Position
+;   VF11    1st base texture st
+;   VF12    1st lmap texture st
+;   VF13    1st Transformed/Projected Pos
+;	VF16	Eye World space
+;	VF17	Fog Consts1
+;	VF18	Fog consts2
+;	VF19	Eye Local space
+;	VF20	Active Fog Matrix 0 
+;	VF21	Active Fog Matrix 1 
+;	VF22	Active Fog Matrix 2  
+;	VF23	Active Fog Matrix 3 
+;	VF24	Active local to screen matrix qword 0
+;	VF25	Active local to screen matrix qword 1
+;	VF26	Active local to screen matrix qword 2
+;	VF27	Active local to screen matrix qword 3
+;	VF28	2nd Transformed/Projected Pos
+;	VF29	2nd Fog vector
+;	VF30	1st vertex fog value 
+;	VF31	*** Unused ***
+;==========================================================================
+
+CMD_SIMPLE_POINTS:
+
+;		NOP[D]							NOP		;  *** BREAKPOINT ***
+;		NOP								NOP     ;  *** BREAKPOINT *** 
+
+		; Load local to screen matrix
+		NOP                             LQ VF24, (VUMEM_MATRICES+0)(VI00)
+		NOP                             LQ VF25, (VUMEM_MATRICES+1)(VI00)
+		NOP                             LQ VF26, (VUMEM_MATRICES+2)(VI00)
+		NOP                             LQ VF27, (VUMEM_MATRICES+3)(VI00)
+		
+        NOP                             XTOP VI14						; get double buffer base in register
+		NOP                             ILW.x VI08, 0(VI14)				; get total number of verts to process
+		
+		NOP                             IADDIU VI11, VI14, VU_DOUBLE_BUFFER_SIZE
+		NOP                             ISUB VI11, VI11, VI08
+		NOP                             ISUB VI11, VI11, VI08
+		NOP                             ISUB VI11, VI11, VI08			; setup source pointer
+		NOP                             IADD VI12, VI00, VI14			; setup destination pointer
+		NOP								IADD VI10, VI00, VI00			; clear verts rendered counter
+		NOP                             IADDIU VI12, VI12, 1			; increment destination pointer past giftag
+
+;----------------------------------------------------------------------------------------------------------------------------------------------------
+;		Outer Plane Loop
+;----------------------------------------------------------------------------------------------------------------------------------------------------
+
+PLANE_LP:
+
+		NOP								IADDIU VI06, VI00, 0x3F
+		NOP								ILW.w  VI05, 0(VI11)			; get vertex count for this list of coplanar ngon's
+		NOP								LQ     VF05, 0(VI11)			; get plane normal for this ngon
+		NOP								LQ.w   VF06, 3(VI11)
+		NOP								LQ.w   VF07, 6(VI11)
+
+		ADDw.x VF08, VF00, VF05			IAND   VI05, VI05, VI06			; move normal components into single register 
+		ADDw.y VF08, VF00, VF06			IADDIU VI05, VI05, 1			; add in extra vertex skip
+		ADDw.z VF08, VF00, VF07			LOI EPSILON
+
+		SUB VF05, VF19, VF05			IADD VI13, VI00, VI05			; create vector from local-eye pos to ngon | copy the vertex count for this ngon list
+
+		MUL    VF05, VF05, VF08			ILW.w  VI07, 6(VI11)			; calculate dot product | get sliver flag
+		ADDy.x VF05, VF05, VF05			IADDIU VI06, VI00, 1			; set sliver mask bit 0
+		ADDz.x VF05, VF05, VF05			ISUB   VI08, VI08, VI05         ; subtract these verts from the total verts to process counter   
+		ADDi.x VF05, VF05, I			IAND   VI07, VI07, VI06			; add in fudge factor
+		NOP								NOP
+		
+		NOP								IBNE   VI07, VI00, RENDER1		; skip backface culling check if this is a sliver polygon
+		NOP								IADDIU VI06, VI00, 0x0080
+		NOP								NOP
+		NOP								FMAND  VI07, VI06				; check if dot product is less than zero (MAC bits will be set by this point)
+		NOP								NOP
+		NOP								IBNE   VI07, VI06, RENDER1
+		NOP								NOP
+
+		#if BACKFACE_CULLING
+
+		NOP								IADD VI11, VI11, VI05			; increment input vertex pointer (num verts * 3)
+		NOP								IADD VI11, VI11, VI05
+		NOP								B SKIP_VERTS
+		NOP								IADD VI11, VI11, VI05
+		
+		#endif
+
+RENDER1:
+
+		NOP								IADD VI10, VI10, VI13			; increment count of rendered verts
+		
+		NOP                             LQI VF10, (VI11++)				; load 1st xyz
+		NOP                             LQI VF11, (VI11++)				; load 1st base texture st
+		NOP                             LQI VF12, (VI11++)				; load 1st lmap texture st
+
+		MULAx.xyzw  ACC, VF20, VF10x    LQI VF01, (VI11++)				; transform 1st vertex by fog matrix | load 2nd xyz
+		MADDAy.xyzw ACC, VF21, VF10y    LOI 0.000976563                 ; K = (1/(1<<10))  
+		NOP								B SKIP							; skip over 1st fog stq store (so it doesn't access negative memory)
+		NOP								NOP
+
+;----------------------------------------------------------------------------------------------------------------------------------------------------
+;		Inner Transform Loop
+;----------------------------------------------------------------------------------------------------------------------------------------------------
+
+SIMPLE_POINTS_LOOP:
+
+		MULAx.xyzw  ACC, VF20, VF10x    LQI VF01, (VI11++)				; transform 1st vertex by fog matrix | load 2nd xyz
+		MADDAy.xyzw ACC, VF21, VF10y    SQ VF04, -2(VI12)               ; store previously computed fog stq
+SKIP:	MADDAz.xyzw ACC, VF22, VF10z    LQI VF02, (VI11++)              ; load 2nd base texture st 
+		MADDw.xyzw VF30, VF23, VF00w    LQI VF03, (VI11++)  			; load 2nd lmap texture st
+
+		MULAx.xyzw  ACC, VF20, VF01x    NOP								; transform 2nd vertex by fog matrix
+		MADDAy.xyzw ACC, VF21, VF01y    NOP
+		MADDAz.xyzw ACC, VF22, VF01z    NOP
+		MADDw.xyzw VF04, VF23, VF00w    NOP
+		
+		SUB VF09, VF30, VF16            NOP								; subtract eye position from 1st vertex in model space
+		
+		MULAx.xyzw  ACC, VF24, VF10x    NOP                             ; transform 1st vertex by local to screen matrix
+		MADDAy.xyzw ACC, VF25, VF10y    NOP
+		MADDAz.xyzw ACC, VF26, VF10z    NOP
+		MADDw.xyzw VF13, VF27, VF00w	ELENG P, VF09                   ; begin length calculation on 1st vector (17 cycles required)
+		
+		ITOF0.xy VF11, VF11			    ISUBIU VI13, VI13, 1            ; convert 1st base texture st to floating point | decrement vertex count (inner transform loop) 
+		ITOF15.xy VF12, VF12			NOP								; convert 1st lmap texture st to floating point
+		NOP								NOP
+		NOP                             DIV Q, VF00w, VF13w             ; start perspective divide on 1st vertex (6 cycles required)
+
+		MULi.xy  VF11, VF11, I          NOP								; scale 1st base texture st to correct range
+		MULAx.xyzw  ACC, VF24, VF01x	NOP								; transform 2nd vertex by local to screen matrix
+		MADDAy.xyzw ACC, VF25, VF01y	NOP
+		MADDAz.xyzw ACC, VF26, VF01z	NOP
+		MADDw.xyzw VF28, VF27, VF00w	NOP
+		NOP								NOP								; 6 cycles required here for divide unit
+
+		MULq.xyz   VF13, VF13, Q        NOP                             ; project 1st screen xyz
+		MULq.xyzw  VF11, VF11, Q        NOP								; project 1st base texture st
+		MULq.xyzw  VF12, VF12, Q        NOP                             ; project 1st lmap texture st
+		
+		SUB VF29, VF04, VF16			DIV Q, VF00w, VF28w				; subtract eye position from 2nd vertex | start perspective divide on 2nd vertex
+		FTOI4.xyz VF13, VF13			NOP								; convert 1st screen xyz to 12.4 fixed
+		ITOF0.xy VF02, VF02				NOP								; convert 2nd base texture st to floating point
+		ITOF15.xy VF03, VF03			NOP								; convert 2nd lmap texture st to floating point
+
+		NOP                             MFP.x VF30x, P          		; load 1st vector length into register
+		NOP								ELENG P, VF29                   ; begin length calculation on 2nd vector (17 cycles required)
+		MULi.xy VF02, VF02, I			MOVE.w VF13, VF10 				; scale 2nd base texture st to correct range | copy adc bit into screen xyz
+		NOP								NOP
+		MUL VF30, VF30, VF17            NOP								; apply fog const1 to 1st vertex
+
+		MULq.xyz   VF28, VF28, Q		SQ VF11, 0(VI12)  				; project 2nd screen xyz      | store 1st base texture st
+		MULq.xyzw  VF02, VF02, Q		SQ VF12, 1(VI12)  				; project 2nd base texture st | store 1st lmap texture st
+		MULq.xyzw  VF03, VF03, Q		SQ VF13, 3(VI12)  				; project 2nd lmap texture st | store 1st screen xyz
+		ADD VF30, VF30, VF18            NOP					       		; apply fog const2 to 1st vertex
+
+		FTOI4.xyz VF28, VF28			LQI VF10, (VI11++) 				; convert 2nd screen xyz to 12.4 fixed | load 3rd xyz
+		NOP								LQI VF11, (VI11++) 				; load 3rd base texture st
+		NOP								LQI VF12, (VI11++) 				; load 3rd lmap texture st
+		MULq.xyzw  VF30, VF30, Q        NOP                             ; project 1st fog st 
+
+		NOP								NOP
+		NOP								NOP
+		NOP								NOP
+		NOP							    SQ VF30, 2(VI12)				; store 1st fog texture stq
+		
+		NOP								ISUBIU VI13, VI13, 1			; decrement vertex counter
+		NOP								IADDIU VI12, VI12, 4			; increment destination pointer
+		
+		NOP								MFP.x VF04, P					; load 2nd vector length into register
+		NOP								MOVE.w VF28, VF01				; copy adc bit into screen xyz
+		NOP								NOP
+		NOP								NOP
+		MUL VF04, VF04, VF17			NOP								; apply fog const1 to 2nd vertex
+		NOP								SQ VF02, 0(VI12)				; store 2nd base texture st
+		NOP								SQ VF03, 1(VI12)				; store 2nd lmap texture st
+		NOP								SQ VF28, 3(VI12)				; store 2nd screen xyz
+		ADD VF04, VF04, VF18			NOP								; apply fog const2 to 2nd vertex
+		NOP								NOP
+		NOP								NOP
+		MULq.xyzw VF04, VF04, Q			NOP								; project 2nd fog st
+
+		NOP								IBGTZ VI13, SIMPLE_POINTS_LOOP
+		NOP								IADDIU VI12, VI12, 4
+
+;----------------------------------------------------------------------------------------------------------------------------------------------------
+;		Epilogue (Inner Transform Loop)
+;----------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		NOP								ISUBIU VI11, VI11, 3			; the source pointer will have overshot so decrement it
+		NOP                             SQ VF04, -2(VI12)				; store last fog stq
+
+		NOP								IADDIU VI06, VI00, 0x01			; check bottom bit to see if number of verts is an odd number
+		NOP								IAND VI07, VI06, VI05
+		NOP								NOP
+		NOP								IBEQ VI07, VI00, SKIP_VERTS
+		NOP								NOP
+
+		NOP								ISUBIU VI12, VI12, 4			; odd number of verts so backtrack the source and destination pointers by 1 vertex
+		NOP								ISUBIU VI11, VI11, 3
+
+;----------------------------------------------------------------------------------------------------------------------------------------------------
+;		Skip Verts
+;----------------------------------------------------------------------------------------------------------------------------------------------------
+
+SKIP_VERTS:																; jump to here when we have a backfacing ngon
+
+		NOP								IBNE VI08, VI00, PLANE_LP		; process next batch of ngons
+		NOP								NOP
+
+		NOP								IBEQ VI10, VI00, DONE			; check for any polys to render
+		NOP								NOP
+
+		NOP                             NOP
+		NOP                             BAL VI15, RENDER_PASSES			; render the passes
+		NOP                             NOP
+
+DONE:	NOP                             NOP                             ; end of program
+		NOP[E]                          NOP
+		NOP                             NOP                             
+		NOP                             NOP                             
+		NOP[D]                          NOP                             
+		NOP                             NOP                             
+
+;==========================================================================
+;==========================================================================
+;==========================================================================
+;**************************************************************************
+
+;=========================================================================
+;
+; Floating point registers
+;-------------------------------------------------------------------------
+; VF01 - Vertex 1 Posion in the queue In Clip coordinates
+; VF02 - Vertex 2 Posion in the queue In Clip coordinates
+; VF03 - Vertex 3 Posion in the queue In Clip coordinates
+;
+; VF04 - Vertex 1 Base UV in the queue In Clip coordinates
+; VF05 - Vertex 2 Base UV in the queue In Clip coordinates
+; VF06 - Vertex 3 Base UV in the queue In Clip coordinates
+;
+; VF07 - Vertex 1 LM UV in the queue In Clip coordinates
+; VF08 - Vertex 2 LM UV in the queue In Clip coordinates
+; VF09 - Vertex 3 LM UV in the queue In Clip coordinates
+;
+; VF10 - Vertex 1 FOG UV in the queue In World coordinates
+; VF11 - Vertex 2 FOG UV in the queue In World coordinates
+; VF12 - Vertex 3 FOG UV in the queue In World coordinates
+;
+; VF13 - Temporary
+; VF14 - Temporary
+; VF15 - Temporary
+; 
+; VF16 - Eye World space
+; VF17 - Fog Consts1 
+; VF18 - Fog consts2
+; VF19 - Eye Local space
+;
+; VF20 - Active Fog Matrix 0 
+; VF21 - Active Fog Matrix 1 
+; VF22 - Active Fog Matrix 2  
+; VF23 - Active Fog Matrix 3 
+;
+; VF24 - Active local to clip matrix qword 0 | Active local to screen matrix qword 0
+; VF25 - Active local to clip matrix qword 1 | Active local to screen matrix qword 1
+; VF26 - Active local to clip matrix qword 2 | Active local to screen matrix qword 2
+; VF27 - Active local to clip matrix qword 3 | Active local to screen matrix qword 3
+;
+; VF28 - Active clip to screen matrix qword 0
+; VF29 - Active clip to screen matrix qword 1
+; VF30 - Active clip to screen matrix qword 2
+; VF31 - Active clip to screen matrix qword 3
+;-------------------------------------------------------------------------
+; Integer registers
+;-------------------------------------------------------------------------
+; VI01 - Temporary register
+; VI02 - Temporary register
+; VI03 - Temporary register
+; VI04 - Temporary register
+;
+; VI09 - number of vertices in the destination buffer
+; VI10 - Flag for the strip ( 0 or 1 )
+; VI11 - source pointer
+; VI12 - destination pointer
+; VI13 - number of vertices remaining in the source buffer
+; VI14 - base buffer pointer
+; VI30 - Render Passes Mask
+;=========================================================================
+
+CMD_CLIPPER_VERSION:
+		
+		; Get double buffer base in register
+		NOP                             XTOP VI14
+		NOP                             NOP
+
+		; Load local to clip matrix
+		NOP                             LQ VF24, (VUMEM_MATRICES+ 4)(VI00)
+		NOP                             LQ VF25, (VUMEM_MATRICES+ 5)(VI00)
+		NOP                             LQ VF26, (VUMEM_MATRICES+ 6)(VI00)
+		NOP                             LQ VF27, (VUMEM_MATRICES+ 7)(VI00)
+		
+		; Load clip to screen matrix
+		NOP                             LQ VF28, (VUMEM_MATRICES+ 8)(VI00)
+		NOP                             LQ VF29, (VUMEM_MATRICES+ 9)(VI00)
+		NOP                             LQ VF30, (VUMEM_MATRICES+10)(VI00)
+		NOP                             LQ VF31, (VUMEM_MATRICES+11)(VI00)
+
+		NOP                             ILW.x VI08, 0(VI14)				; get total number of verts to process
+		NOP                             NOP
+		NOP                             NOP
+
+; ---> ASSERTS        
+		NOP                             IBLEZ VI08, JUMP_HEREERE
+		NOP                             NOP
+		NOP                             ISUBIU VI01, VI08, 70
+		NOP                             NOP
+		NOP                             IBGEZ VI01, JUMP_HEREERE
+		NOP                             NOP
+
+		; Setup src ptr
+		NOP                             IADDIU VI11, VI14, VU_DOUBLE_BUFFER_SIZE
+		NOP                             ISUB VI11, VI11, VI08
+		NOP                             ISUB VI11, VI11, VI08
+		NOP                             ISUB VI11, VI11, VI08
+
+		; Setup dst ptr
+		NOP                             IADD VI12, VI00, VI14
+
+		; Increment dst ptr past giftag
+		NOP                             IADDIU VI12, VI12, 1
+
+		; clear the amount of vertices written in the buffer
+		NOP                             IADDIU VI09, VI00, 0
+
+PLANE_LP2:
+
+		NOP								IADDIU VI06, VI00, 0x3F
+		NOP								ILW.w  VI05, 0(VI11)			; get vertex count for this list of coplanar ngon's
+		NOP								LQ     VF05, 0(VI11)			; get plane normal for this ngon
+		NOP								LQ.w   VF06, 3(VI11)
+		NOP								LQ.w   VF07, 6(VI11)
+
+		ADDw.x VF08, VF00, VF05			IAND   VI05, VI05, VI06			; move normal components into single register 
+		ADDw.y VF08, VF00, VF06			IADDIU VI05, VI05, 1			; add in extra vertex skip
+		ADDw.z VF08, VF00, VF07			LOI EPSILON
+
+		SUB VF05, VF19, VF05			IADD VI13, VI00, VI05			; create vector from local-eye pos to ngon | copy the vertex count for this ngon list
+
+		MUL    VF05, VF05, VF08			ILW.w  VI07, 6(VI11)			; calculate dot product | get sliver flag
+		ADDy.x VF05, VF05, VF05			IADDIU VI06, VI00, 1			; set sliver mask bit 0
+		ADDz.x VF05, VF05, VF05			ISUB   VI08, VI08, VI05         ; subtract these verts from the total verts to process counter   
+		ADDi.x VF05, VF05, I			IAND   VI07, VI07, VI06			; add in fudge factor
+		NOP								NOP
+		
+		NOP								IBNE   VI07, VI00, RENDER2		; skip backface culling check if this is a sliver polygon
+		NOP								IADDIU VI06, VI00, 0x0080
+		NOP								NOP
+		NOP								FMAND  VI07, VI06				; check if dot product is less than zero (MAC bits will be set by this point)
+		NOP								NOP
+		NOP								IBNE   VI07, VI06, RENDER2
+		NOP								NOP
+
+		#if BACKFACE_CULLING
+
+		NOP								IADD VI11, VI11, VI05			; increment input vertex pointer
+		NOP								IADD VI11, VI11, VI05
+		NOP								IADD VI11, VI11, VI05
+		NOP								B CLP_DONE
+		NOP								NOP
+
+		#endif
+
+RENDER2:
+
+;----------------------------------------------------------------------
+; Load the vertex and trasform
+;----------------------------------------------------------------------
+CLP_BEGIN_STRIP:
+
+		; Set the strip flag equal to zero
+		NOP                             IADDIU VI10, VI00, 0
+
+		; decrement the number of vertex read
+		NOP                             ISUBIU VI13, VI13, 3
+
+		; Load 3verts in our queue
+		NOP                             LQ VF1, ( 3*0 + 0 )(VI11)   ; Copy the verts
+		NOP                             LQ VF2, ( 3*1 + 0 )(VI11)
+		NOP                             LQ VF3, ( 3*2 + 0 )(VI11)
+		
+		; Load the base uvs
+		NOP                             LQ VF4, ( 3*0 + 1)(VI11)    ; Copy the 1st uvs
+		NOP                             LQ VF5, ( 3*1 + 1)(VI11)
+		NOP                             LQ VF6, ( 3*2 + 1)(VI11)
+    
+		; convert base uvs to float
+		ITOF0.xy VF4, VF4               LOI 0.000976563             ; K = (1/(1<<10))
+		MULi.xy  VF4, VF4, I            NOP
+
+		ITOF0.xy VF5, VF5               NOP
+		MULi.xy  VF5, VF5, I            NOP
+
+		ITOF0.xy VF6, VF6               NOP
+		MULi.xy  VF6, VF6, I            NOP
+
+		; Load lightmaps uvs
+		NOP                             LQ VF7, ( 3*0 + 2)(VI11)    ; Copy the 2nd uvs
+		NOP                             LQ VF8, ( 3*1 + 2)(VI11)
+		NOP                             LQ VF9, ( 3*2 + 2)(VI11)
+
+		; Convert the lightmaps uvs into floats
+		ITOF15.xy VF7, VF7              NOP
+		ITOF15.xy VF8, VF8              NOP
+		ITOF15.xy VF9, VF9              NOP
+
+		NOP                             MOVE VF10, VF1
+		NOP                             MOVE VF11, VF2
+		NOP                             MOVE VF12, VF3
+        
+		; Increment the source pointer
+		NOP                             IADDIU VI11, VI11, ( 3*3 )
+
+		;
+		; Transform the vertices to clip space
+		;
+		MULAx.xyzw  ACC, VF24, VF1x     NOP                             ; transform vert
+		MADDAy.xyzw ACC, VF25, VF1y     NOP                             ; transform vert
+		MADDAz.xyzw ACC, VF26, VF1z     NOP                             ; transform vert
+		MADDw.xyzw  VF1, VF27, VF00w    NOP                             ; transform vert
+
+		MULAx.xyzw  ACC, VF24, VF2x     NOP                             ; transform vert
+		MADDAy.xyzw ACC, VF25, VF2y     NOP                             ; transform vert
+		MADDAz.xyzw ACC, VF26, VF2z     NOP                             ; transform vert
+		MADDw.xyzw  VF2, VF27, VF00w    NOP                             ; transform vert
+
+CLP_NEXT_VERTEX:
+		MULAx.xyzw  ACC, VF24, VF3x     NOP                             ; transform vert
+		MADDAy.xyzw ACC, VF25, VF3y     NOP                             ; transform vert
+		MADDAz.xyzw ACC, VF26, VF3z     NOP                             ; transform vert
+		MADDw.xyzw  VF3, VF27, VF00w    NOP                             ; transform vert
+		NOP                             NOP
+		NOP                             NOP
+		NOP                             NOP
+        
+		;
+		; Check the clip flags of the verts in the queue
+		;
+		CLIPw.xyz VF01xyz, VF01w        NOP                             ; Get clipflags
+		CLIPw.xyz VF02xyz, VF02w        NOP                             ; Get clipflags
+		CLIPw.xyz VF03xyz, VF03w        NOP                             ; Get clipflags
+		NOP                             NOP
+		NOP                             NOP
+		NOP                             NOP
+
+		NOP                             FCAND VI01, 0x3FFFF             
+		NOP                             NOP
+		NOP                             IBEQ VI01, VI00, CLP_TRIVIAL_ACCEPT
+		NOP                             NOP
+		NOP                             NOP
+
+;----------------------------------------------------------------------
+; We are clipping in here so deal with it
+;----------------------------------------------------------------------
+
+		NOP                             NOP
+
+		; Set the strip flag equal to zero
+		NOP                             IADDIU VI10, VI00, 0
+
+		;------------------------------------------------------------------
+		; Call the clipper.
+		; returns : VI01 == NVerts, VI02 == Ptr to verts
+		;------------------------------------------------------------------
+		NOP                             BAL VI15, CLIPPER_ENTRY
+		NOP                             NOP
+
+		; Skip all this if we get back zero vertices
+		NOP                             IBLEZ VI01, CLP_READ_NEXT_VERTEX
+		NOP                             NOP
+
+		; Increment the vertices written in the dest buufer
+		NOP                             IADD VI09, VI09, VI01
+
+		;------------------------------------------------------------------
+		; Convert the clip poly fan into a screen strip in dest
+		; VI01 will be the Left column
+		; VI02 will be the right column       
+		; VI03 will have the original destination pointer (need it for the ADC bits)
+		; VI04 will be our temp register 
+		;------------------------------------------------------------------
+		NOP                             IADD    VI04, VI01, VI01 ; x2
+		NOP                             IADD    VI04, VI04, VI01 ; x3
+		NOP                             IADD    VI04, VI04, VI01 ; x4
+		NOP                             ISUBIU  VI04, VI04, 4
+		NOP                             IADD    VI01, VI02, VI04
+
+		NOP                             IADD    VI03, VI00, VI12 
+
+CLP_FAN_TO_STRIP_TRANS:
+
+		;------------------------------------------------------------------
+		; Transform left vertex
+		;------------------------------------------------------------------
+		NOP                             ISUB  VI04, VI01, VI02
+		NOP                             NOP
+		NOP                             IBLTZ VI04, CLP_FAN_TO_STRIP_DONE
+		NOP                             NOP
+
+		; Load the load the vertex into our temp register
+		NOP                             LQ VF13, ( 3 )(VI01)   ; Pos
+		NOP                             LQ VF14, ( 1 )(VI01)   ; LM UV
+		NOP                             LQ VF15, ( 0 )(VI01)   ; Base UV
+
+		MULAx.xyzw  ACC,  VF28, VF13x   NOP                             ; transform vert
+		MADDAy.xyzw ACC,  VF29, VF13y   NOP                             ; transform vert
+		MADDAz.xyzw ACC,  VF30, VF13z   NOP                             ; transform vert
+		MADDw.xyzw  VF13, VF31, VF13w   NOP                             ; transform vert
+
+		; Start and do divide
+		NOP                             DIV Q, VF00w, VF13w             ; Start divide
+		NOP                             WAITQ
+
+		; Project position
+		MULq.xyzw  VF13, VF13, Q        NOP                             ; project vert
+		MULq.xyzw  VF14, VF14, Q        NOP                             ; project stq1
+		MULq.xyzw  VF15, VF15, Q        NOP                             ; project stq2
+
+		; Convert screen coordinates to 12.4 fixed
+		FTOI4.xyzw VF13, VF13           NOP                             ; convert XYZ to fixed
+
+		; Write to the destination buffer
+		NOP                             SQ VF15, 0(VI12)                ; Write the base
+		NOP                             SQ VF14, 1(VI12)                ; Write the LM
+		NOP                             SQ VF13, 3(VI12)                ; screen xyz
+
+		;;
+		;; Compute stq and Write the FOG uv as well. 
+		;; 
+		NOP                             LQ VF15, ( 2 )(VI01)   ; Load the fog pos
+
+		MULAx.xyzw  ACC, VF20, VF15x     NOP                             ; transform vert
+		MADDAy.xyzw ACC, VF21, VF15y     NOP                             ; transform vert
+		MADDAz.xyzw ACC, VF22, VF15z     NOP                             ; transform vert
+		MADDw.xyzw VF01, VF23, VF00w    NOP                             ; transform vert
+		SUB VF15, VF01, VF16            NOP
+		NOP                                 ELENG P, VF15           ; Begin length calculation
+		NOP                                 WAITP                   ; Wait for dist computation to finish
+		NOP                                 MOVE.y VF15, VF01
+		NOP                                 MFP.x VF15x, P          ; Load dist into register
+		MUL VF15, VF15, VF17                NOP                     ; Apply Const0
+		ADD VF15, VF15, VF18                NOP                     ; Apply Const1
+
+		MULq.xyzw  VF15, VF15,  Q           NOP                     ; project fog
+		NOP                                 SQ VF15, 2(VI12)        ; writte fog
+
+		; Increment destination pointer
+		NOP                             IADDIU VI12, VI12, 4
+
+		; decrement the left pointer
+		NOP                             ISUBIU VI01, VI01, 4
+
+		;------------------------------------------------------------------
+		; Transform right vertex
+		;------------------------------------------------------------------
+		NOP                             ISUB  VI04, VI01, VI02
+		NOP                             NOP
+		NOP                             IBLTZ VI04, CLP_FAN_TO_STRIP_DONE
+		NOP                             NOP
+
+		; Load the load the vertex into our temp register
+		NOP                             LQ VF13, ( 3 )(VI02)   ; Pos
+		NOP                             LQ VF14, ( 1 )(VI02)   ; LM UV
+		NOP                             LQ VF15, ( 0 )(VI02)   ; Base UV
+
+		MULAx.xyzw  ACC,  VF28, VF13x   NOP                             ; transform vert
+		MADDAy.xyzw ACC,  VF29, VF13y   NOP                             ; transform vert
+		MADDAz.xyzw ACC,  VF30, VF13z   NOP                             ; transform vert
+		MADDw.xyzw  VF13, VF31, VF13w   NOP                             ; transform vert
+
+		; Start and do divide
+		NOP                             DIV Q, VF00w, VF13w             ; Start divide
+		NOP                             WAITQ
+
+		; Project position
+		MULq.xyzw  VF13, VF13, Q        NOP                             ; project vert
+		MULq.xyzw  VF14, VF14, Q        NOP                             ; project stq1
+		MULq.xyzw  VF15, VF15, Q        NOP                             ; project stq2
+
+		; Convert screen coordinates to 12.4 fixed
+		FTOI4.xyzw VF13, VF13           NOP                             ; convert XYZ to fixed
+
+		; Write to the destination buffer
+		NOP                             SQ VF15, 0(VI12)                ; Write the base
+		NOP                             SQ VF14, 1(VI12)                ; Write the LM
+		NOP                             SQ VF13, 3(VI12)                ; screen xyz
+
+		;;
+		;; Compute stq and Write the FOG uv as well. 
+		;; 
+		NOP                             LQ VF15, ( 2 )(VI02)   ; Load the fog pos
+
+		MULAx.xyzw  ACC, VF20, VF15x     NOP                             ; transform vert
+		MADDAy.xyzw ACC, VF21, VF15y     NOP                             ; transform vert
+		MADDAz.xyzw ACC, VF22, VF15z     NOP                             ; transform vert
+		MADDw.xyzw VF01, VF23, VF00w    NOP                             ; transform vert
+		SUB VF15, VF01, VF16            NOP
+		NOP                                 ELENG P, VF15           ; Begin length calculation
+		NOP                                 WAITP                   ; Wait for dist computation to finish
+		NOP                                 MOVE.y VF15, VF01
+		NOP                                 MFP.x VF15x, P          ; Load dist into register
+		MUL VF15, VF15, VF17                NOP                     ; Apply Const0
+		ADD VF15, VF15, VF18                NOP                     ; Apply Const1
+
+		MULq.xyzw  VF15, VF15,  Q           NOP                     ; project fog
+		NOP                                 SQ VF15, 2(VI12)        ; writte fog
+
+		; Increment destination pointer
+		NOP                             IADDIU VI12, VI12, 4
+
+		; increment the right pointer
+		NOP                             IADDIU VI02, VI02, 4
+
+		NOP                             B CLP_FAN_TO_STRIP_TRANS
+		NOP                             NOP
+
+		;------------------------------------------------------------------
+		; Done transforming all t
+		;------------------------------------------------------------------
+CLP_FAN_TO_STRIP_DONE:
+
+		; Set the ADC Bit for the first two vertices
+		NOP                             IADDIU VI01, VI00, 0x7FFF
+		NOP                             IADDIU VI01, VI01, 1
+		NOP                             ISW.w  VI01, (3+0)(VI03)
+		NOP                             ISW.w  VI01, (3+4)(VI03)
+
+		; read the next vertex
+		NOP                             B CLP_READ_NEXT_VERTEX
+		NOP                             NOP
+		NOP                             NOP
+
+;----------------------------------------------------------------------
+; No clipping case
+;----------------------------------------------------------------------
+CLP_TRIVIAL_ACCEPT:
+
+		; determine how many vertices do we need to flush
+		NOP                             IBNE VI10, VI00, CLP_FLUSH_ONE
+		NOP                             NOP
+
+		; Add how many vertices we are going to add in the dest buffer.
+		; ( the last one is added later ).
+		NOP                             IADDIU VI09, VI09, 2
+
+		; Set the strip flag equal to one
+		NOP                             IADDIU VI10, VI00, 1
+		NOP                             NOP
+
+		;------------------------------------------
+		;--- Transform to screen space vertex 1 ---
+		;------------------------------------------
+		MULAx.xyzw  ACC,  VF28, VF1x    NOP                             ; transform vert
+		MADDAy.xyzw ACC,  VF29, VF1y    NOP                             ; transform vert
+		MADDAz.xyzw ACC,  VF30, VF1z    NOP                             ; transform vert
+		MADDw.xyzw  VF13, VF31, VF1w    NOP                             ; transform vert
+
+		; Start and do divide
+		NOP                             DIV Q, VF00w, VF13w             ; Start divide
+		NOP                             WAITQ
+
+		; Project position
+		MULq.xyzw  VF13, VF13, Q        NOP                             ; project vert
+		MULq.xyzw  VF14, VF4,  Q        NOP                             ; project stq1
+		MULq.xyzw  VF15, VF7,  Q        NOP                             ; project stq2
+
+		; Convert screen coordinates to 12.4 fixed
+		FTOI4.xyzw VF13, VF13           NOP                             ; convert XYZ to fixed
+
+		; Write to the destination buffer
+		NOP                             SQ VF14, 0(VI12)
+		NOP                             SQ VF15, 1(VI12)
+		NOP                             SQ VF13, 3(VI12)                ; screen xyz
+
+		;
+		; Compute the fog
+		;
+		MULAx.xyzw  ACC, VF20, VF10x     NOP                             ; transform vert
+		MADDAy.xyzw ACC, VF21, VF10y     NOP                             ; transform vert
+		MADDAz.xyzw ACC, VF22, VF10z     NOP                             ; transform vert
+		MADDw.xyzw VF01, VF23, VF00w    NOP                             ; transform vert
+		SUB VF15, VF01, VF16            NOP
+		NOP                                 ELENG P, VF15           ; Begin length calculation
+		NOP                                 WAITP                   ; Wait for dist computation to finish
+		NOP                                 MOVE.y VF15, VF01
+		NOP                                 MFP.x VF15x, P          ; Load dist into register
+		MUL VF15, VF15, VF17                NOP                     ; Apply Const0
+		ADD VF15, VF15, VF18                NOP                     ; Apply Const1
+
+		MULq.xyzw  VF15, VF15,  Q           NOP                     ; project fog
+		NOP                                 SQ VF15, 2(VI12)        ; writte fog
+
+		; Set the ADC Bit
+		NOP                             IADDIU VI01, VI00, 0x7FFF
+		NOP                             IADDIU VI01, VI01, 1
+		NOP                             ISW.w  VI01, 3(VI12)
+
+		; Increment destination pointer
+		NOP                             IADDIU VI12, VI12, 4
+
+		;------------------------------------------
+		;--- Transform to screen space vertex 2 ---
+		;------------------------------------------
+		MULAx.xyzw  ACC,  VF28, VF2x    NOP                             ; transform vert
+		MADDAy.xyzw ACC,  VF29, VF2y    NOP                             ; transform vert
+		MADDAz.xyzw ACC,  VF30, VF2z    NOP                             ; transform vert
+		MADDw.xyzw  VF13, VF31, VF2w    NOP                             ; transform vert
+
+		; Start and do divide
+		NOP                             DIV Q, VF00w, VF13w             ; Start divide
+		NOP                             WAITQ
+
+		; Project position
+		MULq.xyzw  VF13, VF13, Q        NOP                             ; project vert
+		MULq.xyzw  VF14,  VF5, Q        NOP                             ; project stq1
+		MULq.xyzw  VF15,  VF8, Q        NOP                             ; project stq2
+
+		; Convert screen coordinates to 12.4 fixed
+		FTOI4.xyzw VF13, VF13           NOP                             ; convert XYZ to fixed
+
+		; Write to the destination buffer
+		NOP                             SQ VF14, 0(VI12)
+		NOP                             SQ VF15, 1(VI12)
+		NOP                             SQ VF13, 3(VI12)                ; screen xyz
+
+		;
+		; Compute the fog
+		;
+		MULAx.xyzw  ACC, VF20, VF11x     NOP                             ; transform vert
+		MADDAy.xyzw ACC, VF21, VF11y     NOP                             ; transform vert
+		MADDAz.xyzw ACC, VF22, VF11z     NOP                             ; transform vert
+		MADDw.xyzw VF01, VF23, VF00w    NOP                             ; transform vert
+		SUB VF15, VF01, VF16            NOP
+		NOP                                 ELENG P, VF15           ; Begin length calculation
+		NOP                                 WAITP                   ; Wait for dist computation to finish
+		NOP                                 MOVE.y VF15, VF01
+		NOP                                 MFP.x VF15x, P          ; Load dist into register
+		MUL VF15, VF15, VF17                NOP                     ; Apply Const0
+		ADD VF15, VF15, VF18                NOP                     ; Apply Const1
+
+		MULq.xyzw  VF15, VF15,  Q           NOP                     ; project fog
+		NOP                                 SQ VF15, 2(VI12)        ; writte fog
+
+		; Set the ADC Bit
+		NOP                             IADDIU VI01, VI00, 0x7FFF
+		NOP                             IADDIU VI01, VI01, 1
+		NOP                             ISW.w  VI01, 3(VI12)
+
+		; Increment destination pointer
+		NOP                             IADDIU VI12, VI12, 4
+
+		;------------------------------------------
+		;--- Transform to screen space vertex 3 ---
+		;------------------------------------------
+CLP_FLUSH_ONE:
+
+		MULAx.xyzw  ACC,  VF28, VF3x    NOP                             ; transform vert
+		MADDAy.xyzw ACC,  VF29, VF3y    NOP                             ; transform vert
+		MADDAz.xyzw ACC,  VF30, VF3z    NOP                             ; transform vert
+		MADDw.xyzw  VF13, VF31, VF3w    NOP                             ; transform vert
+
+		; Start and do divide
+		NOP                             DIV Q, VF00w, VF13w             ; Start divide
+		NOP                             WAITQ
+
+		; Project position
+		MULq.xyzw  VF13,  VF13, Q       NOP                             ; project vert
+		MULq.xyzw  VF14,  VF6,  Q       NOP                             ; project stq1
+		MULq.xyzw  VF15,  VF9,  Q       NOP                             ; project stq2
+
+
+		; Convert screen coordinates to 12.4 fixed
+		FTOI4.xyzw VF13, VF13           NOP                             ; convert XYZ to fixed
+
+		; Write to the destination buffer
+		NOP                             SQ VF14, 0(VI12)
+		NOP                             SQ VF15, 1(VI12)
+		NOP                             SQ VF13, 3(VI12)                ; screen xyz
+
+		;
+		; Compute the fog
+		;
+		MULAx.xyzw  ACC, VF20, VF12x    NOP                             ; transform vert
+		MADDAy.xyzw ACC, VF21, VF12y    NOP                             ; transform vert
+		MADDAz.xyzw ACC, VF22, VF12z    NOP                             ; transform vert
+		MADDw.xyzw VF01, VF23, VF00w    NOP                             ; transform vert
+		SUB VF15, VF01, VF16            NOP
+		NOP                                 ELENG P, VF15           ; Begin length calculation
+		NOP                                 WAITP                   ; Wait for dist computation to finish
+		NOP                                 MOVE.y VF15, VF01
+		NOP                                 MFP.x VF15x, P          ; Load dist into register
+		MUL VF15, VF15, VF17                NOP                     ; Apply Const0
+		ADD VF15, VF15, VF18                NOP                     ; Apply Const1
+
+		MULq.xyzw  VF15, VF15,  Q           NOP                     ; project fog
+		NOP                                 SQ VF15, 2(VI12)        ; writte fog
+
+
+		; Increment destination pointer
+		NOP                             IADDIU VI12, VI12, 4
+    
+		; Increment the vertices written in the dest buufer
+		NOP                             IADDIU VI09, VI09, 1
+
+;----------------------------------------------------------------------
+; Handle the next vert
+;----------------------------------------------------------------------
+CLP_READ_NEXT_VERTEX:
+		NOP                             NOP
+
+		; Determine whether we are done
+		NOP                             IBEQ VI13, VI00, CLP_DONE
+		NOP                             NOP
+
+		; Determine whether we can do one more strip
+		NOP                             ISUB   VI01, VI11, VI12
+		NOP                             ISUBIU VI01, VI01, ( 4*20 )
+		NOP                             NOP
+		NOP                             NOP
+		NOP                             IBLEZ VI01, CLP_FLUSH_POLYS
+		NOP                             NOP
+
+		; If the w is set then we must start a new strip 
+		NOP                             ILW.w VI01, ( 3*0 + 0 )(VI11)
+		NOP                             NOP
+		NOP                             NOP
+		NOP                             NOP
+		NOP                             IBNE VI01, VI00, CLP_BEGIN_STRIP
+		NOP                             NOP
+
+		;------------------------------------------
+		; If w is not set so roll registers and load next vertex in the queue
+		;------------------------------------------
+
+		; roll positions
+		NOP                             MOVE VF1, VF2
+		NOP                             MOVE VF2, VF3
+		NOP                             LQ   VF3, ( 3*0 + 0 )(VI11)
+
+		; roll first set of uvs
+		NOP                             MOVE VF4, VF5
+		NOP                             MOVE VF5, VF6
+		NOP                             LQ   VF6, ( 3*0 + 1)(VI11)   
+		ITOF0.xy VF6, VF6               LOI 0.000976563                 ; K = (1/(1<<10))
+		MULi.xy  VF6, VF6, I            NOP
+
+		; roll second set of uvs
+		NOP                             MOVE VF7, VF8
+		NOP                             MOVE VF8, VF9
+		NOP                             LQ   VF9, ( 3*0 + 2)(VI11)   
+		ITOF15.xy VF9, VF9              NOP        
+
+		; roll thrid set of uvs
+		NOP                             MOVE VF10, VF11
+		NOP                             MOVE VF11, VF12
+		NOP                             MOVE VF12, VF3      ; Copy vert pos into fog uvs
+
+		; Increment the source pointer
+		NOP                             IADDIU VI11, VI11, 3
+
+		; decrement the number of vertex read
+		NOP                             ISUBIU VI13, VI13, 1
+
+		; do the next vertex
+		NOP                             B   CLP_NEXT_VERTEX
+		NOP                             NOP
+		NOP                             NOP
+
+;----------------------------------------------------------------------
+; Flush the polygons that we have transform so far
+;----------------------------------------------------------------------
+CLP_FLUSH_POLYS:
+
+		NOP                             IADD VI10, VI00, VI09
+		NOP                             NOP
+		NOP                             BAL VI15, RENDER_PASSES
+		NOP                             NOP
+		NOP                             NOP                             
+		NOP                             IADDIU VI01, VI00, VUMEM_GIF_TAG_OFFSET
+		NOP                             NOP                             
+		NOP                             NOP                             
+		NOP                             XGKICK VI01
+
+		; Reset the dest pointer
+		NOP                             IADDIU VI12, VI14, 1
+
+		; Set the strip flag to zero
+		NOP                             IADDIU VI10, VI00, 0
+
+		; Rest the number of verts written out
+		NOP                             IADDIU VI09, VI00, 0
+    
+		; Load the next vertex
+		NOP                             B CLP_READ_NEXT_VERTEX
+		NOP								NOP
+
+;----------------------------------------------------------------------
+; Finished clipping coplanar ngon's
+;----------------------------------------------------------------------
+
+CLP_DONE: 
+
+		NOP								IBNE VI08, VI00, PLANE_LP2				; clip all coplanar ngon's
+		NOP								NOP
+
+;----------------------------------------------------------------------
+; Send triangles to render
+;----------------------------------------------------------------------
+
+		NOP                             NOP
+		NOP                             IADD VI10, VI00, VI09
+		NOP                             NOP
+		NOP                             IBEQ VI09, VI00, SKIP_LAST_PASSES
+		NOP                             NOP
+		NOP                             BAL VI15, RENDER_PASSES
+		NOP                             NOP
+SKIP_LAST_PASSES:
+
+;----------------------------------------------------------------------
+; end program
+;----------------------------------------------------------------------
+
+		NOP                             NOP                             
+		NOP[E]                          NOP
+		NOP                             NOP                             
+		NOP                             NOP                             
+		NOP[D]                          NOP                             
+		NOP                             NOP                          
+        
+JUMP_HEREERE:        
+		NOP[D]                          NOP                             
+		NOP                             NOP                             
+		NOP[E]                          NOP
+		NOP                             NOP                             
+		NOP                             NOP                             
+		NOP[D]                          NOP                             
+		NOP                             NOP                          
+           
+;==========================================================================
+;==========================================================================
+
+;==========================================================================
+;  
+;	VI05	vertex skip
+;	VI06	vertex skip * 3
+;   VI08    Number of verts to process (outer plane loop)
+;   VI10    Number of verts to render
+;   VI11    Src ptr
+;   VI12    Dst ptr
+;   VI13    Num verts (inner transform loop)
+;   VI14    ITOP - Double buffer base
+;
+;---------------------------------------------------------------------------
+;
+;	VF01	
+;	VF02	
+;	VF03	
+;	VF04	
+;	VF05	First point on polygon
+;	VF08	Normal
+;   VF09    Fog vector
+;   VF10    Position
+;   VF11    base texture st
+;   VF12    lmap texture st
+;   VF13    Transformed/Projected Pos
+;	VF16	Eye World space
+;	VF17	Fog Consts1
+;	VF18	Fog consts2
+;	VF19	Eye Local space
+;	VF20	Active Fog Matrix 0 
+;	VF21	Active Fog Matrix 1 
+;	VF22	Active Fog Matrix 2  
+;	VF23	Active Fog Matrix 3 
+;	VF24	Active local to clip matrix qword 0
+;	VF25	Active local to clip matrix qword 1
+;	VF26	Active local to clip matrix qword 2
+;	VF27	Active local to clip matrix qword 3
+;	VF28	Active clip to screen matrix qword 0 
+;	VF29	Active clip to screen matrix qword 1 
+;	VF30	Active clip to screen matrix qword 2 
+;	VF31	Active clip to screen matrix qword 3 
+;==========================================================================
+
+CMD_SIMPLE_POINTS_SLOW:
+
+;		NOP[D]							NOP		;  *** BREAKPOINT ***
+;		NOP								NOP     ;  *** BREAKPOINT *** 
+
+		; Load local to clip matrix
+		NOP                             LQ VF24, (VUMEM_MATRICES+ 4)(VI00)
+		NOP                             LQ VF25, (VUMEM_MATRICES+ 5)(VI00)
+		NOP                             LQ VF26, (VUMEM_MATRICES+ 6)(VI00)
+		NOP                             LQ VF27, (VUMEM_MATRICES+ 7)(VI00)
+
+		; Load clip to screen matrix
+		NOP                             LQ VF28, (VUMEM_MATRICES+ 8)(VI00)
+		NOP                             LQ VF29, (VUMEM_MATRICES+ 9)(VI00)
+		NOP                             LQ VF30, (VUMEM_MATRICES+10)(VI00)
+		NOP                             LQ VF31, (VUMEM_MATRICES+11)(VI00)
+        
+		NOP                             XTOP VI14						; get double buffer base in register
+		NOP                             ILW.x VI08, 0(VI14)				; get total number of verts to process
+		
+		NOP                             IADDIU VI11, VI14, VU_DOUBLE_BUFFER_SIZE
+		NOP                             ISUB VI11, VI11, VI08
+		NOP                             ISUB VI11, VI11, VI08
+		NOP                             ISUB VI11, VI11, VI08			; setup source pointer
+		NOP                             IADD VI12, VI00, VI14			; setup destination pointer
+		NOP								IADD VI10, VI00, VI00			; clear verts rendered counter
+		NOP                             IADDIU VI12, VI12, 1			; increment destination pointer past giftag
+
+;----------------------------------------------------------------------------------------------------------------------------------------------------
+;		Outer Plane Loop
+;----------------------------------------------------------------------------------------------------------------------------------------------------
+
+PLANE_LP3:
+
+		NOP								IADDIU VI06, VI00, 0x3F
+		NOP								ILW.w  VI05, 0(VI11)			; get vertex count for this list of coplanar ngon's
+		NOP								LQ     VF05, 0(VI11)			; get plane normal for this ngon
+		NOP								LQ.w   VF06, 3(VI11)
+		NOP								LQ.w   VF07, 6(VI11)
+
+		ADDw.x VF08, VF00, VF05			IAND   VI05, VI05, VI06			; move normal components into single register 
+		ADDw.y VF08, VF00, VF06			IADDIU VI05, VI05, 1			; add in extra vertex skip
+		ADDw.z VF08, VF00, VF07			LOI EPSILON
+
+		SUB VF05, VF19, VF05			IADD VI13, VI00, VI05			; create vector from local-eye pos to ngon | copy the vertex count for this ngon list
+
+		MUL    VF05, VF05, VF08			ILW.w  VI07, 6(VI11)			; calculate dot product | get sliver flag
+		ADDy.x VF05, VF05, VF05			IADDIU VI06, VI00, 1			; set sliver mask bit 0
+		ADDz.x VF05, VF05, VF05			ISUB   VI08, VI08, VI05         ; subtract these verts from the total verts to process counter   
+		ADDi.x VF05, VF05, I			IAND   VI07, VI07, VI06			; add in fudge factor
+		NOP								NOP
+		
+		NOP								IBNE   VI07, VI00, RENDER3		; skip backface culling check if this is a sliver polygon
+		NOP								IADDIU VI06, VI00, 0x0080
+		NOP								NOP
+		NOP								FMAND  VI07, VI06				; check if dot product is less than zero (MAC bits will be set by this point)
+		NOP								NOP
+		NOP								IBNE   VI07, VI06, RENDER3
+		NOP								NOP
+
+		#if BACKFACE_CULLING
+
+		NOP								IADD VI11, VI11, VI05			; increment input vertex pointer (num verts * 3)
+		NOP								IADD VI11, VI11, VI05
+		NOP								B SKIP_VERTS3
+		NOP								IADD VI11, VI11, VI05
+		
+        #endif
+
+RENDER3:
+
+		NOP								IADD VI10, VI10, VI13			; increment count of rendered verts
+		
+;----------------------------------------------------------------------------------------------------------------------------------------------------
+;		Inner Transform Loop
+;----------------------------------------------------------------------------------------------------------------------------------------------------
+
+SIMPLE_POINTS_LOOP3:
+
+		NOP								LQ VF10, 0(VI11)
+		NOP								LQ VF11, 1(VI11)
+		NOP								LQ VF12, 2(VI11)
+		
+        ; Convert the base uv into floating point numbers
+        ITOF0.xy VF11, VF11             LOI 0.000976563                 ; K = (1/(1<<10))
+        MULi.xy  VF11, VF11, I          NOP
+
+        ; Convert the light maps into floating point numbers
+        ITOF15.xy VF12, VF12            NOP
+		
+        MULAx.xyzw  ACC, VF24, VF10x    NOP                             ; transform vert
+        MADDAy.xyzw ACC, VF25, VF10y    NOP                             ; transform vert
+        MADDAz.xyzw ACC, VF26, VF10z    NOP                             ; transform vert
+		MADDw.xyzw VF13, VF27, VF00w    NOP                             ; transform vert
+
+        MULAx.xyzw  ACC, VF28, VF13x    NOP                             ; transform vert
+        MADDAy.xyzw ACC, VF29, VF13y    NOP                             ; transform vert
+        MADDAz.xyzw ACC, VF30, VF13z    NOP                             ; transform vert
+        MADDw.xyzw VF13, VF31, VF13w    NOP                             ; transform vert
+
+        ;
+        ; Transform the vertex by the Fog matrix
+        ;
+        MULAx.xyzw  ACC, VF20, VF10x    NOP                             ; transform vert
+        MADDAy.xyzw ACC, VF21, VF10y    NOP                             ; transform vert
+        MADDAz.xyzw ACC, VF22, VF10z    NOP                             ; transform vert
+        MADDw.xyzw VF01, VF23, VF00w    NOP                             ; transform vert
+        SUB VF09, VF01, VF16            NOP                             ; subtract eye 
+        NOP                             ELENG P, VF09           		; Begin length calculation
+        NOP                             WAITP                   		; Wait for dist computation to finish
+        NOP                             MOVE.y VF09, VF01
+        NOP                             MFP.x VF09x, P          		; Load dist into register
+        MUL VF09, VF09, VF17            NOP                     		; Apply Const0
+        ADD VF09, VF09, VF18            NOP                     		; Apply Const1
+
+        ; Start and do divide
+        NOP                             DIV Q, VF00w, VF13w             ; Start divide
+        NOP                             WAITQ
+
+        ; Copy src .w into projected ......................
+        NOP                             MOVE.w VF13, VF10               ; Move the bit 15 into a temp
+
+        ; Project position and uvs
+        MULq.xyz  VF13, VF13, Q         NOP                             ; project vert
+        MULq.xyz  VF11, VF11, Q         NOP                             ; project stq1
+        MULq.xyz  VF12, VF12, Q         NOP                             ; project stq2
+        MULq.xyz  VF09, VF09, Q         NOP                             ; project fog stq 
+
+        ; Convert screen coordinates to 12.4 fixed
+        FTOI4.xyz VF13, VF13            NOP                             ; convert XYZ to fixed
+
+        ; Store vert data
+        NOP                             SQ VF11, 0(VI12)                ; stq1
+        NOP                             SQ VF12, 1(VI12)                ; stq2
+        NOP                             SQ VF09, 2(VI12)                ; fog UV
+        NOP                             SQ VF13, 3(VI12)                ; screen xyz
+		
+		NOP								ISUBIU VI13, VI13, 1			; decrement vertex counter
+		NOP								IADDIU VI11, VI11, 3			; increment source pointer
+		NOP								IADDIU VI12, VI12, 4			; increment destination pointer
+
+		
+		NOP								IBGTZ VI13, SIMPLE_POINTS_LOOP3
+		NOP								NOP
+
+;----------------------------------------------------------------------------------------------------------------------------------------------------
+;		Skip Verts
+;----------------------------------------------------------------------------------------------------------------------------------------------------
+
+SKIP_VERTS3:															; jump to here when we have a backfacing ngon
+
+		NOP								IBNE VI08, VI00, PLANE_LP3		; process next batch of ngons
+		NOP								NOP
+
+		NOP								IBEQ VI10, VI00, DONE3			; check for any polys to render
+		NOP								NOP
+
+		NOP                             NOP
+		NOP                             BAL VI15, RENDER_PASSES			; render the passes
+		NOP                             NOP
+
+DONE3:	NOP                             NOP                             ; end of program
+		NOP[E]                          NOP
+		NOP                             NOP                             
+		NOP                             NOP                             
+		NOP[D]                          NOP                             
+		NOP                             NOP                             
+
+;==========================================================================
+;==========================================================================
+;==========================================================================
+;==========================================================================
+VUM_BUILDING_CODE_END:
+;==========================================================================
+
+

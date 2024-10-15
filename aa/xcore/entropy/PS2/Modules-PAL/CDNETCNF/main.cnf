@@ -1,0 +1,5 @@
+# <Sony Computer Entertainment Inc.>
+
+interface "HDD_IFC.CNF + HDD_DEV.CNF" "cdrom:\\MODULES\\CDNETCNF\\HDD_IFC.CNF;1" "cdrom:\\MODULES\\CDNETCNF\\HDD_DEV.CNF;1"
+interface "USB_IFC.CNF + USB_DEV.CNF" "cdrom:\\MODULES\\CDNETCNF\\USB_IFC.CNF;1" "cdrom:\\MODULES\\CDNETCNF\\USB_DEV.CNF;1"
+#interface "PPP_IFC.CNF + PPP_DEV.CNF" "cdrom:\\MODULES\\CDNETCNF\\PPP_IFC.CNF;1" "cdrom:\\MODULES\\CDNETCNF\\PPP_DEV.CNF;1"

@@ -1,0 +1,80 @@
+# Microsoft Developer Studio Generated Dependency File, included by NetLib.mak
+
+.\pc\NetLib.cpp : \
+	"..\..\..\..\Program Files\Microsoft Visual Studio\VC98\Include\BASETSD.H"\
+	"..\..\xCore\x_files\Implementation\x_array_private.hpp"\
+	"..\..\xCore\x_files\Implementation\x_bitmap_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_color_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_bb_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_m4_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_p_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_q_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_r3_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_rect_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_v2_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_v3_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_v4_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_memory_private.hpp"\
+	"..\..\xCore\x_files\Implementation\x_string_inline.hpp"\
+	"..\..\xCore\x_files\x_array.hpp"\
+	"..\..\xCore\x_files\x_bitmap.hpp"\
+	"..\..\xCore\x_files\x_color.hpp"\
+	"..\..\xCore\x_files\x_debug.hpp"\
+	"..\..\xCore\x_files\x_files.hpp"\
+	"..\..\xCore\x_files\x_math.hpp"\
+	"..\..\xCore\x_files\x_memory.hpp"\
+	"..\..\xCore\x_files\x_plus.hpp"\
+	"..\..\xCore\x_files\x_stdio.hpp"\
+	"..\..\xCore\x_files\x_string.hpp"\
+	"..\..\xCore\x_files\x_target.hpp"\
+	"..\..\xCore\x_files\x_time.hpp"\
+	"..\..\xCore\x_files\x_types.hpp"\
+	".\NetLib.hpp"\
+	
+
+.\bitstream.cpp : \
+	"..\..\xCore\Entropy\Common\e_View_inline.hpp"\
+	"..\..\xCore\Entropy\e_View.hpp"\
+	"..\..\xCore\x_files\Implementation\x_color_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_bb_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_m4_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_p_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_q_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_r3_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_rect_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_v2_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_v3_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_math_v4_inline.hpp"\
+	"..\..\xCore\x_files\Implementation\x_memory_private.hpp"\
+	"..\..\xCore\x_files\Implementation\x_string_inline.hpp"\
+	"..\..\xCore\x_files\x_color.hpp"\
+	"..\..\xCore\x_files\x_debug.hpp"\
+	"..\..\xCore\x_files\x_math.hpp"\
+	"..\..\xCore\x_files\x_memory.hpp"\
+	"..\..\xCore\x_files\x_plus.hpp"\
+	"..\..\xCore\x_files\x_stdio.hpp"\
+	"..\..\xCore\x_files\x_string.hpp"\
+	"..\..\xCore\x_files\x_target.hpp"\
+	"..\..\xCore\x_files\x_time.hpp"\
+	"..\..\xCore\x_files\x_types.hpp"\
+	"..\ObjectMgr\Collider.hpp"\
+	"..\ObjectMgr\Object.hpp"\
+	"..\ObjectMgr\ObjectMgr.hpp"\
+	"..\ObjectMgr\Pain.hpp"\
+	".\bitstream.hpp"\
+	".\NetLib.hpp"\
+	
+
+.\NetCommon.cpp : \
+	"..\..\..\..\Program Files\Microsoft Visual Studio\VC98\Include\BASETSD.H"\
+	"..\..\xCore\x_files\Implementation\x_memory_private.hpp"\
+	"..\..\xCore\x_files\x_debug.hpp"\
+	"..\..\xCore\x_files\x_memory.hpp"\
+	"..\..\xCore\x_files\x_plus.hpp"\
+	"..\..\xCore\x_files\x_target.hpp"\
+	"..\..\xCore\x_files\x_time.hpp"\
+	"..\..\xCore\x_files\x_types.hpp"\
+	".\NetLib.hpp"\
+	

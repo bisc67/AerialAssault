@@ -1,0 +1,115 @@
+;==========================================================================
+;
+; MEMLAYOUT.VSM
+;
+; Base memory and register layout
+;
+;==========================================================================
+;
+; VU1 GLOBAL REGISTER USAGE
+;
+;==========================================================================
+;   VI00    Const (0)
+;   VI01
+;   VI02
+;   VI03
+;   VI04
+;   VI05
+;   VI06
+;   VI07
+;   VI08
+;   VI09    Command param 1
+;   VI10    Command param 2
+;   VI11    Opcode from latest command
+;   VI12    GIF packet buffer base address (for double buffering)
+;   VI13    Next command address in input buffer for kernel
+;   VI14    Current address of input buffer for kernel
+;   VI15    Return address for function calls
+;==========================================================================
+;   VF00    Const x=0 y=0 z=0 w=1
+;   VF01
+;   VF02
+;   VF03
+;   VF04
+;   VF05
+;   VF06
+;   VF07
+;   VF08
+;   VF09
+;   VF10    
+;   VF11    
+;   VF12    
+;   VF13    
+;   VF14    
+;   VF15    
+;   VF16    
+;   VF17    
+;   VF18    
+;   VF19    
+;   VF20    Active local to screen matrix qword 0
+;   VF21    Active local to screen matrix qword 1
+;   VF22    Active local to screen matrix qword 2
+;   VF23    Active local to screen matrix qword 3
+;   VF24    Active local to clip matrix qword 0 
+;   VF25    Active local to clip matrix qword 1 
+;   VF26    Active local to clip matrix qword 2 
+;   VF27    Active local to clip matrix qword 3 
+;   VF28    Active clip to screen matrix qword 0
+;   VF29    Active clip to screen matrix qword 1
+;   VF30    Active clip to screen matrix qword 2
+;   VF31    Active clip to screen matrix qword 3
+;==========================================================================
+;
+; VU1 MEMORY LAYOUT
+;
+;==========================================================================
+; 0
+;       0 - INPUT_BUFFER_BASE - CMD
+;       1 - XYZ BASE
+;       2 - XYZ DELTA
+;       3 - UV  BASE
+;       4 - UV  DELTA
+;       5 - GIFTAG
+;       6 - DETAIL COLOR
+;       7 - 81 XYZ VECTORS
+;      88 - 81 UV  VECTORS
+;     169 - 81 FOG VECTORS  
+;     249 -
+;
+;==========================================================================
+;     374 - BLOCK DATA 496 vectors
+;           GifTag, ST, RGBAQ, XYZ, ST, RGBAQ, XYZ...
+;     870 - 
+;==========================================================================
+;
+;     872 - CLIPPER AND UVTABLE
+;           135 qwords
+;
+;    1007 - FOG
+;           3 qwords
+;
+;    1010 - Square cull masks
+;           8 qwords
+;
+;    1018 - FREE
+;           5 qwords
+;
+;    1023 - LAST ADDRESSABLE QWORD
+;
+;==========================================================================
+        
+.equ INPUT_BUFFER_BASE,         0
+.equ XYZ_BASE,                  1
+.equ XYZ_DELTA,                 2
+.equ UV_BASE,                   3
+.equ UV_DELTA,                  4
+.equ INPUT_GIFTAG,              5
+.equ TEMP_POS_VECTORS,          7
+.equ TEMP_UV_VECTORS,           88
+.equ TEMP_FOG_VECTORS,          169
+.equ SQUARE_CULL_MASKS,         1010
+.equ OUTPUT_BUFFER_BASE,        374
+
+        
+        
+

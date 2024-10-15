@@ -1,0 +1,21 @@
+# <NETCNF>
+#### jwang Feb14: modified magic header for tlib 2.1.2 compatiblity.
+
+# dialing_type_string "<tone>" "<pulse>" "<any>"
+dialing_type_string "ATDT" "ATDP" "ATD"
+
+# zero_prefix_string "<on>" "<off>"
+zero_prefix_string "0,,,," ""
+
+# chat_dial "<chat>"
+# Please set appropriate country code with "+GCI" command.
+#### jwang Feb14: USA country code = B5
+chat_dial "TIMEOUT 45\
+ ABORT NO\\sCARRIER\
+ ABORT ERROR\
+ ABORT BUSY\
+ ABORT DELAYED\
+ \"\" \\dA\\pT\\p+GCI=B5\
+ OK ATL2\
+ OK \\D\\Z\\T\
+ CONNECT \\d\\c"

@@ -1,0 +1,36 @@
+-output C:\projects\t2\demo1\data\shapes\PS2
+
+-convert P8_ABGR_8888
+-mips 3
+-ps2swizzle
+-overwrite
+-writexbmp
+
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0000.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0001.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0002.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0003.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0004.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0005.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0006.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0007.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0008.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0009.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0010.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0011.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0012.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0013.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0014.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0015.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0016.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0017.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0018.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0019.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0020.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0021.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0022.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0023.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0024.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0025.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0026.xbmp
+C:\projects\t2\demo1\data\shapes\PS2\Plasma_0027.xbmp

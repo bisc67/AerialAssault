@@ -1,0 +1,31 @@
+08-June-2001 v1.8 ADB
+Removed dependency on sce libs EIntr() and DIntr() so compatible with earlier kernels
+
+07-June-2001 v1.7 ADB
+Added code to preserve the rest of the context in interrupt around system calls.
+Now saves sa, fpregs, fcr31 also.
+
+06-June-2001 v1.6 ADB
+Added code to preserve lo, hi, lo1, hi1 registers in interrupt in case isceSifSetDma breaks them.
+
+04-June-2001 v1.5 ADB
+Samples written to uncached space to avoid cache inconsistencies in DMA'd sample data.
+This was causing spurious extra KERNEL samples in first profile set.
+
+01-Jun-2001 v1.4 ADB
+Found it necessary to wrap DI/EI around the functions below to stop mysterious TLB errors.
+
+
+31-May-2001 v1.3 ADB
+
+Now includes two new functions
+
+void snProfEnableInt(void);		// Enable the Profiler count/compare interrupt
+void snProfDisableInt(void);		// Disable the Profiler count/compare interrupt
+
+Note: snProfInit() will aitomatically enable the interrupt once everything is setup. These additional functions are only required if you wish to disable the and re-enable the interrupt around sections of your code.
+
+- Andy
+
+
+

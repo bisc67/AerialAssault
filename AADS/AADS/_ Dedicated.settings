@@ -1,0 +1,11 @@
+GAMETYPE      d= "CTF"
+STARTMAP      = "Paranoia"
+MAXPLAYERS    = 16
+MAXCLIENTS    = 16
+SERVERNAME    = " Dedicated"
+PASSWORD      = ""
+VOTEPASS      = 100
+TEAMDAMAGE    = 0
+TIMELIMIT     = 20
+ADMINNAME     = ""
+ADMINPASSWORD = ""

@@ -1,0 +1,11 @@
+@echo off
+dir /s /b mem*.txt cdfs*.txt *.scc lighting.tga >tmp.lst
+
+for %f in (@tmp.lst) do (
+
+        echo %f
+
+        del %f > NUL
+)
+
+del tmp.lst

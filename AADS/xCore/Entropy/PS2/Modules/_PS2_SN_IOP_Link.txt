@@ -1,0 +1,25 @@
+ -iop -fdevstudio 
+ -r C:\Projects\T2\xCore\Entropy\PS2\modules\ineviop.irx 
+ .\PS2-IOP-Release\iopmain.obj
+ .\PS2-IOP-Release\iopmqueue.obj
+ .\PS2-IOP-Release\iopaud_cfx.obj
+ .\PS2-IOP-Release\iopaud_container.obj
+ .\PS2-IOP-Release\iopaud_element.obj
+ .\PS2-IOP-Release\iopaud_hoststream.obj
+ .\PS2-IOP-Release\iopaud_spu.obj
+ .\PS2-IOP-Release\iopaud_stream.obj
+ .\PS2-IOP-Release\iopaud_voice.obj
+ .\PS2-IOP-Release\iopaudio.obj
+ .\PS2-IOP-Release\iopnet.obj
+ .\PS2-IOP-Release\iopnet_config.obj
+ .\PS2-IOP-Release\iopnet_modem.obj
+ .\PS2-IOP-Release\iopnet_port.obj
+ .\PS2-IOP-Release\iopnet_threads.obj
+ -ilb=inetctl.ilb
+ -ilb=inet.ilb
+ -ilb=usbd.ilb
+ -ilb=usbmload.ilb
+ -ilb=netcnf.ilb
+ -L C:\Projects\T2\xCore/3rdParty/PS2/Sony/iop/lib 
+ -L C:\Projects\T2\xCore/3rdParty/PS2/Sony/iop/bin 
+ -L C:\Projects\T2\xCore/3rdParty/PS2/SN/iop/lib   

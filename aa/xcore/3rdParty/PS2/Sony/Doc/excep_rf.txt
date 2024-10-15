@@ -1,0 +1,199 @@
+[SCEI CONFIDENTIAL DOCUMENT]
+"PlayStation 2" Programmer Tool Runtime Library libexcep version 1.0
+                  Copyright (C)  2000 by Sony Computer Entertainment Inc.
+                                                     All Rights Reserved
+
+                             例外ライブラリ
+                            ===============
+
+
+ 1 構造体
+==========
+
+=========================================================================
+sceExcepIOPExceptionData                                         [構造体]
+=========================================================================
+                                                      IOP例外データ構造体
+[構造]
+        typedef struct {
+        	int reg[45];
+        	int version;
+        	int offset;
+        	char module[32];
+        } sceExcepIOPExceptionData  __attribute__((aligned(16)));
+        
+[メンバ]
+        reg		例外が発生したときのIOPのレジスタ
+        version		例外が発生したモジュールのバージョン
+        offset		例外が発生したモジュールのアドレスのオフセット
+        module		例外が発生したモジュール名[31文字+NULL文字]
+        
+[解説]
+        IOPで例外が発生したときに、それに関する情報をEE側で受け取るための
+        構造体です。
+[関連項目]
+        sceExcepSetDebugIOPHandler()
+
+ 2 関数
+========
+
+=========================================================================
+sceExcepConsOpen                                                   [関数]
+=========================================================================
+                                                     コンソールのオープン
+[形式]
+        void sceExcepConsOpen(
+        	u_int gs_x,
+        	u_int gs_y,
+        	u_int ch_w,
+        	u_int ch_h
+        )
+        
+[引数]
+        gs_x	コンソールの描画X座標（GSのプリミティブ座標）
+        gs_y	コンソールの描画Y座標（GSのプリミティブ座標）
+        ch_w	コンソールの幅
+        ch_h	コンソールの高さ
+        
+[返り値]
+        なし
+        
+[解説]
+        コンソールをオープンします。同時にオープンできるコンソールは１つ
+        だけで、メモリ確保などは行われません。
+        ch_w, ch_hで指定できる最大サイズは80×40キャラクタです。
+        
+=========================================================================
+sceExcepConsClose                                                  [関数]
+=========================================================================
+                                                     コンソールのクローズ
+[形式]
+        void sceExcepConsClose(void)
+        
+[引数]
+        なし
+        
+[返り値]
+        なし
+        
+[解説]
+        sceExcepConsOpen()で開いたコンソールをクローズします。
+        
+=========================================================================
+sceExcepConsPrintf                                                 [関数]
+=========================================================================
+                                                   コンソールへの文字出力
+[形式]
+        void sceExcepConsPrintf(
+        	const char * str,
+        	...
+        )
+        
+[引数]
+        str		フォーマット指定文字列
+        ...		出力パラメータ
+        
+[返り値]
+        なし
+        
+[解説]
+        コンソールへ文字列を出力します。フォーマット指定と出力パラメータ
+        の記述方法は標準ライブラリのprintfと同様です。表示できるASCIIコー
+        ドは、0x20（スペース）から0x7e'~'です。'\n'は改行し、その他の文字
+        コードはスペースに置き換えて表示されます。
+        この関数を実行すると、PATH3経由でGIFへ描画パケットを出力します。
+        
+=========================================================================
+sceExcepConsLocate                                                 [関数]
+=========================================================================
+                                                       カーソル位置の変更
+[形式]
+        void sceExcepConsLocate(
+        	u_int x,
+        	u_int y
+        )
+        
+[引数]
+        x		カーソルX座標 (0 <= x <= ch_w-1)
+        y		カーソルY座標 (0 <= y <= ch_h-1)
+        
+[返り値]
+        なし
+        
+[解説]
+        コンソール上のカーソル位置を変更します。
+        引数xがコンソールの右端の座標（オープン時に指定したch_w-1）より大
+        きいときはch_w-1に設定されます。
+        同様に、引数yがコンソールの下端の座標（オープン時に指定したch_h-1）
+        より大きいときはch_h-1に設定されます。
+        
+=========================================================================
+sceExcepSetDebugEEHandler                                          [関数]
+=========================================================================
+                                                   EE側例外ハンドラの登録
+[形式]
+        void sceExcepSetDebugEEHandler(
+        	void (*handler)(u_int stat,
+        	u_int cause,
+        	u_int epc,
+        	u_int bva,
+        	u_int bpa,
+        	u_long128 *gpr)
+        )
+        
+[引数]
+        handler		例外ハンドラ関数のポインタ
+        
+[解説]
+        "PlayStation 2" debugging stationおよび
+        "PlayStation 2" Development Tool DTL-T10000でのみ、handler
+        で指定された関数を例外ハンドラとして登録します。"PlayStation 2"
+        では何も行わずにリターンします。
+        "PlayStation 2" debugging stationおよび
+        "PlayStation 2" Development Tool DTL-T10000での動作は、EEカ
+        ーネルライブラリのSetDebugHandlerと同じです。例外ハンドラの詳細に
+        ついてはSetDebugHandlerの解説を参照してください。
+        handlerの引数は、例外発生時の状態を表しています。
+        引数statはCOP0のstatusレジスタ
+        引数causeはCOP0のcauseレジスタ
+        引数epcは例外が発生したプログラムカウンタ値
+        引数bvaはメモリアクセスや分岐アドレス不正時の論理アドレス値
+        引数bpaはバスエラー終了の物理アドレス値
+        引数gprはサイズが32個の配列でGPRの値です。
+
+        
+=========================================================================
+sceExcepSetDebugIOPHandler                                         [関数]
+=========================================================================
+                                                  IOP側例外ハンドラの登録
+[形式]
+        void sceExcepSetDebugIOPHandler(
+        	char *module,
+        	sceSifCmdHandler IOPExceptionHandler,
+        	sceExcepIOPExceptionData *pIOPExceptionData
+        )
+        
+[引数]
+        module	panicsys.irxへのフルパス
+        IOPExceptionHandler	IOP例外発生時に呼ばれるEEのハンドラ関数へのポ
+        インタ
+        pIOPExceptionData	IOP例外データ構造体へのポインタ
+        
+[返り値]
+        なし
+        
+[解説]
+        "PlayStation 2" debugging stationおよび
+        "PlayStation 2"Development Tool DTL-T10000でのみ、moduleで
+         指定されたIOPモジュールをロードし、IOPExceptionHandlerで指定され
+        た関数をIOP例外のハンドラとして登録します。"PlayStation 2"で
+        は何も行わずにリターンします。
+        moduleには"host0:" / "cdrom0:"などを適切に補ったpanicsys.irxのフ
+        ルパスを指定してください。panicsys.irxはIOPで発生した例外をトラッ
+        プするIOP側のモジュールで、このモジュールからの通知を受けて、EEカ
+        ーネルは登録されているIOP例外ハンドラを呼び出します。その際にpani
+        csys.irxから通知される例外情報がpIOPExceptionDataで示されるアドレ
+        スに格納されます。
+[備考]
+        panicsys.irxのロードに失敗した場合、その旨のメッセージを繰り返し
+        表示します。

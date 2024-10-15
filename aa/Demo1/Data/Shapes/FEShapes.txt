@@ -1,0 +1,28 @@
+//==============================================================================
+// Paths for .shp and .xbmp files
+//==============================================================================
+PC_SHP_PATH     "C:/Projects/T2/Demo1/Data/Shapes/PC"        
+PC_XBMP_PATH    "C:/Projects/T2/Demo1/Data/Shapes/PC"        
+
+PS2_SHP_PATH    "C:/Projects/T2/Demo1/Data/Shapes/PS2"        
+PS2_XBMP_PATH   "C:/Projects/T2/Demo1/Data/Shapes/PS2"        
+
+//==============================================================================
+// Label sets that are present in .skel files
+//==============================================================================
+LoadLabelSet	"P:/Art/Tools/SceneExport/ShapeTypes.hpp"
+LoadLabelSet	"P:/Art/Tools/SceneExport/ModelTypes.hpp"
+LoadLabelSet	"P:/Art/Tools/SceneExport/NodeTypes.hpp"
+LoadLabelSet	"P:/Art/Tools/SceneExport/AnimTypes.hpp"
+LoadLabelSet	"P:/Art/Tools/SceneExport/HotPointTypes.hpp"
+LoadLabelSet	"P:/Art/Tools/SceneExport/ParticleTypes.hpp"
+LoadLabelSet	"P:/Art/Tools/SceneExport/SoundTypes.hpp"
+LoadLabelSet	"P:/Art/Tools/SceneExport/GUITypes.hpp"
+
+//==============================================================================
+// Front end main screen shape
+//==============================================================================
+LoadShapeFile	"fe_main.shp"
+ModelFile	"P:/Art/Delivery/Front End/FrontEnd_Main.skel"
+AnimFile	"P:/Art/Delivery/Front End/FrontEnd_Main.skel"
+

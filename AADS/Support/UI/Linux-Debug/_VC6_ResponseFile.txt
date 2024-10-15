@@ -1,0 +1,15 @@
+ /c /nologo /W3 /FD
+ /P 
+ /Fd"Linux-Debug/"
+ /FI "Linux-Debug/_SN_in_VC.h"
+ /I "C:/Projects/AADS/xCore" 
+ /I "C:/Projects/AADS/xCore/x_files" 
+ /I "C:/Projects/AADS/xCore/entropy" 
+ /I "C:/Projects/AADS/xCore/Auxiliary/bitmap" 
+ -I"C:/Projects/AADS/xCore/3rdParty/Linux/include" 
+ /I . 
+ /D TARGET_LINUX 
+ /D X_DEBUG 
+ /D X_ASSERT 
+ /D biscuit 
+ /D XCORE_PATH=\"C:/Projects/AADS/xCore\"

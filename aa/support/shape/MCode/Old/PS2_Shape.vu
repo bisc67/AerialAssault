@@ -1,0 +1,349 @@
+;==========================================================================
+;
+; SHAPE vertex transform/clipping/render code
+;
+;==========================================================================
+
+#include "PS2_Shape.hpp"
+
+
+
+;==========================================================================
+; Functions accessable from c++
+;==========================================================================
+.global SHAPE_MICRO_CODE_START
+.global SHAPE_MICRO_CODE_END
+
+
+;==========================================================================
+; Defines
+;==========================================================================
+
+; Clips flags
+#define CLIP_POS_X_FLAG       (1<<0)
+#define CLIP_NEG_X_FLAG       (1<<1)
+#define CLIP_POS_Y_FLAG       (1<<2)
+#define CLIP_NEG_Y_FLAG       (1<<3)
+#define CLIP_POS_Z_FLAG       (1<<4)
+#define CLIP_NEG_Z_FLAG       (1<<5)
+                              
+#define CLIP_VERT_FLAGS       (CLIP_POS_X_FLAG | CLIP_NEG_X_FLAG | CLIP_POS_Y_FLAG | CLIP_NEG_Y_FLAG | CLIP_NEG_Z_FLAG)
+#define CLIP_TRI_FLAGS        (CLIP_VERT_FLAGS | (CLIP_VERT_FLAGS<<6) | (CLIP_VERT_FLAGS<<12))
+
+
+
+;==========================================================================
+; Start of tsshape micro code functions
+;==========================================================================
+.vu
+SHAPE_MICRO_CODE_START:
+
+    ;***============================================================***
+    ;*** Jump table (MUST BE IN SYNC WITH DEFINES IN PS2_Shape.hpp) ***
+    ;***============================================================***
+
+    ;*** SHAPE_MICRO_CODE_INIT ***
+    NOP     B SHAPE_MICRO_CODE_INIT_CMD
+    NOP     NOP
+
+    ;*** SHAPE_MICRO_CODE_LOAD_MATERIAL ***
+    NOP     B SHAPE_MICRO_CODE_LOAD_MATERIAL_CMD
+    NOP     NOP
+
+    ;*** SHAPE_MICRO_CODE_DIF_LOAD_NODE ***
+    NOP     B SHAPE_MICRO_CODE_DIF_LOAD_NODE_CMD
+    NOP     NOP
+
+    ;*** SHAPE_MICRO_CODE_DIF_REF_LOAD_NODE ***
+    NOP     B SHAPE_MICRO_CODE_DIF_REF_LOAD_NODE_CMD
+    NOP     NOP
+
+    ;*** SHAPE_MICRO_CODE_TEX_DIF_DRAW ***
+    NOP     B SHAPE_MICRO_CODE_TEX_DIF_DRAW_CMD
+    NOP     NOP
+
+    ;*** SHAPE_MICRO_CODE_TEX_DIF_REF_DRAW ***
+    NOP     B SHAPE_MICRO_CODE_TEX_DIF_REF_DRAW_CMD
+    NOP     NOP
+
+    ;*** SHAPE_MICRO_CODE_DIF_DRAW ***
+    NOP     B SHAPE_MICRO_CODE_DIF_DRAW_CMD
+    NOP     NOP
+
+    ;*** SHAPE_MICRO_CODE_DIF_REF_DRAW ***
+    NOP     B SHAPE_MICRO_CODE_DIF_REF_DRAW_CMD
+    NOP     NOP
+
+
+;==========================================================================
+; Integer register usage
+;==========================================================================
+#define ClipResults           VI01
+#define DoClipping            VI02
+#define MaterialFlags         VI03
+#define NoKick0               VI04
+#define NoKick1               VI05
+#define NoKick2               VI06
+#define NoKick3               VI07
+#define GifTag                VI08
+#define VertAddr              VI09
+#define VertAddr0             VI11
+#define VertAddr1             VI12
+#define VertAddr2             VI13
+#define VertAddr3             VI14
+#define VertCount             VI15
+
+; Temp registers
+#define NodeAddr              VI10
+#define SingleCountMask       VI10
+#define MultiCountMask        VI10
+#define FlagMask              VI10
+
+
+
+;==========================================================================
+; Floating point register usage
+;==========================================================================
+
+; Node registers
+#define MProj0(__x__)         VF01 ## __x__
+#define MProj1(__x__)         VF02 ## __x__
+#define MProj2(__x__)         VF03 ## __x__
+#define MProj3(__x__)         VF04 ## __x__
+                              
+#define LightDir(__x__)       VF05 ## __x__
+#define LightCol(__x__)       VF06 ## __x__
+#define LightAmb(__x__)       VF07 ## __x__
+                              
+#define MRefUV0(__x__)        VF08 ## __x__
+#define MRefUV1(__x__)        VF09 ## __x__
+#define MRefUV2(__x__)        VF10 ## __x__
+                              
+; Material registers          
+#define MatCol(__x__)         VF11 ## __x__
+                              
+; Vert registers              
+#define UV0(__x__)            VF12 ## __x__
+#define RefUV0(__x__)         VF13 ## __x__
+#define Pos0(__x__)           VF14 ## __x__
+#define Norm0(__x__)          VF15 ## __x__
+#define TempNorm0(__x__)      VF16 ## __x__
+                              
+#define UV1(__x__)            VF17 ## __x__
+#define RefUV1(__x__)         VF18 ## __x__
+#define Pos1(__x__)           VF19 ## __x__
+#define Norm1(__x__)          VF20 ## __x__
+                              
+#define UV2(__x__)            VF21 ## __x__
+#define RefUV2(__x__)         VF22 ## __x__
+#define Pos2(__x__)           VF23 ## __x__
+#define Norm2(__x__)          VF24 ## __x__
+                              
+#define UV3(__x__)            VF25 ## __x__
+#define RefUV3(__x__)         VF26 ## __x__
+#define Pos3(__x__)           VF27 ## __x__
+#define Norm3(__x__)          VF28 ## __x__
+                              
+#define COP(__x__)            VF29 ## __x__
+
+#define MatGifTag(__x__)      VF30 ## __x__
+
+
+
+;==========================================================================
+; Initializes constant registers
+;==========================================================================
+SHAPE_MICRO_CODE_INIT_CMD:
+
+      ; Load clipping center of projection
+      NOP                                    MOVE.xyzw COP(xyzw), VF00
+
+      ; Full screen clipping
+      NOP                                    LOI 2048
+      ADDi.xyz COP(xyz), VF00xyz, I          LOI 2047
+      ADDi.w COP(w), VF00w, I                NOP
+
+      ; temp for 150 clipping
+      ;NOP                                    LOI 2048
+      ;ADDi.xy COP(xy), VF00xy, I             NOP
+      ;NOP                                    LOI 150
+      ;ADDi.z COP(z), VF00z, I                NOP
+      ;NOP                                    LOI 149
+      ;ADDi.w COP(w), VF00w, I                NOP
+     
+      NOP[E]                                 NOP
+      NOP                                    NOP
+
+
+
+;==========================================================================
+; Initializes constant registers
+;==========================================================================
+SHAPE_MICRO_CODE_LOAD_MATERIAL_CMD:
+
+      ; Load material registers
+      NOP                                    IADDIU DoClipping, VI00, MATERIAL_FLAG_CLIP
+      NOP                                    ILW.x MaterialFlags,         (SHAPE_MATERIAL_ADDR + MATERIAL_FLAGS)(VI00)      
+      NOP                                    LQ.xyzw MatCol(xyzw),        (SHAPE_MATERIAL_ADDR + MATERIAL_COL)(VI00)
+      NOP                                    IAND   DoClipping, DoClipping, MaterialFlags
+      NOP[E]                                 NOP      
+      NOP                                    NOP
+
+
+
+;==========================================================================
+; Loads new node matrix and light direction
+;==========================================================================
+SHAPE_MICRO_CODE_DIF_LOAD_NODE_CMD:
+
+      NOP                                                      IADDIU ClipResults, VI00, MATERIAL_FLAG_SELF_ILLUM
+      NOP                                                      IAND   ClipResults, ClipResults, MaterialFlags
+      NOP                                                      ILW.y  NodeAddr, SHAPE_PARAMS_ADDR(VI00)   ; Get node addr
+      NOP                                                      IBEQ   ClipResults, VI00, LoadLitNode
+      NOP                                                      NOP
+      NOP                                                      B      LoadNonLitNode
+      NOP                                                      NOP
+
+;==========================================================================
+; Loads new node matrix, light direction, and relfection map matrix
+;==========================================================================
+SHAPE_MICRO_CODE_DIF_REF_LOAD_NODE_CMD:
+
+      NOP                                                      ILW.y  NodeAddr, SHAPE_PARAMS_ADDR(VI00)   ; Get node addr
+      NOP                                                      LQ.xyzw MRefUV0(xyzw), (NODE_ENV_MATRIX + MATRIX3_ROW0)(NodeAddr)
+      NOP                                                      IADDIU ClipResults, VI00, MATERIAL_FLAG_SELF_ILLUM
+      NOP                                                      IAND   ClipResults, ClipResults, MaterialFlags
+      NOP                                                      LQ.xyzw MRefUV1(xyzw), (NODE_ENV_MATRIX + MATRIX3_ROW1)(NodeAddr)
+      NOP                                                      IBEQ   ClipResults, VI00, LoadLitNode
+      NOP                                                      LQ.xyzw MRefUV2(xyzw), (NODE_ENV_MATRIX + MATRIX3_ROW2)(NodeAddr)
+      NOP                                                      B      LoadNonLitNode
+      NOP                                                      NOP
+
+
+;==========================================================================
+; Loads node matrix and light
+;==========================================================================
+
+; Use light, but back in the material color too - saves doing it during the vertex loop
+LoadLitNode:
+      NOP                                                      LQ.xyzw LightCol(xyzw), (NODE_LIGHT + LIGHT_COL)(NodeAddr)
+      NOP                                                      LQ.xyzw LightAmb(xyzw), (NODE_LIGHT + LIGHT_AMB)(NodeAddr)
+      NOP                                                      LQ.xyzw LightDir(xyzw), (NODE_LIGHT + LIGHT_DIR)(NodeAddr)
+      NOP                                                      LQ.xyzw MProj0(xyzw), (NODE_PROJ_MATRIX + MATRIX4_ROW0)(NodeAddr)
+      MUL.xyzw LightCol(xyzw), LightCol(xyzw), MatCol(xyzw)    LQ.xyzw MProj1(xyzw), (NODE_PROJ_MATRIX + MATRIX4_ROW1)(NodeAddr)
+      MUL.xyzw LightAmb(xyzw), LightAmb(xyzw), MatCol(xyzw)    LQ.xyzw MProj2(xyzw), (NODE_PROJ_MATRIX + MATRIX4_ROW2)(NodeAddr)
+      NOP[E]                                                   LQ.xyzw MProj3(xyzw), (NODE_PROJ_MATRIX + MATRIX4_ROW3)(NodeAddr)
+      NOP                                                      NOP
+
+; Just use material color as light ambient, disregard directional
+LoadNonLitNode:
+      NOP                                                      LQ.xyzw MProj0(xyzw), (NODE_PROJ_MATRIX + MATRIX4_ROW0)(NodeAddr)
+      NOP                                                      LQ.xyzw MProj1(xyzw), (NODE_PROJ_MATRIX + MATRIX4_ROW1)(NodeAddr)
+      NOP                                                      LQ.xyzw MProj2(xyzw), (NODE_PROJ_MATRIX + MATRIX4_ROW2)(NodeAddr)
+      NOP                                                      LQ.xyzw MProj3(xyzw), (NODE_PROJ_MATRIX + MATRIX4_ROW3)(NodeAddr)
+      NOP                                                      MOVE.xyzw LightDir(xyzw), VF00xyzw
+      NOP                                                      MOVE.xyzw LightCol(xyzw), VF00xyzw
+      NOP[E]                                                   MOVE.xyzw LightAmb(xyzw), MatCol(xyzw)
+      NOP                                                      NOP
+
+
+;==========================================================================
+; Draws transformed verts!
+;==========================================================================
+SHAPE_MICRO_CODE_DRAW_CMD:
+
+      NOP                                    LQ.x MatGifTag(x), SHAPE_PARAMS_ADDR(VI00) ; Get # verts + EOP
+
+;==========================================================================
+; Setup alpha texture
+;==========================================================================
+AlphaTexSetup:
+      NOP                                    IADDIU FlagMask, VI00, MATERIAL_FLAG_ALPHA_TEX_SETUP
+      NOP                                    IAND   FlagMask, FlagMask, MaterialFlags
+      NOP                                    IADDIU GifTag, VI00, (SHAPE_MATERIAL_ADDR + MATERIAL_GIF_TAG_ALPHA_PASS)
+      NOP                                    IBEQ   FlagMask, VI00, DiffuseTexSetup
+      NOP                                    NOP
+      NOP                                    XGKICK GifTag     ; Setup GS ready for alpha texture
+
+;==========================================================================
+; Draw alpha pass
+;==========================================================================
+DrawAlpha:
+      NOP                                    LQ.yzw MatGifTag(yzw), (SHAPE_MATERIAL_ADDR + MATERIAL_GIF_TAG_ALPHA_PRIM)(VI00)
+      NOP                                    XTOP GifTag
+      NOP                                    SQ.xyzw MatGifTag(xyzw), 0(GifTag)
+      NOP			                         XGKICK GifTag ; Draw alpha
+       
+;==========================================================================
+; Setup diffuse texture
+;==========================================================================
+DiffuseTexSetup:
+      NOP                                    IADDIU FlagMask, VI00, MATERIAL_FLAG_DIFFUSE_TEX_SETUP
+      NOP                                    IAND   FlagMask, FlagMask, MaterialFlags
+      NOP                                    IADDIU GifTag, VI00, (SHAPE_MATERIAL_ADDR + MATERIAL_GIF_TAG_DIFFUSE_PASS)
+      NOP                                    IBEQ   FlagMask, VI00, DrawDiffuse
+      NOP                                    NOP
+      NOP                                    XGKICK GifTag     ; Setup GS ready for diffuse texture
+
+;==========================================================================
+; Draw diffuse pass
+;==========================================================================
+DrawDiffuse:
+      NOP                                    LQ.yzw MatGifTag(yzw), (SHAPE_MATERIAL_ADDR + MATERIAL_GIF_TAG_DIFFUSE_PRIM)(VI00)
+      NOP                                    XTOP GifTag
+      NOP                                    XGKICK VI00
+      NOP                                    SQ.xyzw MatGifTag(xyzw), 0(GifTag)
+      NOP   		                         XGKICK GifTag ; Draw diffuse
+
+;==========================================================================
+; Draw reflect pass
+;==========================================================================
+DrawReflect:
+      NOP                                    IADDIU FlagMask, VI00, MATERIAL_FLAG_REFLECT_DRAW
+      NOP                                    IAND   FlagMask, FlagMask, MaterialFlags
+      NOP                                    LQ.yzw MatGifTag(yzw), (SHAPE_MATERIAL_ADDR + MATERIAL_GIF_TAG_REFLECT_PRIM)(VI00)
+      NOP                                    IBEQ   FlagMask, VI00, DetailTexSetup
+      NOP                                    XTOP GifTag
+      NOP                                    XGKICK VI00    ; Wait for diffuse to finish...
+      NOP                                    SQ.xyzw MatGifTag(xyzw), 0(GifTag)
+      NOP   		                         XGKICK GifTag ; Draw reflect
+
+;==========================================================================
+; Setup detail texture
+;==========================================================================
+DetailTexSetup:
+      NOP                                    IADDIU FlagMask, VI00, MATERIAL_FLAG_DETAIL_DRAW
+      NOP                                    IAND   FlagMask, FlagMask, MaterialFlags
+      NOP                                    IADDIU GifTag, VI00, (SHAPE_MATERIAL_ADDR + MATERIAL_GIF_TAG_DETAIL_PASS)
+      NOP                                    IBEQ   FlagMask, VI00, Exit
+      NOP                                    NOP
+      NOP                                    XGKICK GifTag     ; Setup GS ready for diffuse texture
+
+      NOP                                    LQ.yzw MatGifTag(yzw), (SHAPE_MATERIAL_ADDR + MATERIAL_GIF_TAG_DETAIL_PRIM)(VI00)
+      NOP                                    XTOP GifTag
+      NOP                                    XGKICK VI00
+      NOP                                    SQ.xyzw MatGifTag(xyzw), 0(GifTag)
+      NOP   		                         XGKICK GifTag ; Draw detail
+
+
+Exit:
+      NOP[E]                                 NOP
+      NOP                                    NOP
+
+
+
+;==========================================================================
+; Transform/screen-clip/render code
+;==========================================================================
+
+#include "Dif.vu"
+#include "DifRef.vu"
+#include "TexDif.vu"
+#include "TexDifRef.vu"
+
+
+
+;==========================================================================
+; End of tsshape micro code functions
+;==========================================================================
+SHAPE_MICRO_CODE_END:

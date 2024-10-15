@@ -1,0 +1,1050 @@
+;==========================================================================
+;
+; BLOCK0_NOCLIP.VSM
+;
+;==========================================================================
+;==========================================================================
+; VF01 - 
+; VF02 - 
+; VF03 - 
+; VF04 - 
+;
+; VF05 - Vert UVs
+; VF06 - Vert position
+; VF07 - Transformed / projected vert
+; VF08 - Projected stq
+;
+; VF09 - Vert UVs
+; VF10 - Vert position
+; VF11 - Transformed / projected vert
+; VF12 - Projected stq
+;
+; VF13 - Vert UVs
+; VF14 - Vert position
+; VF15 - Transformed / projected vert
+; VF16 - Projected stq
+;
+; VF17 - XYZBase
+; VF18 - XYZScale
+;
+; VI02 - Src
+; VI03 - Dest
+; VI04 - UV table ptr
+; VI05 - Loop counter
+;==========================================================================
+
+B0NC_FAST_VERT2:
+
+        ; Get address to source and dest verts
+        NOP                             IADDIU  VI02, VI00, TEMP_POS_VECTORS
+        NOP                             IADDIU  VI03, VI00, TEMP_POS_VECTORS
+        NOP                             IADDIU  VI04, VI00, 872 
+
+        ; Init counter
+        NOP                             IADDIU VI05, VI00, 81
+
+        ; Read XYZ Base ans scale
+        NOP                             LQ VF17, 1(VI00)
+        NOP                             LQ VF18, 2(VI00)
+
+B0NC_FAST_VERT2_LOOP:
+
+        NOP                             IADDI VI05, VI05, -3
+        
+        NOP                             LQ VF05, 0(VI04)        ; Read UVs
+        NOP                             LQ VF09, 1(VI04)        ; Read UVs
+        NOP                             LQ VF13, 2(VI04)        ; Read UVs
+        MULx.z VF01z, VF18z, VF05x      NOP                     ; Scale UVs for position
+        MULx.z VF02z, VF18z, VF09x      NOP                     ; Scale UVs for position
+        MULx.z VF03z, VF18z, VF13x      NOP                     ; Scale UVs for position
+        MULy.x VF01x, VF18x, VF05y      NOP                     ; Scale UVs for position
+        MULy.x VF02x, VF18x, VF09y      NOP                     ; Scale UVs for position
+        MULy.x VF03x, VF18x, VF13y      NOP                     ; Scale UVs for position
+        ADD VF01, VF01, VF17            NOP                     ; Add base translation
+        ADD VF02, VF02, VF17            NOP                     ; Add base translation
+        ADD VF03, VF03, VF17            NOP                     ; Add base translation
+        NOP                             LQ VF06, 0(VI02)        ; Read Height value from input
+        NOP                             LQ VF10, 1(VI02)        ; Read Height value from input
+        NOP                             LQ VF14, 2(VI02)        ; Read Height value from input
+        ITOF4.xyzw VF06, VF06           NOP                     ; Convert height value to float
+        ITOF4.xyzw VF10, VF10           NOP                     ; Convert height value to float
+        ITOF4.xyzw VF14, VF14           NOP                     ; Convert height value to float
+        NOP                             MOVE.xz VF06, VF01      ; Move translation info VF06
+        NOP                             MOVE.xz VF10, VF02      ; Move translation info VF06
+        NOP                             MOVE.xz VF14, VF03      ; Move translation info VF06
+
+        MULAx.xyzw  ACC, VF24, VF06x    NOP                             ; transform vert
+        MADDAy.xyzw ACC, VF25, VF06y    NOP                             ; transform vert
+        MADDAz.xyzw ACC, VF26, VF06z    NOP                             ; transform vert
+        MADDw.xyzw VF07, VF27, VF00w    NOP                             ; transform vert
+        
+        MULAx.xyzw  ACC, VF28, VF07x    NOP                             ; transform vert
+        MADDAy.xyzw ACC, VF29, VF07y    NOP                             ; transform vert
+        MADDAz.xyzw ACC, VF30, VF07z    NOP                             ; transform vert
+        MADDw.xyzw VF07, VF31, VF07w    NOP                             ; transform vert
+        NOP                             DIV Q, VF00w, VF07w             ; Start divide
+
+            MULAx.xyzw  ACC, VF24, VF10x    NOP                             ; transform vert
+            MADDAy.xyzw ACC, VF25, VF10y    NOP                             ; transform vert
+            MADDAz.xyzw ACC, VF26, VF10z    NOP                             ; transform vert
+            MADDw.xyzw VF11, VF27, VF00w    NOP                             ; transform vert
+
+            MULAx.xyzw  ACC, VF28, VF11x    NOP                             ; transform vert
+            MADDAy.xyzw ACC, VF29, VF11y    NOP                             ; transform vert
+            MADDAz.xyzw ACC, VF30, VF11z    NOP                             ; transform vert
+            MADDw.xyzw VF11, VF31, VF11w    NOP                             ; transform vert
+
+                MULAx.xyzw  ACC, VF24, VF14x    NOP                             ; transform vert
+                MADDAy.xyzw ACC, VF25, VF14y    NOP                             ; transform vert
+                MADDAz.xyzw ACC, VF26, VF14z    NOP                             ; transform vert
+                MADDw.xyzw VF15, VF27, VF00w    NOP                             ; transform vert
+
+                MULAx.xyzw  ACC, VF28, VF15x    NOP                             ; transform vert
+                MADDAy.xyzw ACC, VF29, VF15y    NOP                             ; transform vert
+                MADDAz.xyzw ACC, VF30, VF15z    NOP                             ; transform vert
+                MADDw.xyzw VF15, VF31, VF15w    NOP                             ; transform vert
+
+        NOP                             DIV Q, VF00w, VF11w             ; Start divide
+        MULq.xyzw  VF07, VF07, Q        NOP                             ; project vert
+        MULq.w     VF06w, VF00w, Q      NOP                             ; get backup of Q for fogging
+        MULq.xyzw  VF08, VF05, Q        NOP                             ; project stq
+        FTOI4.xyzw VF07, VF07           NOP                             ; convert XYZ to fixed
+
+            NOP                             WAITQ
+            NOP                             DIV Q, VF00w, VF15w             ; Start divide
+            MULq.xyzw  VF11, VF11, Q        NOP                             ; project vert
+            MULq.w     VF10w, VF00w, Q      NOP                             ; get backup of Q for fogging
+            MULq.xyzw  VF12, VF09, Q        NOP                             ; project stq
+            FTOI4.xyzw VF11, VF11           NOP                             ; convert XYZ to fixed
+
+                NOP                             WAITQ
+                MULq.xyzw  VF15, VF15, Q        NOP                             ; project vert
+                MULq.w     VF14w, VF00w, Q      NOP                             ; get backup of Q for fogging
+                MULq.xyzw  VF16, VF13, Q        NOP                             ; project stq
+                FTOI4.xyzw VF15, VF15           NOP                             ; convert XYZ to fixed
+
+        NOP                             SQ VF06, 162(VI03)
+        NOP                             SQ VF08, 81(VI03)
+        NOP                             SQ VF07, 0(VI03)
+        NOP                             SQ VF10, 163(VI03)
+        NOP                             SQ VF12, 82(VI03)
+        NOP                             SQ VF11, 1(VI03)
+        NOP                             SQ VF14, 164(VI03)
+        NOP                             SQ VF16, 83(VI03)
+        NOP                             SQ VF15, 2(VI03)
+
+        NOP                             IADDIU VI02, VI02, 3
+        NOP                             IADDIU VI03, VI03, 3
+        NOP                             IADDIU VI04, VI04, 3
+
+        NOP                             IBNE VI05, VI00, B0NC_FAST_VERT2_LOOP
+        NOP                             NOP
+
+        NOP                             JR VI15
+        NOP                             NOP
+
+;==========================================================================
+; VF03 - XYZ Base
+; VF04 - XYZ Scale
+; VF05 - Vert UVs
+; VF06 - Vert position
+; VF07 - Transformed / projected vert
+; VF08 - Projected stq
+;
+; VF09 - Eye position
+; VF10 - Dist constants
+; VF11 - DeltaY Constants
+; VF12 - Delta
+; VF13 - Resulting FOG ST
+;
+; VI02 - Src
+; VI03 - Dest
+; VI04 - UV table ptr
+; VI05 - Loop counter
+;==========================================================================
+
+B0NC_SLOW_VERT2:
+
+        ; Get address to source and dest verts
+        NOP                             IADDIU  VI02, VI00, TEMP_POS_VECTORS
+        NOP                             IADDIU  VI03, VI00, TEMP_POS_VECTORS
+        NOP                             IADDIU  VI04, VI00, 872 
+
+        ; Read fog info into registers   
+        NOP                             LQ VF09, (FOG_MEM_BASE+0)(VI00)
+        NOP                             LQ VF10, (FOG_MEM_BASE+1)(VI00)
+        NOP                             LQ VF11, (FOG_MEM_BASE+2)(VI00)
+
+        ; Init counter
+        NOP                             IADDIU VI05, VI00, 81
+
+        ; Read XYZ Base
+        NOP                             LQ VF03, 1(VI00)
+        NOP                             LQ VF04, 2(VI00)
+
+B0NC_SLOW_VERT2_LOOP:
+
+        NOP                             IADDI VI05, VI05, -1
+        
+        NOP                             LQ VF05, 0(VI04)        ; Read UVs
+        MULx.z VF01z, VF04z, VF05x      NOP                     ; Scale UVs for position
+        MULy.x VF01x, VF04x, VF05y      NOP                     ; Scale UVs for position
+        ADD VF01, VF01, VF03            NOP                     ; Add base translation
+        NOP                             LQ VF06, 0(VI02)        ; Read Height value from input
+        ITOF4.xyzw VF06, VF06           NOP                     ; Convert height value to float
+        NOP                             MOVE.xz VF06, VF01      ; Move translation info VF06
+
+        MULAx.xyzw  ACC, VF20, VF06x    NOP                             ; transform vert
+        MADDAy.xyzw ACC, VF21, VF06y    NOP                             ; transform vert
+        MADDAz.xyzw ACC, VF22, VF06z    NOP                             ; transform vert
+        MADDw.xyzw VF07, VF23, VF00w    NOP                             ; transform vert
+        NOP                             DIV Q, VF00w, VF07w             ; Start divide
+        NOP                             WAITQ
+        MULq.xyzw  VF07, VF07, Q        NOP                             ; project vert
+        MULq.xyzw  VF08, VF05, Q        NOP                             ; project stq
+        MULq.w     VF06w, VF00w, Q      NOP                             ; get backup of Q for fogging
+        FTOI4.xyzw VF07, VF07           NOP                             ; convert XYZ to fixed
+
+        SUB.xyz VF12xyz, VF06xyz, VF09xyz   NOP                     ; Compute delta between eye and vertex
+        NOP                                 ELENG P, VF12           ; Begin length calculation
+        NOP                                 WAITP                   ; Wait for dist computation to finish
+        NOP                                 MFP.x VF12x, P          ; Load dist into register
+        MUL VF12, VF12, VF10                NOP                     ; Apply Const0
+        ADD VF12, VF12, VF11                NOP                     ; Apply Const1
+        MULw.xyzw VF12xyzw, VF12xyzw, VF06w NOP                     ; Scale by Q
+        NOP                                 SQ VF12, (TEMP_FOG_VECTORS-TEMP_POS_VECTORS)(VI03)        ; Store Result
+
+        NOP                             SQ VF07, 0(VI03)
+        NOP                             SQ VF08, 81(VI03)
+
+        ; Increment ptrs
+        NOP                             IADDIU VI02, VI02, 1
+        NOP                             IADDIU VI03, VI03, 1
+        NOP                             IADDIU VI04, VI04, 1
+
+        NOP                             IBNE VI05, VI00, B0NC_SLOW_VERT2_LOOP
+        NOP                             NOP
+
+        NOP                             JR VI15
+        NOP                             NOP
+
+;==========================================================================
+/*
+B0NC_SLOW_VERT:
+
+        ; Get address to source and dest verts
+        NOP                             IADDIU  VI02, VI00, TEMP_POS_VECTORS
+        NOP                             IADDIU  VI03, VI00, TEMP_POS_VECTORS
+
+        ; Init Y loop counter
+        NOP                             IADDIU VI04, VI00, 9
+
+        ; Init XYZ and UV
+        NOP                             LQ VF14, 1(VI00)
+        NOP                             LQ VF16, 2(VI00)
+        NOP                             LQ VF17, 3(VI00)
+        NOP                             LQ VF19, 4(VI00)
+
+B0NC_LOOP_Y_SLOW:
+
+        ; Init XYZ and UV for XLoop
+        NOP                             MOVE.xyzw VF15, VF14
+        NOP                             MOVE.xyzw VF18, VF17
+
+        ; Init X Loop counter
+        NOP                             IADDIU VI05, VI00, 9
+
+        ; Decrement Y Loop count
+        NOP                             IADDI VI04, VI04, -1
+
+B0NC_LOOP_X_SLOW:
+
+        ; Decrement X Loop count
+        NOP                             IADDI VI05, VI05, -1
+
+        ; Read Height value from input
+        NOP                             LQ VF13, 0(VI02)
+
+        ; Convert height value to float
+        ITOF4.xyzw VF13, VF13           NOP
+
+        ; Poke in X and Z for current point
+        NOP                             MOVE.xzw VF13xzw, VF15xzw
+
+
+        ;------------------------------
+        ; Transform Point
+        MULAx.xyzw  ACC, VF20, VF13x    NOP                             ; transform vert
+        MADDAy.xyzw ACC, VF21, VF13y    NOP                             ; transform vert
+        MADDAz.xyzw ACC, VF22, VF13z    NOP                             ; transform vert
+        MADDw.xyzw VF12, VF23, VF13w    NOP                             ; transform vert
+        NOP                             DIV Q, VF00w, VF12w             ; Start divide
+        NOP                             WAITQ
+        MULq.xyzw  VF11, VF12, Q        NOP                             ; project vert
+        MULq.xyzw  VF10, VF18, Q        NOP                             ; project stq
+        MULq.w     VF13w, VF00w, Q      NOP                             ; get backup of Q for fogging
+        FTOI4.xyzw VF11, VF11           NOP                             ; convert XYZ to fixed
+
+        ; Store back into dest
+        NOP                             SQ VF11, 0(VI03)
+        NOP                             SQ VF10, 81(VI03)
+
+        ; Store world position for fog computation later
+        NOP                             SQ VF13, (TEMP_FOG_VECTORS-TEMP_POS_VECTORS)(VI03)
+
+        ; Increment ptrs
+        NOP                             IADDIU VI02, VI02, 1
+        NOP                             IADDIU VI03, VI03, 1
+
+        ; Increment Z and U in position
+        ADD.z VF15z, VF15z, VF16z       NOP
+        ADD.x VF18x, VF18x, VF19x       NOP
+
+        ; Continue XLoop
+        NOP                             IBNE VI05, VI00, B0NC_LOOP_X_SLOW
+        NOP                             NOP
+        
+        ; Increment X and V in position
+        ADD.x VF14x, VF14x, VF16x       NOP
+        ADD.y VF17y, VF17y, VF19y       NOP
+
+        ; Continue YLoop
+        NOP                             IBNE VI04, VI00, B0NC_LOOP_Y_SLOW
+        NOP                             NOP
+
+        NOP                             JR VI15
+        NOP                             NOP
+*/
+/*
+;==========================================================================
+;   VI00    Const (0)
+;   VI01    
+;   VI02    Ptr to src verts
+;   VI03    Ptr to dst verts
+;   VI04    Y Loop counter
+;   VI05    X Loop counter
+;   VI06    
+;   VI07    
+;   VI08    
+;   VI09    
+;   VI10    
+;   VI11    
+;   VI12    GIF packet buffer base address (for double buffering)
+;   VI13    RESERVED - Next command address in input buffer for kernel
+;   VI14    RESERVED - Current address of input buffer for kernel
+;   VI15    RESERVED - Return address for function calls
+;==========================================================================
+;   VF00    Const x=0 y=0 z=0 w=1
+;   VF01    
+;   VF02    Screen STQ
+;   VF03    Screen Position
+;   VF04    Transformed Pos
+;   VF05    Position
+;   VF06    Screen STQ
+;   VF07    Screen Position
+;   VF08    Transformed Pos
+;   VF09    Position
+;   VF10    Screen STQ 
+;   VF11    Screen Position
+;   VF12    Transformed Pos
+;   VF13    Position
+;
+;   VF14    Current XYZ in X
+;   VF15    Current XYZ in Z
+;   VF16    XYZDelta
+;   VF17    Current UV in X
+;   VF18    Current UV in Z
+;   VF19    UVDelta
+;   VF20    Active local to screen matrix qword 0
+;   VF21    Active local to screen matrix qword 1
+;   VF22    Active local to screen matrix qword 2
+;   VF23    Active local to screen matrix qword 3
+;   VF24    Active local to clip matrix qword 0 
+;   VF25    Active local to clip matrix qword 1 
+;   VF26    Active local to clip matrix qword 2 
+;   VF27    Active local to clip matrix qword 3 
+;   VF28    Active clip to screen matrix qword 0
+;   VF29    Active clip to screen matrix qword 1
+;   VF30    Active clip to screen matrix qword 2
+;   VF31    Active clip to screen matrix qword 3
+;==========================================================================
+
+B0NC_FAST_VERT:
+
+        ; Get address to source and dest verts
+        NOP                             IADDIU  VI02, VI00, TEMP_POS_VECTORS
+        NOP                             IADDIU  VI03, VI00, TEMP_POS_VECTORS
+
+        ; Init X loop counter
+        NOP                             IADDIU VI04, VI00, 9
+
+        ; Init XYZ and UV Starts and deltas
+        NOP                             LQ VF14, 1(VI00)
+        NOP                             LQ VF16, 2(VI00)
+        NOP                             LQ VF17, 3(VI00)
+        NOP                             LQ VF19, 4(VI00)
+
+B0NC_LOOP_X_FAST:
+
+        ; Init XYZ and UV for ZLoop
+        NOP                             MOVE.xyzw VF15, VF14
+        NOP                             MOVE.xyzw VF18, VF17
+
+        ; Init Z Loop counter
+        NOP                             IADDIU VI05, VI00, 9
+
+        ; Decrement X Loop count
+        NOP                             IADDI VI04, VI04, -1
+
+B0NC_LOOP_Z_FAST:
+
+        ; Decrement Z Loop count
+        NOP                             IADDI VI05, VI05, -3
+
+        ; Read Height values from input
+        NOP                             LQ VF13, 0(VI02)
+        NOP                             LQ VF09, 1(VI02)
+        NOP                             LQ VF05, 2(VI02)
+        NOP                             NOP
+
+        ; Convert height value to float
+        ITOF4.xyzw VF13, VF13           NOP
+        ITOF4.xyzw VF09, VF09           NOP
+        ITOF4.xyzw VF05, VF05           NOP
+        NOP                             NOP
+
+        ; Poke in Z and X for current point
+        NOP                             MOVE.xzw VF13xzw, VF15xzw   ; Poke XZ into point
+        ADD.z VF15z, VF15z, VF16z       MOVE VF10, VF18             ; Copy ST into registers                         ; increment x
+        ADD.x VF18x, VF18x, VF19x       NOP
+        NOP                             NOP
+        MULAx.xyzw  ACC, VF20, VF13x    NOP                             ; transform vert
+        MADDAy.xyzw ACC, VF21, VF13y    MOVE.xzw VF09xzw, VF15xzw       ; Poke XZ into point                             ; transform vert
+        MADDAz.xyzw ACC, VF22, VF13z    MOVE VF06, VF18             ; Copy ST into registers       ; transform vert
+        MADDw.xyzw VF12, VF23, VF13w    NOP                             ; transform vert
+        ADD.z VF15z, VF15z, VF16z       NOP                         ; increment x
+        ADD.x VF18x, VF18x, VF19x       NOP
+        MULAx.xyzw  ACC, VF20, VF09x    NOP
+        MADDAy.xyzw ACC, VF21, VF09y    DIV Q, VF00w, VF12w             ; Start divide
+        MADDAz.xyzw ACC, VF22, VF09z    NOP
+        MADDw.xyzw VF08, VF23, VF09w    MOVE.xzw VF05xzw, VF15xzw   ; Poke XY into point
+        ADD.z VF15z, VF15z, VF16z       MOVE VF02, VF18             ; Copy ST into registers   ; increment x
+        ADD.x VF18x, VF18x, VF19x       NOP
+        MULAx.xyzw  ACC, VF20, VF05x    NOP
+        MADDAy.xyzw ACC, VF21, VF05y    DIV Q, VF00w, VF08w             ; Start divide
+        MULq.xyzw  VF11, VF12, Q        NOP                             ; project vert
+        MULq.xyzw  VF10, VF10, Q        NOP                             ; project stq
+        MULq.w     VF13w, VF13w, Q      NOP
+        MADDAz.xyzw ACC, VF22, VF05z    NOP
+        MADDw.xyzw VF04, VF23, VF05w    NOP
+        FTOI4.xyzw VF11, VF11           NOP                             ; convert XYZ to fixed
+        NOP                             SQ VF10, 81(VI03)
+        MULq.xyzw  VF07, VF08, Q        NOP                             ; project vert
+        MULq.xyzw  VF06, VF06, Q        DIV Q, VF00w, VF04w                             ; project stq
+        MULq.w     VF09w, VF09w, Q      NOP
+        NOP                             SQ VF11, 0(VI03)
+        NOP                             NOP
+        FTOI4.xyzw VF07, VF07           NOP
+        NOP                             SQ VF06, 82(VI03)
+        NOP                             NOP
+        NOP                             NOP
+        MULq.xyzw  VF03, VF04, Q        SQ VF07, 1(VI03)                             ; project vert
+        MULq.xyzw  VF02, VF02, Q        NOP                             ; project stq
+        MULq.w     VF05w, VF05w, Q      NOP
+        NOP                             SQ VF13, (TEMP_FOG_VECTORS-TEMP_POS_VECTORS+0)(VI03) ;store fog pos
+        NOP                             SQ VF09, (TEMP_FOG_VECTORS-TEMP_POS_VECTORS+1)(VI03) ;store fog pos
+        FTOI4.xyzw VF03, VF03           SQ VF05, (TEMP_FOG_VECTORS-TEMP_POS_VECTORS+2)(VI03) ;store fog pos                            ; convert XYZ to fixed
+        NOP                             SQ VF02, 83(VI03)
+        NOP                             NOP
+        NOP                             IADDIU VI02, VI02, 3
+        NOP                             SQ VF03, 2(VI03)
+
+        ; Continue ZLoop
+        NOP                             IBNE VI05, VI00, B0NC_LOOP_Z_FAST
+        NOP                             IADDIU VI03, VI03, 3
+        
+        ; Increment X and V in position
+        ADD.x VF14x, VF14x, VF16x       NOP
+        ADD.y VF17y, VF17y, VF19y       NOP
+
+        ; Continue YLoop
+        NOP                             IBNE VI04, VI00, B0NC_LOOP_X_FAST
+        NOP                             NOP
+
+        NOP                             JR VI15
+        NOP                             NOP
+*/
+;==========================================================================
+;
+; CMD_BLOCK0_NOCLIP
+;
+;==========================================================================
+;   VI00    Const (0)
+;   VI01    
+;   VI02    Ptr to src verts
+;   VI03    Ptr to dst verts
+;   VI04    Y Loop counter
+;   VI05    X Loop counter
+;   VI06    
+;   VI07    
+;   VI08    
+;   VI09    
+;   VI10    
+;   VI11    
+;   VI12    GIF packet buffer base address (for double buffering)
+;   VI13    RESERVED - Next command address in input buffer for kernel
+;   VI14    RESERVED - Current address of input buffer for kernel
+;   VI15    RESERVED - Return address for function calls
+;==========================================================================
+;   VF00    Const x=0 y=0 z=0 w=1
+;   VF01    
+;   VF02    
+;   VF03    
+;   VF04    
+;   VF05    
+;   VF06    
+;   VF07    
+;   VF08    
+;   VF09    GIFTAG
+;   VF10    Screen STQ
+;   VF11    Screen Position
+;   VF12    Transformed Pos
+;   VF13    Position
+;   VF14    Current XYZ in Y
+;   VF15    Current XYZ in X
+;   VF16    XYZDelta
+;   VF17    Current UV in Y
+;   VF18    Current UV in X
+;   VF19    UVDelta
+;   VF20    Active local to screen matrix qword 0
+;   VF21    Active local to screen matrix qword 1
+;   VF22    Active local to screen matrix qword 2
+;   VF23    Active local to screen matrix qword 3
+;   VF24    Active local to clip matrix qword 0 
+;   VF25    Active local to clip matrix qword 1 
+;   VF26    Active local to clip matrix qword 2 
+;   VF27    Active local to clip matrix qword 3 
+;   VF28    Active clip to screen matrix qword 0
+;   VF29    Active clip to screen matrix qword 1
+;   VF30    Active clip to screen matrix qword 2
+;   VF31    Active clip to screen matrix qword 3
+;==========================================================================
+;       0 - INPUT_BUFFER_BASE - CMD
+;       1 - XYZ BASE
+;       2 - XYZ DELTA
+;       3 - UV  BASE
+;       4 - UV  DELTA
+;       5 - GIFTAG
+;       6 - DETAIL COLOR
+;       7 - 81 XYZ VECTORS
+;      88 - 81 UV VECTORS
+;     169 - 81 FOG VECTORS
+;==========================================================================
+
+CMD_BLOCK0_NOCLIP:
+    
+        NOP                             BAL VI15, B0NC_FAST_VERT2
+        NOP                             NOP
+
+        ; Compute fog values
+        ;NOP                             IADDIU VI01, VI00, TEMP_FOG_VECTORS
+        ;NOP                             IADDIU VI02, VI00, 81
+        ;NOP                             BAL VI15, FOG_LOOP_ENTRY_WITH_Q
+        ;NOP                             NOP
+
+;------------------------------------------------------------------------
+; Copy down fan
+;------------------------------------------------------------------------
+
+        ; Load detail color into register
+        NOP                             LQ VF08, 6(VI00)
+
+        ; Load white into register
+        ;SUB.xyzw VF08, VF00, VF00       LOI 128.0
+        ;ADDi.xyzw VF08, VF08, I         NOP
+        ;FTOI0 VF08, VF08                NOP
+
+        ; Copy giftag into registers
+        NOP                             LQ VF09, 5(VI00)
+
+        ; Init src and dst verts
+        NOP                             IADDIU VI02, VI00, TEMP_POS_VECTORS+(0*2)+(0*18)
+        NOP                             IADDIU VI03, VI00, OUTPUT_BUFFER_BASE+(31*0)
+        NOP                             BAL VI01, STORE_FAN_SECTION
+        NOP                             NOP
+
+        NOP                             IADDIU VI02, VI00, TEMP_POS_VECTORS+(0*2)+(1*18)
+        NOP                             IADDIU VI03, VI00, OUTPUT_BUFFER_BASE+(31*4)
+        NOP                             BAL VI01, STORE_FAN_SECTION
+        NOP                             NOP
+
+        NOP                             IADDIU VI02, VI00, TEMP_POS_VECTORS+(0*2)+(2*18)
+        NOP                             IADDIU VI03, VI00, OUTPUT_BUFFER_BASE+(31*8)
+        NOP                             BAL VI01, STORE_FAN_SECTION
+        NOP                             NOP
+
+        NOP                             IADDIU VI02, VI00, TEMP_POS_VECTORS+(0*2)+(3*18)
+        NOP                             IADDIU VI03, VI00, OUTPUT_BUFFER_BASE+(31*12)
+        NOP                             BAL VI01, STORE_FAN_SECTION
+        NOP                             NOP
+
+        ; Set EOP bit on last giftag
+        NOP                             IADDIU VI01, VI00, 0x7FFF           
+        NOP                             IADDIU VI01, VI01, 0x01             
+        NOP                             IADDIU VI01, VI01, 10
+        NOP                             ISW.x  VI01, (OUTPUT_BUFFER_BASE+(31*15))(VI00)
+        NOP                             NOP
+        NOP                             NOP
+        NOP                             NOP
+
+        NOP                             B KERNEL_RET                    ; Return to kernel 
+        NOP                             NOP                             ; BDS
+
+;==========================================================================
+;   VI00    Const (0)
+;   VI01    Return address
+;   VI02    Ptr to src
+;   VI03    Ptr to dst
+;   VI04    
+;   VI05    
+;   VI06    
+;   VI07    
+;   VI08    
+;   VI09    
+;==========================================================================
+;   VF01    
+;   VF02    
+;   VF03    
+;   VF04    
+;   VF05    
+;   VF06    
+;   VF07    
+;   VF08    WHITE
+;   VF09    GIFTAG    
+;==========================================================================
+
+STORE_FAN_SECTION:
+
+
+        ; Clear LOOP
+        NOP                             IADDIU VI04, VI00, 4
+
+STORE_FAN_SECTION_LOOP:
+
+        NOP                             IADDI VI04, VI04, -1
+
+        ; Store giftag
+        NOP                             SQ VF09, 0(VI03)
+
+        ; Read XYZ and write XYZ
+        NOP                             LQ VF01,  10(VI02)
+        NOP                             LQ VF02,  19(VI02)
+        NOP                             LQ VF03,  20(VI02)
+        NOP                             LQ VF04,  11(VI02)
+        NOP                             SQ VF01,  (3*1)(VI03)
+        NOP                             SQ VF02,  (3*2)(VI03)
+        NOP                             SQ VF03,  (3*3)(VI03)
+        NOP                             SQ VF04,  (3*4)(VI03)
+        NOP                             LQ VF01,   2(VI02)
+        NOP                             LQ VF02,   1(VI02)
+        NOP                             LQ VF03,   0(VI02)
+        NOP                             LQ VF04,   9(VI02)
+        NOP                             SQ VF01,  (3*5)(VI03)
+        NOP                             SQ VF02,  (3*6)(VI03)
+        NOP                             SQ VF03,  (3*7)(VI03)
+        NOP                             SQ VF04,  (3*8)(VI03)
+        NOP                             LQ VF01,  18(VI02)
+        NOP                             LQ VF02,  19(VI02)
+        NOP                             SQ VF01,  (3*9)(VI03)
+        NOP                             SQ VF02,  (3*10)(VI03)
+
+        ; Read UV and write UV
+        NOP                             IADDIU VI02, VI02, 81
+        NOP                             ISUBIU VI03, VI03, 2
+        NOP                             LQ VF01,  10(VI02)
+        NOP                             LQ VF02,  19(VI02)
+        NOP                             LQ VF03,  20(VI02)
+        NOP                             LQ VF04,  11(VI02)
+        NOP                             SQ VF01,  (3*1)(VI03)
+        NOP                             SQ VF02,  (3*2)(VI03)
+        NOP                             SQ VF03,  (3*3)(VI03)
+        NOP                             SQ VF04,  (3*4)(VI03)
+        NOP                             LQ VF01,   2(VI02)
+        NOP                             LQ VF02,   1(VI02)
+        NOP                             LQ VF03,   0(VI02)
+        NOP                             LQ VF04,   9(VI02)
+        NOP                             SQ VF01,  (3*5)(VI03)
+        NOP                             SQ VF02,  (3*6)(VI03)
+        NOP                             SQ VF03,  (3*7)(VI03)
+        NOP                             SQ VF04,  (3*8)(VI03)
+        NOP                             LQ VF01,  18(VI02)
+        NOP                             LQ VF02,  19(VI02)
+        NOP                             SQ VF01,  (3*9)(VI03)
+        NOP                             SQ VF02,  (3*10)(VI03)
+
+        ; Write COLOR
+        NOP                             IADDIU VI03, VI03, 1
+        NOP                             SQ VF08,  (3*1)(VI03)
+        NOP                             SQ VF08,  (3*2)(VI03)
+        NOP                             SQ VF08,  (3*3)(VI03)
+        NOP                             SQ VF08,  (3*4)(VI03)
+        NOP                             SQ VF08,  (3*5)(VI03)
+        NOP                             SQ VF08,  (3*6)(VI03)
+        NOP                             SQ VF08,  (3*7)(VI03)
+        NOP                             SQ VF08,  (3*8)(VI03)
+        NOP                             SQ VF08,  (3*9)(VI03)
+        NOP                             SQ VF08,  (3*10)(VI03)
+
+        NOP                             IADDIU VI03, VI03, 1
+        NOP                             ISUBIU VI02, VI02, 81
+
+        NOP                             IADDIU VI03, VI03, 31
+        NOP                             IADDIU VI02, VI02, 2
+
+        NOP                             IBNE VI04, VI00, STORE_FAN_SECTION_LOOP
+        NOP                             NOP
+
+        NOP                             JR VI01
+        NOP                             NOP
+
+;==========================================================================
+;
+; CMD_BLOCK0_ALPHA_PACK
+;
+;==========================================================================
+
+STORE_ALPHA_FAN:
+
+        ; Clear LOOP
+        NOP                             IADDIU VI04, VI00, 4
+
+STORE_ALPHA_FAN_LOOP:
+
+        NOP                             ISUBIU VI04, VI04, 1
+
+        ; Read A and write A
+        NOP                             LQ.w VF01w,  10(VI02)
+        NOP                             LQ.w VF02w,  19(VI02)
+        NOP                             LQ.w VF03w,  20(VI02)
+        NOP                             LQ.w VF04w,  11(VI02)
+
+        NOP                             SQ.w VF01w,  (3*0)(VI03)
+        NOP                             SQ.w VF02w,  (3*1)(VI03)
+        NOP                             SQ.w VF03w,  (3*2)(VI03)
+        NOP                             SQ.w VF04w,  (3*3)(VI03)
+
+        NOP                             LQ.w VF01w,   2(VI02)
+        NOP                             LQ.w VF02w,   1(VI02)
+        NOP                             LQ.w VF03w,   0(VI02)
+        NOP                             LQ.w VF04w,   9(VI02)
+
+        NOP                             SQ.w VF01w,  (3*4)(VI03)
+        NOP                             SQ.w VF02w,  (3*5)(VI03)
+        NOP                             SQ.w VF03w,  (3*6)(VI03)
+        NOP                             SQ.w VF04w,  (3*7)(VI03)
+
+        NOP                             LQ.w VF01w,  18(VI02)
+        NOP                             LQ.w VF02w,  19(VI02)
+
+        NOP                             SQ.w VF01w,  (3*8)(VI03)
+        NOP                             SQ.w VF02w,  (3*9)(VI03)
+
+        NOP                             IADDIU VI03, VI03, 31
+        NOP                             IADDIU VI02, VI02, 2
+
+        NOP                             IBNE VI04, VI00, STORE_ALPHA_FAN_LOOP
+        NOP                             NOP
+
+        NOP                             JR VI01
+        NOP                             NOP
+
+;==========================================================================
+
+CMD_BLOCK0_NOCLIP_ALPHA_PACK:
+
+        ; Init src and dst verts
+        NOP                             IADDIU VI02, VI00, 2+(0*2)+(0*18)
+        NOP                             IADDIU VI03, VI00, OUTPUT_BUFFER_BASE+2+(31*0)
+        NOP                             BAL VI01, STORE_ALPHA_FAN
+        NOP                             NOP
+
+        NOP                             IADDIU VI02, VI00, 2+(0*2)+(1*18)
+        NOP                             IADDIU VI03, VI00, OUTPUT_BUFFER_BASE+2+(31*4)
+        NOP                             BAL VI01, STORE_ALPHA_FAN
+        NOP                             NOP
+
+        NOP                             IADDIU VI02, VI00, 2+(0*2)+(2*18)
+        NOP                             IADDIU VI03, VI00, OUTPUT_BUFFER_BASE+2+(31*8)
+        NOP                             BAL VI01, STORE_ALPHA_FAN
+        NOP                             NOP
+
+        NOP                             IADDIU VI02, VI00, 2+(0*2)+(3*18)
+        NOP                             IADDIU VI03, VI00, OUTPUT_BUFFER_BASE+2+(31*12)
+        NOP                             BAL VI01, STORE_ALPHA_FAN
+        NOP                             NOP
+
+        ; Get address of giftag, kick, and return
+        NOP                             IADDIU VI01, VI00, OUTPUT_BUFFER_BASE
+        NOP                             NOP
+        NOP                             NOP
+
+        NOP                             XGKICK VI01
+        NOP                             NOP
+        NOP                             NOP
+
+        NOP                             ILW.y VI02, 1(VI00)
+        NOP                             ILW.x VI01, 1(VI00)
+        NOP                             IBEQ VI00, VI02, SKIP_FOG_LOOP
+        NOP                             IADDIU VI01, VI01, TEMP_FOG_VECTORS
+        NOP                             BAL VI15, FOG_LOOP_ENTRY_WITH_Q
+        NOP                             NOP
+SKIP_FOG_LOOP:
+
+        NOP                             B KERNEL_RET                    ; Return to kernel 
+        NOP                             NOP                             ; BDS
+
+;==========================================================================
+
+;==========================================================================
+;
+; CMD_BLOCK0_FOG_PACK
+;
+;==========================================================================
+
+
+STORE_FOG_FAN:
+
+        ; Clear LOOP
+        NOP                             IADDIU VI04, VI00, 4
+
+STORE_FOG_FAN_LOOP:
+
+        NOP                             ISUBIU VI04, VI04, 1
+
+        ; Write giftag
+        NOP                             SQ VF09, -1(VI03)
+
+        ; Store full lighting
+        NOP                             SQ   VF19,  (3*0+1)(VI03)
+        NOP                             SQ   VF19,  (3*1+1)(VI03)
+        NOP                             SQ   VF19,  (3*2+1)(VI03)
+        NOP                             SQ   VF19,  (3*3+1)(VI03)
+        NOP                             SQ   VF19,  (3*4+1)(VI03)
+        NOP                             SQ   VF19,  (3*5+1)(VI03)
+        NOP                             SQ   VF19,  (3*6+1)(VI03)
+        NOP                             SQ   VF19,  (3*7+1)(VI03)
+        NOP                             SQ   VF19,  (3*8+1)(VI03)
+        NOP                             SQ   VF19,  (3*9+1)(VI03)
+
+        ; Read STQ and write STQ
+        NOP                             LQ   VF01,  10(VI02)
+        NOP                             LQ   VF02,  19(VI02)
+        NOP                             LQ   VF03,  20(VI02)
+        NOP                             LQ   VF04,  11(VI02)
+
+        NOP                             SQ   VF01,  (3*0)(VI03)
+        NOP                             SQ   VF02,  (3*1)(VI03)
+        NOP                             SQ   VF03,  (3*2)(VI03)
+        NOP                             SQ   VF04,  (3*3)(VI03)
+
+        NOP                             LQ   VF01,   2(VI02)
+        NOP                             LQ   VF02,   1(VI02)
+        NOP                             LQ   VF03,   0(VI02)
+        NOP                             LQ   VF04,   9(VI02)
+
+        NOP                             SQ   VF01,  (3*4)(VI03)
+        NOP                             SQ   VF02,  (3*5)(VI03)
+        NOP                             SQ   VF03,  (3*6)(VI03)
+        NOP                             SQ   VF04,  (3*7)(VI03)
+
+        NOP                             LQ   VF01,  18(VI02)
+        NOP                             LQ   VF02,  19(VI02)
+
+        NOP                             SQ   VF01,  (3*8)(VI03)
+        NOP                             SQ   VF02,  (3*9)(VI03)
+
+        NOP                             IADDIU VI03, VI03, 31
+        NOP                             IADDIU VI02, VI02, 2
+
+        NOP                             IBNE VI04, VI00, STORE_FOG_FAN_LOOP
+        NOP                             NOP
+
+        NOP                             JR VI01
+        NOP                             NOP
+
+;==========================================================================
+
+CMD_BLOCK0_NOCLIP_FOG_PACK:
+
+        ; Load in giftag
+        NOP                             LQ VF09, 1(VI00)
+
+        ; Setup full lighting for verts
+        SUB.xyzw VF19, VF00, VF00       LOI 128.0
+        ADDi.xyzw VF19, VF19, I         NOP
+        FTOI0 VF19, VF19                NOP
+
+        ; Init src and dst verts
+        NOP                             IADDIU VI02, VI00, TEMP_FOG_VECTORS+(0*2)+(0*18)
+        NOP                             IADDIU VI03, VI00, OUTPUT_BUFFER_BASE+1+(31*0)
+        NOP                             BAL VI01, STORE_FOG_FAN
+        NOP                             NOP
+
+        NOP                             IADDIU VI02, VI00, TEMP_FOG_VECTORS+(0*2)+(1*18)
+        NOP                             IADDIU VI03, VI00, OUTPUT_BUFFER_BASE+1+(31*4)
+        NOP                             BAL VI01, STORE_FOG_FAN
+        NOP                             NOP
+
+        NOP                             IADDIU VI02, VI00, TEMP_FOG_VECTORS+(0*2)+(2*18)
+        NOP                             IADDIU VI03, VI00, OUTPUT_BUFFER_BASE+1+(31*8)
+        NOP                             BAL VI01, STORE_FOG_FAN
+        NOP                             NOP
+
+        NOP                             IADDIU VI02, VI00, TEMP_FOG_VECTORS+(0*2)+(3*18)
+        NOP                             IADDIU VI03, VI00, OUTPUT_BUFFER_BASE+1+(31*12)
+        NOP                             BAL VI01, STORE_FOG_FAN
+        NOP                             NOP
+
+        ; Set EOP bit on last giftag
+        NOP                             IADDIU VI01, VI00, 0x7FFF           
+        NOP                             IADDIU VI01, VI01, 0x01             
+        NOP                             IADDIU VI01, VI01, 10
+        NOP                             ISW.x  VI01, (OUTPUT_BUFFER_BASE+(31*15))(VI00)
+
+        ; Get address of giftag, kick, and return
+        NOP                             IADDIU VI01, VI00, OUTPUT_BUFFER_BASE
+        NOP                             NOP
+        NOP                             NOP
+
+        NOP                             XGKICK VI01
+        NOP                             NOP
+        NOP                             NOP
+
+        NOP                             B KERNEL_RET                    ; Return to kernel 
+        NOP                             NOP                             ; BDS
+
+;==========================================================================
+;
+; CMD_BLOCK0_DETAIL_PACK
+;
+;==========================================================================
+
+
+STORE_DETAIL_FAN:
+
+        ; Clear LOOP
+        NOP                             IADDIU VI04, VI00, 4
+
+STORE_DETAIL_FAN_LOOP:
+
+        NOP                             ISUBIU VI04, VI04, 1
+
+        ; Store full lighting
+        NOP                             SQ   VF19,  (3*0+1)(VI03)
+        NOP                             SQ   VF19,  (3*1+1)(VI03)
+        NOP                             SQ   VF19,  (3*2+1)(VI03)
+        NOP                             SQ   VF19,  (3*3+1)(VI03)
+        NOP                             SQ   VF19,  (3*4+1)(VI03)
+        NOP                             SQ   VF19,  (3*5+1)(VI03)
+        NOP                             SQ   VF19,  (3*6+1)(VI03)
+        NOP                             SQ   VF19,  (3*7+1)(VI03)
+        NOP                             SQ   VF19,  (3*8+1)(VI03)
+        NOP                             SQ   VF19,  (3*9+1)(VI03)
+
+        ; Read new uvs out
+        NOP                             LQ   VF01,  (3*0)(VI03)
+        NOP                             LQ   VF02,  (3*1)(VI03)
+        NOP                             LQ   VF03,  (3*2)(VI03)
+        NOP                             LQ   VF04,  (3*3)(VI03)
+        NOP                             LQ   VF05,  (3*4)(VI03)
+        NOP                             LQ   VF06,  (3*5)(VI03)
+        NOP                             LQ   VF07,  (3*6)(VI03)
+        NOP                             LQ   VF08,  (3*7)(VI03)
+        NOP                             LQ   VF09,  (3*8)(VI03)
+        NOP                             LQ   VF10,  (3*9)(VI03)
+
+        MUL VF01, VF01, VF18            NOP
+        MUL VF02, VF02, VF18            NOP
+        MUL VF03, VF03, VF18            NOP
+        MUL VF04, VF04, VF18            NOP
+        MUL VF05, VF05, VF18            NOP
+        MUL VF06, VF06, VF18            NOP
+        MUL VF07, VF07, VF18            NOP
+        MUL VF08, VF08, VF18            NOP
+        MUL VF09, VF09, VF18            NOP
+        MUL VF10, VF10, VF18            NOP
+
+        SUBw.xy VF01xy, VF01xy, VF01w   NOP
+        SUBw.xy VF02xy, VF02xy, VF02w   NOP
+        SUBw.xy VF03xy, VF03xy, VF03w   NOP
+        SUBw.xy VF04xy, VF04xy, VF04w   NOP
+        SUBw.xy VF05xy, VF05xy, VF05w   NOP
+        SUBw.xy VF06xy, VF06xy, VF06w   NOP
+        SUBw.xy VF07xy, VF07xy, VF07w   NOP
+        SUBw.xy VF08xy, VF08xy, VF08w   NOP
+        SUBw.xy VF09xy, VF09xy, VF09w   NOP
+        SUBw.xy VF10xy, VF10xy, VF10w   NOP
+
+        ; Store new uvs out
+        NOP                             SQ   VF01,  (3*0)(VI03)
+        NOP                             SQ   VF02,  (3*1)(VI03)
+        NOP                             SQ   VF03,  (3*2)(VI03)
+        NOP                             SQ   VF04,  (3*3)(VI03)
+        NOP                             SQ   VF05,  (3*4)(VI03)
+        NOP                             SQ   VF06,  (3*5)(VI03)
+        NOP                             SQ   VF07,  (3*6)(VI03)
+        NOP                             SQ   VF08,  (3*7)(VI03)
+        NOP                             SQ   VF09,  (3*8)(VI03)
+        NOP                             SQ   VF10,  (3*9)(VI03)
+
+        NOP                             IADDIU VI03, VI03, 31
+        NOP                             IADDIU VI02, VI02, 2
+
+        NOP                             IBNE VI04, VI00, STORE_DETAIL_FAN_LOOP
+        NOP                             NOP
+
+        NOP                             JR VI01
+        NOP                             NOP
+
+;==========================================================================
+
+CMD_BLOCK0_NOCLIP_DETAIL_PACK:
+
+        SUB.xyzw VF18, VF00, VF00       LOI 16.0
+        ADDi.xy  VF18, VF18, I          LOI 1.0
+        ADDi.z   VF18, VF18, I          LOI 8.0
+        ADDi.w   VF18, VF18, I          NOP
+
+        SUB.xyzw VF19, VF00, VF00       LOI 128.0
+        ADDi.xyzw VF19, VF19, I         NOP
+        FTOI0 VF19, VF19                NOP
+
+        ; Init src and dst verts
+        NOP                             IADDIU VI03, VI00, OUTPUT_BUFFER_BASE+1+(31*0)
+        NOP                             BAL VI01, STORE_DETAIL_FAN
+        NOP                             NOP
+
+        NOP                             IADDIU VI03, VI00, OUTPUT_BUFFER_BASE+1+(31*4)
+        NOP                             BAL VI01, STORE_DETAIL_FAN
+        NOP                             NOP
+
+        NOP                             IADDIU VI03, VI00, OUTPUT_BUFFER_BASE+1+(31*8)
+        NOP                             BAL VI01, STORE_DETAIL_FAN
+        NOP                             NOP
+
+        NOP                             IADDIU VI03, VI00, OUTPUT_BUFFER_BASE+1+(31*12)
+        NOP                             BAL VI01, STORE_DETAIL_FAN
+        NOP                             NOP
+
+        ; Get address of giftag, kick, and return
+        NOP                             IADDIU VI01, VI00, OUTPUT_BUFFER_BASE
+        NOP                             NOP
+        NOP                             NOP
+
+        NOP                             XGKICK VI01
+        NOP                             NOP
+        NOP                             NOP
+
+        NOP                             B KERNEL_RET                    ; Return to kernel 
+        NOP                             NOP                             ; BDS
+

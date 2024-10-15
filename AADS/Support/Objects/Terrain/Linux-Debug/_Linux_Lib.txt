@@ -1,0 +1,5 @@
+create Linux-Debug/Terrain.lib
+addmod ./Linux-Debug/Terr.obj
+addmod ./Linux-Debug/Terrain.obj
+save
+end 

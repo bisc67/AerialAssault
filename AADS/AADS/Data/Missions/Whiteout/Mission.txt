@@ -1,0 +1,182 @@
+//==============================================================================
+// Mission file created by ConvertMission from Whiteout.mis.
+//==============================================================================
+
+//------------------------------------------------------------------------------
+//  CLIENT AND SERVER, NON-OBJECT MISSION DATA
+//------------------------------------------------------------------------------
+
+MISSION         "Whiteout"
+
+MUSIC           ICE
+
+ENVIRONMENT     ICE
+
+SUN        -0.5774       0.5774      -0.5774    // Direction
+        178 178 178     // Direct Color
+        153 153 158     // Ambient Color
+
+FOG     128 32          // Fog Map Size
+        178 178 178     // Fog  Color
+        178 178 178     // Haze Color
+          0 600         // Start/Finish Distances
+        11 2            // Haze Start/Finish Angles
+        0.00 1.00       // Min/Max Band Alpha
+        0               // Number of Fog Volumes
+
+SKY     Data/Sky/lush/SkyT.bmp      // Top
+        Data/Sky/lush/SkyF.bmp      // Front
+        Data/Sky/lush/SkyL.bmp      // Left
+        Data/Sky/lush/SkyB.bmp      // Back
+        Data/Sky/lush/SkyR.bmp      // Right
+
+// Camera points:            X            Y            Z           Pitch         Yaw
+CAMERA                    830.7680     197.1060    1043.1100 //     0.0000      62.4980
+CAMERA                    898.1920     260.4190     691.3980 //     0.0000     118.0749
+CAMERA                   1392.5701     166.8920     695.6940 //     0.0000     -86.4710
+CAMERA                   1175.1400     176.5730    1275.0000 //     0.0000     114.6372
+CAMERA                   1149.9301     175.1160     969.0510 //     0.0000     174.7977
+
+BOUNDS                    776.0000   -2048.0000     600.0000
+                         1464.0000     320.0000    1400.0000
+
+//------------------------------------------------------------------------------
+//  CLIENT AND SERVER, PERMANENT OBJECTS
+//------------------------------------------------------------------------------
+
+TERRAIN     "Whiteout.ter"
+EMPTYSQUARES 
+40790 40791 40792 40793 41046 41047 41048 41049 
+41302 41303 41304 41305 41558 41559 41560 41561 
+41814 41815 41816 41817 -1
+
+// Buildings:      Power     X            Y            Z
+//                         Pitch         Yaw         Roll
+//                          SX           SY           SZ
+//                      FileName
+//
+BUILDING            0     871.2260     123.3960    1061.0300
+                            0.0000      42.4445       0.0000
+                            1.0000       1.0000       1.0000
+                        "STOWR6"
+
+BUILDING            0    1154.9800     113.0160     894.9270
+                            0.0000      90.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "STOWR3"
+
+BUILDING            0     933.6030     262.4980     665.5730
+                            0.0000      90.0000       0.0000
+                            1.0000       1.0000       1.0000
+                        "STOWR1"
+
+BUILDING            0    1292.5601     123.7700     752.1250
+                            0.0000       0.0456       0.0000
+                            1.0000       1.0000       1.0000
+                        "SBUNK9"
+
+BUILDING            0    1203.7900     108.8700    1253.5200
+                            0.0000      40.1527       0.0000
+                            1.0000       1.0000       1.0000
+                        "STOWR6"
+
+
+// Scenery:                  X            Y            Z
+//                         Pitch         Yaw         Roll
+//                          SX           SY           SZ
+//                      FileName
+//
+
+// Gens:    Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll
+//
+
+// Invens:  Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll
+//
+
+// VPads:   Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll
+//
+
+// Turrets: Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll      Barrel
+//
+
+// Sensors: Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll
+//
+
+// FFields: Switch Power     X            Y            Z       Type
+//                         Pitch         Yaw         Roll
+//                          SX           SY           SZ
+//
+
+// FlipFlop:Switch           X            Y            Z
+//                         Pitch         Yaw         Roll
+//
+
+// Projector:Switch          X            Y            Z
+//                         Pitch         Yaw         Roll
+//
+
+// Waypts:  Switch           X            Y            Z
+//
+WAYPOINT         0       1202.5900     179.8700    1255.1200    0
+WAYPOINT         0       1154.9800     157.5200     894.9270    1
+WAYPOINT         0       1293.9600     143.2800     703.9250    2
+WAYPOINT         0        933.6030     271.0000     665.5730    3
+WAYPOINT         0        869.8380     194.4000    1062.1758    4
+
+// Nexus:                    X            Y            Z         Height
+//
+
+//==============================================================================
+    WATERMARK // CLIENT DOES NOT READ BEYOND THIS POINT
+//==============================================================================
+
+//------------------------------------------------------------------------------
+//  SERVER ONLY, NON-OBJECT MISSION DATA
+//------------------------------------------------------------------------------
+
+POWER          1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+SWITCH        -1   1   2   0  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1 
+
+// Spawn:   Team             X            Y            Z         Radius     Pitch      Yaw
+//
+SPAWN         0          1253.0000     118.0000    1149.0000     150.0000    0.0000    0.0000
+SPAWN         1           959.0000     197.0000     705.0000     150.0000    0.0000    0.0000
+
+// Flags:   Team             X            Y            Z           Yaw
+//
+
+//------------------------------------------------------------------------------
+//  SERVER ONLY, DYNAMIC OBJECTS
+//------------------------------------------------------------------------------
+
+// Pickups:                  X            Y            Z           Kind
+//
+PICKUP                    870.0060     187.9510    1062.0900   REPAIRKIT
+PICKUP                    871.0340     177.6050    1060.9399   PLASMA
+PICKUP                    876.8280     177.7720    1056.1899   PLASMAAMMO
+PICKUP                    865.6610     177.5540    1066.3500   PLASMAAMMO
+PICKUP                   1167.0000     183.2450     906.8810   ENERGYPACK
+PICKUP                   1142.9800     183.2190     907.0610   REPAIRPACK
+PICKUP                   1142.9900     183.1820     882.9680   SHIELDPACK
+PICKUP                   1139.5800     173.8410     885.6890   SNIPERRIFLE
+PICKUP                   1155.7600     158.3350     885.7240   REPAIRPATCH
+PICKUP                   1155.6500     158.8980     904.0220   REPAIRPATCH
+PICKUP                   1163.5000     158.3990     894.7910   GRENADE
+PICKUP                    933.6880     254.1000     665.1430   GRENADELAUNCHER
+PICKUP                    931.3560     253.4410     668.0690   GRENADELAUNCHERAMMO
+PICKUP                    936.3650     253.7530     662.5880   GRENADELAUNCHERAMMO
+PICKUP                   1288.4100     110.9520     757.4650   CHAINGUN
+PICKUP                   1286.5601     102.8520     757.5890   CHAINGUNAMMO
+PICKUP                   1291.0200     103.4640     757.8670   CHAINGUNAMMO
+PICKUP                   1281.3900     112.4000     699.1720   SHIELDPACK
+PICKUP                   1202.6899     173.2930    1255.9200   AMMOPACK
+PICKUP                   1197.8900     163.1430    1248.2400   DISCAMMO
+PICKUP                   1207.6000     163.4650    1260.1799   DISCAMMO
+PICKUP                   1202.8300     163.0870    1255.5100   DISC
+PICKUP                   1212.6799     163.5290    1245.9700   MINE
+PICKUP                   1155.7590     173.0230     895.2160   REPAIRPACK

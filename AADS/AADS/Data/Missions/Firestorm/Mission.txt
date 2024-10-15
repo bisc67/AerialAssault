@@ -1,0 +1,206 @@
+//==============================================================================
+// Mission file created by ConvertMission from Firestorm.mis.
+//==============================================================================
+
+//------------------------------------------------------------------------------
+//  CLIENT AND SERVER, NON-OBJECT MISSION DATA
+//------------------------------------------------------------------------------
+
+MISSION         "Firestorm"
+
+MUSIC           VOLCANIC
+
+ENVIRONMENT     LAVA
+
+SUN        -0.5774       0.5774      -0.5774    // Direction
+        153 153 153     // Direct Color
+         51  51  51     // Ambient Color
+
+FOG     128 32          // Fog Map Size
+        216  96  25     // Fog  Color
+        216  96  25     // Haze Color
+        300 600         // Start/Finish Distances
+        11 2            // Haze Start/Finish Angles
+        0.00 1.00       // Min/Max Band Alpha
+        0               // Number of Fog Volumes
+
+SKY     Data/Sky/desert2/SkyT.bmp      // Top
+        Data/Sky/desert2/SkyF.bmp      // Front
+        Data/Sky/desert2/SkyL.bmp      // Left
+        Data/Sky/desert2/SkyB.bmp      // Back
+        Data/Sky/desert2/SkyR.bmp      // Right
+
+// Camera points:            X            Y            Z           Pitch         Yaw
+CAMERA                   1004.2300     152.5150     763.3870 //     0.0000      13.2237
+CAMERA                   1018.0300     198.6680    1146.6500 //     0.0000      52.7577
+CAMERA                   1116.7800     144.1260     989.7590 //     0.0000     -98.5030
+
+BOUNDS                    632.0000   -2048.0000     584.0000
+                         1384.0000    2050.0000    1352.0000
+
+//------------------------------------------------------------------------------
+//  CLIENT AND SERVER, PERMANENT OBJECTS
+//------------------------------------------------------------------------------
+
+TERRAIN     "Firestorm.ter"
+
+// Buildings:      Power     X            Y            Z
+//                         Pitch         Yaw         Roll
+//                          SX           SY           SZ
+//                      FileName
+//
+BUILDING            0    1105.7070     120.3560     967.4836
+                            0.0000     179.9544       0.0000
+                            1.8413       1.2000       1.2000
+                        "DBRDG10"
+
+BUILDING            0     976.1115     185.1200     739.4250
+                            0.0000       0.0456       0.0000
+                            1.0000       1.0000       1.0000
+                        "DTOWR4"
+
+BUILDING            0    1071.6000     183.5070    1192.6500
+                            0.0000     179.9544       0.0000
+                            1.0000       1.0000       1.0000
+                        "DTOWR4"
+
+
+// Scenery:                  X            Y            Z
+//                         Pitch         Yaw         Roll
+//                          SX           SY           SZ
+//                      FileName
+//
+SCENERY                   852.0010     125.4260     894.1550
+                            0.0000      90.0000    -179.9080
+                            1.0000       1.0000       1.0000
+                        "VEHICLE_AIR_SCOUT_WRECK"
+
+SCENERY                  1178.4510     124.6940    1019.5311
+                            0.0000      73.9571       0.0000
+                            1.0000       1.0000       1.5945
+                        "DROCK8"
+
+SCENERY                   976.2148     185.0530     774.3010
+                            0.0000      66.5087       0.0000
+                            1.0000       1.0000       1.0000
+                        "FLAGSTAND"
+
+SCENERY                  1071.7797     183.4300    1157.4690
+                            0.0000      65.3628       0.0000
+                            1.0000       1.0000       1.0000
+                        "FLAGSTAND"
+
+
+// Gens:    Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll
+//
+
+// Invens:  Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll
+//
+INVEN            1  0     970.1628     186.1200     735.6300    0
+                            0.0000     179.9544       0.0000
+
+INVEN            1  0     982.0643     186.1200     735.6340    0
+                            0.0000     179.9544       0.0000
+
+INVEN            2  0    1077.6810     184.5050    1196.5970    0
+                            0.0000       0.0456       0.0000
+
+INVEN            2  0    1065.5850     184.5050    1196.5090    0
+                            0.0000       0.0456       0.0000
+
+
+// VPads:   Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll
+//
+
+// Turrets: Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll      Barrel
+//
+
+// Sensors: Switch Power     X            Y            Z       Name
+//                         Pitch         Yaw         Roll
+//
+
+// FFields: Switch Power     X            Y            Z       Type
+//                         Pitch         Yaw         Roll
+//                          SX           SY           SZ
+//
+FORCEFIELD       1  0     985.6986     186.2140     733.4000
+                            0.0000      90.0000       0.0000
+                           12.5290       5.4066       0.3101
+
+FORCEFIELD       1  0     966.1317     186.2140     733.3430
+                            0.0000      90.0000       0.0000
+                           12.5290       5.4066       0.3101
+
+FORCEFIELD       1  0     967.0911     184.3500     746.5330
+                            0.0000      90.0000       0.0000
+                            0.3207       7.2800      18.3436
+
+FORCEFIELD       2  0    1062.4890     182.7310    1185.2061
+                            0.0000      90.0000       0.0000
+                            0.4014       7.2800      18.1854
+
+FORCEFIELD       2  0    1061.6155     184.5260    1185.9650
+                            0.0000      90.0000       0.0000
+                           12.7687       5.4790       0.4092
+
+FORCEFIELD       2  0    1081.1006     184.5280    1186.0710
+                            0.0000      90.0000       0.0000
+                           12.7604       5.4790       0.3448
+
+
+// FlipFlop:Switch           X            Y            Z
+//                         Pitch         Yaw         Roll
+//
+FLIPFLOP         4       1021.7000     125.0000     970.6000
+                            0.0000      90.0000       0.0000
+
+
+// Projector:Switch          X            Y            Z
+//                         Pitch         Yaw         Roll
+//
+PROJECTOR        4       1021.7000     120.0230     970.6000
+                            0.0000      90.0000       0.0000
+
+
+// Waypts:  Switch           X            Y            Z
+//
+WAYPOINT         1        975.2496     186.7020     744.5910    1
+WAYPOINT         2       1070.5529     182.9380    1191.3530    2
+WAYPOINT         4       1021.7000     125.0000     970.6000    3
+
+// Nexus:                    X            Y            Z         Height
+//
+
+//==============================================================================
+    WATERMARK // CLIENT DOES NOT READ BEYOND THIS POINT
+//==============================================================================
+
+//------------------------------------------------------------------------------
+//  SERVER ONLY, NON-OBJECT MISSION DATA
+//------------------------------------------------------------------------------
+
+POWER          1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+SWITCH        -1   1   2   0  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1 
+
+// Spawn:   Team             X            Y            Z         Radius     Pitch      Yaw
+//
+SPAWN         0           975.0000     149.0000     730.0000      80.0000    0.0000    0.0000
+SPAWN         1          1071.0000     147.0000    1200.0000      80.0000    0.0000    0.0000
+
+// Flags:   Team             X            Y            Z           Yaw
+//
+FLAG_HOME     0           976.2192     185.1330     774.3260       0.0000
+FLAG_HOME     1          1071.7836     183.5200    1157.4940       0.0000
+
+//------------------------------------------------------------------------------
+//  SERVER ONLY, DYNAMIC OBJECTS
+//------------------------------------------------------------------------------
+
+// Pickups:                  X            Y            Z           Kind
+//
+PICKUP                    976.3199     149.7090     734.5460   REPAIRPACK
+PICKUP                   1071.5205     148.0020    1197.4200   REPAIRPACK

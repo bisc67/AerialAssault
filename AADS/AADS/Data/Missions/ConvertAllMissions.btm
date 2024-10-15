@@ -1,0 +1,8 @@
+@echo off
+
+for /r %f in (*.mis) do (
+    echo %f
+    C:\Projects\T2\Demo1\Data\Missions\ConvertMission.exe %f
+    C:\Projects\T2\xCore\Tools\StringTool -overwrite -c Strings.txt
+)
+

@@ -1,0 +1,2444 @@
+Class sizes
+sizeof(shape_bin_file_class) = 4 bytes
+sizeof(anim) = 96 bytes
+sizeof(key_set) = 48 bytes
+sizeof(hot_point) = 48 bytes
+sizeof(material) = 176 bytes
+sizeof(material_dlist) = 48 bytes
+sizeof(model) = 160 bytes
+sizeof(node) = 48 bytes
+sizeof(shape) = 112 bytes
+sizeof(shape_texture_ref) = 176 bytes
+sizeof(shape_instance) = 504 bytes
+
+
+Building PC shapes from DesertShapes.txt
+
+
+
+*************** BUILDING PC PMISCF.shp ***************
+
+Parsing P:/Art/Delivery/Buildings/misc objects/pmiscf.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Buildings/misc objects/pmiscf.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\8bit\cp_etec01.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_etec01.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\8bit\cp_etec01.PNG...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\8bit\cp_etec02.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_etec02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\8bit\cp_etec02.PNG...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_etec02.xbmp...not found
+   checking for P:/Art/Delivery/Buildings/misc objects/cp_etec02.PNG...not found
+
+   Model:pmiscf  references texture cp_etec01.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.017641
+
+
+Building model display lists...
+   finished building PC combined strip with 36 verts
+TotalSize:1152 bytes (2k)
+
+   cleaning up memory.. before 3k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 2k after 2k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\PMISCF.shp
+   shape_bin_file::Close - Written Version:31 MemSize:1856
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\PMISCF.shp
+
+*************************************************************
+***
+*** Finished processing pmiscf
+***   MemoryUsed:1696 bytes - 2K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:1584 bytes - 2K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC porg1.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/porg1.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/porg1.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_brush.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_brush.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_brush.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_brush_A.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_brush_A.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_brush_A.png...FOUND!
+
+
+   Model:porg1  references texture cp_brush_A_PUNCH_cp_brush.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.014773
+
+
+Building model display lists...
+   finished building PC combined strip with 52 verts
+TotalSize:1664 bytes (2k)
+
+   cleaning up memory.. before 4k after 3k
+   cleaning up memory.. before 3k after 3k
+   cleaning up memory.. before 3k after 3k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\porg1.shp
+   shape_bin_file::Close - Written Version:31 MemSize:2544
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\porg1.shp
+
+*************************************************************
+***
+*** Finished processing porg1
+***   MemoryUsed:2208 bytes - 3K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:2096 bytes - 3K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC porg2.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/porg2.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/porg2.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_porg2.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_porg2.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_porg2.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_porg2_A.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_porg2_A.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_porg2_A.png...FOUND!
+
+
+   Model:porg2  references texture cp_porg2_A_PUNCH_cp_porg2.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.018589
+
+
+Building model display lists...
+   finished building PC combined strip with 210 verts
+TotalSize:6720 bytes (7k)
+
+   cleaning up memory.. before 15k after 7k
+   cleaning up memory.. before 7k after 7k
+   cleaning up memory.. before 8k after 8k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\porg2.shp
+   shape_bin_file::Close - Written Version:31 MemSize:7600
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\porg2.shp
+
+*************************************************************
+***
+*** Finished processing porg2
+***   MemoryUsed:7264 bytes - 8K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:7152 bytes - 7K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC porg3.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/porg3.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/porg3.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_cactus.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_cactus.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_cactus.png...FOUND!
+   building mips...
+
+
+   Model:porg3  references texture cp_cactus.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.023735
+
+
+Building model display lists...
+   finished building PC combined strip with 104 verts
+TotalSize:3328 bytes (4k)
+
+   cleaning up memory.. before 9k after 4k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 4k after 4k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\porg3.shp
+   shape_bin_file::Close - Written Version:31 MemSize:4032
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\porg3.shp
+
+*************************************************************
+***
+*** Finished processing porg3
+***   MemoryUsed:3872 bytes - 4K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:3760 bytes - 4K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC porg5.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/porg5.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/porg5.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_leafydome.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_leafydome.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_leafydome.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_leafydome_A.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_leafydome_A.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_leafydome_A.png...FOUND!
+
+
+   Model:porg5  references texture cp_leafydome_A_PUNCH_cp_leafydome.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.025379
+
+
+Building model display lists...
+   finished building PC combined strip with 10 verts
+TotalSize:320 bytes (1k)
+
+   cleaning up memory.. before 5k after 1k
+   cleaning up memory.. before 1k after 1k
+   cleaning up memory.. before 1k after 1k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\porg5.shp
+   shape_bin_file::Close - Written Version:31 MemSize:1200
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\porg5.shp
+
+*************************************************************
+***
+*** Finished processing porg5
+***   MemoryUsed:864 bytes - 1K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:752 bytes - 1K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC porg6.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/porg6.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/porg6.skel finished loading and initializing
+
+   Model:porg6  references texture cp_cactus.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.026914
+
+
+Building model display lists...
+   finished building PC combined strip with 318 verts
+TotalSize:10176 bytes (10k)
+
+   cleaning up memory.. before 21k after 11k
+   cleaning up memory.. before 11k after 11k
+   cleaning up memory.. before 11k after 11k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\porg6.shp
+   shape_bin_file::Close - Written Version:31 MemSize:10880
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\porg6.shp
+
+*************************************************************
+***
+*** Finished processing porg6
+***   MemoryUsed:10720 bytes - 11K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:10608 bytes - 11K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC porg20.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/porg20.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/porg20.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_BarrenSticksFall.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_BarrenSticksFall.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_BarrenSticksFall.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_BarrenSticksFall_A.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_BarrenSticksFall_A.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_BarrenSticksFall_A.png...FOUND!
+
+
+   Model:porg20  references texture cp_BarrenSticksFall_A_PUNCH_cp_BarrenSticksFall.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.016120
+
+
+Building model display lists...
+   finished building PC combined strip with 25 verts
+TotalSize:800 bytes (1k)
+
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 2k after 2k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\porg20.shp
+   shape_bin_file::Close - Written Version:31 MemSize:1680
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\porg20.shp
+
+*************************************************************
+***
+*** Finished processing porg20
+***   MemoryUsed:1344 bytes - 2K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:1232 bytes - 2K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC prock6.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/prock6.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/prock6.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal01e.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_ewal01e.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal01e.png...FOUND!
+   building mips...
+
+
+   Model:prock6  references texture cp_ewal01e.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.002460
+
+
+Building model display lists...
+   finished building PC combined strip with 186 verts
+TotalSize:5952 bytes (6k)
+
+   cleaning up memory.. before 13k after 7k
+   cleaning up memory.. before 7k after 7k
+   cleaning up memory.. before 7k after 7k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\prock6.shp
+   shape_bin_file::Close - Written Version:31 MemSize:6656
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\prock6.shp
+
+*************************************************************
+***
+*** Finished processing prock6
+***   MemoryUsed:6496 bytes - 7K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:6384 bytes - 7K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC prock7.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/prock7.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/prock7.skel finished loading and initializing
+
+   Model:prock7  references texture cp_ewal01e.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.008848
+
+
+Building model display lists...
+   finished building PC combined strip with 166 verts
+TotalSize:5312 bytes (6k)
+
+   cleaning up memory.. before 11k after 6k
+   cleaning up memory.. before 6k after 6k
+   cleaning up memory.. before 6k after 6k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\prock7.shp
+   shape_bin_file::Close - Written Version:31 MemSize:6016
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\prock7.shp
+
+*************************************************************
+***
+*** Finished processing prock7
+***   MemoryUsed:5856 bytes - 6K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:5744 bytes - 6K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC prock8.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/prock8.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/prock8.skel finished loading and initializing
+
+   Model:prock8  references texture cp_ewal01e.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.042840
+
+
+Building model display lists...
+   finished building PC combined strip with 138 verts
+TotalSize:4416 bytes (5k)
+
+   cleaning up memory.. before 10k after 5k
+   cleaning up memory.. before 5k after 5k
+   cleaning up memory.. before 5k after 5k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\prock8.shp
+   shape_bin_file::Close - Written Version:31 MemSize:5120
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\prock8.shp
+
+*************************************************************
+***
+*** Finished processing prock8
+***   MemoryUsed:4960 bytes - 5K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:4848 bytes - 5K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC procka.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/procka.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/procka.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal01.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_ewal01.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal01.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_ewal02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_ewal02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Rocks/cp_ewal02.png...not found
+
+   Model:procka  references texture cp_ewal01.png
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_ewal02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_ewal02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Rocks/cp_ewal02.png...not found
+
+   Model:procka  references texture cp_ewal01.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.062012
+
+
+Building model display lists...
+   finished building PC combined strip with 105 verts
+   finished building PC combined strip with 374 verts
+TotalSize:15328 bytes (15k)
+
+   cleaning up memory.. before 31k after 16k
+   cleaning up memory.. before 16k after 16k
+   cleaning up memory.. before 16k after 16k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\procka.shp
+   shape_bin_file::Close - Written Version:31 MemSize:16320
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\procka.shp
+
+*************************************************************
+***
+*** Finished processing procka
+***   MemoryUsed:16096 bytes - 16K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:15984 bytes - 16K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC prockb.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/prockb.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/prockb.skel finished loading and initializing
+
+   Model:prockb  references texture cp_ewal01e.png
+   Model:prockb  references texture cp_ewal01e.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.045882
+
+
+Building model display lists...
+   finished building PC combined strip with 242 verts
+   finished building PC combined strip with 98 verts
+TotalSize:10880 bytes (11k)
+
+   cleaning up memory.. before 22k after 12k
+   cleaning up memory.. before 12k after 12k
+   cleaning up memory.. before 12k after 12k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\prockb.shp
+   shape_bin_file::Close - Written Version:31 MemSize:11872
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\prockb.shp
+
+*************************************************************
+***
+*** Finished processing prockb
+***   MemoryUsed:11648 bytes - 12K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:11536 bytes - 12K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC prockc.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/prockc.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/prockc.skel finished loading and initializing
+
+   Model:prockc  references texture cp_ewal01e.png
+   Model:prockc  references texture cp_ewal01e.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.053972
+
+
+Building model display lists...
+   finished building PC combined strip with 139 verts
+   finished building PC combined strip with 62 verts
+TotalSize:6432 bytes (7k)
+
+   cleaning up memory.. before 14k after 7k
+   cleaning up memory.. before 7k after 7k
+   cleaning up memory.. before 8k after 8k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\prockc.shp
+   shape_bin_file::Close - Written Version:31 MemSize:7424
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\prockc.shp
+
+*************************************************************
+***
+*** Finished processing prockc
+***   MemoryUsed:7200 bytes - 8K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:7088 bytes - 7K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC pspir1.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/pspir1.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/pspir1.skel finished loading and initializing
+
+   Model:pspir1  references texture cp_ewal01e.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.038020
+
+
+Building model display lists...
+   finished building PC combined strip with 216 verts
+TotalSize:6912 bytes (7k)
+
+   cleaning up memory.. before 15k after 8k
+   cleaning up memory.. before 8k after 8k
+   cleaning up memory.. before 8k after 8k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\pspir1.shp
+   shape_bin_file::Close - Written Version:31 MemSize:7616
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\pspir1.shp
+
+*************************************************************
+***
+*** Finished processing pspir1
+***   MemoryUsed:7456 bytes - 8K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:7344 bytes - 8K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC pspir2.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/pspir2.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/pspir2.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_ewal02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_ewal02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/cp_ewal02.png...not found
+
+   Model:pspir2  references texture cp_ewal01.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.039299
+
+
+Building model display lists...
+   finished building PC combined strip with 214 verts
+TotalSize:6848 bytes (7k)
+
+   cleaning up memory.. before 15k after 8k
+   cleaning up memory.. before 8k after 8k
+   cleaning up memory.. before 8k after 8k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\pspir2.shp
+   shape_bin_file::Close - Written Version:31 MemSize:7552
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\pspir2.shp
+
+*************************************************************
+***
+*** Finished processing pspir2
+***   MemoryUsed:7392 bytes - 8K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:7280 bytes - 8K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC pspir3.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/pspir3.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/pspir3.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_ewal02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_ewal02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/cp_ewal02.png...not found
+
+   Model:pspir3  references texture cp_ewal01.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.057883
+
+
+Building model display lists...
+   finished building PC combined strip with 367 verts
+TotalSize:11744 bytes (12k)
+
+   cleaning up memory.. before 24k after 12k
+   cleaning up memory.. before 12k after 12k
+   cleaning up memory.. before 12k after 12k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\pspir3.shp
+   shape_bin_file::Close - Written Version:31 MemSize:12448
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\pspir3.shp
+
+*************************************************************
+***
+*** Finished processing pspir3
+***   MemoryUsed:12288 bytes - 12K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:12176 bytes - 12K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC pspir4.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/pspir4.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/pspir4.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ecombo1b.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_ecombo1b.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ecombo1b.png...FOUND!
+   building mips...
+
+
+   Model:pspir4  references texture cp_ecombo1b.png
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_ewal02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_ewal02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/cp_ewal02.png...not found
+
+   Model:pspir4  references texture cp_ewal01.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.054930
+
+
+Building model display lists...
+   finished building PC combined strip with 144 verts
+   finished building PC combined strip with 344 verts
+TotalSize:15616 bytes (16k)
+
+   cleaning up memory.. before 32k after 16k
+   cleaning up memory.. before 16k after 16k
+   cleaning up memory.. before 16k after 16k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\pspir4.shp
+   shape_bin_file::Close - Written Version:31 MemSize:16784
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\pspir4.shp
+
+*************************************************************
+***
+*** Finished processing pspir4
+***   MemoryUsed:16384 bytes - 16K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:16272 bytes - 16K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC pspir5.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/pspir5.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/pspir5.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_ewal02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\cp_ewal02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/cp_ewal02.png...not found
+
+   Model:pspir5  references texture cp_ewal01.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.053292
+
+
+Building model display lists...
+   finished building PC combined strip with 212 verts
+TotalSize:6784 bytes (7k)
+
+   cleaning up memory.. before 15k after 8k
+   cleaning up memory.. before 8k after 8k
+   cleaning up memory.. before 8k after 8k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\pspir5.shp
+   shape_bin_file::Close - Written Version:31 MemSize:7488
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\pspir5.shp
+
+*************************************************************
+***
+*** Finished processing pspir5
+***   MemoryUsed:7328 bytes - 8K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:7216 bytes - 8K
+***
+*************************************************************
+
+
+
+
+Writing XBMPs...
+Total:9
+      writing XBMP from                  cp_etec01.PNG (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      writing XBMP from  cp_brush_A_PUNCH_cp_brush.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      writing XBMP from  cp_porg2_A_PUNCH_cp_porg2.png (0128 x 0128 x 0032  00087072 Bytes  00086K)
+      writing XBMP from                  cp_cactus.png (0032 x 0128 x 0032  00020496 Bytes  00021K)
+      writing XBMP from cp_leafydome_A_PUNCH_cp_leafydome.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      writing XBMP from cp_BarrenSticksFall_A_PUNCH_cp_BarrenSticksFall.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      writing XBMP from                 cp_ewal01e.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      writing XBMP from                  cp_ewal01.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      writing XBMP from                cp_ecombo1b.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+
+
+
+
+18 Shapes loaded...
+   Shape:                        pmiscf Nodes:001 Models:001 Anims:000 Size:00001696 Bytes 00002 K
+   Shape:                         porg1 Nodes:001 Models:001 Anims:000 Size:00002208 Bytes 00003 K
+   Shape:                         porg2 Nodes:001 Models:001 Anims:000 Size:00007264 Bytes 00008 K
+   Shape:                         porg3 Nodes:001 Models:001 Anims:000 Size:00003872 Bytes 00004 K
+   Shape:                         porg5 Nodes:001 Models:001 Anims:000 Size:00000864 Bytes 00001 K
+   Shape:                         porg6 Nodes:001 Models:001 Anims:000 Size:00010720 Bytes 00011 K
+   Shape:                        porg20 Nodes:001 Models:001 Anims:000 Size:00001344 Bytes 00002 K
+   Shape:                        prock6 Nodes:001 Models:001 Anims:000 Size:00006496 Bytes 00007 K
+   Shape:                        prock7 Nodes:001 Models:001 Anims:000 Size:00005856 Bytes 00006 K
+   Shape:                        prock8 Nodes:001 Models:001 Anims:000 Size:00004960 Bytes 00005 K
+   Shape:                        procka Nodes:001 Models:001 Anims:000 Size:00016096 Bytes 00016 K
+   Shape:                        prockb Nodes:001 Models:001 Anims:000 Size:00011648 Bytes 00012 K
+   Shape:                        prockc Nodes:001 Models:001 Anims:000 Size:00007200 Bytes 00008 K
+   Shape:                        pspir1 Nodes:001 Models:001 Anims:000 Size:00007456 Bytes 00008 K
+   Shape:                        pspir2 Nodes:001 Models:001 Anims:000 Size:00007392 Bytes 00008 K
+   Shape:                        pspir3 Nodes:001 Models:001 Anims:000 Size:00012288 Bytes 00012 K
+   Shape:                        pspir4 Nodes:001 Models:001 Anims:000 Size:00016384 Bytes 00016 K
+   Shape:                        pspir5 Nodes:001 Models:001 Anims:000 Size:00007328 Bytes 00008 K
+
+
+
+!!!!!***** START OF 32BIT TEXTURES LIST *****!!!!!
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\8bit\cp_etec01.PNG (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      used on model:pmiscf by diffuse map on material:Material?#19 
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_brush.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_brush_A.png (0256 x 0256 x 0032  00262144 Bytes  00256K)
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_brush_A_PUNCH_cp_brush.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      used on model:porg1 by diffuse map on material:dead6 
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_porg2.png (0128 x 0128 x 0032  00087072 Bytes  00086K)
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_porg2_A.png (0128 x 0128 x 0032  00065536 Bytes  00064K)
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_porg2_A_PUNCH_cp_porg2.png (0128 x 0128 x 0032  00087072 Bytes  00086K)
+      used on model:porg2 by diffuse map on material:Material?#7 
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_cactus.png (0032 x 0128 x 0032  00020496 Bytes  00021K)
+      used on model:porg3 by diffuse map on material:Material?#2 
+      used on model:porg6 by diffuse map on material:Material?#2 
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_leafydome.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_leafydome_A.png (0256 x 0256 x 0032  00262144 Bytes  00256K)
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_leafydome_A_PUNCH_cp_leafydome.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      used on model:porg5 by diffuse map on material:branch3 
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_BarrenSticksFall.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_BarrenSticksFall_A.png (0256 x 0256 x 0032  00262144 Bytes  00256K)
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_BarrenSticksFall_A_PUNCH_cp_BarrenSticksFall.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      used on model:porg20 by diffuse map on material:Material?#11 
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal01e.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      used on model:prock6 by diffuse map on material:Material?#14 
+      used on model:prock7 by diffuse map on material:Material?#8 
+      used on model:prock8 by diffuse map on material:Material?#14 
+      used on model:prockb by diffuse map on material:Material?#52 
+      used on model:prockb by diffuse map on material:Material?#53 
+      used on model:prockc by diffuse map on material:Material?#52 
+      used on model:prockc by diffuse map on material:Material?#53 
+      used on model:pspir1 by diffuse map on material:Material?#52 
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal01.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      used on model:procka by diffuse map on material:Material?#52 
+      used on model:procka by diffuse map on material:Material?#48 
+      used on model:pspir2 by diffuse map on material:Material?#53 
+      used on model:pspir3 by diffuse map on material:Material?#52 
+      used on model:pspir4 by diffuse map on material:Material?#48 
+      used on model:pspir5 by diffuse map on material:Material?#52 
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ecombo1b.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      used on model:pspir4 by diffuse map on material:Material?#38 
+
+!!!!!*****  END OF 32BIT TEXTURE LIST  *****!!!!!
+
+
+
+
+
+
+
+
+
+
+
+Building PS2 shapes from DesertShapes.txt
+
+
+
+*************** BUILDING PS2 PMISCF.shp ***************
+
+Parsing P:/Art/Delivery/Buildings/misc objects/pmiscf.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Buildings/misc objects/pmiscf.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\8bit\cp_etec01.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_etec01.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\8bit\cp_etec01.PNG...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\8bit\cp_etec02.PNG...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_etec02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\8bit\cp_etec02.PNG...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_etec02.xbmp...not found
+   checking for P:/Art/Delivery/Buildings/misc objects/cp_etec02.PNG...not found
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Buildings\Desert\8bit\cp_etec01.PNG
+   Model:pmiscf  references texture BASE_cp_etec01.PNG
+   Model:pmiscf  references texture LUM_cp_etec01.PNG
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.017641
+
+
+Building model display lists...
+   finished building PS2 combined strip with 24 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:432 bytes (1k) TotalVerts:24 CachedVerts:0
+
+TotalSize:432 bytes (1k)
+
+   cleaning up memory.. before 3k after 1k
+   cleaning up memory.. before 1k after 1k
+   cleaning up memory.. before 1k after 1k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\PMISCF.shp
+   shape_bin_file::Close - Written Version:31 MemSize:1312
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\PMISCF.shp
+
+*************************************************************
+***
+*** Finished processing pmiscf
+***   MemoryUsed:976 bytes - 1K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:864 bytes - 1K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 porg1.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/porg1.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/porg1.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_brush.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_brush.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_brush.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_brush_A.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_brush_A.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_brush_A.png...FOUND!
+
+
+   Model:porg1  references texture cp_brush_A_PUNCH_cp_brush.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.014773
+
+
+Building model display lists...
+   finished building PS2 combined strip with 38 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:640 bytes (1k) TotalVerts:38 CachedVerts:0
+
+TotalSize:640 bytes (1k)
+
+   cleaning up memory.. before 3k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 2k after 2k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\porg1.shp
+   shape_bin_file::Close - Written Version:31 MemSize:1520
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\porg1.shp
+
+*************************************************************
+***
+*** Finished processing porg1
+***   MemoryUsed:1184 bytes - 2K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:1072 bytes - 2K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 porg2.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/porg2.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/porg2.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_porg2.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_porg2.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_porg2.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_porg2_A.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_porg2_A.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_porg2_A.png...FOUND!
+
+
+   Model:porg2  references texture cp_porg2_A_PUNCH_cp_porg2.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.018589
+
+
+Building model display lists...
+   finished building PS2 combined strip with 141 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2336 bytes (3k) TotalVerts:143 CachedVerts:0
+
+TotalSize:2336 bytes (3k)
+
+   cleaning up memory.. before 10k after 3k
+   cleaning up memory.. before 3k after 3k
+   cleaning up memory.. before 3k after 3k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\porg2.shp
+   shape_bin_file::Close - Written Version:31 MemSize:3280
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\porg2.shp
+
+*************************************************************
+***
+*** Finished processing porg2
+***   MemoryUsed:2880 bytes - 3K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:2768 bytes - 3K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 porg3.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/porg3.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/porg3.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_cactus.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_cactus.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_cactus.png...FOUND!
+   building mips...
+
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_cactus.png
+   Model:porg3  references texture BASE_cp_cactus.png
+   Model:porg3  references texture LUM_cp_cactus.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.023735
+
+
+Building model display lists...
+   finished building PS2 combined strip with 88 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1488 bytes (2k) TotalVerts:90 CachedVerts:0
+
+TotalSize:1488 bytes (2k)
+
+   cleaning up memory.. before 7k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 2k after 2k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\porg3.shp
+   shape_bin_file::Close - Written Version:31 MemSize:2400
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\porg3.shp
+
+*************************************************************
+***
+*** Finished processing porg3
+***   MemoryUsed:2032 bytes - 2K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:1920 bytes - 2K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 porg5.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/porg5.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/porg5.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_leafydome.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_leafydome.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_leafydome.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_leafydome_A.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_leafydome_A.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_leafydome_A.png...FOUND!
+
+
+   Model:porg5  references texture cp_leafydome_A_PUNCH_cp_leafydome.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.025379
+
+
+Building model display lists...
+   finished building PS2 combined strip with 7 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:176 bytes (1k) TotalVerts:7 CachedVerts:0
+
+TotalSize:176 bytes (1k)
+
+   cleaning up memory.. before 4k after 1k
+   cleaning up memory.. before 1k after 1k
+   cleaning up memory.. before 1k after 1k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\porg5.shp
+   shape_bin_file::Close - Written Version:31 MemSize:1056
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\porg5.shp
+
+*************************************************************
+***
+*** Finished processing porg5
+***   MemoryUsed:720 bytes - 1K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:608 bytes - 1K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 porg6.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/porg6.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/porg6.skel finished loading and initializing
+
+   Model:porg6  references texture BASE_cp_cactus.png
+   Model:porg6  references texture LUM_cp_cactus.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.026914
+
+
+Building model display lists...
+   finished building PS2 combined strip with 215 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:3472 bytes (4k) TotalVerts:215 CachedVerts:0
+
+TotalSize:3472 bytes (4k)
+
+   cleaning up memory.. before 14k after 4k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 4k after 4k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\porg6.shp
+   shape_bin_file::Close - Written Version:31 MemSize:4448
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\porg6.shp
+
+*************************************************************
+***
+*** Finished processing porg6
+***   MemoryUsed:4016 bytes - 4K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:3904 bytes - 4K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 porg20.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Shrubs/porg20.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Shrubs/porg20.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_BarrenSticksFall.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_BarrenSticksFall.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_BarrenSticksFall.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_BarrenSticksFall_A.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_BarrenSticksFall_A.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_BarrenSticksFall_A.png...FOUND!
+
+
+   Model:porg20  references texture cp_BarrenSticksFall_A_PUNCH_cp_BarrenSticksFall.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.016120
+
+
+Building model display lists...
+   finished building PS2 combined strip with 15 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:304 bytes (1k) TotalVerts:15 CachedVerts:0
+
+TotalSize:304 bytes (1k)
+
+   cleaning up memory.. before 2k after 1k
+   cleaning up memory.. before 1k after 1k
+   cleaning up memory.. before 1k after 1k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\porg20.shp
+   shape_bin_file::Close - Written Version:31 MemSize:1184
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\porg20.shp
+
+*************************************************************
+***
+*** Finished processing porg20
+***   MemoryUsed:848 bytes - 1K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:736 bytes - 1K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 prock6.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/prock6.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/prock6.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal01e.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_ewal01e.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal01e.png...FOUND!
+   building mips...
+
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal01e.png
+   Model:prock6  references texture BASE_cp_ewal01e.png
+   Model:prock6  references texture LUM_cp_ewal01e.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.002460
+
+
+Building model display lists...
+   finished building PS2 combined strip with 122 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1984 bytes (2k) TotalVerts:124 CachedVerts:0
+
+TotalSize:1984 bytes (2k)
+
+   cleaning up memory.. before 9k after 3k
+   cleaning up memory.. before 3k after 3k
+   cleaning up memory.. before 3k after 3k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\prock6.shp
+   shape_bin_file::Close - Written Version:31 MemSize:2896
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\prock6.shp
+
+*************************************************************
+***
+*** Finished processing prock6
+***   MemoryUsed:2528 bytes - 3K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:2416 bytes - 3K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 prock7.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/prock7.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/prock7.skel finished loading and initializing
+
+   Model:prock7  references texture BASE_cp_ewal01e.png
+   Model:prock7  references texture LUM_cp_ewal01e.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.008848
+
+
+Building model display lists...
+   finished building PS2 combined strip with 118 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1936 bytes (2k) TotalVerts:120 CachedVerts:0
+
+TotalSize:1936 bytes (2k)
+
+   cleaning up memory.. before 8k after 3k
+   cleaning up memory.. before 3k after 3k
+   cleaning up memory.. before 3k after 3k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\prock7.shp
+   shape_bin_file::Close - Written Version:31 MemSize:2848
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\prock7.shp
+
+*************************************************************
+***
+*** Finished processing prock7
+***   MemoryUsed:2480 bytes - 3K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:2368 bytes - 3K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 prock8.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/prock8.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/prock8.skel finished loading and initializing
+
+   Model:prock8  references texture BASE_cp_ewal01e.png
+   Model:prock8  references texture LUM_cp_ewal01e.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.042840
+
+
+Building model display lists...
+   finished building PS2 combined strip with 103 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1680 bytes (2k) TotalVerts:103 CachedVerts:0
+
+TotalSize:1680 bytes (2k)
+
+   cleaning up memory.. before 7k after 3k
+   cleaning up memory.. before 3k after 3k
+   cleaning up memory.. before 3k after 3k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\prock8.shp
+   shape_bin_file::Close - Written Version:31 MemSize:2592
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\prock8.shp
+
+*************************************************************
+***
+*** Finished processing prock8
+***   MemoryUsed:2224 bytes - 3K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:2112 bytes - 3K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 procka.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/procka.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/procka.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal01.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_ewal01.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal01.png...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_ewal02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_ewal02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Rocks/cp_ewal02.png...not found
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal01.png
+   Model:procka  references texture BASE_cp_ewal01.png
+   Model:procka  references texture LUM_cp_ewal01.png
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\BASE_cp_ewal02.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\BASE_cp_ewal02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\BASE_cp_ewal02.png...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\BASE_cp_ewal02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Rocks/BASE_cp_ewal02.png...not found
+
+   Model:procka  references texture BASE_cp_ewal01.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.213536
+
+
+Building model display lists...
+   finished building PS2 combined strip with 63 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1024 bytes (2k) TotalVerts:63 CachedVerts:0
+
+   finished building PS2 combined strip with 228 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:3664 bytes (4k) TotalVerts:228 CachedVerts:0
+
+TotalSize:4688 bytes (5k)
+
+   cleaning up memory.. before 21k after 6k
+   cleaning up memory.. before 6k after 6k
+   cleaning up memory.. before 6k after 6k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\procka.shp
+   shape_bin_file::Close - Written Version:31 MemSize:5952
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\procka.shp
+
+*************************************************************
+***
+*** Finished processing procka
+***   MemoryUsed:5456 bytes - 6K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:5344 bytes - 6K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 prockb.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/prockb.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/prockb.skel finished loading and initializing
+
+   Model:prockb  references texture BASE_cp_ewal01e.png
+   Model:prockb  references texture LUM_cp_ewal01e.png
+   Model:prockb  references texture BASE_cp_ewal01e.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.109558
+
+
+Building model display lists...
+   finished building PS2 combined strip with 148 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2400 bytes (3k) TotalVerts:148 CachedVerts:0
+
+   finished building PS2 combined strip with 60 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:976 bytes (1k) TotalVerts:60 CachedVerts:0
+
+TotalSize:3376 bytes (4k)
+
+   cleaning up memory.. before 15k after 4k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 5k after 5k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\prockb.shp
+   shape_bin_file::Close - Written Version:31 MemSize:4608
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\prockb.shp
+
+*************************************************************
+***
+*** Finished processing prockb
+***   MemoryUsed:4144 bytes - 5K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:4032 bytes - 4K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 prockc.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/prockc.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/prockc.skel finished loading and initializing
+
+   Model:prockc  references texture BASE_cp_ewal01e.png
+   Model:prockc  references texture LUM_cp_ewal01e.png
+   Model:prockc  references texture BASE_cp_ewal01e.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.110949
+
+
+Building model display lists...
+   finished building PS2 combined strip with 86 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1424 bytes (2k) TotalVerts:86 CachedVerts:0
+
+   finished building PS2 combined strip with 38 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:640 bytes (1k) TotalVerts:38 CachedVerts:0
+
+TotalSize:2064 bytes (3k)
+
+   cleaning up memory.. before 9k after 3k
+   cleaning up memory.. before 3k after 3k
+   cleaning up memory.. before 3k after 3k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\prockc.shp
+   shape_bin_file::Close - Written Version:31 MemSize:3264
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\prockc.shp
+
+*************************************************************
+***
+*** Finished processing prockc
+***   MemoryUsed:2832 bytes - 3K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:2720 bytes - 3K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 pspir1.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/pspir1.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/pspir1.skel finished loading and initializing
+
+   Model:pspir1  references texture BASE_cp_ewal01e.png
+   Model:pspir1  references texture LUM_cp_ewal01e.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.038020
+
+
+Building model display lists...
+   finished building PS2 combined strip with 147 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2384 bytes (3k) TotalVerts:147 CachedVerts:0
+
+TotalSize:2384 bytes (3k)
+
+   cleaning up memory.. before 10k after 3k
+   cleaning up memory.. before 3k after 3k
+   cleaning up memory.. before 3k after 3k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\pspir1.shp
+   shape_bin_file::Close - Written Version:31 MemSize:3328
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\pspir1.shp
+
+*************************************************************
+***
+*** Finished processing pspir1
+***   MemoryUsed:2928 bytes - 3K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:2816 bytes - 3K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 pspir2.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/pspir2.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/pspir2.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_ewal02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_ewal02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/cp_ewal02.png...not found
+
+   Model:pspir2  references texture BASE_cp_ewal01.png
+   Model:pspir2  references texture LUM_cp_ewal01.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.039299
+
+
+Building model display lists...
+   finished building PS2 combined strip with 146 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2400 bytes (3k) TotalVerts:147 CachedVerts:0
+
+TotalSize:2400 bytes (3k)
+
+   cleaning up memory.. before 10k after 3k
+   cleaning up memory.. before 3k after 3k
+   cleaning up memory.. before 3k after 3k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\pspir2.shp
+   shape_bin_file::Close - Written Version:31 MemSize:3344
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\pspir2.shp
+
+*************************************************************
+***
+*** Finished processing pspir2
+***   MemoryUsed:2944 bytes - 3K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:2832 bytes - 3K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 pspir3.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/pspir3.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/pspir3.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_ewal02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_ewal02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/cp_ewal02.png...not found
+
+   Model:pspir3  references texture BASE_cp_ewal01.png
+   Model:pspir3  references texture LUM_cp_ewal01.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.057883
+
+
+Building model display lists...
+   finished building PS2 combined strip with 250 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:4000 bytes (4k) TotalVerts:250 CachedVerts:0
+
+TotalSize:4000 bytes (4k)
+
+   cleaning up memory.. before 17k after 5k
+   cleaning up memory.. before 5k after 5k
+   cleaning up memory.. before 5k after 5k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\pspir3.shp
+   shape_bin_file::Close - Written Version:31 MemSize:4976
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\pspir3.shp
+
+*************************************************************
+***
+*** Finished processing pspir3
+***   MemoryUsed:4544 bytes - 5K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:4432 bytes - 5K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 pspir4.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/pspir4.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/pspir4.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ecombo1b.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_ecombo1b.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ecombo1b.png...FOUND!
+   building mips...
+
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ecombo1b.png
+   Model:pspir4  references texture BASE_cp_ecombo1b.png
+   Model:pspir4  references texture LUM_cp_ecombo1b.png
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_ewal02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_ewal02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/cp_ewal02.png...not found
+
+   Model:pspir4  references texture BASE_cp_ewal01.png
+   Model:pspir4  references texture LUM_cp_ewal01.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.054930
+
+
+Building model display lists...
+   finished building PS2 combined strip with 102 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1664 bytes (2k) TotalVerts:102 CachedVerts:0
+
+   finished building PS2 combined strip with 242 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:3904 bytes (4k) TotalVerts:244 CachedVerts:0
+
+TotalSize:5568 bytes (6k)
+
+   cleaning up memory.. before 22k after 7k
+   cleaning up memory.. before 7k after 7k
+   cleaning up memory.. before 7k after 7k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\pspir4.shp
+   shape_bin_file::Close - Written Version:31 MemSize:7216
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\pspir4.shp
+
+*************************************************************
+***
+*** Finished processing pspir4
+***   MemoryUsed:6336 bytes - 7K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:6224 bytes - 7K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 pspir5.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/pspir5.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/pspir5.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_ewal02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Desert\cp_ewal02.png...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\cp_ewal02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Spires/cp_ewal02.png...not found
+
+   Model:pspir5  references texture BASE_cp_ewal01.png
+   Model:pspir5  references texture LUM_cp_ewal01.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.053292
+
+
+Building model display lists...
+   finished building PS2 combined strip with 144 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2384 bytes (3k) TotalVerts:146 CachedVerts:0
+
+TotalSize:2384 bytes (3k)
+
+   cleaning up memory.. before 10k after 3k
+   cleaning up memory.. before 3k after 3k
+   cleaning up memory.. before 3k after 3k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\pspir5.shp
+   shape_bin_file::Close - Written Version:31 MemSize:3328
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\pspir5.shp
+
+*************************************************************
+***
+*** Finished processing pspir5
+***   MemoryUsed:2928 bytes - 3K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:2816 bytes - 3K
+***
+*************************************************************
+
+
+
+
+Writing XBMPs...
+Total:14
+      writing XBMP from             BASE_cp_etec01.PNG (0064 x 0064 x 0008  00006432 Bytes  00007K)
+      writing XBMP from              LUM_cp_etec01.PNG (0256 x 0256 x 0004  00043760 Bytes  00043K)
+      writing XBMP from  cp_brush_A_PUNCH_cp_brush.png (0256 x 0256 x 0008  00088368 Bytes  00087K)
+      writing XBMP from  cp_porg2_A_PUNCH_cp_porg2.png (0128 x 0128 x 0008  00022816 Bytes  00023K)
+      writing XBMP from             BASE_cp_cactus.png (0008 x 0032 x 0008  00001280 Bytes  00002K)
+      writing XBMP from              LUM_cp_cactus.png (0032 x 0128 x 0004  00002640 Bytes  00003K)
+      writing XBMP from cp_leafydome_A_PUNCH_cp_leafydome.png (0256 x 0256 x 0008  00088368 Bytes  00087K)
+      writing XBMP from cp_BarrenSticksFall_A_PUNCH_cp_BarrenSticksFall.png (0256 x 0256 x 0008  00088368 Bytes  00087K)
+      writing XBMP from            BASE_cp_ewal01e.png (0064 x 0064 x 0008  00006432 Bytes  00007K)
+      writing XBMP from             LUM_cp_ewal01e.png (0256 x 0256 x 0004  00043760 Bytes  00043K)
+      writing XBMP from             BASE_cp_ewal01.png (0064 x 0064 x 0008  00006432 Bytes  00007K)
+      writing XBMP from              LUM_cp_ewal01.png (0256 x 0256 x 0004  00043760 Bytes  00043K)
+      writing XBMP from           BASE_cp_ecombo1b.png (0064 x 0064 x 0008  00006432 Bytes  00007K)
+      writing XBMP from            LUM_cp_ecombo1b.png (0256 x 0256 x 0004  00043760 Bytes  00043K)
+
+
+
+
+18 Shapes loaded...
+   Shape:                        pmiscf Nodes:001 Models:001 Anims:000 Size:00000976 Bytes 00001 K
+   Shape:                         porg1 Nodes:001 Models:001 Anims:000 Size:00001184 Bytes 00002 K
+   Shape:                         porg2 Nodes:001 Models:001 Anims:000 Size:00002880 Bytes 00003 K
+   Shape:                         porg3 Nodes:001 Models:001 Anims:000 Size:00002032 Bytes 00002 K
+   Shape:                         porg5 Nodes:001 Models:001 Anims:000 Size:00000720 Bytes 00001 K
+   Shape:                         porg6 Nodes:001 Models:001 Anims:000 Size:00004016 Bytes 00004 K
+   Shape:                        porg20 Nodes:001 Models:001 Anims:000 Size:00000848 Bytes 00001 K
+   Shape:                        prock6 Nodes:001 Models:001 Anims:000 Size:00002528 Bytes 00003 K
+   Shape:                        prock7 Nodes:001 Models:001 Anims:000 Size:00002480 Bytes 00003 K
+   Shape:                        prock8 Nodes:001 Models:001 Anims:000 Size:00002224 Bytes 00003 K
+   Shape:                        procka Nodes:001 Models:001 Anims:000 Size:00005456 Bytes 00006 K
+   Shape:                        prockb Nodes:001 Models:001 Anims:000 Size:00004144 Bytes 00005 K
+   Shape:                        prockc Nodes:001 Models:001 Anims:000 Size:00002832 Bytes 00003 K
+   Shape:                        pspir1 Nodes:001 Models:001 Anims:000 Size:00002928 Bytes 00003 K
+   Shape:                        pspir2 Nodes:001 Models:001 Anims:000 Size:00002944 Bytes 00003 K
+   Shape:                        pspir3 Nodes:001 Models:001 Anims:000 Size:00004544 Bytes 00005 K
+   Shape:                        pspir4 Nodes:001 Models:001 Anims:000 Size:00006336 Bytes 00007 K
+   Shape:                        pspir5 Nodes:001 Models:001 Anims:000 Size:00002928 Bytes 00003 K
+
+

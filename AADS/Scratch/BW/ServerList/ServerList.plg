@@ -1,0 +1,211 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: *ServerList* - Win32 Linux Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "d:\temp\RSP32B.tmp" with contents
+[
+/incremental:yes /pdb:"Linux-debug/serverlist.pdb" /debug /machine:IX86 /out:"t:\serverlist" /D:TARGET_LINUX /D:VENDOR_CYGNUS 
+".\Linux-debug\bytestream.obj"
+".\Linux-debug\main.obj"
+"\Projects\AADS\xCore\Entropy\Linux-Debug\Entropy.lib"
+"\Projects\AADS\xCore\x_files\Linux-Debug\x_files.lib"
+"\Projects\AADS\Support\netlib\Linux-Debug\NetLib.lib"
+]
+Creating command line "link.exe @d:\temp\RSP32B.tmp"
+<h3>Output Window</h3>
+Linking...
+
+.
+***************************************************************************
+xCL -- VERBOSE MODE ACTIVATED
+***************************************************************************
+
+.
+xCL -- COMMAND LINE ECHO MODE ACTIVATED
+.
+   _____________________
+__/  Command Line Echo  \__________________________________________________
+===========================================================================
+[000]  link.exe
+[001]  @d:\temp\RSP32B.tmp
+===========================================================================
+.
+.
+   _____________________________________
+__/  Response file: d:\temp\RSP32B.tmp  \__________________________________
+===========================================================================
+/incremental:yes /pdb:"Linux-debug/serverlist.pdb" /debug /machine:IX86 /out:"t:\serverlist" /D:TARGET_LINUX /D:VENDOR_CYGNUS 
+".\Linux-debug\bytestream.obj"
+".\Linux-debug\main.obj"
+"\Projects\AADS\xCore\Entropy\Linux-Debug\Entropy.lib"
+"\Projects\AADS\xCore\x_files\Linux-Debug\x_files.lib"
+"\Projects\AADS\Support\netlib\Linux-Debug\NetLib.lib"
+
+===========================================================================
+.
+.
+   ______________________
+__/  Input Token Stream  \_________________________________________________
+===========================================================================
+    [000]  /incremental:yes
+    [001]  /pdb:"Linux-debug/serverlist.pdb"
+    [002]  /debug
+    [003]  /machine:IX86
+    [004]  /out:"t:\serverlist"
+    [005]  /D:TARGET_LINUX
+    [006]  /D:VENDOR_CYGNUS
+    [007]  .\Linux-debug\bytestream.obj
+    [008]  .\Linux-debug\main.obj
+    [009]  \Projects\AADS\xCore\Entropy\Linux-Debug\Entropy.lib
+    [010]  \Projects\AADS\xCore\x_files\Linux-Debug\x_files.lib
+    [011]  \Projects\AADS\Support\netlib\Linux-Debug\NetLib.lib
+===========================================================================
+.
+.
+   ________________________________
+__/  Processed Command Line State  \_______________________________________
+===========================================================================
+Tool...........Linker
+Optimization...t
+Debug..........Yes
+Target.........Linux (TARGET_LINUX)
+Vendor.........Linux (VENDOR_CYGNUS)
+SubSystem......<default>
+Output path....
+Output file....t:\serverlist
+SBR path.......
+PDB path.......
+PCH file.......
+Link Options...
+Miscellaneous..
+---------------------------------------------------------------------------
+Contents of list: Defines
+    [000]  TARGET_LINUX
+    [001]  VENDOR_CYGNUS
+Contents of list: Include path
+Contents of list: Library path
+Contents of list: Source list: C/C++
+Contents of list: Source list: Other
+Contents of list: Object list
+    [000]  .\Linux-debug\bytestream.obj
+    [001]  .\Linux-debug\main.obj
+Contents of list: Library list
+    [000]  \Projects\AADS\xCore\Entropy\Linux-Debug\Entropy.lib
+    [001]  \Projects\AADS\xCore\x_files\Linux-Debug\x_files.lib
+    [002]  \Projects\AADS\Support\netlib\Linux-Debug\NetLib.lib
+Contents of list: Unknown options
+===========================================================================
+.
+.
+   _____________________________
+__/  Current Working Directory  \__________________________________________
+===========================================================================
+C:\Projects\AADS\Scratch\BW\ServerList
+===========================================================================
+.
+.
+   __________________________
+__/  xCore Directory In Use  \_____________________________________________
+===========================================================================
+C:\Projects\AADS\xCore
+===========================================================================
+.
+.
+   ____________________________
+__/  Path for Linux Operation  \___________________________________________
+===========================================================================
+C:\Projects\AADS\xCore\3rdParty\Linux\bin
+C:\Program Files\Microsoft Visual Studio\Common\MSDev98\Bin
+C:\Program Files\Microsoft Visual Studio\VC98\BIN
+C:\Program Files\Microsoft Visual Studio\Common\TOOLS
+C:\Program Files\Microsoft Visual Studio\Common\TOOLS\WINNT
+C:\WINDOWS\system32
+C:\WINDOWS
+C:\WINDOWS\System32\Wbem
+===========================================================================
+.
+.
+   _________________________
+__/  Environment Variables  \______________________________________________
+===========================================================================
+AADS=c:\projects\aads
+ALLUSERSPROFILE=C:\Documents and Settings\All Users
+APPDATA=C:\Documents and Settings\biscuit\Application Data
+CLIENTNAME=Console
+CommonProgramFiles=C:\Program Files\Common Files
+COMPUTERNAME=BISCUITS-PC
+ComSpec=C:\WINDOWS\system32\cmd.exe
+HOMEDRIVE=C:
+HOMEPATH=\Documents and Settings\biscuit
+include=C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE;C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE;C:\Program Files\Microsoft Visual Studio\VC98\ATL\INCLUDE
+INTDIR=.\Linux-debug
+lib=C:\Program Files\Microsoft Visual Studio\VC98\LIB;C:\Program Files\Microsoft Visual Studio\VC98\MFC\LIB
+LOGONSERVER=\\BISCUITS-PC
+NUMBER_OF_PROCESSORS=1
+OS=Windows_NT
+OUTDIR=.\Linux-debug
+Path=C:\Projects\AADS\xCore\3rdParty\Linux\bin;C:\Program Files\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files\Microsoft Visual Studio\VC98\BIN;C:\Program Files\Microsoft Visual Studio\Common\TOOLS;C:\Program Files\Microsoft Visual Studio\Common\TOOLS\WINNT;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH
+PROCESSOR_ARCHITECTURE=x86
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 4 Stepping 2, AuthenticAMD
+PROCESSOR_LEVEL=6
+PROCESSOR_REVISION=0402
+ProgramFiles=C:\Program Files
+PROMPT=$P$G
+SESSIONNAME=Console
+SystemDrive=C:
+SystemRoot=C:\WINDOWS
+T2=c:\projects\t2
+TEMP=d:\temp
+TMP=d:\temp
+USERDOMAIN=BISCUITS-PC
+USERNAME=biscuit
+USERPROFILE=C:\Documents and Settings\biscuit
+windir=C:\WINDOWS
+X=C:\Projects\AADS\xCore
+X_LIB=C:\Projects\AADS\xCore/3rdparty/linux/lib
+_ACP_LIB=C:\Program Files\Microsoft Visual Studio\VC98\LIB;C:\Program Files\Microsoft Visual Studio\VC98\MFC\LIB
+_ACP_PATH=C:\Program Files\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files\Microsoft Visual Studio\VC98\BIN;C:\Program Files\Microsoft Visual Studio\Common\TOOLS;C:\Program Files\Microsoft Visual Studio\Common\TOOLS\WINNT;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem
+_MSDEV_BLD_ENV_=1
+
+===========================================================================
+.
+.
+   ______________
+__/  Linux Link  \_________________________________________________________
+===========================================================================
+gcc-linux.exe   -T t:\serverlist.ld -nostdlib -Wl,-Map=map.txt -o t:\serverlist .\Linux-debug\bytestream.obj
+
+---------------------------------------------------------------------------
+SEARCH_DIR(C:\Projects\AADS\xCore/3rdparty/linux/lib)
+GROUP(
+      \Projects\AADS\xCore\Entropy\Linux-Debug\Entropy.lib
+      \Projects\AADS\xCore\x_files\Linux-Debug\x_files.lib
+      \Projects\AADS\Support\netlib\Linux-Debug\NetLib.lib
+      C:\Projects\AADS\xCore/3rdparty/linux/lib/crti.o
+      C:\Projects\AADS\xCore/3rdparty/linux/lib/crtbegin.o
+      C:\Projects\AADS\xCore/3rdparty/linux/lib/crtend.o
+      C:\Projects\AADS\xCore/3rdparty/linux/lib/crtn.o
+      C:\Projects\AADS\xCore/3rdparty/linux/lib/crt1.o
+      C:\Projects\AADS\xCore/3rdparty/linux/lib/libm.a
+      C:\Projects\AADS\xCore/3rdparty/linux/lib/libstdc++.a
+      C:\Projects\AADS\xCore/3rdparty/linux/lib/libgcc.a
+      C:\Projects\AADS\xCore/3rdparty/linux/lib/libc.a
+      C:\Projects\AADS\xCore/3rdparty/linux/lib/libpthread.a
+      .\Linux-debug\main.obj
+)
+INCLUDE linux.ld
+===========================================================================
+.
+
+
+
+<h3>Results</h3>
+serverlist - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

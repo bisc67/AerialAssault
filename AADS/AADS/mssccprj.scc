@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[Demo1.dsp]
+SCC_Aux_Path = "C:\Program Files\Microsoft Visual Studio\Common\VSS"
+SCC_Project_Name = "$/T2/DEMO1", DAAAAAAA

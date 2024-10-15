@@ -1,0 +1,5 @@
+# <Sony Computer Entertainment Inc.>
+
+interface "hdd_ifc.cnf + hdd_dev.cnf" "hdd_ifc.cnf" "hdd_dev.cnf"
+interface "usb_ifc.cnf + usb_dev.cnf" "usb_ifc.cnf" "usb_dev.cnf"
+#interface "Sample PPP" "sample-ppp.cnf" "sample-modem.cnf"

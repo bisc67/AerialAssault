@@ -1,0 +1,4 @@
+create Linux-Debug/Pickups.lib
+addmod ./Linux-Debug/pickups.obj
+save
+end 

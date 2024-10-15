@@ -1,0 +1,109 @@
+//==============================================================================
+// Paths for .shp and .xbmp files
+//==============================================================================
+PC_SHP_PATH     "C:/Projects/AADS/AADS/Data/Shapes/PC"        
+PC_XBMP_PATH    "C:/Projects/AADS/AADS/Data/Shapes/PC"        
+
+PS2_SHP_PATH    "C:/Projects/AADS/AADS/Data/Shapes/PS2"        
+PS2_XBMP_PATH   "C:/Projects/AADS/AADS/Data/Shapes/PS2"        
+
+
+//==============================================================================
+// Label sets that are present in .skel files
+//==============================================================================
+
+LoadLabelSet    "P:/Art/Tools/SceneExport/ShapeTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/ModelTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/NodeTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/AnimTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/HotPointTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/ParticleTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/SoundTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/GUITypes.hpp"
+
+//==============================================================================
+// Scenery
+//==============================================================================
+
+CompressTexturesOn
+
+ShapeFileBegin   "PMISCF.shp"
+ModelFile       "P:/Art/Delivery/Buildings/misc objects/pmiscf.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "porg1.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Shrubs/porg1.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "porg2.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Shrubs/porg2.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "porg3.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Shrubs/porg3.skel"
+//ModelFile       "P:/Art/Delivery/Shapes/Scenery/Shrubs/porg3_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "porg5.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Shrubs/porg5.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "porg6.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Shrubs/porg6.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "porg20.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Shrubs/porg20.skel"
+ShapeFileEnd
+
+
+ShapeFileBegin   "prock6.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Rocks/prock6.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "prock7.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Rocks/prock7.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "prock8.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Rocks/prock8.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "procka.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Rocks/procka.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "prockb.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Rocks/prockb.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "prockc.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Rocks/prockc.skel"
+ShapeFileEnd
+
+
+ShapeFileBegin   "pspir1.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/pspir1.skel"
+//ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/pspir1_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "pspir2.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/pspir2.skel"
+//ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/pspir2_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "pspir3.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/pspir3.skel"
+//ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/pspir3_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "pspir4.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/pspir4.skel"
+//ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/pspir4_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "pspir5.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/pspir5.skel"
+//ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/pspir5_c.skel"
+ShapeFileEnd
+

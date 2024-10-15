@@ -1,0 +1,9 @@
+create Linux-Debug/Vehicle.lib
+addmod ./Linux-Debug/bomber.obj
+addmod ./Linux-Debug/gndeffect.obj
+addmod ./Linux-Debug/GravCycle.obj
+addmod ./Linux-Debug/shrike.obj
+addmod ./Linux-Debug/transport.obj
+addmod ./Linux-Debug/Vehicle.obj
+save
+end 

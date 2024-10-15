@@ -1,0 +1,34 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: *BlockPack* - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "d:\temp\RSP3A2.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "C:\Projects\AADS\xCore\x_files" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/BlockPack.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Projects\AADS\Scratch\BW\BlockPack\blockpack.cpp"
+]
+Creating command line "cl.exe @d:\temp\RSP3A2.tmp" 
+Creating temporary file "d:\temp\RSP3A3.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/BlockPack.pdb" /machine:I386 /out:"Release/BlockPack.exe" 
+.\Release\blockpack.obj
+\Projects\AADS\Scratch\BW\zlib\Release\zlib.lib
+\Projects\AADS\xCore\x_files\Release\x_files.lib
+]
+Creating command line "link.exe @d:\temp\RSP3A3.tmp"
+<h3>Output Window</h3>
+Compiling...
+blockpack.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+BlockPack.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

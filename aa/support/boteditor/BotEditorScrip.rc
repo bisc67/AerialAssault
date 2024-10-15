@@ -1,0 +1,342 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_BOTEDIT_DIALOG DIALOGEX 0, 0, 90, 510
+STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Bot Editor"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "Select Node        [ R ]",ID_SELECT_NODE,7,62,76,14,
+                    BS_LEFT
+    PUSHBUTTON      "UnSelect Node     [ 5 ]",ID_UNSELECT_NODE,7,109,76,14,
+                    BS_LEFT
+    PUSHBUTTON      "Cam Add Node    [ A ]",ID_CAM_ADD_NODE,7,91,76,14,
+                    BS_LEFT
+    PUSHBUTTON      "Select Edge         [ 1 ]",ID_SELECT_EDGE,7,186,76,15,
+                    BS_LEFT
+    PUSHBUTTON      "Delete Edge         [ 2 ]",ID_DELETE_EDGE,7,234,76,15,
+                    BS_LEFT
+    PUSHBUTTON      "Delete Node        [ 6 ]",ID_DELETE_NODE,7,141,76,14,
+                    BS_LEFT
+    PUSHBUTTON      "Move Node          [ 7 ]",ID_MOVE_NODE,7,77,76,14,
+                    BS_LEFT
+    PUSHBUTTON      "Load Graph           [ - ]",ID_LOAD,7,415,76,15,BS_LEFT
+    PUSHBUTTON      "Save Graph          [ + ]",ID_SAVE,7,430,76,15,BS_LEFT
+    PUSHBUTTON      "UnSelect Edge     [ ? ]",ID_UNSELECT_EDGE,7,218,76,15,
+                    BS_LEFT
+    PUSHBUTTON      "Insert Node         [ 8 ]",ID_INSERT_NODE,7,125,76,14,
+                    BS_LEFT
+    GROUPBOX        "Edges",IDC_STATIC,3,178,84,115
+    GROUPBOX        "Nodes",IDC_STATIC,3,53,80,123
+    GROUPBOX        "General",IDC_STATIC,3,389,84,114
+    PUSHBUTTON      "Select Start          [ ? ]",ID_START_BOT,8,370,76,15,
+                    BS_LEFT
+    PUSHBUTTON      "Activate Bot         [ ? ]",ID_BOT_ACTIVATE,8,354,76,15,
+                    BS_LEFT
+    GROUPBOX        "Bots",IDC_STATIC,3,343,84,47
+    GROUPBOX        "Player",IDC_STATIC,3,294,84,47
+    PUSHBUTTON      "Move Player         [ ? ]",ID_MOVE_PLAYER,7,304,76,15,
+                    BS_LEFT
+    PUSHBUTTON      "Plr Add Node        [ ? ]",ID_PLR_ADD_NODE,7,321,76,15,
+                    BS_LEFT
+    PUSHBUTTON      "Drop Node           [ . ]",ID_DROP_NODE,7,157,76,15
+    CONTROL         "Tight ",ID_EDGE_TIGHT,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,7,267,34,10
+    CONTROL         "Loose/",ID_EDGE_LOOSE,"Button",BS_AUTORADIOBUTTON,7,255,
+                    37,10
+    CONTROL         "Ground",ID_NODE_GROUND,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,45,251,39,10
+    CONTROL         "Aerial",ID_NODE_AERIAL,"Button",BS_AUTORADIOBUTTON,45,
+                    261,39,10
+    PUSHBUTTON      "Export Graph        [ ? ]",ID_EXPORT,7,446,76,15,
+                    BS_LEFT
+    PUSHBUTTON      "Change Edge       [ 3 ]",ID_CHANGE_EDGE,7,202,76,15,
+                    BS_LEFT
+    PUSHBUTTON      "Template Dialog    [ ? ]",ID_TEMPLATES,7,398,76,15,
+                    BS_LEFT
+    CONTROL         "Ski",ID_NODE_SKI,"Button",BS_AUTORADIOBUTTON,45,271,39,
+                    10
+    PUSHBUTTON      "Cost Analysis        [ ? ]",ID_COST_ANALYZER,7,477,76,
+                    11,BS_LEFT
+    CONTROL         "ZBuffer Off",IDC_ZBUFFER,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,2,19,41,10
+    CONTROL         "Hide Graph",IDC_SHOWGRAPH,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,44,19,41,10
+    CONTROL         "Bot Markers",IDC_BOTMARKERS,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,2,8,41,10
+    CONTROL         "Label Edges",IDC_EDGE_LABELS,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,44,8,41,10
+    LTEXT           "[ / ]",IDC_STATIC,16,279,23,11
+    LTEXT           "[ * ]",IDC_STATIC,52,282,14,8
+    PUSHBUTTON      "Import Graph        [ ? ]",ID_IMPORT,7,461,76,14,
+                    BS_LEFT
+    CONTROL         "Bounds",IDC_SHOWBOUNDS,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,44,29,41,10
+    PUSHBUTTON      "Asset Editor          [ ? ]",ID_ASSET_DIALOG,7,489,76,
+                    12,BS_LEFT
+    PUSHBUTTON      "#",IDC_RESET,31,32,8,7
+    EDITTEXT        IDC_BBOXSIZE,11,30,16,12,ES_AUTOHSCROLL | ES_NUMBER | 
+                    NOT WS_BORDER
+    PUSHBUTTON      "Grid Set",ID_GRID,51,43,31,9
+    CONTROL         "TEST ALL",ID_TEST_ALL,"Button",BS_AUTOCHECKBOX | 
+                    BS_LEFTTEXT | WS_TABSTOP,8,43,39,8
+END
+
+IDD_TEMPLATE_DIALOG DIALOGEX 0, 0, 90, 111
+STYLE DS_MODALFRAME | DS_NOFAILCREATE | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Templates"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Select Build        [ ? ]",ID_SELECT_BUILDING,7,13,76,
+                    14,BS_LEFT
+    DEFPUSHBUTTON   "Unselect Build    [ ? ]",ID_UNSELECT_BUILDING,7,29,76,
+                    14,BS_LEFT
+    DEFPUSHBUTTON   "Save Template   [ ? ]",ID_SAVE_TEMPLATE,7,51,76,14,
+                    BS_LEFT
+    DEFPUSHBUTTON   "Load Template   [ ? ]",ID_LOAD_TEMPLATE,7,67,76,14,
+                    BS_LEFT
+    PUSHBUTTON      "Load All Templates",ID_LOAD_ALL_TEMPLATES,7,87,76,14,
+                    BS_CENTER
+END
+
+IDD_COST_ANALYZER_DIALOG DIALOGEX 0, 0, 122, 244
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Cost Analyzer"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Rand Cost Analysis",ID_RAND_ANALYSIS,23,36,76,16,
+                    BS_MULTILINE
+    DEFPUSHBUTTON   "Fast Cost Analysis",ID_FAST_ANALYSIS,23,14,76,16,
+                    BS_MULTILINE
+    DEFPUSHBUTTON   "View Edge Cost Data",ID_VIEW_DATA,23,81,76,16,
+                    BS_MULTILINE
+    EDITTEXT        IDC_DATA,7,121,108,116,ES_MULTILINE | ES_READONLY
+    COMBOBOX        IDC_DATA_VIEW,7,100,108,89,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_ASSET_DIALOG DIALOGEX 670, 0, 89, 382
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Asset Editor"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Team",IDC_TEAM,7,3,75,45
+    GROUPBOX        "Asset Type",IDC_TYPE,7,49,75,72
+    GROUPBOX        "Priority Level",IDC_PRIORITY,7,121,75,49
+    CONTROL         "High",IDC_HIGH,"Button",BS_AUTORADIOBUTTON | 
+                    BS_MULTILINE | WS_GROUP,15,133,41,11
+    CONTROL         "Medium",IDC_MEDIUM,"Button",BS_AUTORADIOBUTTON,15,144,
+                    41,11
+    CONTROL         "Low",IDC_LOW,"Button",BS_AUTORADIOBUTTON,15,155,41,11
+    PUSHBUTTON      "Save File",IDC_SAVE,15,328,57,12
+    PUSHBUTTON      "Load File",IDC_LOAD,15,340,57,12
+    PUSHBUTTON      "Select            [ \\ ]",IDC_SELECT,7,173,75,16
+    PUSHBUTTON      "Delete        [ DEL ]",IDC_DELETE,7,198,75,16
+    PUSHBUTTON      " Place Asset\n [ L. Mouse ]",IDC_PLACE,12,217,65,21,
+                    BS_MULTILINE
+    LTEXT           "[ Y ]",IDC_STATIC,61,22,14,11
+    LTEXT           "[ W ]",IDC_STATIC,59,83,16,11
+    LTEXT           "[ B ]",IDC_STATIC,61,143,14,11
+    CONTROL         "Inventory Station",IDC_INVEN,"Button",
+                    BS_AUTORADIOBUTTON | BS_MULTILINE | WS_GROUP,12,58,68,12
+    CONTROL         "Turret",IDC_TURRET,"Button",BS_AUTORADIOBUTTON,12,70,40,
+                    12
+    CONTROL         "Sensor",IDC_SENSOR,"Button",BS_AUTORADIOBUTTON,12,82,36,
+                    12
+    CONTROL         "Mine",IDC_MINE,"Button",BS_AUTORADIOBUTTON,12,94,36,12
+    CONTROL         "Snipe Point",IDC_SNIPE,"Button",BS_AUTORADIOBUTTON,12,
+                    106,56,12
+    CONTROL         "Storm",IDC_STORM,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    17,12,41,9
+    CONTROL         "Inferno",IDC_INFERNO,"Button",BS_AUTORADIOBUTTON,17,23,
+                    41,9
+    CONTROL         "Neutral",IDC_NEUTRAL,"Button",BS_AUTORADIOBUTTON,17,34,
+                    41,9
+    PUSHBUTTON      "Report",IDC_REPORT,15,357,39,12
+    PUSHBUTTON      "All",IDC_REPORT_ALL,55,357,17,12
+    PUSHBUTTON      "Turret Range [ INS ]",IDC_LIMITS,7,242,75,17,
+                    BS_MULTILINE
+    EDITTEXT        IDC_LIMITPORT,16,261,56,12,ES_AUTOHSCROLL
+    CONTROL         "( Deselect: [ shift + \\ ] )",IDC_STATIC,"Static",
+                    SS_LEFTNOWORDWRAP | WS_GROUP,9,188,72,8
+    PUSHBUTTON      "Sensor Range\n     [ Home ]",IDC_LIMITS2,7,278,75,19,
+                    BS_MULTILINE
+    EDITTEXT        IDC_LIMITPORT2,16,299,56,12,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_BOTEDIT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 83
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 503
+    END
+
+    IDD_TEMPLATE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 83
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 104
+    END
+
+    IDD_COST_ANALYZER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 115
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 237
+    END
+
+    IDD_ASSET_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 82
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 375
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_COST_ANALYZER_DIALOG DLGINIT
+BEGIN
+    IDC_DATA_VIEW, 0x403, 13, 0
+0x6547, 0x656e, 0x6172, 0x206c, 0x6144, 0x6174, "\000" 
+    IDC_DATA_VIEW, 0x403, 19, 0
+0x6553, 0x656c, 0x7463, 0x6465, 0x4520, 0x6764, 0x2065, 0x6144, 0x6174, 
+"\000" 
+    0
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "Inevitable Entertainment\0"
+            VALUE "FileDescription", "Demo1\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "Demo1\0"
+            VALUE "LegalCopyright", "Copyright © 2001\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "Demo1.exe\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Inevitable Entertainment Demo1\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

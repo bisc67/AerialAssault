@@ -1,0 +1,1301 @@
+//==============================================================================
+// Paths for .shp and .xbmp files
+//==============================================================================
+PC_SHP_PATH     "C:/Projects/AA/Demo1/Data/Shapes/PC"        
+PC_XBMP_PATH    "C:/Projects/AA/Demo1/Data/Shapes/PC"        
+
+PS2_SHP_PATH    "C:/Projects/AA/Demo1/Data/Shapes/PS2"        
+PS2_XBMP_PATH   "C:/Projects/AA/Demo1/Data/Shapes/PS2"        
+
+
+//==============================================================================
+// Label sets that are present in .skel files
+//==============================================================================
+
+LoadLabelSet    "P:/Art/Tools/SceneExport/ShapeTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/ModelTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/NodeTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/AnimTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/HotPointTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/ParticleTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/SoundTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/GUITypes.hpp"
+
+
+//==============================================================================
+// Special case textures
+//==============================================================================
+
+LoadTexture		"p:/art/delivery/shapes/weapons/elf gun/[A]elf_beam.bmp"
+LoadTexture		"p:/art/delivery/shapes/weapons/elf gun/[A]Bolt1.bmp"
+LoadTexture		"p:/art/delivery/shapes/weapons/elf gun/[A]HotCore.BMP"
+
+LoadTexture		"p:/art/delivery/shapes/weapons/repair gun/[A]Beam.BMP"
+LoadTexture		"p:/art/delivery/shapes/weapons/repair gun/[A]Spot.BMP"
+
+LoadTexture		"p:/art/delivery/shapes/weapons/shrike_weapon/[A]ShrikeBolt.BMP"
+LoadTexture		"p:/art/delivery/shapes/weapons/shrike_weapon/[A]ShrikeBoltHead.BMP"
+
+LoadTexture		"p:/art/delivery/shapes/weapons/targeting laser/[A]TargetBeam.BMP"
+LoadTexture		"p:/art/delivery/shapes/weapons/targeting laser/[A]TargetSpot.BMP"
+
+LoadTexture		"p:/art/delivery/shapes/weapons/flare grenade/[A]FlareSpike.BMP"
+LoadTexture		"p:/art/delivery/shapes/weapons/flare grenade/[A]FlareCore.BMP"
+
+LoadTexture		"p:/art/delivery/shapes/particles/bomb/bullseye.tga"
+
+LoadTexture     "P:/Art/Delivery/Shapes/DamageTextures/damage.psd"
+
+LoadTexture     "P:/Art/Delivery/Shapes/Particles/AATurret/[A]AAShot.bmp"
+LoadTexture     "P:/Art/Delivery/Shapes/Particles/PlasmaTurret/[A]PlasmaShot.bmp"
+LoadTexture     "P:/Art/Delivery/Shapes/Particles/ClampTurret/[A]ClampShot.bmp"
+
+LoadTexture     "P:/Art/Delivery/Shapes/Particles/Bullet/[A]Flash.bmp"
+
+LoadTexture		"p:/art/delivery/shapes/vehicles/[A]GlowFX.bmp"
+LoadTexture		"p:/art/delivery/shapes/vehicles/[A]ThrustFX.bmp"
+
+
+
+CompressTexturesOn
+
+//==============================================================================
+// Light female shape
+//==============================================================================
+
+ShapeFileBegin   "light_female.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Players/Light Female/light_female_root.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/light_female_root.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Lower/light_female_forward.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Lower/light_female_back.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Lower/light_female_fall.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Lower/light_female_jet.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Lower/light_female_jumpup.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Lower/light_female_land.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Lower/light_female_side.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Lower/light_female_lookms_sniper.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_idle.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_lookms.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_recoilde.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_headside.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_celbow.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_celdance.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_celsalute.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_celwave.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_dieback.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_diechest.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_dieforward.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_diehead.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_dieknees.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_dieleglf.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_dielegrt.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_diesidelf.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_diesidert.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_dieslump.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_diespin.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_head.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_idlepda.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_tauntbest.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_tauntbutt.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_tauntimp.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_tauntkiss.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_cycle.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Female/Anim Full/light_female_sitting.skel"
+ShapeFileEnd
+
+
+
+//==============================================================================
+// Medium female shape
+//==============================================================================
+
+ShapeFileBegin   "medium_female.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Players/Medium Female/medium_female_root.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/medium_female_root.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Lower/medium_female_forward.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Lower/medium_female_back.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Lower/medium_female_fall.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Lower/medium_female_jet.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Lower/medium_female_jumpup.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Lower/medium_female_land.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Lower/medium_female_side.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Lower/medium_female_lookms_rocket.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_idle.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_idlepda.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_head.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_headside.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_recoilde.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_lookms.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_celbow.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_celdisco.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_celsalute.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_celwave.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_dieback.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_diechest.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_dieforward.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_diehead.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_dieknees.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_dieleglf.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_dielegrt.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_diesidelf.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_diesidert.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_dieslump.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_diespin.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_tauntbest.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_tauntbutt.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_tauntimp.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_tauntkiss.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Female/Anim Full/medium_female_sitting.skel"
+ShapeFileEnd
+
+
+
+//==============================================================================
+// Light male shape
+//==============================================================================
+
+ShapeFileBegin   "light_male.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Players/Light Male/Light_male_root.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Light_male_root.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Lower/Light_male_forward.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Lower/Light_male_back.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Lower/Light_male_jump.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Lower/Light_male_fall.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Lower/Light_male_land.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Lower/Light_male_side.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Lower/Light_male_jet.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Lower/Light_male_lookms_sniper.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_idle.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_idlepda.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_head.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_headside.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_lookms.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_recoilde.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_celdisco.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_celflex.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_celrocky.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_celsalute.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_celtaunt.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_celwave.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_dieback.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_diechest.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_dieforward.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_diehead.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/light_male_dieknees.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_dieleglf.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_dielegrt.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_diesidelf.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_diesidert.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_dieslump.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_diespin.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_dieknees.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_tauntbest.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_tauntimp.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_cycle.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Male/Anim Full/Light_male_sitting.skel"
+ShapeFileEnd
+
+
+
+
+//==============================================================================
+// Medium male shape
+//==============================================================================
+
+ShapeFileBegin   "medium_male.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Players/Medium Male/Medium_male_root.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Medium_male_root.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Lower/Medium_male_forward.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Lower/Medium_male_back.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Lower/Medium_male_jumpup.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Lower/Medium_male_fall.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Lower/Medium_male_land.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Lower/Medium_male_side.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Lower/Medium_male_jet.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Lower/Medium_male_lookms_rocket.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_idle.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_idlepda.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_lookms.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_recoilde.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_head.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_headside.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_celdance.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_celflex.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_celrocky.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_celsalute.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_celtaunt.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_celwave.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_dieback.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_diechest.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_dieforward.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_diehead.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/medium_male_dieknees.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_dieleglf.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_dielegrt.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_diesidelf.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_diesidert.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_dieslump.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_diespin.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_dieknees.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_tauntbest.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_tauntimp.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Male/Anim Full/Medium_male_sitting.skel"
+ShapeFileEnd
+
+
+//==============================================================================
+// Heavy male shape
+//==============================================================================
+
+ShapeFileBegin   "heavy_male.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Players/Heavy Male/heavy_male_root.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Heavy_male_root.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Lower/Heavy_male_forward.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Lower/Heavy_male_back.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Lower/Heavy_male_jumpup.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Lower/Heavy_male_land.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Lower/Heavy_male_side.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Lower/Heavy_male_jet.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Lower/Heavy_male_fall.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Lower/Heavy_male_lookms_rocket.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_celdance.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_celflex.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_celjump.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_celsalute.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_celtaunt.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_celwave.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_dieback.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_diechest.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_dieforward.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_diehead.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/heavy_male_dieknees.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_dieleglf.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_dielegrt.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_diesidelf.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_diesidert.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_dieslump.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_diespin.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_head.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_headside.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_idle.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_idlepda.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_lookms.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_recoilde.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_tauntbest.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Male/Anim Full/Heavy_male_tauntimp.skel"
+ShapeFileEnd
+
+
+
+
+//==============================================================================
+// Light bioderm shape
+//==============================================================================
+
+ShapeFileBegin   "light_bioderm.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Players/Light Bioderm/bioderm_light_root.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/bioderm_light_root.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/Anim Lower/bioderm_light_forward.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/Anim Lower/bioderm_light_back.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/Anim Lower/bioderm_light_fall.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/Anim Lower/bioderm_light_jet.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/Anim Lower/bioderm_light_jump.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/Anim Lower/bioderm_light_land.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/Anim Lower/bioderm_light_side.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/Anim Lower/bioderm_light_lookms_sniper.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_idle.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_idle_PDA.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_lookde.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_recoil.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_head.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_headside.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_celflexa.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_celflexb.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_celgora.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_celgorb.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_celgun.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_celjump.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_celroar.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_celshoot.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_celswipe.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_celwave.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_death_back.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_death_chest.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_death_forward.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_death_head.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_death_knees.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_death_leglft.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_death_legrt.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_death_sidelft.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_death_sidert.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_death_slump.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_death_spin.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_tauntbest.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_tauntbull.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_cycle.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Light Bioderm/anim full/bioderm_light_sitting.skel"
+ShapeFileEnd
+
+
+//==============================================================================
+// Medium bioderm shape
+//==============================================================================
+
+ShapeFileBegin   "medium_bioderm.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Players/Medium Bioderm/bioderm_medium_root.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/bioderm_medium_root.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Lower/bioderm_medium_forward.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Lower/bioderm_medium_back.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Lower/bioderm_medium_fall.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Lower/bioderm_medium_jet.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Lower/bioderm_medium_jump.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Lower/bioderm_medium_land.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Lower/bioderm_medium_side.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Lower/bioderm_medium_lookms_rocket.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_idle.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_idlePDA.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_head.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_headside.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_lookde.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_recoil.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_celflex.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_celgora.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_celgorb.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_celgun.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_celjump.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_celroar.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_celshoot.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_celswave.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_celswipe.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_death_back.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_death_chest.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_death_forward.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_death_head.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_death_knees.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_death_leglft.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_death_legrt.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_death_sidelft.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_death_sidert.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_death_slump.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_death_spin.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_tauntbest.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_tauntbull.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Medium Bioderm/Anim Full/bioderm_medium_sitting.skel"
+ShapeFileEnd
+
+
+//==============================================================================
+// Heavy  bioderm shape
+//==============================================================================
+
+ShapeFileBegin   "heavy_bioderm.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/bioderm_heavy_root.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/bioderm_heavy_root.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/Anim Lower/bioderm_heavy_forward.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/Anim Lower/bioderm_heavy_back.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/Anim Lower/bioderm_heavy_jet.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/Anim Lower/bioderm_heavy_jump.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/Anim Lower/bioderm_heavy_fall.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/Anim Lower/bioderm_heavy_land.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/Anim Lower/bioderm_heavy_side.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/Anim Lower/bioderm_heavy_rocketpose_looksn.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_idle.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_head.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_headside.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_lookde.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_recoilde.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_celflex1.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_celflex2.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_celgora.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_celgorb.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_celgun.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_celjump.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_celroar.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_celsalute.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/Bioderm_Heavy_celswipe.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/Bioderm_Heavy_celwave.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_celyeah.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_dieback.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_diechest.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_dieforward.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_diehead.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_dieknees.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_dieleglft.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_dielegrt.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_diesidelft.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_diesidert.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_dieslump.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_diespin.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_idlePDA.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_tauntbest.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_tauntbull.skel"
+//AnimFile        "P:/Art/Delivery/Shapes/Players/Heavy Bioderm/anim full/bioderm_heavy_taunthead.skel"
+ShapeFileEnd
+
+
+
+
+//==============================================================================
+// Disc launcher weapon shape
+//==============================================================================
+
+ShapeFileBegin   "weapon_disc.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Weapons/Spinfusor/weapon_disc.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Weapons/Spinfusor/weapon_disc.skel"
+ShapeFileEnd
+
+//==============================================================================
+// Plasma Gun weapon shape
+//==============================================================================
+
+ShapeFileBegin   "weapon_plasma.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Weapons/Plasma Rifle/weapon_plasma.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Weapons/Plasma Rifle/weapon_plasma.skel"
+ShapeFileEnd
+
+//==============================================================================
+// Chaingun weapon shape
+//==============================================================================
+
+ShapeFileBegin   "weapon_chaingun.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Weapons/Chaingun/weapon_chaingun.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Weapons/Chaingun/weapon_chaingun.skel"
+ShapeFileEnd
+
+//==============================================================================
+// Sniper rifle weapon shape
+//==============================================================================
+
+ShapeFileBegin   "weapon_laser_rifle.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Weapons/laser rifle/weapon_laser_rifle.SKEL"
+AnimFile        "P:/Art/Delivery/Shapes/Weapons/laser rifle/weapon_laser_rifle.SKEL"
+ShapeFileEnd
+
+//==============================================================================
+// Mortar gun weapon shape
+//==============================================================================
+
+ShapeFileBegin   "weapon_mortar.shp"
+ModelFile       "p:/art/delivery/shapes/weapons/fusion mortar/weapon_mortar.SKEL"
+AnimFile        "p:/art/delivery/shapes/weapons/fusion mortar/weapon_mortar.SKEL"
+ShapeFileEnd
+
+//==============================================================================
+// Grenade Launcher weapon shape
+//==============================================================================
+
+ShapeFileBegin   "weapon_grenade_launcher.shp"
+ModelFile       "p:/art/delivery/shapes/weapons/grenade launcher/weapon_grenade_launcher.SKEL"
+AnimFile        "p:/art/delivery/shapes/weapons/grenade launcher/weapon_grenade_launcher.SKEL"
+ShapeFileEnd
+
+
+//==============================================================================
+// Blaster weapon shape
+//==============================================================================
+ShapeFileBegin   "Weapon_Blaster01.shp"
+ModelFile       "p:/art/delivery/shapes/weapons/Blaster/Weapon_Blaster01.SKEL"
+AnimFile        "p:/art/delivery/shapes/weapons/Blaster/Weapon_Blaster01.SKEL"
+ShapeFileEnd
+
+//==============================================================================
+// Elf gun weapon shape
+//==============================================================================
+ShapeFileBegin   "weapon_elf.shp"
+ModelFile       "p:/art/delivery/shapes/weapons/elf gun/weapon_elf.SKEL"
+AnimFile        "p:/art/delivery/shapes/weapons/elf gun/weapon_elf.SKEL"
+ShapeFileEnd
+
+//==============================================================================
+// Repair gun weapon shape
+//==============================================================================
+ShapeFileBegin   "weapon_repair.shp"
+ModelFile       "p:/art/delivery/shapes/weapons/repair gun/weapon_repair.SKEL"
+AnimFile        "p:/art/delivery/shapes/weapons/repair gun/weapon_repair.SKEL"
+ShapeFileEnd
+
+//==============================================================================
+// Targeting Laser shape
+//==============================================================================
+ShapeFileBegin   "weapon_targeting.shp"
+ModelFile       "p:/art/delivery/shapes/weapons/targeting laser/weapon_targeting.SKEL"
+AnimFile        "p:/art/delivery/shapes/weapons/targeting laser/weapon_targeting.SKEL"
+ShapeFileEnd
+
+//==============================================================================
+// Missile Launcher shape
+//==============================================================================
+ShapeFileBegin   "weapon_missile01.shp"
+ModelFile       "p:/art/delivery/shapes/weapons/missile launcher/weapon_missile01.SKEL"
+AnimFile        "p:/art/delivery/shapes/weapons/missile launcher/weapon_missile01.SKEL"
+ShapeFileEnd
+
+//==============================================================================
+// Hemisphere particle
+//==============================================================================
+
+ShapeFileBegin   "hemisphere.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Particles/hemisphere.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Particles/hemisphere.skel"
+ShapeFileEnd
+
+//==============================================================================
+// Shockwave Explosion shape
+//==============================================================================
+ShapeFileBegin   "shockwave.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Particles/shockwave/shockwave.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Particles/shockwave/shockwave.skel"
+ShapeFileEnd
+
+//==============================================================================
+// disc explosion surface
+//==============================================================================
+
+ShapeFileBegin   "explosion.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Particles/explosion4bit.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Particles/explosion4bit.skel"
+ShapeFileEnd
+
+//==============================================================================
+// mortar explosion surface
+//==============================================================================
+
+ShapeFileBegin   "mortar_exp.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Particles/mortar_exp4bit.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Particles/mortar_exp4bit.skel"
+ShapeFileEnd
+
+//==============================================================================
+// plasma explosion surface
+//==============================================================================
+
+ShapeFileBegin   "plasma_exp.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Particles/Plasma/plasma_exp.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Particles/Plasma/plasma_exp.skel"
+ShapeFileEnd
+
+//==============================================================================
+// Pickups
+//==============================================================================
+
+ShapeFileBegin	"pack_ammo_box.shp"
+ModelFile		"P:/Art/Delivery/Shapes/PickUps/ammo box/pack_ammo_box.skel"
+ShapeFileEnd	
+
+ShapeFileBegin  "ammo_chaingun.shp"
+ModelFile       "P:/Art/Delivery/Shapes/PickUps/chaingun/ammo_chaingun.skel"
+ShapeFileEnd
+
+ShapeFileBegin  "ammo_disc.shp"
+ModelFile       "P:/Art/Delivery/Shapes/PickUps/disc/ammo_disc.skel"
+ShapeFileEnd
+
+ShapeFileBegin  "ammo_plasma.shp"
+ModelFile       "P:/Art/Delivery/Shapes/PickUps/plasma ammo/ammo_plasma.skel"
+ShapeFileEnd
+
+ShapeFileBegin  "repair_kit.shp"
+ModelFile       "P:/Art/Delivery/Shapes/PickUps/repair kit/repair_kit.skel"
+AnimFile        "P:/Art/Delivery/Shapes/PickUps/repair kit/repair_kit.skel"
+ShapeFileEnd
+
+ShapeFileBegin  "repair_patch.shp"
+ModelFile       "P:/Art/Delivery/Shapes/PickUps/repair patch/repair_patch.skel"
+ShapeFileEnd
+
+ShapeFileBegin  "ammo_grenade.shp"
+ModelFile       "P:/Art/Delivery/Shapes/PickUps/grenade launcher/ammo_grenade.skel"
+ShapeFileEnd
+
+
+//==============================================================================
+// Projectiles
+//==============================================================================
+
+ShapeFileBegin   "projectile_disc_core.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Weapons/Spinfusor/projectile_disc_core.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Weapons/Spinfusor/projectile_disc_core.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "projectile_disc_effects.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Weapons/Spinfusor/projectile_disc_effects.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Weapons/Spinfusor/projectile_disc_effects.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "projectile_mortar.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Weapons/Fusion Mortar/projectile_mortar.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "grenade.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Weapons/Hand Grenade/grenade.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "mine.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Weapons/Mine/Mine.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Weapons/Mine/Mine.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "projectile_missile.shp"
+ModelFile       "P:/Art/Delivery/Shapes/particles/missile/projectile_missile.skel"
+AnimFile        "P:/Art/Delivery/Shapes/particles/missile/projectile_missile.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "bomb.shp"
+ModelFile       "P:/Art/Delivery/Shapes/particles/bomb/bomb.skel"
+ModelFile       "P:/Art/Delivery/Shapes/particles/bomb/bomb.skel"
+ShapeFileEnd
+
+
+//==============================================================================
+// Vehicles
+//==============================================================================
+
+CompressTexturesOff
+BuildMipsOff
+
+
+// Grav cycle (type wildcat grav cycle)
+ShapeFileBegin   "grav_scout.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Vehicles/grav cycle/grav_scout.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Vehicles/grav cycle/grav_scout.skel"
+ShapeFileEnd
+
+// Grav cycle collision
+ShapeFileBegin   "grav_scout_coll.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Vehicles/grav cycle/grav_scout_collision.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Vehicles/grav cycle/grav_scout_collision.skel"
+ShapeFileEnd
+
+
+
+// Shrike (new version of Striker - type shrike-fighter)
+ShapeFileBegin  "scout.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/_scout/scout.skel"
+AnimFile        "p:/art/delivery/shapes/vehicles/_scout/scout.skel"
+ShapeFileEnd
+
+// Shrike collision
+ShapeFileBegin  "scout_col.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/_scout/scout_col.skel"
+AnimFile        "p:/art/delivery/shapes/vehicles/_scout/scout_col.skel"
+ShapeFileEnd
+
+
+
+// Bomberscout (new version of Bomber - type thundersword bomber)
+ShapeFileBegin  "bombscout.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/_bombscout/bombscout.skel"
+AnimFile        "p:/art/delivery/shapes/vehicles/_bombscout/bombscout.skel"
+ShapeFileEnd
+
+// Bomberscout collision
+ShapeFileBegin  "bombscout_c.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/_bombscout/bombscout_c.skel"
+AnimFile        "p:/art/delivery/shapes/vehicles/_bombscout/bombscout_c.skel"
+ShapeFileEnd
+
+
+
+// Air Transport (new version of air transport - type havoc transport!)
+ShapeFileBegin  "turrettrans_vehicle.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/_turretTrans/turrettrans_vehicle.skel"
+AnimFile        "p:/art/delivery/shapes/vehicles/_turretTrans/turrettrans_vehicle.skel"
+ShapeFileEnd
+
+// Air Transport Collision
+ShapeFileBegin  "turrettrans_c.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/_turretTrans/turrettrans_c.skel"
+AnimFile        "p:/art/delivery/shapes/vehicles/_turretTrans/turrettrans_c.skel"
+ShapeFileEnd
+
+// Air Transport turret
+ShapeFileBegin  "turrettrans_turret.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/_turretTrans/turrettrans_turret.skel"
+AnimFile        "p:/art/delivery/shapes/vehicles/_turretTrans/turrettrans_turret.skel"
+ShapeFileEnd
+
+
+
+//==============================================================================
+// Vehicle Debris
+//==============================================================================
+
+// Air Transport
+ShapeFileBegin   "AT_Debris01.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/air transport_debris/AT_Debris01.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "AT_Debris02.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/air transport_debris/AT_Debris02.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "AT_Debris03.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/air transport_debris/AT_Debris03.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "AT_Debris04.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/air transport_debris/AT_Debris04.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "AT_Debris05.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/air transport_debris/AT_Debris05.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "AT_Debris06.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/air transport_debris/AT_Debris06.SKEL"
+ShapeFileEnd
+
+
+
+// Bomber
+ShapeFileBegin   "bomber_debris01.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/bomber_debris/bomber_debris01.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "bomber_debris02.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/bomber_debris/bomber_debris02.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "bomber_debris03.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/bomber_debris/bomber_debris03.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "bomber_debris04.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/bomber_debris/bomber_debris04.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "bomber_debris05.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/bomber_debris/bomber_debris05.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "bomber_debris06.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/bomber_debris/bomber_debris06.SKEL"
+ShapeFileEnd
+
+
+
+// Gravcycle
+ShapeFileBegin   "grav_scout_debris01.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/grav cylce_debris/grav_scout_debris01.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "grav_scout_debris02.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/grav cylce_debris/grav_scout_debris02.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "grav_scout_debris03.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/grav cylce_debris/grav_scout_debris03.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "grav_scout_debris04.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/grav cylce_debris/grav_scout_debris04.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "grav_scout_debris05.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/grav cylce_debris/grav_scout_debris05.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "grav_scout_debris06.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/grav cylce_debris/grav_scout_debris06.SKEL"
+ShapeFileEnd
+
+
+
+// Shrike
+ShapeFileBegin   "striker_debris01.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/striker_debris/striker_debris01.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "striker_debris02.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/striker_debris/striker_debris02.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "striker_debris03.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/striker_debris/striker_debris03.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "striker_debris04.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/striker_debris/striker_debris04.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "striker_debris05.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/striker_debris/striker_debris05.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "striker_debris06.shp"
+ModelFile       "p:/art/delivery/shapes/vehicles/striker_debris/striker_debris06.SKEL"
+ShapeFileEnd
+
+
+
+
+
+//==============================================================================
+// Flag
+//==============================================================================
+
+CompressTexturesOn
+
+ShapeFileBegin   "flag.shp"
+ModelFile       "P:/Art/Delivery/shapes/flags/flag.skel"    // NOTE: 3 models for special case programmed anim!!!
+ModelFile       "P:/Art/Delivery/shapes/flags/flag.skel"
+ModelFile       "P:/Art/Delivery/shapes/flags/flag.skel"
+AnimFile        "P:/Art/Delivery/shapes/flags/flag.skel"
+ShapeFileEnd
+
+
+//==============================================================================
+// Force field
+//==============================================================================
+
+ShapeFileBegin   "force_field.shp"
+ModelFile       "P:/Art/Delivery/shapes/forcefield/force_field.skel"
+ShapeFileEnd
+
+
+//==============================================================================
+// Human/vehicle inventory station
+//==============================================================================
+
+CompressTexturesOff
+
+// Human
+ShapeFileBegin   "station_inventory_human.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Inventory/station_inventory_human.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Inventory/station_inventory_human_damage.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Inventory/station_inventory_human.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Inventory/station_inventory_human_damage.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "station_inventory_human_c.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Inventory/station_inventory_human_c.skel"
+ShapeFileEnd
+
+
+// Vehicle
+ShapeFileBegin   "station_inventory_vehicle.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Inventory/station_inventory_vehicle.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Inventory/station_inventory_vehicle_damage.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Inventory/station_inventory_vehicle.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Inventory/station_inventory_vehicle_damage.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "station_inventory_vehicle_c.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Inventory/station_inventory_vehicle_c.skel"
+ShapeFileEnd
+
+// Vehicle pad
+ShapeFileBegin   "vehicle_pad.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Inventory/vehicle_pad.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Inventory/vehicle_pad.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "vehicle_pad_c.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Inventory/vehicle_pad_c.skel"
+ShapeFileEnd
+
+// Deployable station
+ShapeFileBegin   "station_inventory_deploy.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Inventory/station_inventory_deploy.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Inventory/station_inventory_deploy.skel"
+ShapeFileEnd
+
+// Deployable station collision
+ShapeFileBegin   "station_inventory_deploy_c.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Inventory/station_inventory_deploy_c.skel"
+ShapeFileEnd
+
+
+//==============================================================================
+// Packs
+//==============================================================================
+
+CompressTexturesOn
+
+ShapeFileBegin   "pack_ammo.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Packs/Ammo Pack/pack_ammo.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "pack_energy.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Packs/Energy/pack_energy.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "pack_barrel_aa.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Packs/Pack Barrel AA/pack_barrel_aa.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "pack_barrel_elf.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Packs/Pack Barrel Elf/pack_barrel_elf.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "pack_barrel_plasma.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Packs/Pack Barrel Plasma/pack_barrel_plasma.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "pack_barrel_mortar.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Packs/Pack Barrel Mortar/pack_barrel_mortar.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "pack_barrel_missile.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Packs/Pack Barrel missile/pack_barrel_missile.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "pack_repair.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Packs/Repair/pack_repair.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "pack_satchel_charge.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Packs/Satchel Charge/pack_satchel_charge.skel"
+ShapeFileEnd
+
+//REMOVED FROM PS2 GAME!
+//ShapeFileBegin   "pack_sensor_jammer.shp"
+//ModelFile       "P:/Art/Delivery/Shapes/Packs/SensorJammer/pack_sensor_jammer.skel"
+//ShapeFileEnd
+
+ShapeFileBegin   "pack_shield.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Packs/Shield/pack_shield.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "deploy_sensor_pack.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Packs/Sensor/deploy_sensor_pack.SKEL"
+ShapeFileEnd
+
+ShapeFileBegin   "deploy_inventory_pack.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Packs/deployable_inventory_pack/deploy_inventory_pack.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "spider_turret_pack.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Packs/spider_turret_pack/spider_turret_pack.skel"
+ShapeFileEnd
+
+
+//==============================================================================
+// Shield
+//==============================================================================
+
+CompressTexturesOff
+
+ShapeFileBegin   "shield.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Shield/Shield.skel"
+ShapeFileEnd
+
+//==============================================================================
+// Generator
+//==============================================================================
+
+ShapeFileBegin   "station_generator_large.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Generators/station_generator_large.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Generators/station_generator_large_damage.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Generators/station_generator_large.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "station_generator_large_c.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Generators/station_generator_large_c.skel"
+ShapeFileEnd
+
+
+//==============================================================================
+// Beacon
+//==============================================================================
+
+CompressTexturesOn
+
+ShapeFileBegin   "beacon.shp"
+ModelFile       "P:/Art/Delivery/Shapes/beacon/beacon.skel"
+ShapeFileEnd
+
+
+//==============================================================================
+// Switch
+//==============================================================================
+
+CompressTexturesOff
+
+ShapeFileBegin   "switch.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Objectives/FlipFlop/switch.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Objectives/FlipFlop/switch.skel"
+ShapeFileEnd
+
+
+//==============================================================================
+// Sensors
+//==============================================================================
+
+ShapeFileBegin   "sensor_pulse_large.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Sensors/Large/sensor_pulse_large.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Sensors/Large/sensor_pulse_large_damage.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Sensors/Large/sensor_pulse_large.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "sensor_pulse_large_c.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Sensors/Large/sensor_pulse_large_c.skel"
+ShapeFileEnd
+
+
+ShapeFileBegin   "sensor_pulse_medium.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Sensors/Medium/sensor_pulse_medium.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Sensors/Medium/sensor_pulse_medium_damage.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Sensors/Medium/sensor_pulse_medium.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "sensor_pulse_medium_c.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Sensors/Medium/sensor_pulse_medium_c.skel"
+ShapeFileEnd
+
+
+
+ShapeFileBegin   "deploy_sensor_pulse.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Sensors/Pulse/deploy_sensor_pulse.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Sensors/Pulse/deploy_sensor_pulse.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "deploy_sensor_pulse_c.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Sensors/Pulse/deploy_sensor_pulse_c.skel"
+ShapeFileEnd
+
+
+
+
+//==============================================================================
+// Turrets
+//==============================================================================
+
+CompressTexturesOff
+
+// Barrel turrets
+
+ShapeFileBegin   "turret_base_large.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Turrets/Base/turret_base_large.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Turrets/Base/turret_base_large_damage.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Turrets/Base/turret_base_large.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Turrets/Base/turret_base_large_damage.skel"  // For destroyed anim
+ShapeFileEnd
+
+ShapeFileBegin   "turret_base_large_c.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Turrets/Base/turret_base_large_c.skel"
+ShapeFileEnd
+
+CompressTexturesOn
+
+ShapeFileBegin   "turret_aa_large.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Turrets/AA/turret_aa_large.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Turrets/AA/turret_aa_large.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "turret_elf_large.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Turrets/ELF/turret_elf_large.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Turrets/ELF/turret_elf_large.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "turret_missile_large.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Turrets/Missile/turret_missile_large.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Turrets/Missile/turret_missile_large.skel"
+ShapeFileEnd
+
+// Fusion mortar!
+ShapeFileBegin   "turret_mortar_large.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Turrets/Mortar/turret_mortar_large.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Turrets/Mortar/turret_mortar_large.skel"
+ShapeFileEnd
+
+// Plasma!
+ShapeFileBegin   "turret_fusion_large.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Turrets/Plasma/turret_fusion_large.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Turrets/Plasma/turret_fusion_large.skel"
+ShapeFileEnd
+
+
+CompressTexturesOff
+
+// Misc turrets
+
+// Sentry
+ShapeFileBegin   "turret_sentry.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Turrets/Sentry/turret_sentry.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Turrets/Sentry/turret_sentry_damage.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Turrets/Sentry/turret_sentry_new.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Turrets/Sentry/turret_sentry_damage.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "turret_sentry_c.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Turrets/Sentry/turret_sentry_c.SKEL"
+ShapeFileEnd
+
+
+// Spider
+ShapeFileBegin   "turret_delpoy.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Turrets/Spider/turret_deploy.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Turrets/Spider/turret_deploy.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "turret_deploy_c.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Turrets/Spider/turret_deploy_c.SKEL"
+ShapeFileEnd
+
+
+//==============================================================================
+// Global scenics
+//==============================================================================
+
+CompressTexturesOn
+
+// Nexus
+ShapeFileBegin   "nexus_base.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Objectives/NexusBase/nexusbase.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Objectives/NexusBase/nexusbase.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "nexus_cap.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Objectives/NexusCap/nexuscap.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Objectives/NexusCap/nexuscap.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "nexus_effect.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Objectives/NexusEffect/nexus_effect.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Objectives/NexusEffect/nexus_effect.skel"
+ShapeFileEnd
+
+
+// Logo projector
+ShapeFileBegin   "logo_projector.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Objectives/LogoProjector/logo_projector.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Objectives/LogoProjector/logo_projector.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "team_logo_taa.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Objectives/LogoProjector/team_logo_taa.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "team_logo_inferno.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Objectives/LogoProjector/team_logo_inferno.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "team_logo_storm.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Objectives/LogoProjector/team_logo_storm.skel"
+ShapeFileEnd
+
+
+// Flag stand
+ShapeFileBegin   "flagstand.shp"
+ModelFile       "P:/Art/Delivery/shapes/flags/flagstand.skel"
+ShapeFileEnd
+
+
+// Stackables
+ShapeFileBegin   "Stackable1L.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable1L.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable1L_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "Stackable2L.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable2L.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable2L_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "Stackable3L.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable3L.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable3L_c.skel"
+ShapeFileEnd
+
+//ShapeFileBegin   "Stackable4L.shp" *** GONE NOW! 10/9/2001 ***
+//ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable4L.skel"
+//ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable4L_c.skel"
+//ShapeFileEnd
+
+ShapeFileBegin   "Stackable5L.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable5L.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable5L_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "Stackable1M.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable1M.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable1M_c.skel"
+ShapeFileEnd
+
+//ShapeFileBegin   "Stackable2M.shp" *** GONE NOW! 10/9/2001 ***
+//ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable2M.skel"
+//ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable2M_c.skel"
+//ShapeFileEnd
+
+ShapeFileBegin   "Stackable3M.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable3M.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable3M_c.skel"
+ShapeFileEnd
+
+//ShapeFileBegin   "Stackable1S.shp" *** GONE NOW! 10/9/2001 ***
+//ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable1S.skel"
+//ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable1S_c.skel"
+//ShapeFileEnd
+
+//ShapeFileBegin   "Stackable2S.shp" *** GONE NOW! 10/9/2001 ***
+//ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable2S.skel"
+//ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable2S_c.skel"
+//ShapeFileEnd
+
+ShapeFileBegin   "Stackable3S.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable3S.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Stackables/Stackable3S_c.skel"
+ShapeFileEnd
+
+
+
+// Statues
+ShapeFileBegin   "statue_base.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Statues/statue_base.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Statues/statue_base_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "statue_hmale.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Statues/statue_hmale.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Statues/statue_hmale_c.skel"
+ShapeFileEnd
+
+
+// Vehicle wrecks
+ShapeFileBegin   "vehicle_land_assault_wreck.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Statues/vehicle_land_assault_wreck.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Statues/vehicle_land_assault_wreck_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "vehicle_air_scout_wreck.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Statues/vehicle_air_scout_wreck.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Statues/vehicle_air_scout_wreck_c.skel"
+ShapeFileEnd
+
+
+//==============================================================================
+// Debris
+//==============================================================================
+
+ShapeFileBegin   "particle_debris_v1.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Debris/particle_debris_v1.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Debris/particle_debris_v1.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "particle_debris_v2.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Debris/particle_debris_v2.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Debris/particle_debris_v2.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "particle_debris_v3.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Debris/particle_debris_v3.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Debris/particle_debris_v3.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "particle_debris_v4.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Debris/particle_debris_v4.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Debris/particle_debris_v4.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "particle_debris_v5.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Debris/particle_debris_v5.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Debris/particle_debris_v5.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "particle_debris_v6.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Debris/particle_debris_v6.skel"
+AnimFile        "P:/Art/Delivery/Shapes/Debris/particle_debris_v6.skel"
+ShapeFileEnd
+
+

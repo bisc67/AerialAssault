@@ -1,0 +1,8 @@
+create Linux-Release/Particles.lib
+addmod ./Linux-Release/ParticleEffect.obj
+addmod ./Linux-Release/ParticleEmitter.obj
+addmod ./Linux-Release/ParticleLibrary.obj
+addmod ./Linux-Release/ParticlePool.obj
+addmod ./Linux-Release/PostFX.obj
+save
+end 

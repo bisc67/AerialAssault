@@ -1,0 +1,14 @@
+KEY           "563325df561cae9369aa7201"
+GAMETYPE      "CTF"
+MAXPLAYERS    16
+MAXCLIENTS    16
+SERVERNAME    "Bisc Test"
+PASSWORD      ""
+VOTEPASS      100
+TEAMDAMAGE    50
+TIMELIMIT     20
+LOGGING      "OFF" "."
+TELNET        "joey" "pass"
+PORT          28000
+IRC-SERVER     24.147.151.184 6667
+IRC-CHANNEL    "Barbrady"

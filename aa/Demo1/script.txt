@@ -1,0 +1,7 @@
+-overwrite
+
+-convert P8_BGR_888
+-ps2
+-writexbmp
+
+splash.tga

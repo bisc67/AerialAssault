@@ -1,0 +1,21 @@
+create Linux-Release/Shape.lib
+addmod ./Linux-Release/Anim.obj
+addmod ./Linux-Release/HotPoint.obj
+addmod ./Linux-Release/LabelSet.obj
+addmod ./Linux-Release/Material.obj
+addmod ./Linux-Release/Model.obj
+addmod ./Linux-Release/Node.obj
+addmod ./Linux-Release/Poly.obj
+addmod ./Linux-Release/SelectionList.obj
+addmod ./Linux-Release/Shape.obj
+addmod ./Linux-Release/ShapeBinFile.obj
+addmod ./Linux-Release/ShapeInstance.obj
+addmod ./Linux-Release/ShapeManager.obj
+addmod ./Linux-Release/ShapeReadAsc.obj
+addmod ./Linux-Release/Strip.obj
+addmod ./Linux-Release/Texture.obj
+addmod ./Linux-Release/TextureManager.obj
+addmod ./Linux-Release/Util.obj
+addmod ./Linux-Release/Vert.obj
+save
+end 

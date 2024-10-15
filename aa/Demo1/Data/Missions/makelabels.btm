@@ -1,0 +1,16 @@
+@echo off
+dir /s /b *.mis >tmp.lst
+
+for %f in (@tmp.lst) do (
+
+        set n=%@REPLACE[.mis,.nis,%f]
+
+        echo %f
+        c:\perl\bin\perl.exe missionlabel.pl <%f >%n
+
+        del %f >NUL
+        ren %n %f >NUL
+)
+
+del tmp.lst >NUL
+

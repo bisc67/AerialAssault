@@ -1,0 +1,343 @@
+;==========================================================================
+;
+; Code to transform/view volume clip/render a textured diffuse+reflect material
+;
+;==========================================================================
+
+
+;==========================================================================
+; Transforms a bunch of verts (# is not / by 4)
+;==========================================================================
+SHAPE_MICRO_CODE_DRAW_TEX_DIF_REF_CLIP:
+
+    NOP                                                             FCSET 0         ; Clear clip flags
+                                                                    
+    NOP                                                             XTOP VertsGifTag     ; Get gif tag
+    NOP                                                             IADDIU VertAddr, VertsGifTag, SHAPE_VERTS_ADDR
+    NOP                                                             ILW.z VertCount,SHAPE_PARAMS_ADDR(VI00)     ; Get # verts
+
+
+;==========================================================================
+; Load and process start 2 verts of strip
+;==========================================================================
+
+    ;==================================================================
+    ; Setup vert0 in clip space and screen space
+    ;==================================================================
+
+    ; Load vert
+    NOP                                                             LQ.xyzw Vert0_Pos(xyzw), (VERT_POS  + (0*VERT_SIZE))(VertAddr)
+    NOP                                                             LQ.xyzw Vert0_Col(xyzw), (VERT_NORM + (0*VERT_SIZE))(VertAddr)
+    NOP                                                             LQ.xy   Vert0_UV(xy),    (VERT_UV   + (0*VERT_SIZE))(VertAddr)
+                                                                       
+    ; Convert from float to int                                     
+    NOP                                                             NOP
+    ITOF0.xyz Vert0_Pos(xyz), Vert0_Pos(xyz)                        NOP             
+    ITOF0.xyz Vert0_Col(xyz), Vert0_Col(xyz)                        MR32.zw Vert0_UV(zw), VF00   ; Set z=1.0, w=0.0
+    ITOF12.xy Vert0_UV(xy),   Vert0_UV(xy)                          NOP
+                                                                   
+    ; Transform from local->clip space / Get NoKick bit
+    NOP                                                             NOP
+    MULAx.xyzw  ACC, L2C0(xyzw),  Vert0_Pos(x)                      MTIR Vert0_NoKick, Vert0_Pos(w)
+    MADDAy.xyzw ACC, L2C1(xyzw),  Vert0_Pos(y)	                    NOP
+    MADDAz.xyzw ACC, L2C2(xyzw),  Vert0_Pos(z)	                    NOP
+    MADDw.xyzw  Vert0_Pos(xyzw), L2C3(xyzw), VF00w                  NOP
+
+    ; Calculate vert reflection uv's from normal
+    MULAx.xy ACCxy, Ref0(xy), Vert0_Col(x)                          MR32.zw Vert0_RefUV(zw), VF00   ; Set z=1.0
+    MADDAy.xy ACCxy, Ref1(xy), Vert0_Col(y)                         LOI 0.5
+    MADDz.xy Vert0_RefUV(xy), Ref2(xy), Vert0_Col(z)                NOP
+                                                               
+    ; Perform directional lighting dot product + color multiply                              
+    MULAx.xyz  ACC, Light_DirCol0(xyz), Vert0_Col(x)                NOP
+    MADDAy.xyz ACC, Light_DirCol1(xyz), Vert0_Col(y)	            NOP
+    MADDz.xyz Vert0_Col(xyz),  Light_DirCol2(xyz), Vert0_Col(z)     NOP
+
+    ; Transform from clip->screen space (results in vert3)
+    MULAx.xyzw  ACC, C2S0(xyzw),  Vert0_Pos(x)                      NOP
+    MADDAy.xyzw ACC, C2S1(xyzw),  Vert0_Pos(y)	                    NOP
+    MADDAz.xyzw ACC, C2S2(xyzw),  Vert0_Pos(z)	                    NOP
+    MADDw.xyzw  Vert3_Pos(xyzw), C2S3(xyzw), Vert0_Pos(w)           NOP
+
+    ; Make light one directional
+    MAXx.xyz  Vert0_Col(xyz),  Vert0_Col(xyz),    VF00x             NOP
+    
+    ; Add vert to clipping history
+    CLIPw.xyz Vert0_Pos(xyz), Vert0_Pos(w)                          NOP
+
+    ; Finish off reflection mapping by making UV 0->1
+    ADDi.xy Vert0_RefUV(xy), Vert0_RefUV(xy), I                     NOP
+
+    ; Add light ambient / Start perspective divide / Keep NoKick
+    NOP                                                             DIV Q, VF00w, Vert3_Pos(w)
+    ADD.xyzw  Vert0_Col(xyzw), Vert0_Col(xyzw),   Light_Amb(xyzw)   MFIR.w Vert3_Pos(w), Vert0_NoKick
+
+    ; Project pos (results in vert3)
+    NOP                                                             NOP
+    NOP                                                             NOP
+    NOP                                                             NOP
+    NOP                                                             NOP
+    NOP                                                             NOP
+    MULq.xyz Vert3_Pos(xyz), Vert3_Pos(xyz),Q                       NOP
+
+    ; Project UVs (results in vert3)
+    MULq.xyzw Vert3_UV(xyzw),    Vert0_UV(xyzw), Q	                NOP
+    MULq.xyzw Vert3_RefUV(xyzw), Vert0_RefUV(xyzw), Q	            NOP
+
+    ; Convert pos to integer ready for hardware
+    NOP                                                             NOP
+    FTOI4.xyz  Vert3_Pos(xyz), Vert3_Pos(xyz)                       NOP
+
+    ; Convert col to integer ready for hardware
+    FTOI0.xyzw Vert3_Col(xyzw), Vert0_Col(xyzw)                     NOP
+    
+    ; Store vert
+    NOP                                                             SQ.xyzw Vert3_UV(xyzw),   (VERT_UV+    (0*VERT_SIZE))(VertAddr)
+    NOP                                                             SQ.xyzw Vert3_RefUV(xyzw),(VERT_REF_UV+(0*VERT_SIZE))(VertAddr)
+    NOP                                                             SQ.xyzw Vert3_Pos(xyzw),  (VERT_POS+   (0*VERT_SIZE))(VertAddr)
+    NOP                                                             SQ.xyzw Vert3_Col(xyzw),  (VERT_NORM + (0*VERT_SIZE))(VertAddr)
+
+
+    ;==================================================================
+    ; Setup vert1 in clip space and screen space
+    ;==================================================================
+
+    ; Load vert
+    NOP                                                             LQ.xyzw Vert1_Pos(xyzw), (VERT_POS  + (1*VERT_SIZE))(VertAddr)
+    NOP                                                             LQ.xyzw Vert1_Col(xyzw), (VERT_NORM + (1*VERT_SIZE))(VertAddr)
+    NOP                                                             LQ.xy   Vert1_UV(xy),    (VERT_UV   + (1*VERT_SIZE))(VertAddr)
+                                                                       
+    ; Convert from float to int                                     
+    NOP                                                             NOP
+    ITOF0.xyz Vert1_Pos(xyz), Vert1_Pos(xyz)                        NOP             
+    ITOF0.xyz Vert1_Col(xyz), Vert1_Col(xyz)                        MR32.zw Vert1_UV(zw), VF00   ; Set z=1.0, w=0.0
+    ITOF12.xy Vert1_UV(xy),   Vert1_UV(xy)                          NOP
+                                                                   
+    ; Transform from local->clip space / Get NoKick bit
+    NOP                                                             NOP
+    MULAx.xyzw  ACC, L2C0(xyzw),  Vert1_Pos(x)                      MTIR Vert1_NoKick, Vert1_Pos(w)
+    MADDAy.xyzw ACC, L2C1(xyzw),  Vert1_Pos(y)	                    NOP
+    MADDAz.xyzw ACC, L2C2(xyzw),  Vert1_Pos(z)	                    NOP
+    MADDw.xyzw  Vert1_Pos(xyzw), L2C3(xyzw), VF00w                  NOP
+
+    ; Calculate vert reflection uv's from normal
+    MULAx.xy ACCxy, Ref0(xy), Vert1_Col(x)                          MR32.zw Vert1_RefUV(zw), VF00   ; Set z=1.0
+    MADDAy.xy ACCxy, Ref1(xy), Vert1_Col(y)                         LOI 0.5
+    MADDz.xy Vert1_RefUV(xy), Ref2(xy), Vert1_Col(z)                NOP
+                                                               
+    ; Perform directional lighting dot product + color multiply                              
+    MULAx.xyz  ACC, Light_DirCol0(xyz), Vert1_Col(x)                NOP
+    MADDAy.xyz ACC, Light_DirCol1(xyz), Vert1_Col(y)	            NOP
+    MADDz.xyz Vert1_Col(xyz),  Light_DirCol2(xyz), Vert1_Col(z)     NOP
+
+    ; Transform from clip->screen space (results in vert3)
+    MULAx.xyzw  ACC, C2S0(xyzw),  Vert1_Pos(x)                      NOP
+    MADDAy.xyzw ACC, C2S1(xyzw),  Vert1_Pos(y)	                    NOP
+    MADDAz.xyzw ACC, C2S2(xyzw),  Vert1_Pos(z)	                    NOP
+    MADDw.xyzw  Vert3_Pos(xyzw), C2S3(xyzw), Vert1_Pos(w)           NOP
+
+    ; Make light one directional
+    MAXx.xyz  Vert1_Col(xyz),  Vert1_Col(xyz),    VF00x             NOP
+    
+    ; Add vert to clipping history
+    CLIPw.xyz Vert1_Pos(xyz), Vert1_Pos(w)                          NOP
+
+    ; Finish off reflection mapping by making UV 0->1
+    ADDi.xy Vert1_RefUV(xy), Vert1_RefUV(xy), I                     NOP
+
+    ; Add light ambient / Start perspective divide / Keep NoKick
+    NOP                                                             DIV Q, VF00w, Vert3_Pos(w)
+    ADD.xyzw  Vert1_Col(xyzw), Vert1_Col(xyzw),   Light_Amb(xyzw)   MFIR.w Vert3_Pos(w), Vert1_NoKick
+
+    ; Project pos (results in vert3)
+    NOP                                                             NOP
+    NOP                                                             NOP
+    NOP                                                             NOP
+    NOP                                                             NOP
+    NOP                                                             NOP
+    MULq.xyz Vert3_Pos(xyz), Vert3_Pos(xyz),Q                       NOP
+
+    ; Project UVs (results in vert3)
+    MULq.xyzw Vert3_UV(xyzw),    Vert1_UV(xyzw), Q	                NOP
+    MULq.xyzw Vert3_RefUV(xyzw), Vert1_RefUV(xyzw), Q	            NOP
+
+    ; Convert pos to integer ready for hardware
+    NOP                                                             NOP
+    FTOI4.xyz  Vert3_Pos(xyz), Vert3_Pos(xyz)                       NOP
+
+    ; Convert col to integer ready for hardware
+    FTOI0.xyzw Vert3_Col(xyzw), Vert1_Col(xyzw)                     NOP
+    
+    ; Store vert
+    NOP                                                             SQ.xyzw Vert3_UV(xyzw),   (VERT_UV+    (1*VERT_SIZE))(VertAddr)
+    NOP                                                             SQ.xyzw Vert3_RefUV(xyzw),(VERT_REF_UV+(1*VERT_SIZE))(VertAddr)
+    NOP                                                             SQ.xyzw Vert3_Pos(xyzw),  (VERT_POS+   (1*VERT_SIZE))(VertAddr)
+    NOP                                                             SQ.xyzw Vert3_Col(xyzw),  (VERT_NORM + (1*VERT_SIZE))(VertAddr)
+
+
+;==================================================================
+; Vert loop...
+;==================================================================
+
+    ; Update the vert addr and count since 1st 2 verts have been processed
+    NOP                                                             ISUBIU VertCount, VertCount, 2  ; Update vert count
+    NOP                                                             IADDIU VertAddr, VertAddr, (VERT_SIZE * 2)
+
+TexDifRefClipSingleVertLoop:
+
+    ;==================================================================
+    ; Setup vert2 in clip space and screen space and collect tri clip info
+    ;==================================================================
+
+    ; Load vert
+    NOP                                                             LQ.xyzw Vert2_Pos(xyzw), (VERT_POS  + (0*VERT_SIZE))(VertAddr)
+    NOP                                                             LQ.xyzw Vert2_Col(xyzw), (VERT_NORM + (0*VERT_SIZE))(VertAddr)
+    NOP                                                             LQ.xy   Vert2_UV(xy),    (VERT_UV   + (0*VERT_SIZE))(VertAddr)
+                                                                       
+    ; Convert from float to int                                     
+    NOP                                                             NOP
+    ITOF0.xyz Vert2_Pos(xyz), Vert2_Pos(xyz)                        NOP             
+    ITOF0.xyz Vert2_Col(xyz), Vert2_Col(xyz)                        MR32.zw Vert2_UV(zw), VF00   ; Set z=1.0, w=0.0
+    ITOF12.xy Vert2_UV(xy),   Vert2_UV(xy)                          NOP
+                                                                   
+    ; Transform from local->clip space / Get NoKick bit
+    NOP                                                             NOP
+    MULAx.xyzw  ACC, L2C0(xyzw),  Vert2_Pos(x)                      MTIR Vert2_NoKick, Vert2_Pos(w)
+    MADDAy.xyzw ACC, L2C1(xyzw),  Vert2_Pos(y)	                    IADDIU ClipResults, VI00, 0x7fff        ; Keep ADC bit only
+    MADDAz.xyzw ACC, L2C2(xyzw),  Vert2_Pos(z)	                    IADDIU ClipResults, ClipResults, 1
+    MADDw.xyzw  Vert2_Pos(xyzw), L2C3(xyzw), VF00w                  IAND Vert2_NoKick, Vert2_NoKick, ClipResults
+                                                  
+    ; Calculate vert reflection uv's from normal
+    MULAx.xy ACCxy, Ref0(xy), Vert2_Col(x)                          MR32.zw Vert2_RefUV(zw), VF00   ; Set z=1.0
+    MADDAy.xy ACCxy, Ref1(xy), Vert2_Col(y)                         LOI 0.5
+    MADDz.xy Vert2_RefUV(xy), Ref2(xy), Vert2_Col(z)                NOP
+                                                               
+    ; Perform directional lighting dot product + color multiply                              
+    MULAx.xyz  ACC, Light_DirCol0(xyz), Vert2_Col(x)                NOP
+    MADDAy.xyz ACC, Light_DirCol1(xyz), Vert2_Col(y)	            NOP
+    MADDz.xyz Vert2_Col(xyz),  Light_DirCol2(xyz), Vert2_Col(z)     NOP
+
+    ; Transform from clip->screen space (results in vert3)
+    MULAx.xyzw  ACC, C2S0(xyzw),  Vert2_Pos(x)                      NOP
+    MADDAy.xyzw ACC, C2S1(xyzw),  Vert2_Pos(y)	                    NOP
+    MADDAz.xyzw ACC, C2S2(xyzw),  Vert2_Pos(z)	                    NOP
+    MADDw.xyzw  Vert3_Pos(xyzw), C2S3(xyzw), Vert2_Pos(w)           NOP
+
+    ; Make light one directional
+    MAXx.xyz  Vert2_Col(xyz),  Vert2_Col(xyz),    VF00x             NOP
+    
+    ; Add vert to clipping history / Clear trivial reject flags to vert no kick (incase it's not drawn at all!)
+    CLIPw.xyz Vert2_Pos(xyz), Vert2_Pos(w)                          IADD ClipRejectResults, Vert2_NoKick, VI00
+
+    ; Finish off reflection mapping by making UV 0->1
+    ADDi.xy Vert2_RefUV(xy), Vert2_RefUV(xy), I                     NOP
+
+    ; Add light ambient / Start perspective divide / Keep NoKick
+    NOP                                                             DIV Q, VF00w, Vert3_Pos(w)
+    ADD.xyzw  Vert2_Col(xyzw), Vert2_Col(xyzw),   Light_Amb(xyzw)   MFIR.w Vert3_Pos(w), Vert2_NoKick
+
+    ; Trivial reject right plane?
+    NOP                                                             FCOR ClipResults, ~(CLIP_TRI_POS_X_FLAGS)
+    NOP                                                             IOR ClipRejectResults, ClipRejectResults, ClipResults
+
+    ; Trivial reject left plane?
+    NOP                                                             FCOR ClipResults, ~(CLIP_TRI_NEG_X_FLAGS)
+    NOP                                                             IOR ClipRejectResults, ClipRejectResults, ClipResults
+    
+    ; Project pos (results in vert3) / Trivial reject bottom plane?
+    NOP                                                             FCOR ClipResults, ~(CLIP_TRI_POS_Y_FLAGS)
+    MULq.xyz Vert3_Pos(xyz), Vert3_Pos(xyz),Q                       IOR ClipRejectResults, ClipRejectResults, ClipResults
+
+    ; Project UVs (results in vert3) / Trivial reject top plane?
+    MULq.xyzw Vert3_UV(xyzw),    Vert2_UV(xyzw), Q	                FCOR ClipResults, ~(CLIP_TRI_NEG_Y_FLAGS)
+    MULq.xyzw Vert3_RefUV(xyzw), Vert2_RefUV(xyzw), Q               IOR ClipRejectResults, ClipRejectResults, ClipResults
+
+    ; Convert pos to integer ready for hardware / Trivial reject back plane? (NOTE - if any points are out of range!)
+    NOP                                                             FCAND ClipResults, CLIP_TRI_POS_Z_FLAGS
+    FTOI4.xyz  Vert3_Pos(xyz), Vert3_Pos(xyz)                       IOR ClipRejectResults, ClipRejectResults, ClipResults
+
+    ; Convert col to integer ready for hardware / Trivial reject front plane?
+    FTOI0.xyzw Vert3_Col(xyzw), Vert2_Col(xyzw)                     FCOR ClipResults, ~(CLIP_TRI_NEG_Z_FLAGS)
+    NOP                                                             IOR ClipRejectResults, ClipRejectResults, ClipResults
+    
+    ; Store vert
+    NOP                                                             SQ.xyzw Vert3_UV(xyzw),   (VERT_UV+    (0*VERT_SIZE))(VertAddr)
+    NOP                                                             SQ.xyzw Vert3_RefUV(xyzw),(VERT_REF_UV+(0*VERT_SIZE))(VertAddr)
+    NOP                                                             SQ.xyzw Vert3_Pos(xyzw),  (VERT_POS+   (0*VERT_SIZE))(VertAddr)
+    NOP                                                             SQ.xyzw Vert3_Col(xyzw),  (VERT_NORM + (0*VERT_SIZE))(VertAddr)
+
+
+;==================================================================
+; Check clipping flags of last 3 verts
+;==================================================================
+
+    ; Trivial reject?
+    NOP                                                             IBNE ClipRejectResults, VI00, TexDifRefClipTrivialReject
+
+    ; Trivial accept? (just skip to next vert)
+    NOP                                                             FCAND ClipResults, CLIP_TRI_FLAGS
+    NOP                                                             NOP
+	NOP                                                             IBEQ ClipResults, VI00, TexDifRefClipNextVert
+    NOP                                                             NOP
+
+    ; Clipping is needed - fall through and call the clipper....
+
+;==================================================================
+; Clip tri...
+;==================================================================
+
+    ; Call clipper
+    NOP                                                             BAL ClipperReturnAddr, SHAPE_MICRO_CODE_TEX_DIF_REF_CLIP_CMD
+
+    ; Fall through to trivial reject this tri in the strip list
+
+;==================================================================
+; Trivial reject
+;==================================================================
+TexDifRefClipTrivialReject:
+
+    ; Just set the ADC bit to stop this tri being drawn in the strip list
+    NOP                                                             ISUBIU Vert2_NoKick, VI00, 1
+    NOP                                                             ISW.w Vert2_NoKick, (VERT_POS + (0*VERT_SIZE))(VertAddr)
+
+    ; Fall through to next vert...
+
+;==================================================================
+; Trivial accept / Next vert
+;==================================================================
+TexDifRefClipNextVert:
+
+    ; Update vert count
+    NOP                                                             ISUBIU VertCount, VertCount, 1
+
+    ; Roll registers for next tri
+    NOP                                                             MOVE Vert0_Pos(xyzw),   Vert1_Pos(xyzw)
+    NOP                                                             MOVE Vert0_Col(xyzw),   Vert1_Col(xyzw)
+    NOP                                                             MOVE Vert0_UV(xyzw),    Vert1_UV(xyzw)
+    NOP                                                             MOVE Vert0_RefUV(xyzw), Vert1_RefUV(xyzw)
+    NOP                                                             IADD Vert0_NoKick, Vert1_NoKick, VI00
+
+    NOP                                                             MOVE Vert1_Pos(xyzw),   Vert2_Pos(xyzw)
+    NOP                                                             MOVE Vert1_Col(xyzw),   Vert2_Col(xyzw)
+    NOP                                                             MOVE Vert1_UV(xyzw),    Vert2_UV(xyzw)
+    NOP                                                             MOVE Vert1_RefUV(xyzw), Vert2_RefUV(xyzw)
+    NOP                                                             IADD Vert1_NoKick, Vert2_NoKick, VI00
+                                                                    
+    ; Vert loop done? / Next vert addr                                                    
+    NOP				                                                IBGTZ VertCount, TexDifRefClipSingleVertLoop
+    NOP                                                             IADDIU VertAddr, VertAddr, (VERT_SIZE*1)
+                                                                    
+    ; Finally - draw!                                               
+    NOP                                                             ILW.z VertCount,SHAPE_PARAMS_ADDR(VI00) ; Get # verts
+    NOP                                                             BAL RenderReturnAddr, SHAPE_MICRO_CODE_RENDER_CMD
+    NOP                                                             XTOP VertsGifTag
+    
+    ; Exit
+    NOP[E]      NOP
+    NOP         NOP
+
+
+;==========================================================================
+
+
+

@@ -1,0 +1,4 @@
+create Linux-Debug/StringMgr.lib
+addmod ./Linux-Debug/StringMgr.obj
+save
+end 

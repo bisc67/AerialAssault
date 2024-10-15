@@ -1,0 +1,318 @@
+;==========================================================================
+;
+; FOG.VU
+;
+;==========================================================================
+
+;==========================================================================
+;==========================================================================
+;==========================================================================
+; SETUP
+;==========================================================================
+;==========================================================================
+;==========================================================================
+;
+; User must set FOG_MEM_BASE to beginning of fog memory.
+; The fog needs 3 vectors of memory
+;
+;==========================================================================
+
+.equ FOG_MEM_BASE,          1007
+
+;==========================================================================
+;==========================================================================
+;==========================================================================
+; MEMORY LAYOUT
+;==========================================================================
+;==========================================================================
+;==========================================================================
+;
+;  0 - EyePos
+;  1 - Const 0
+;  2 - Const 1
+;
+;==========================================================================
+
+
+;==========================================================================
+;   VI00    Const (0)
+;   VI01    Src/Dst ptr
+;   VI02    N vectors to process 
+;   VI03    
+;   VI04    
+;   VI05    
+;   VI06    
+;==========================================================================
+;   VF00    Const x=0 y=0 z=0 w=1
+;   VF01    Eye position
+;   VF02    Dist constants
+;   VF03    DeltaY Constants
+
+;   VF04    Delta and ST
+;   VF05    Vert
+
+;   VF06    Delta and ST
+;   VF07    Vert
+
+;   VF08    Delta and ST
+;   VF09    Vert
+
+;   VF10    Delta and ST
+;   VF11    Vert
+
+;   VF12    Delta and ST
+;   VF13    Vert
+
+;   VF14    Delta and ST
+;   VF15    Vert
+
+;==========================================================================
+/*
+FOG_LOOP_ENTRY_WITH_Q:
+
+        ; Read fog info into registers   
+        NOP                                 LQ VF01, (FOG_MEM_BASE+0)(VI00)
+        NOP                                 LQ VF02, (FOG_MEM_BASE+1)(VI00)
+        NOP                                 LQ VF03, (FOG_MEM_BASE+2)(VI00)
+
+FOG_LOOP_WITH_Q:
+
+        NOP                                 ISUBIU VI02, VI02, 3    ; Decrement counter
+
+        NOP                                 LQ VF05, 0(VI01)        ; Read vertex
+        NOP                                 LQ VF07, 1(VI01)        ; Read vertex
+        NOP                                 LQ VF09, 2(VI01)        ; Read vertex
+        SUB.xyz VF04xyz, VF05xyz, VF01xyz   NOP                     ; Compute delta between eye and vertex
+        SUB.xyz VF06xyz, VF07xyz, VF01xyz   NOP                     ; Compute delta between eye and vertex
+        SUB.xyz VF08xyz, VF09xyz, VF01xyz   NOP                     ; Compute delta between eye and vertex
+        NOP                                 ELENG P, VF04           ; Begin length calculation
+        NOP                                 ELENG P, VF06           ; Begin length calculation
+        NOP                                 ELENG P, VF08           ; Begin length calculation
+        NOP                                 MOVE.y VF04, VF05       ; Move world Y back into vector
+        NOP                                 MOVE.y VF06, VF07       ; Move world Y back into vector
+        NOP                                 MOVE.y VF08, VF09       ; Move world Y back into vector
+
+            NOP                                 LQ VF11, 3(VI01)        ; Read vertex
+            NOP                                 LQ VF13, 4(VI01)        ; Read vertex
+            NOP                                 LQ VF15, 5(VI01)        ; Read vertex
+            SUB.xyz VF10xyz, VF11xyz, VF01xyz   NOP                     ; Compute delta between eye and vertex
+            SUB.xyz VF12xyz, VF13xyz, VF01xyz   NOP                     ; Compute delta between eye and vertex
+            SUB.xyz VF14xyz, VF15xyz, VF01xyz   NOP                     ; Compute delta between eye and vertex
+
+        NOP                                 WAITP                   ; Wait for dist computation to finish
+        NOP                                 MFP.x VF04x, P          ; Load dist into register
+        NOP                                 MFP.x VF06x, P          ; Load dist into register
+        NOP                                 MFP.x VF08x, P          ; Load dist into register
+
+        NOP                                 ELENG P, VF10           ; Begin length calculation
+        NOP                                 ELENG P, VF12           ; Begin length calculation
+        NOP                                 ELENG P, VF14           ; Begin length calculation
+
+        NOP                                 MOVE.y VF10, VF11       ; Move world Y back into vector
+        NOP                                 MOVE.y VF12, VF13       ; Move world Y back into vector
+        NOP                                 MOVE.y VF14, VF15       ; Move world Y back into vector
+
+            MUL VF04, VF04, VF02                NOP                     ; Apply Const0
+            MUL VF06, VF06, VF02                NOP                     ; Apply Const0
+            MUL VF08, VF08, VF02                NOP                     ; Apply Const0
+            ADD VF04, VF04, VF03                NOP                     ; Apply Const1
+            ADD VF06, VF06, VF03                NOP                     ; Apply Const1
+            ADD VF08, VF08, VF03                NOP                     ; Apply Const1
+            MULw.xyzw VF04xyzw, VF04xyzw, VF05w NOP                     ; Scale by Q
+            MULw.xyzw VF06xyzw, VF06xyzw, VF07w NOP                     ; Scale by Q
+            MULw.xyzw VF08xyzw, VF08xyzw, VF09w NOP                     ; Scale by Q
+
+        NOP                                 WAITP                   ; Wait for dist computation to finish
+        NOP                                 MFP.x VF10x, P          ; Load dist into register
+        NOP                                 MFP.x VF12x, P          ; Load dist into register
+        NOP                                 MFP.x VF14x, P          ; Load dist into register
+        MUL VF10, VF10, VF02                SQ VF04, 0(VI01)        ; Store Result                     ; Apply Const0
+        MUL VF12, VF12, VF02                SQ VF06, 1(VI01)        ; Store Result                     ; Apply Const0
+        MUL VF14, VF14, VF02                SQ VF08, 2(VI01)        ; Store Result                     ; Apply Const0
+        ADD VF10, VF10, VF03                IBEQ VI02, VI00, FOG_LOOP_RET_WITH_Q                    ; Apply Const1
+        ADD VF12, VF12, VF03                ISUBIU VI02, VI02, 3    ; Decrement counter                ; Apply Const1
+        ADD VF14, VF14, VF03                NOP                     ; Apply Const1
+        MULw.xyzw VF10xyzw, VF10xyzw, VF11w NOP                     ; Scale by Q
+        MULw.xyzw VF12xyzw, VF12xyzw, VF13w NOP                     ; Scale by Q
+        MULw.xyzw VF14xyzw, VF14xyzw, VF15w NOP                     ; Scale by Q
+        NOP                                 SQ VF10, 3(VI01)        ; Store Result
+        NOP                                 SQ VF12, 4(VI01)        ; Store Result
+        NOP                                 SQ VF14, 5(VI01)        ; Store Result
+
+        ; Increment src ptr and continue loop
+        NOP                                 IBNE VI02, VI00, FOG_LOOP_WITH_Q
+        NOP                                 IADDIU VI01, VI01, 6
+
+FOG_LOOP_RET_WITH_Q:
+        NOP                             JR VI15
+        NOP                             NOP
+*/
+
+;==========================================================================
+/*
+FOG_LOOP_ENTRY_WITH_Q:
+
+        ; Read fog info into registers   
+        NOP                                 LQ VF01, (FOG_MEM_BASE+0)(VI00)
+        NOP                                 LQ VF02, (FOG_MEM_BASE+1)(VI00)
+        NOP                                 LQ VF03, (FOG_MEM_BASE+2)(VI00)
+
+FOG_LOOP_WITH_Q:
+
+        NOP                                 ISUBIU VI02, VI02, 3    ; Decrement counter
+
+        NOP                                 LQ VF05, 0(VI01)        ; Read vertex
+        NOP                                 LQ VF07, 1(VI01)        ; Read vertex
+        NOP                                 LQ VF09, 2(VI01)        ; Read vertex
+        SUB.xyz VF04xyz, VF05xyz, VF01xyz   NOP                     ; Compute delta between eye and vertex
+        SUB.xyz VF06xyz, VF07xyz, VF01xyz   NOP                     ; Compute delta between eye and vertex
+        SUB.xyz VF08xyz, VF09xyz, VF01xyz   NOP                     ; Compute delta between eye and vertex
+        NOP                                 ELENG P, VF04           ; Begin length calculation
+        NOP                                 WAITP                   ; Wait for dist computation to finish
+        NOP                                 MFP.x VF04x, P          ; Load dist into register
+        NOP                                 ELENG P, VF06           ; Begin length calculation
+        NOP                                 WAITP                   ; Wait for dist computation to finish
+        NOP                                 MFP.x VF06x, P          ; Load dist into register
+        NOP                                 ELENG P, VF08           ; Begin length calculation
+        NOP                                 WAITP                   ; Wait for dist computation to finish
+        NOP                                 MFP.x VF08x, P          ; Load dist into register
+        NOP                                 MOVE.y VF04, VF05       ; Move world Y back into vector
+        NOP                                 MOVE.y VF06, VF07       ; Move world Y back into vector
+        NOP                                 MOVE.y VF08, VF09       ; Move world Y back into vector
+
+        MUL VF04, VF04, VF02                NOP                     ; Apply Const0
+        MUL VF06, VF06, VF02                NOP                     ; Apply Const0
+        MUL VF08, VF08, VF02                NOP                     ; Apply Const0
+        ADD VF04, VF04, VF03                NOP                     ; Apply Const1
+        ADD VF06, VF06, VF03                NOP                     ; Apply Const1
+        ADD VF08, VF08, VF03                NOP                     ; Apply Const1
+        MULw.xyzw VF04xyzw, VF04xyzw, VF05w NOP                     ; Scale by Q
+        MULw.xyzw VF06xyzw, VF06xyzw, VF07w NOP                     ; Scale by Q
+        MULw.xyzw VF08xyzw, VF08xyzw, VF09w NOP                     ; Scale by Q
+
+        NOP                                 LQ VF11, 3(VI01)        ; Read vertex
+        NOP                                 LQ VF13, 4(VI01)        ; Read vertex
+        NOP                                 LQ VF15, 5(VI01)        ; Read vertex
+        SUB.xyz VF10xyz, VF11xyz, VF01xyz   NOP                     ; Compute delta between eye and vertex
+        SUB.xyz VF12xyz, VF13xyz, VF01xyz   NOP                     ; Compute delta between eye and vertex
+        SUB.xyz VF14xyz, VF15xyz, VF01xyz   NOP                     ; Compute delta between eye and vertex
+        NOP                                 ELENG P, VF10           ; Begin length calculation
+        NOP                                 WAITP                   ; Wait for dist computation to finish
+        NOP                                 MFP.x VF10x, P          ; Load dist into register
+        NOP                                 ELENG P, VF12           ; Begin length calculation
+        NOP                                 WAITP                   ; Wait for dist computation to finish
+        NOP                                 MFP.x VF12x, P          ; Load dist into register
+        NOP                                 ELENG P, VF14           ; Begin length calculation
+        NOP                                 WAITP                   ; Wait for dist computation to finish
+        NOP                                 MFP.x VF14x, P          ; Load dist into register
+        NOP                                 MOVE.y VF10, VF11       ; Move world Y back into vector
+        NOP                                 MOVE.y VF12, VF13       ; Move world Y back into vector
+        NOP                                 MOVE.y VF14, VF15       ; Move world Y back into vector
+
+        MUL VF10, VF10, VF02                SQ VF04, 0(VI01)        ; Store Result                     ; Apply Const0
+        MUL VF12, VF12, VF02                SQ VF06, 1(VI01)        ; Store Result                     ; Apply Const0
+        MUL VF14, VF14, VF02                SQ VF08, 2(VI01)        ; Store Result                     ; Apply Const0
+        ADD VF10, VF10, VF03                IBEQ VI02, VI00, FOG_LOOP_RET_WITH_Q                    ; Apply Const1
+        ADD VF12, VF12, VF03                ISUBIU VI02, VI02, 3    ; Decrement counter                ; Apply Const1
+        ADD VF14, VF14, VF03                NOP                     ; Apply Const1
+        MULw.xyzw VF10xyzw, VF10xyzw, VF11w NOP                     ; Scale by Q
+        MULw.xyzw VF12xyzw, VF12xyzw, VF13w NOP                     ; Scale by Q
+        MULw.xyzw VF14xyzw, VF14xyzw, VF15w NOP                     ; Scale by Q
+        NOP                                 SQ VF10, 3(VI01)        ; Store Result
+        NOP                                 SQ VF12, 4(VI01)        ; Store Result
+        NOP                                 SQ VF14, 5(VI01)        ; Store Result
+
+        ; Increment src ptr and continue loop
+        NOP                                 IBNE VI02, VI00, FOG_LOOP_WITH_Q
+        NOP                                 IADDIU VI01, VI01, 6
+
+FOG_LOOP_RET_WITH_Q:
+        NOP                             JR VI15
+        NOP                             NOP
+*/
+;==========================================================================
+
+FOG_LOOP_ENTRY_WITH_Q:
+
+        ; Read fog info into registers   
+        NOP                                 LQ VF01, (FOG_MEM_BASE+0)(VI00)
+        NOP                                 LQ VF02, (FOG_MEM_BASE+1)(VI00)
+        NOP                                 LQ VF03, (FOG_MEM_BASE+2)(VI00)
+
+        NOP                                 LQ VF06, 0(VI01)        ; Read vertex
+        SUB.xyz VF04xyz, VF06xyz, VF01xyz   NOP                     ; Compute delta between eye and vertex
+        NOP                                 ELENG P, VF04           ; Begin length calculation
+        NOP                                 MOVE VF05, VF04
+        NOP                                 MOVE VF07, VF06
+        NOP                                 LQ VF06, 1(VI01)        ; Read next vertex
+        SUB.xyz VF04xyz, VF06xyz, VF01xyz   NOP                     ; Compute delta between eye and vertex
+
+FOG_LOOP_WITH_Q:
+
+        NOP                                 WAITP                   ; Wait for dist computation to finish
+        NOP                                 MFP.x VF05x, P          ; Load dist into register
+
+        NOP                                 ELENG P, VF04           ; Begin length calculation
+
+            NOP                                 MOVE.y VF05, VF07
+            MUL VF05, VF05, VF02                NOP                     ; Apply Const0
+            ADD VF05, VF05, VF03                NOP                     ; Apply Const1
+            MULw.xyzw VF05xyzw, VF05xyzw, VF07w NOP                     ; Scale by Q
+            NOP                                 MOVE.w VF05w, VF07w     ; Store Q for later mult
+            NOP                                 SQ VF05, 0(VI01)        ; Store Result
+            NOP                                 ISUBIU VI02, VI02, 1    ; Decrement counter
+            NOP                                 IADDIU VI01, VI01, 1
+
+        NOP                                 MOVE VF05, VF04
+        NOP                                 MOVE VF07, VF06
+        NOP                                 LQ VF06, 1(VI01)        ; Read next vertex
+        SUB.xyz VF04xyz, VF06xyz, VF01xyz   NOP                     ; Compute delta between eye and vertex
+
+        ; Increment src ptr and continue loop
+        NOP                                 IBNE VI02, VI00, FOG_LOOP_WITH_Q
+        NOP                                 NOP
+
+FOG_LOOP_RET_WITH_Q:
+        NOP                             JR VI15
+        NOP                             NOP
+
+
+;==========================================================================
+
+FOG_LOOP_ENTRY_WITHOUT_Q:
+
+        ; Read fog info into registers   
+        NOP                                 LQ VF01, (FOG_MEM_BASE+0)(VI00)
+        NOP                                 LQ VF02, (FOG_MEM_BASE+1)(VI00)
+        NOP                                 LQ VF03, (FOG_MEM_BASE+2)(VI00)
+
+FOG_LOOP_WITHOUT_Q:
+
+        NOP                                 ISUBIU VI02, VI02, 1    ; Decrement counter
+        NOP                                 LQ VF06, 0(VI01)        ; Read vertex
+        SUB.xyz VF04xyz, VF06xyz, VF01xyz   NOP                     ; Compute delta between eye and vertex
+        NOP                                 ELENG P, VF04           ; Begin length calculation
+        NOP                                 WAITP                   ; Wait for dist computation to finish
+        NOP                                 MFP.x VF04x, P          ; Load dist into register
+        NOP                                 MOVE.y VF04, VF06
+        MUL VF04, VF04, VF02                NOP                     ; Apply Const0
+        ADD VF04, VF04, VF03                NOP                     ; Apply Const1
+        NOP                                 NOP
+        NOP                                 NOP
+        NOP                                 NOP
+        NOP                                 MOVE.w VF04w, VF06w     ; Store Q for later mult
+        NOP                                 NOP
+        NOP                                 NOP
+        NOP                                 NOP
+        NOP                                 SQ VF04, 0(VI01)        ; Store Result
+
+        ; Increment src ptr and continue loop
+        NOP                                 IBNE VI02, VI00, FOG_LOOP_WITHOUT_Q
+        NOP                                 IADDIU VI01, VI01, 1
+
+FOG_LOOP_RET_WITHOUT_Q:
+        NOP                             JR VI15
+        NOP                             NOP
+
+;==========================================================================
+

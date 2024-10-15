@@ -1,0 +1,135 @@
+//==============================================================================
+// Paths for .shp and .xbmp files
+//==============================================================================
+PC_SHP_PATH     "C:/Projects/AADS/AADS/Data/Shapes/PC"        
+PC_XBMP_PATH    "C:/Projects/AADS/AADS/Data/Shapes/PC"        
+
+PS2_SHP_PATH    "C:/Projects/AADS/AADS/Data/Shapes/PS2"        
+PS2_XBMP_PATH   "C:/Projects/AADS/AADS/Data/Shapes/PS2"        
+
+
+//==============================================================================
+// Label sets that are present in .skel files
+//==============================================================================
+
+LoadLabelSet    "P:/Art/Tools/SceneExport/ShapeTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/ModelTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/NodeTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/AnimTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/HotPointTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/ParticleTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/SoundTypes.hpp"
+LoadLabelSet    "P:/Art/Tools/SceneExport/GUITypes.hpp"
+
+//==============================================================================
+// Scenery
+//==============================================================================
+
+CompressTexturesOn
+
+ShapeFileBegin   "BMISCF.shp"
+ModelFile       "P:/Art/Delivery/Buildings/misc objects/bmiscf.skel"
+ShapeFileEnd
+
+
+ShapeFileBegin   "BORG1.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG1.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "BORG5.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG5.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "BORG13.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG13.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG13_c.skel"
+ShapeFileEnd
+
+
+ShapeFileBegin   "BORG16.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Trees/BORG16.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Trees/BORG16_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "BORG17.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Trees/BORG17.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Trees/BORG17_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "BORG18.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Trees/BORG18.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Trees/BORG18_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "BORG19.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Trees/BORG19.skel"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Trees/BORG19_c.skel"
+ShapeFileEnd
+
+
+ShapeFileBegin   "BORG20.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG20.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "BORG33.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG33.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "BORG34.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Shrubs/BORG34.skel"
+ShapeFileEnd
+
+
+ShapeFileBegin   "BROCK6.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Rocks/brock6.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "BROCK7.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Rocks/brock7.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "BROCK8.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Rocks/brock8.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "BROCKA.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Rocks/brocka.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "BROCKC.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Rocks/brockc.skel"
+ShapeFileEnd
+
+
+ShapeFileBegin   "BSPIR1.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/bspir1.skel"
+//ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/bspir1_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "BSPIR2.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/bspir2.skel"
+//ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/bspir2_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "BSPIR3.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/bspir3.skel"
+//ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/bspir3_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "BSPIR4.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/bspir4.skel"
+//ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/bspir4_c.skel"
+ShapeFileEnd
+
+ShapeFileBegin   "BSPIR5.shp"
+ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/bspir5.skel"
+//ModelFile       "P:/Art/Delivery/Shapes/Scenery/Spires/bspir5_c.skel"
+ShapeFileEnd
+
+
+
+
+
+
+
+    

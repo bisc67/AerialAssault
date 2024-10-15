@@ -1,0 +1,12 @@
+# <Sony Computer Entertainment Inc.>
+
+type ppp
+-vendor "Modem-Vendor"
+-product "Modem-Product"
+
+# specify the outside line prefix here, if needed.
+outside_number ""
+
+dialing_type tone
+
+idle_timeout 600

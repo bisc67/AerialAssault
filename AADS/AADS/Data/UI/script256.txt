@@ -1,0 +1,39 @@
+-overwrite
+-output pc
+-pc
+-writexbmp
+
+-output ps2
+-convert P8_ABGR_8888
+-ps2
+-writexbmp
+
+ui_button.psd
+ui_check.psd
+ui_combo1.psd
+ui_combo2.psd
+ui_combob.psd
+ui_edit.psd
+ui_frame.psd
+ui_frame1.psd
+ui_sb_arrowdown.psd
+ui_sb_arrowup.psd
+ui_sb_container.psd
+ui_sb_thumb.psd
+ui_tab.psd
+ui_slider_bar.psd
+ui_slider_thumb.psd
+ui_highlight.psd
+mission_01.tga
+mission_02.tga
+mission_03.tga
+mission_04.tga
+mission_05.tga
+mission_06.tga
+mission_07.tga
+mission_08.tga
+mission_10.tga
+mission_11.tga
+mission_13.tga
+ui_cursor.tga
+

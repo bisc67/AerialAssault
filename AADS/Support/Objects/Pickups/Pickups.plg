@@ -1,0 +1,28 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Pickups - Win32 Linux Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "d:\temp\RSP3F7.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /O2 /I "C:\Projects\AADS\xCore" /I "C:\Projects\AADS\xCore\x_files" /I "C:\Projects\AADS\xCore\Entropy" /I "c:\projects\aads\Support" /I "." /D "TARGET_LINUX" /D "biscuit" /Fp"Linux-Release/Pickups.pch" /YX /Fo"Linux-Release/" /Fd"Linux-Release/" /FD /GZ /c 
+"C:\Projects\AADS\Support\Objects\Pickups\pickups.cpp"
+]
+Creating command line "cl.exe @d:\temp\RSP3F7.tmp" 
+<h3>Output Window</h3>
+Compiling...
+xCL -- DebugInfo[ON] Optimize[3]
+xCL -- Defines[ TARGET_LINUX, biscuit ]
+.
+pickups.cpp
+
+
+
+<h3>Results</h3>
+pickups.obj - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: TelnetConsole - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "d:\temp\RSP634.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "C:\Projects\AADS\xCore" /I "C:\Projects\AADS\xCore\entropy" /I "c:\projects\aads" /I "c:\projects\aads\aads" /I "c:\projects\aads\support" /I "C:\Projects\AADS\xCore\x_files" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /D "X_DEBUG" /D "X_ASSERT" /D "biscuit" /Fp"Debug/TelnetConsole.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Projects\AADS\Support\TelnetConsole\chatclient.cpp"
+]
+Creating command line "cl.exe @d:\temp\RSP634.tmp" 
+Creating command line "link.exe -lib /nologo /out:"Debug\TelnetConsole.lib"  .\Debug\telnetclient.obj .\Debug\telnetdisplay.obj .\Debug\telnetmgr.obj .\Debug\chatclient.obj "
+<h3>Output Window</h3>
+Compiling...
+chatclient.cpp
+Creating library...
+
+
+
+<h3>Results</h3>
+TelnetConsole.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

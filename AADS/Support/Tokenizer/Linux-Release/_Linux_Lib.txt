@@ -1,0 +1,4 @@
+create Linux-Release/Tokenizer.lib
+addmod ./Linux-Release/tokenizer.obj
+save
+end 

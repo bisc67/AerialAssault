@@ -1,0 +1,4 @@
+create Linux-Release/Pickups.lib
+addmod ./Linux-Release/pickups.obj
+save
+end 

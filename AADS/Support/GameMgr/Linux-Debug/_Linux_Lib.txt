@@ -1,0 +1,12 @@
+create Linux-Debug/GameMgr.lib
+addmod ./Linux-Debug/CNH_Logic.obj
+addmod ./Linux-Debug/CTF_Logic.obj
+addmod ./Linux-Debug/DM_Logic.obj
+addmod ./Linux-Debug/HUNT_Logic.obj
+addmod ./Linux-Debug/TDM_Logic.obj
+addmod ./Linux-Debug/GameLogic.obj
+addmod ./Linux-Debug/GameMgr.obj
+addmod ./Linux-Debug/LogMgr.obj
+addmod ./Linux-Debug/MsgMgr.obj
+save
+end 

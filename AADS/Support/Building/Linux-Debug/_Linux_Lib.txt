@@ -1,0 +1,9 @@
+create Linux-Debug/BuildingObject.lib
+addmod ./Linux-Debug/BldRenderStub.obj
+addmod ./Linux-Debug/BldInstance.obj
+addmod ./Linux-Debug/BldManager.obj
+addmod ./Linux-Debug/Building.obj
+addmod ./Linux-Debug/portal_clipper.obj
+addmod ./Linux-Debug/BuildingOBJ.obj
+save
+end 

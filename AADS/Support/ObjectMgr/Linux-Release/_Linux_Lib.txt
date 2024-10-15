@@ -1,0 +1,8 @@
+create Linux-Release/ObjectMgr.lib
+addmod ./Linux-Release/Collider.obj
+addmod ./Linux-Release/ColliderCannon.obj
+addmod ./Linux-Release/Object.obj
+addmod ./Linux-Release/ObjectMgr.obj
+addmod ./Linux-Release/Pain.obj
+save
+end 

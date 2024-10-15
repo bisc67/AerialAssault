@@ -1,0 +1,4 @@
+create Linux-Release/UI.lib
+addmod ./Linux-Release/ui_manager.obj
+save
+end 

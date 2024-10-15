@@ -1,0 +1,1343 @@
+Class sizes
+sizeof(shape_bin_file_class) = 4 bytes
+sizeof(anim) = 96 bytes
+sizeof(key_set) = 48 bytes
+sizeof(hot_point) = 48 bytes
+sizeof(material) = 176 bytes
+sizeof(material_dlist) = 48 bytes
+sizeof(model) = 160 bytes
+sizeof(node) = 48 bytes
+sizeof(shape) = 112 bytes
+sizeof(shape_texture_ref) = 176 bytes
+sizeof(shape_instance) = 504 bytes
+
+
+Building PC shapes from IceShapes.txt
+
+
+
+*************** BUILDING PC SROCK6.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/srock6.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/srock6.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Ice\rockblue5.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\rockblue5.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Ice\rockblue5.png...FOUND!
+   building mips...
+
+
+   Model:srock6  references texture rockblue5.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.011771
+
+
+Building model display lists...
+   finished building PC combined strip with 102 verts
+TotalSize:3264 bytes (4k)
+
+   cleaning up memory.. before 7k after 4k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 4k after 4k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\SROCK6.shp
+   shape_bin_file::Close - Written Version:31 MemSize:3968
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\SROCK6.shp
+
+*************************************************************
+***
+*** Finished processing srock6
+***   MemoryUsed:3808 bytes - 4K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:3696 bytes - 4K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC SROCK7.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/srock7.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/srock7.skel finished loading and initializing
+
+   Model:srock7  references texture rockblue5.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.034537
+
+
+Building model display lists...
+   finished building PC combined strip with 112 verts
+TotalSize:3584 bytes (4k)
+
+   cleaning up memory.. before 8k after 4k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 5k after 5k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\SROCK7.shp
+   shape_bin_file::Close - Written Version:31 MemSize:4288
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\SROCK7.shp
+
+*************************************************************
+***
+*** Finished processing srock7
+***   MemoryUsed:4128 bytes - 5K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:4016 bytes - 4K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC SROCK8.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/srock8.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/srock8.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Ice\rockSnow2.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\rockSnow2.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Ice\rockSnow2.png...FOUND!
+   building mips...
+
+
+   Model:srock8  references texture rockSnow2.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.070604
+
+
+Building model display lists...
+   finished building PC combined strip with 102 verts
+TotalSize:3264 bytes (4k)
+
+   cleaning up memory.. before 7k after 4k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 4k after 4k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\SROCK8.shp
+   shape_bin_file::Close - Written Version:31 MemSize:3968
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\SROCK8.shp
+
+*************************************************************
+***
+*** Finished processing srock8
+***   MemoryUsed:3808 bytes - 4K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:3696 bytes - 4K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC SSPIR1.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/sspir1.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/sspir1.skel finished loading and initializing
+
+   Model:sspir1  references texture rockSnow2.png
+   Model:sspir1  references texture rockblue5.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.041895
+
+
+Building model display lists...
+   finished building PC combined strip with 123 verts
+   finished building PC combined strip with 207 verts
+TotalSize:10560 bytes (11k)
+
+   cleaning up memory.. before 22k after 11k
+   cleaning up memory.. before 11k after 11k
+   cleaning up memory.. before 12k after 12k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\SSPIR1.shp
+   shape_bin_file::Close - Written Version:31 MemSize:11728
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\SSPIR1.shp
+
+*************************************************************
+***
+*** Finished processing sspir1
+***   MemoryUsed:11328 bytes - 12K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:11216 bytes - 11K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC SSPIR2.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/sspir2.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/sspir2.skel finished loading and initializing
+
+   Model:sspir2  references texture rockSnow2.png
+   Model:sspir2  references texture rockblue5.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.043299
+
+
+Building model display lists...
+   finished building PC combined strip with 116 verts
+   finished building PC combined strip with 157 verts
+TotalSize:8736 bytes (9k)
+
+   cleaning up memory.. before 18k after 10k
+   cleaning up memory.. before 10k after 10k
+   cleaning up memory.. before 10k after 10k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\SSPIR2.shp
+   shape_bin_file::Close - Written Version:31 MemSize:9904
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\SSPIR2.shp
+
+*************************************************************
+***
+*** Finished processing sspir2
+***   MemoryUsed:9504 bytes - 10K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:9392 bytes - 10K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC SSPIR3.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/sspir3.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/sspir3.skel finished loading and initializing
+
+   Model:sspir3  references texture rockblue5.png
+   Model:sspir3  references texture rockSnow2.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.102766
+
+
+Building model display lists...
+   finished building PC combined strip with 238 verts
+   finished building PC combined strip with 191 verts
+TotalSize:13728 bytes (14k)
+
+   cleaning up memory.. before 28k after 15k
+   cleaning up memory.. before 15k after 15k
+   cleaning up memory.. before 15k after 15k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\SSPIR3.shp
+   shape_bin_file::Close - Written Version:31 MemSize:14896
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\SSPIR3.shp
+
+*************************************************************
+***
+*** Finished processing sspir3
+***   MemoryUsed:14496 bytes - 15K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:14384 bytes - 15K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC SSPIR4.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/sspir4.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/sspir4.skel finished loading and initializing
+
+   Model:sspir4  references texture rockSnow2.png
+   Model:sspir4  references texture rockblue5.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.044162
+
+
+Building model display lists...
+   finished building PC combined strip with 356 verts
+   finished building PC combined strip with 506 verts
+TotalSize:27584 bytes (27k)
+
+   cleaning up memory.. before 55k after 28k
+   cleaning up memory.. before 28k after 28k
+   cleaning up memory.. before 28k after 28k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\SSPIR4.shp
+   shape_bin_file::Close - Written Version:31 MemSize:28752
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\SSPIR4.shp
+
+*************************************************************
+***
+*** Finished processing sspir4
+***   MemoryUsed:28352 bytes - 28K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:28240 bytes - 28K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC SORG20.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/SORG20.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/SORG20.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/SORG20_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/SORG20_c.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark01.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark01.xbmp...FOUND!
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Trees/bark02.bmp...not found
+
+   Model:SORG20  references texture bark01.bmp
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\icetree.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\icetree.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\icetree.bmp...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\icetree-op.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\icetree-op.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\icetree-op.bmp...FOUND!
+
+
+   Model:SORG20  references texture icetree-op_PUNCH_icetree.bmp
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.006837
+
+
+Building model display lists...
+   finished building PC combined strip with 43 verts
+   finished building PC combined strip with 240 verts
+TotalSize:9056 bytes (9k)
+
+   cleaning up memory.. before 20k after 10k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PC combined strip with 35 verts
+TotalSize:1120 bytes (2k)
+
+   cleaning up memory.. before 3k after 2k
+   cleaning up memory.. before 10k after 10k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 12k after 12k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\SORG20.shp
+   shape_bin_file::Close - Written Version:31 MemSize:12032
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\SORG20.shp
+
+*************************************************************
+***
+*** Finished processing SORG20
+***   MemoryUsed:11376 bytes - 12K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:11264 bytes - 11K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PC SORG22.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/SORG22.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/SORG22.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/SORG22_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/SORG22_c.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PC\bark02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Trees/bark02.bmp...not found
+
+   Model:SORG22  references texture bark01.bmp
+   Model:SORG22  references texture icetree-op_PUNCH_icetree.bmp
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.009510
+
+
+Building model display lists...
+   finished building PC combined strip with 129 verts
+   finished building PC combined strip with 720 verts
+TotalSize:27168 bytes (27k)
+
+   cleaning up memory.. before 57k after 28k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PC combined strip with 105 verts
+TotalSize:3360 bytes (4k)
+
+   cleaning up memory.. before 7k after 4k
+   cleaning up memory.. before 28k after 28k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 31k after 31k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PC\SORG22.shp
+   shape_bin_file::Close - Written Version:31 MemSize:32384
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PC\SORG22.shp
+
+*************************************************************
+***
+*** Finished processing SORG22
+***   MemoryUsed:31728 bytes - 31K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:31616 bytes - 31K
+***
+*************************************************************
+
+
+
+
+Writing XBMPs...
+Total:4
+      writing XBMP from                  rockblue5.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      writing XBMP from                  rockSnow2.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      writing XBMP from                     bark01.bmp (0128 x 0128 x 0032  00087072 Bytes  00086K)
+      writing XBMP from   icetree-op_PUNCH_icetree.bmp (0256 x 0128 x 0032  00174112 Bytes  00171K)
+
+
+
+
+9 Shapes loaded...
+   Shape:                        srock6 Nodes:001 Models:001 Anims:000 Size:00003808 Bytes 00004 K
+   Shape:                        srock7 Nodes:001 Models:001 Anims:000 Size:00004128 Bytes 00005 K
+   Shape:                        srock8 Nodes:001 Models:001 Anims:000 Size:00003808 Bytes 00004 K
+   Shape:                        sspir1 Nodes:001 Models:001 Anims:000 Size:00011328 Bytes 00012 K
+   Shape:                        sspir2 Nodes:001 Models:001 Anims:000 Size:00009504 Bytes 00010 K
+   Shape:                        sspir3 Nodes:001 Models:001 Anims:000 Size:00014496 Bytes 00015 K
+   Shape:                        sspir4 Nodes:001 Models:001 Anims:000 Size:00028352 Bytes 00028 K
+   Shape:                        SORG20 Nodes:001 Models:002 Anims:000 Size:00011376 Bytes 00012 K
+   Shape:                        SORG22 Nodes:001 Models:002 Anims:000 Size:00031728 Bytes 00031 K
+
+
+
+!!!!!***** START OF 32BIT TEXTURES LIST *****!!!!!
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Ice\rockblue5.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      used on model:srock6 by diffuse map on material:Material?#3 
+      used on model:srock7 by diffuse map on material:Material?#3 
+      used on model:sspir1 by diffuse map on material:Material?#51 
+      used on model:sspir2 by diffuse map on material:Material?#51 
+      used on model:sspir3 by diffuse map on material:Material?#51 
+      used on model:sspir4 by diffuse map on material:Material?#53 
+
+   \\project1\Tribes2\Art\Delivery\Buildings\Ice\rockSnow2.png (0256 x 0256 x 0032  00349232 Bytes  00342K)
+      used on model:srock8 by diffuse map on material:Material?#3 
+      used on model:sspir1 by diffuse map on material:Material?#48 
+      used on model:sspir2 by diffuse map on material:Material?#48 
+      used on model:sspir3 by diffuse map on material:Material?#48 
+      used on model:sspir4 by diffuse map on material:Material?#48 
+
+   \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark01.bmp (0128 x 0128 x 0032  00087072 Bytes  00086K)
+      used on model:SORG20 by diffuse map on material:Material?#23 
+      used on model:SORG22 by diffuse map on material:Material?#23 
+
+   \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\icetree.bmp (0256 x 0128 x 0032  00174112 Bytes  00171K)
+
+   \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\icetree-op.bmp (0256 x 0128 x 0032  00131072 Bytes  00128K)
+
+   \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\icetree-op_PUNCH_icetree.bmp (0256 x 0128 x 0032  00174112 Bytes  00171K)
+      used on model:SORG20 by diffuse map on material:Material?#22 
+      used on model:SORG22 by diffuse map on material:Material?#22 
+
+!!!!!*****  END OF 32BIT TEXTURE LIST  *****!!!!!
+
+
+
+
+
+
+
+
+
+
+
+Building PS2 shapes from IceShapes.txt
+
+
+
+*************** BUILDING PS2 SROCK6.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/srock6.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/srock6.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Ice\rockblue5.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\rockblue5.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Ice\rockblue5.png...FOUND!
+   building mips...
+
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Buildings\Ice\rockblue5.png
+   Model:srock6  references texture BASE_rockblue5.png
+   Model:srock6  references texture LUM_rockblue5.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.011771
+
+
+Building model display lists...
+   finished building PS2 combined strip with 76 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1280 bytes (2k) TotalVerts:77 CachedVerts:0
+
+TotalSize:1280 bytes (2k)
+
+   cleaning up memory.. before 5k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 2k after 2k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SROCK6.shp
+   shape_bin_file::Close - Written Version:31 MemSize:2192
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SROCK6.shp
+
+*************************************************************
+***
+*** Finished processing srock6
+***   MemoryUsed:1824 bytes - 2K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:1712 bytes - 2K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 SROCK7.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/srock7.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/srock7.skel finished loading and initializing
+
+   Model:srock7  references texture BASE_rockblue5.png
+   Model:srock7  references texture LUM_rockblue5.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.034537
+
+
+Building model display lists...
+   finished building PS2 combined strip with 76 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1264 bytes (2k) TotalVerts:76 CachedVerts:0
+
+TotalSize:1264 bytes (2k)
+
+   cleaning up memory.. before 6k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 2k after 2k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SROCK7.shp
+   shape_bin_file::Close - Written Version:31 MemSize:2176
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SROCK7.shp
+
+*************************************************************
+***
+*** Finished processing srock7
+***   MemoryUsed:1808 bytes - 2K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:1696 bytes - 2K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 SROCK8.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Rocks/srock8.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Rocks/srock8.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Buildings\Ice\rockSnow2.png...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\rockSnow2.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Buildings\Ice\rockSnow2.png...FOUND!
+   building mips...
+
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Buildings\Ice\rockSnow2.png
+   Model:srock8  references texture BASE_rockSnow2.png
+   Model:srock8  references texture LUM_rockSnow2.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.070604
+
+
+Building model display lists...
+   finished building PS2 combined strip with 69 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1168 bytes (2k) TotalVerts:69 CachedVerts:0
+
+TotalSize:1168 bytes (2k)
+
+   cleaning up memory.. before 5k after 2k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 2k after 2k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SROCK8.shp
+   shape_bin_file::Close - Written Version:31 MemSize:2080
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SROCK8.shp
+
+*************************************************************
+***
+*** Finished processing srock8
+***   MemoryUsed:1712 bytes - 2K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:1600 bytes - 2K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 SSPIR1.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/sspir1.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/sspir1.skel finished loading and initializing
+
+   Model:sspir1  references texture BASE_rockSnow2.png
+   Model:sspir1  references texture LUM_rockSnow2.png
+   Model:sspir1  references texture BASE_rockblue5.png
+   Model:sspir1  references texture LUM_rockblue5.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.041895
+
+
+Building model display lists...
+   finished building PS2 combined strip with 80 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1328 bytes (2k) TotalVerts:80 CachedVerts:0
+
+   finished building PS2 combined strip with 126 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2016 bytes (2k) TotalVerts:126 CachedVerts:0
+
+TotalSize:3344 bytes (4k)
+
+   cleaning up memory.. before 15k after 4k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 5k after 5k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SSPIR1.shp
+   shape_bin_file::Close - Written Version:31 MemSize:4928
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SSPIR1.shp
+
+*************************************************************
+***
+*** Finished processing sspir1
+***   MemoryUsed:4112 bytes - 5K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:4000 bytes - 4K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 SSPIR2.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/sspir2.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/sspir2.skel finished loading and initializing
+
+   Model:sspir2  references texture BASE_rockSnow2.png
+   Model:sspir2  references texture LUM_rockSnow2.png
+   Model:sspir2  references texture BASE_rockblue5.png
+   Model:sspir2  references texture LUM_rockblue5.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.043299
+
+
+Building model display lists...
+   finished building PS2 combined strip with 76 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1264 bytes (2k) TotalVerts:76 CachedVerts:0
+
+   finished building PS2 combined strip with 95 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1552 bytes (2k) TotalVerts:95 CachedVerts:0
+
+TotalSize:2816 bytes (3k)
+
+   cleaning up memory.. before 12k after 4k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 4k after 4k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SSPIR2.shp
+   shape_bin_file::Close - Written Version:31 MemSize:4400
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SSPIR2.shp
+
+*************************************************************
+***
+*** Finished processing sspir2
+***   MemoryUsed:3584 bytes - 4K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:3472 bytes - 4K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 SSPIR3.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/sspir3.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/sspir3.skel finished loading and initializing
+
+   Model:sspir3  references texture BASE_rockblue5.png
+   Model:sspir3  references texture LUM_rockblue5.png
+   Model:sspir3  references texture BASE_rockSnow2.png
+   Model:sspir3  references texture LUM_rockSnow2.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.102766
+
+
+Building model display lists...
+   finished building PS2 combined strip with 145 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2368 bytes (3k) TotalVerts:145 CachedVerts:0
+
+   finished building PS2 combined strip with 125 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2000 bytes (2k) TotalVerts:125 CachedVerts:0
+
+TotalSize:4368 bytes (5k)
+
+   cleaning up memory.. before 19k after 5k
+   cleaning up memory.. before 5k after 5k
+   cleaning up memory.. before 6k after 6k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SSPIR3.shp
+   shape_bin_file::Close - Written Version:31 MemSize:5984
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SSPIR3.shp
+
+*************************************************************
+***
+*** Finished processing sspir3
+***   MemoryUsed:5136 bytes - 6K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:5024 bytes - 5K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 SSPIR4.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Spires/sspir4.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Spires/sspir4.skel finished loading and initializing
+
+   Model:sspir4  references texture BASE_rockSnow2.png
+   Model:sspir4  references texture LUM_rockSnow2.png
+   Model:sspir4  references texture BASE_rockblue5.png
+   Model:sspir4  references texture LUM_rockblue5.png
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.044162
+
+
+Building model display lists...
+   finished building PS2 combined strip with 233 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:3792 bytes (4k) TotalVerts:236 CachedVerts:0
+
+   finished building PS2 combined strip with 307 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:4912 bytes (5k) TotalVerts:307 CachedVerts:0
+
+TotalSize:8704 bytes (9k)
+
+   cleaning up memory.. before 36k after 10k
+   cleaning up memory.. before 10k after 10k
+   cleaning up memory.. before 10k after 10k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SSPIR4.shp
+   shape_bin_file::Close - Written Version:31 MemSize:10448
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SSPIR4.shp
+
+*************************************************************
+***
+*** Finished processing sspir4
+***   MemoryUsed:9472 bytes - 10K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:1 ModelMemoryUsed:9360 bytes - 10K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 SORG20.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/SORG20.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/SORG20.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/SORG20_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/SORG20_c.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark01.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark01.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark01.bmp...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Trees/bark02.bmp...not found
+
+compressing texture: \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark01.bmp
+   Model:SORG20  references texture BASE_bark01.bmp
+   Model:SORG20  references texture LUM_bark01.bmp
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\icetree.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\icetree.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\icetree.bmp...FOUND!
+   building mips...
+
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\icetree-op.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\icetree-op.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\icetree-op.bmp...FOUND!
+
+
+   Model:SORG20  references texture icetree-op_PUNCH_icetree.bmp
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.006837
+
+
+Building model display lists...
+   finished building PS2 combined strip with 34 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:576 bytes (1k) TotalVerts:34 CachedVerts:0
+
+   finished building PS2 combined strip with 160 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:2624 bytes (3k) TotalVerts:162 CachedVerts:0
+
+TotalSize:3200 bytes (4k)
+
+   cleaning up memory.. before 14k after 4k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PS2 combined strip with 30 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:400 bytes (1k) TotalVerts:30 CachedVerts:0
+
+TotalSize:400 bytes (1k)
+
+   cleaning up memory.. before 2k after 1k
+   cleaning up memory.. before 4k after 4k
+   cleaning up memory.. before 1k after 1k
+   cleaning up memory.. before 5k after 5k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SORG20.shp
+   shape_bin_file::Close - Written Version:31 MemSize:5696
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SORG20.shp
+
+*************************************************************
+***
+*** Finished processing SORG20
+***   MemoryUsed:4800 bytes - 5K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:4688 bytes - 5K
+***
+*************************************************************
+
+
+
+
+
+*************** BUILDING PS2 SORG22.shp ***************
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/SORG22.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/SORG22.skel finished loading and initializing
+
+Parsing P:/Art/Delivery/Shapes/Scenery/Trees/SORG22_c.skel
+   parsing nodes...
+   parsing verts...
+   parsing polys...
+   parsing skin...
+   parsing textures...
+   parsing materials...
+   parsing strips...
+   parsing strip verts...
+Model P:/Art/Delivery/Shapes/Scenery/Trees/SORG22_c.skel finished loading and initializing
+
+
+Trying to load texture \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark02.xbmp...not found
+   checking for \\project1\Tribes2\Art\Delivery\Shapes\Scenery\Trees\bark02.bmp...not found
+   checking for C:/Projects/T2/Demo1/Data/Shapes/PS2\bark02.xbmp...not found
+   checking for P:/Art/Delivery/Shapes/Scenery/Trees/bark02.bmp...not found
+
+   Model:SORG22  references texture BASE_bark01.bmp
+   Model:SORG22  references texture LUM_bark01.bmp
+   Model:SORG22  references texture icetree-op_PUNCH_icetree.bmp
+Removing unused nodes...
+Original node count:1 Optimized node count:1
+
+Compressing anims...
+
+
+
+Initializing for use...
+WorldPixelSize:0.009510
+
+
+Building model display lists...
+   finished building PS2 combined strip with 102 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1680 bytes (2k) TotalVerts:103 CachedVerts:0
+
+   finished building PS2 combined strip with 480 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:7808 bytes (8k) TotalVerts:488 CachedVerts:0
+
+TotalSize:9488 bytes (10k)
+
+   cleaning up memory.. before 40k after 10k
+WorldPixelSize:0.001000
+
+
+Building model display lists...
+   finished building PS2 combined strip with 90 verts
+   vert cache size 253
+   vert cache size 253
+   vert cache size 254
+building material display list...
+finished dlist Size:1136 bytes (2k) TotalVerts:92 CachedVerts:0
+
+TotalSize:1136 bytes (2k)
+
+   cleaning up memory.. before 5k after 2k
+   cleaning up memory.. before 10k after 10k
+   cleaning up memory.. before 2k after 2k
+   cleaning up memory.. before 12k after 12k
+
+
+Writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SORG22.shp
+   shape_bin_file::Close - Written Version:31 MemSize:12944
+Finished writing C:/Projects/T2/Demo1/Data/Shapes/PS2\SORG22.shp
+
+*************************************************************
+***
+*** Finished processing SORG22
+***   MemoryUsed:11824 bytes - 12K
+***     Anims:0  AnimMemoryUsed :0 bytes - 0K
+***     Models:2 ModelMemoryUsed:11712 bytes - 12K
+***
+*************************************************************
+
+
+
+
+Writing XBMPs...
+Total:7
+      writing XBMP from             BASE_rockblue5.png (0064 x 0064 x 0008  00006432 Bytes  00007K)
+      writing XBMP from              LUM_rockblue5.png (0256 x 0256 x 0004  00043760 Bytes  00043K)
+      writing XBMP from             BASE_rockSnow2.png (0064 x 0064 x 0008  00006432 Bytes  00007K)
+      writing XBMP from              LUM_rockSnow2.png (0256 x 0256 x 0004  00043760 Bytes  00043K)
+      writing XBMP from                BASE_bark01.bmp (0032 x 0032 x 0008  00002320 Bytes  00003K)
+      writing XBMP from                 LUM_bark01.bmp (0128 x 0128 x 0004  00010976 Bytes  00011K)
+      writing XBMP from   icetree-op_PUNCH_icetree.bmp (0256 x 0128 x 0008  00044576 Bytes  00044K)
+
+
+
+
+9 Shapes loaded...
+   Shape:                        srock6 Nodes:001 Models:001 Anims:000 Size:00001824 Bytes 00002 K
+   Shape:                        srock7 Nodes:001 Models:001 Anims:000 Size:00001808 Bytes 00002 K
+   Shape:                        srock8 Nodes:001 Models:001 Anims:000 Size:00001712 Bytes 00002 K
+   Shape:                        sspir1 Nodes:001 Models:001 Anims:000 Size:00004112 Bytes 00005 K
+   Shape:                        sspir2 Nodes:001 Models:001 Anims:000 Size:00003584 Bytes 00004 K
+   Shape:                        sspir3 Nodes:001 Models:001 Anims:000 Size:00005136 Bytes 00006 K
+   Shape:                        sspir4 Nodes:001 Models:001 Anims:000 Size:00009472 Bytes 00010 K
+   Shape:                        SORG20 Nodes:001 Models:002 Anims:000 Size:00004800 Bytes 00005 K
+   Shape:                        SORG22 Nodes:001 Models:002 Anims:000 Size:00011824 Bytes 00012 K
+
+

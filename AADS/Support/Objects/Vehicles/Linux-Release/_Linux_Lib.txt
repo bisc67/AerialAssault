@@ -1,0 +1,9 @@
+create Linux-Release/Vehicle.lib
+addmod ./Linux-Release/bomber.obj
+addmod ./Linux-Release/gndeffect.obj
+addmod ./Linux-Release/GravCycle.obj
+addmod ./Linux-Release/shrike.obj
+addmod ./Linux-Release/transport.obj
+addmod ./Linux-Release/Vehicle.obj
+save
+end 

@@ -1,0 +1,6 @@
+create Linux-Debug/NetLib.lib
+addmod ./Linux-Debug/netlib.obj
+addmod ./Linux-Debug/bitstream.obj
+addmod ./Linux-Debug/NetCommon.obj
+save
+end 

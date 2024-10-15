@@ -1,0 +1,31 @@
+ .\Linux-Debug\bytestream.obj
+ .\Linux-Debug\main.obj
+ --start-group -lsn -lm -lc -lgcc
+ -L C:\Projects\AADS\xCore/3rdParty/Linux/lib       
+ libsn.a       
+ baseD.a       
+ osD.a         
+ dbD.a         
+ mtxD.a        
+ dvdD.a        
+ viD.a         
+ siD.a         
+ exiD.a        
+ demoD.a       
+ padD.a        
+ gxD.a         
+ g2dD.a        
+ aid.a         
+ axd.a         
+ ard.a         
+ mixd.a        
+ spd.a         
+ dspd.a        
+ texpaletteD.a 
+ odenotstubD.a 
+ amcstubsD.a   
+ odemuexi2D.a  
+ filecacheD.a  
+ supportD.a    
+ --end-group -T ngc.ld 
+ -o Linux-Debug/ServerList.exe -Wl,-Map Linux-Debug/ServerList.map.txt 

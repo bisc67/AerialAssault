@@ -1,0 +1,55 @@
+  a:link {
+    color: #0000FF;
+  }
+  a:visited {
+    color: #0000CC;
+  }
+  a:active {
+    color: #CC9933;
+  }
+  body {
+    font-family: Arial,Helvetica;
+    color: #000000;
+    background-color: #F0F0F0;
+  }
+  table {
+    background-color: #C0C0C0;
+  }
+  H1 {
+    font-family: Arial,Helvetica;
+  }
+  h2 {
+    font-family: Arial,Helvetica;
+  }
+  h3 {
+    font-family: Arial,Helvetica;
+  }
+  h4 {
+    font-family: Arial,Helvetica;
+  }
+  h5 {
+    font-family: Arial,Helvetica;
+  }
+  h6 {
+    font-family: Arial,Helvetica;
+  }
+  h1 {
+    color: #0000FF;
+  }
+  h2 {
+    color: #008080;
+  }
+  h3 {
+    color: #646464;
+  }
+  h4 {
+    color: #000000;
+  }
+  h5 {
+    color: #CC9933;
+  }
+  h6 {
+    color: #999933;
+  }
+
+/* style-sheet created with Style One v2.00 */

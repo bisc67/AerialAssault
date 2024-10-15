@@ -1,0 +1,3 @@
+void blahmain(void)
+{
+}

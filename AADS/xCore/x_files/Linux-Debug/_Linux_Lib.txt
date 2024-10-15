@@ -1,0 +1,23 @@
+create Linux-Debug/x_files.lib
+addmod ./Linux-Debug/x_bitmap.obj
+addmod ./Linux-Debug/x_bitmap_cmap.obj
+addmod ./Linux-Debug/x_bitmap_convert.obj
+addmod ./Linux-Debug/x_bitmap_io.obj
+addmod ./Linux-Debug/x_bitmap_quant.obj
+addmod ./Linux-Debug/x_bytestream.obj
+addmod ./Linux-Debug/x_debug.obj
+addmod ./Linux-Debug/x_files.obj
+addmod ./Linux-Debug/x_math.obj
+addmod ./Linux-Debug/x_math_basic.obj
+addmod ./Linux-Debug/x_memory.obj
+addmod ./Linux-Debug/x_mqueue.obj
+addmod ./Linux-Debug/x_mutex.obj
+addmod ./Linux-Debug/x_plus.obj
+addmod ./Linux-Debug/x_profile.obj
+addmod ./Linux-Debug/x_stdio.obj
+addmod ./Linux-Debug/x_string.obj
+addmod ./Linux-Debug/x_threads.obj
+addmod ./Linux-Debug/x_time.obj
+addmod ./Linux-Debug/x_vsprintf.obj
+save
+end 

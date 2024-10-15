@@ -1,0 +1,16 @@
+ /c /nologo /W3 /FD
+ /P 
+ /Fd"PS2-DevKit-Debug/"
+ /FI "PS2-DevKit-Debug/_SN_in_VC.h"
+ /I "C:\Projects\T2\xCore\x_files" 
+ /I "PNG" 
+ /I "PNG\ZLib" 
+ /I "C:/Projects/T2/xCore/3rdParty/PS2/Sony/EE/include" 
+ /I "C:/Projects/T2/xCore/3rdParty/PS2/Sony/include"    
+ /I "C:/Projects/T2/xCore/3rdParty/PS2/SN/EE/include"   
+ /I . 
+ /D TARGET_PS2_DEV 
+ /D VENDOR_SN 
+ /D X_DEBUG 
+ /D X_ASSERT 
+ /D XCORE_PATH=\"C:/Projects/T2/xCore\"

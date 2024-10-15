@@ -1,0 +1,9 @@
+TerrainStartingPos	1257.249878 1259.760864 114.524002
+
+TerrainBasePixelSize    0.25
+TerrainDetailMaterial   Data\Terrain\LushDet2.bmp
+TerrainDetailPixelSize  0.007
+TerrainDetailFade       1.0 0.9 0.6 0.3 0.0
+
+TerrainFile		Data\Terrain\Escalade.ter
+
